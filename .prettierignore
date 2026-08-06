@@ -1,0 +1,6 @@
+dist
+node_modules
+legacy
+src/features/portfolio/fragments
+src/styles/legacy
+public/assets/media

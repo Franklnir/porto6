@@ -1,0 +1,6 @@
+---
+import RawFragment from '@/components/primitives/RawFragment.astro';
+import { renderLegacyMarkup } from '../../lib/renderLegacyMarkup';
+import markup from '../../fragments/sections/project-portfolio.html?raw';
+---
+<RawFragment html={renderLegacyMarkup(markup)} />

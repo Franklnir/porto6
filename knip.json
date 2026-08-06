@@ -1,0 +1,13 @@
+{
+  "entry": [
+    "src/pages/**/*.astro",
+    "src/pages/**/*.ts",
+    "astro.config.ts"
+  ],
+  "project": [
+    "src/**/*.{ts,astro}"
+  ],
+  "ignore": [
+    "src/features/portfolio/client/legacy/**"
+  ]
+}

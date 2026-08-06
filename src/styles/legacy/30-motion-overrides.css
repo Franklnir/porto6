@@ -1,0 +1,318 @@
+
+/* ==========================================================
+   08 — PROCESS LOOKBOOK
+   Scroll choreography inspired by an editorial lookbook:
+   cards rise from below, settle at different depths, then drift
+   upward at independent rates. No flip and no scroll-jacking.
+   ========================================================== */
+.process-lookbook-section{
+  --process-look-progress:0;
+  position:relative;
+  padding-bottom:0;
+  overflow:clip;
+  background:var(--dark);
+  color:#f5f5f1;
+  isolation:isolate;
+}
+.process-lookbook-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 54% 46%,rgba(24,88,238,.18),transparent 38%),
+    linear-gradient(180deg,#121211 0%,#0c0c0b 100%);
+  opacity:calc(.55 + var(--process-look-progress)*.45);
+}
+.process-lookbook-section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(180deg,transparent,#000 18%,#000 80%,transparent);
+}
+.process-lookbook-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:48px;
+  align-items:end;
+  padding-bottom:clamp(22px,3vh,38px);
+}
+.process-lookbook-head .section-kicker{color:#79a1ff}
+.process-lookbook-head .lede{color:#aaa9a2;max-width:760px}
+.process-lookbook-link{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.34);
+  color:#f7f7f2;
+  text-decoration:none;
+  white-space:nowrap;
+  font:500 11px/1 var(--mono);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.process-lookbook-link span{font-size:18px;transition:transform .35s var(--ease)}
+.process-lookbook-link:hover span{transform:translateX(6px)}
+.process-lookbook-runway{position:relative;height:245svh}
+.process-lookbook-sticky{
+  position:sticky;
+  top:var(--header);
+  height:calc(100svh - var(--header));
+  min-height:540px;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  gap:4px;
+  overflow:hidden;
+}
+.process-lookbook-meta{
+  width:min(calc(100% - 40px),var(--container));
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#85857e;
+  font:500 9px/1 var(--mono);
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.process-lookbook-meta strong{color:#fff;font-size:11px;letter-spacing:.08em}
+.process-lookbook-stage{
+  position:relative;
+  width:min(calc(100% - 32px),1480px);
+  height:100%;
+  min-height:0;
+  margin-inline:auto;
+  perspective:1800px;
+  transform-style:preserve-3d;
+}
+.process-look-card{
+  --look-x:0px;
+  --look-y:0px;
+  --look-r:0deg;
+  --look-s:1;
+  --look-o:1;
+  --look-mask:0%;
+  --look-z:0px;
+  --look-image-y:0px;
+  position:absolute;
+  width:24.15%;
+  height:min(60vh,540px);
+  min-height:360px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:0;
+  background:#ecebe4;
+  color:#10100f;
+  box-shadow:0 38px 95px rgba(0,0,0,.42);
+  opacity:var(--look-o);
+  clip-path:inset(var(--look-mask) 0 0 0 round 0);
+  transform:translate3d(var(--look-x),var(--look-y),var(--look-z)) rotate(var(--look-r)) scale(var(--look-s));
+  transform-origin:50% 100%;
+  will-change:transform,opacity,clip-path;
+}
+.process-look-card:nth-child(1){left:0;top:5%;z-index:2}
+.process-look-card:nth-child(2){left:25.25%;top:0;z-index:4}
+.process-look-card:nth-child(3){left:50.5%;top:6%;z-index:3}
+.process-look-card:nth-child(4){left:75.75%;top:1%;z-index:2}
+.process-look-card.is-blue{background:#1d55ef;color:#fff;border-color:rgba(255,255,255,.28)}
+.process-look-card.is-dark{background:#171715;color:#f5f5f1;border-color:rgba(255,255,255,.18)}
+.process-look-visual{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(24,88,238,.23),transparent 47%),
+    linear-gradient(145deg,#efeee8,#c9c9c1);
+}
+.is-blue .process-look-visual{
+  background:
+    radial-gradient(circle at 60% 36%,rgba(255,255,255,.2),transparent 42%),
+    linear-gradient(145deg,#3166f4,#1443bd);
+}
+.is-dark .process-look-visual{
+  background:
+    radial-gradient(circle at 55% 38%,rgba(42,97,255,.32),transparent 44%),
+    linear-gradient(145deg,#1c1c19,#090908);
+}
+.process-look-visual::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(16,16,16,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(16,16,16,.055) 1px,transparent 1px);
+  background-size:30px 30px;
+  opacity:.62;
+}
+.is-blue .process-look-visual::before,.is-dark .process-look-visual::before{
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+}
+.process-look-visual svg{
+  position:absolute;
+  left:7%;
+  top:4%;
+  width:86%;
+  height:72%;
+  color:currentColor;
+  opacity:.82;
+  transform:translate3d(0,var(--look-image-y),0) scale(1.03);
+  will-change:transform;
+  filter:drop-shadow(0 22px 35px rgba(0,0,0,.18));
+}
+.process-look-visual svg *{vector-effect:non-scaling-stroke}
+.process-look-number{
+  position:absolute;
+  right:14px;
+  top:-7px;
+  color:currentColor;
+  opacity:.075;
+  font:600 clamp(96px,10vw,170px)/1 var(--display);
+  letter-spacing:-.1em;
+  pointer-events:none;
+}
+.process-look-top{
+  position:absolute;
+  z-index:3;
+  left:18px;
+  right:18px;
+  top:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  color:currentColor;
+  font:500 9px/1.35 var(--mono);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.process-look-copy{
+  position:absolute;
+  z-index:4;
+  left:0;
+  right:0;
+  bottom:0;
+  min-height:36%;
+  padding:22px 20px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background:linear-gradient(180deg,transparent 0%,rgba(239,238,231,.9) 24%,#efeee7 45%);
+}
+.is-blue .process-look-copy{background:linear-gradient(180deg,transparent 0%,rgba(29,85,239,.88) 24%,#1d55ef 46%)}
+.is-dark .process-look-copy{background:linear-gradient(180deg,transparent 0%,rgba(23,23,21,.9) 24%,#171715 46%)}
+.process-look-copy small{
+  display:inline-flex;
+  width:max-content;
+  margin-bottom:11px;
+  padding:7px 10px;
+  border-radius:0;
+  background:rgba(255,255,255,.78);
+  color:#10100f;
+  font:500 8px/1 var(--mono);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.is-blue .process-look-copy small,.is-dark .process-look-copy small{background:#f5f5f1;color:#10100f}
+.process-look-copy h3{
+  margin:0;
+  color:currentColor;
+  font:600 clamp(25px,2.2vw,35px)/.98 var(--display);
+  letter-spacing:-.05em;
+}
+.process-look-copy p{
+  margin:11px 0 0;
+  color:color-mix(in srgb,currentColor 72%,transparent);
+  font-size:clamp(12px,.9vw,14px);
+  line-height:1.48;
+}
+.process-look-progress{
+  width:min(calc(100% - 40px),var(--container));
+  height:2px;
+  margin:0 auto 14px;
+  background:#30302c;
+  overflow:hidden;
+}
+.process-look-progress span{display:block;width:100%;height:100%;background:#79a1ff;transform:scaleX(0);transform-origin:left;will-change:transform}
+.process-look-card:hover{border-color:rgba(121,161,255,.7)}
+
+@media (max-width:1100px){
+  .process-look-card{width:28.5%;height:min(58vh,500px);min-height:340px}
+  .process-look-card:nth-child(1){left:-7%}
+  .process-look-card:nth-child(2){left:19%}
+  .process-look-card:nth-child(3){left:45%}
+  .process-look-card:nth-child(4){left:71%}
+}
+@media (max-width:900px), (max-height:559px){
+  .process-lookbook-section{padding-bottom:90px}
+  .process-lookbook-head{grid-template-columns:1fr;gap:18px}
+  .process-lookbook-link{width:max-content}
+  .process-lookbook-runway{height:auto}
+  .process-lookbook-sticky{position:relative;top:auto;height:auto;min-height:0;display:block;overflow:visible}
+  .process-lookbook-meta,.process-look-progress{display:none}
+  .process-lookbook-stage{
+    width:min(calc(100% - 32px),760px);
+    height:auto;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+    padding-top:22px;
+  }
+  .process-look-card,
+  .process-look-card:nth-child(n){
+    position:relative;
+    inset:auto;
+    width:100%;
+    height:auto;
+    min-height:430px;
+    opacity:0;
+    clip-path:inset(12% 0 0 0 round 0);
+    transform:translateY(74px) rotate(var(--compact-r,0deg)) scale(.94);
+    transition:opacity .85s var(--ease),transform .85s var(--ease),clip-path .85s var(--ease);
+  }
+  .process-look-card:nth-child(1){--compact-r:-1.8deg}
+  .process-look-card:nth-child(2){--compact-r:1.4deg}
+  .process-look-card:nth-child(3){--compact-r:1.2deg}
+  .process-look-card:nth-child(4){--compact-r:-1.5deg}
+  .process-look-card.look-visible{opacity:1;clip-path:inset(0 round 0);transform:none}
+}
+@media (max-width:620px){
+  .process-lookbook-stage{grid-template-columns:1fr;width:min(calc(100% - 24px),520px)}
+  .process-look-card,.process-look-card:nth-child(n){min-height:min(540px,122vw)}
+  .process-look-copy h3{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  .process-lookbook-runway{height:auto!important}
+  .process-lookbook-sticky{position:relative!important;top:auto!important;height:auto!important;display:block!important;overflow:visible!important}
+  .process-lookbook-meta,.process-look-progress{display:none!important}
+  .process-lookbook-stage{width:min(calc(100% - 32px),var(--container));height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .process-look-card,.process-look-card:nth-child(n){position:relative;inset:auto;width:100%;height:520px;opacity:1!important;clip-path:none!important;transform:none!important}
+}
+
+/* Compact composition: cards appear immediately and use square corners. */
+.process-lookbook-head{padding-bottom:clamp(12px,1.8vh,22px)}
+.process-lookbook-meta{padding-top:2px}
+.process-look-card,.process-look-card::before,.process-look-card::after{border-radius:0!important}
+.process-look-copy small{border-radius:0!important}
+@media (min-width:901px) and (max-height:760px){
+  .process-lookbook-runway{height:225svh}
+  .process-lookbook-sticky{min-height:460px}
+  .process-lookbook-stage{width:min(calc(100% - 28px),1420px)}
+  .process-look-card{height:min(55vh,455px);min-height:320px}
+  .process-look-top{top:12px;left:14px;right:14px}
+  .process-look-copy{min-height:34%;padding:17px 16px 16px}
+  .process-look-copy h3{font-size:clamp(23px,2vw,31px)}
+  .process-look-copy p{margin-top:8px}
+}
+@media (max-width:900px){
+  .process-lookbook-section{padding-bottom:72px}
+  .process-lookbook-stage{padding-top:12px}
+  .process-look-card,.process-look-card:nth-child(n){border-radius:0!important}
+}

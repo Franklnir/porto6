@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectHero from '@/features/projects/components/ProjectHero.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const title = `${project.data.title} — Irsyad`;
+---
+<BaseLayout title={title} description={project.data.summary} bodyClass="project-route-page">
+  <header class="project-route-nav">
+    <a href="/" data-astro-reload>← Kembali ke portofolio</a>
+    <span>{String(project.data.order).padStart(2, '0')} / 06</span>
+  </header>
+  <main>
+    <section class="project-route-hero">
+      <p>{project.data.domain.join(' · ')}</p>
+      <h1>{project.data.title}</h1>
+      <p class="summary">{project.data.summary}</p>
+    </section>
+    <ProjectHero id={project.id} title={project.data.title} />
+    <article class="project-route-content">
+      <Content />
+      <aside>
+        <h2>Teknologi</h2>
+        <ul>{project.data.technologies.map((technology) => <li>{technology}</li>)}</ul>
+      </aside>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  :global(.project-route-page) { background: #f4f4ef; }
+  .project-route-nav { position: sticky; top: 0; z-index: 20; height: 72px; display: flex; align-items: center; justify-content: space-between; padding-inline: max(20px, calc((100vw - 1240px) / 2)); background: rgb(244 244 239 / 92%); backdrop-filter: blur(16px); border-bottom: 1px solid #d9d9d1; }
+  .project-route-nav a { text-decoration: none; font-weight: 700; }
+  .project-route-nav span, .project-route-hero > p { font: 500 11px/1.4 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: #1858ee; }
+  .project-route-hero { width: min(calc(100% - 40px), 1240px); margin: 0 auto; padding: clamp(72px, 10vw, 140px) 0 clamp(48px, 7vw, 90px); }
+  .project-route-hero h1 { max-width: 1100px; font-size: clamp(54px, 9vw, 132px); }
+  .summary { max-width: 760px; font-size: clamp(18px, 2vw, 24px); color: #66665f; }
+  .project-route-visual { width: min(calc(100% - 40px), 1440px); margin-inline: auto; }
+  .project-route-content { width: min(calc(100% - 40px), 980px); margin-inline: auto; padding: clamp(72px, 10vw, 140px) 0; font-size: 18px; }
+  .project-route-content :global(h2) { margin-top: 72px; font-size: clamp(34px, 5vw, 58px); }
+  .project-route-content :global(p), .project-route-content :global(li) { color: #55554f; }
+  .project-route-content aside { margin-top: 80px; padding-top: 48px; border-top: 1px solid #d9d9d1; }
+  .project-route-content ul { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+  .project-route-content li { padding: 9px 12px; border: 1px solid #d9d9d1; background: #fff; font-size: 14px; }
+</style>

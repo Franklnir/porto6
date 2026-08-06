@@ -1,0 +1,38 @@
+---
+import ResponsivePicture from '@/components/media/ResponsivePicture.astro';
+import profilePhoto from '@/assets/images/profile/irsyad-profile-master.jpg';
+---
+<section aria-labelledby="heroTitle" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow" data-hero="">Engineer sistem · IoT · AI integration</p>
+      <h1 data-hero="" id="heroTitle">Membangun sistem cerdas yang memberi <span class="text-blue">dampak nyata.</span></h1>
+      <p class="hero-intro" data-hero="">Saya Irsyad, mahasiswa Teknik Informatika yang merancang sistem IoT, backend platform, layanan real-time, dan integrasi AI untuk menyelesaikan masalah operasional secara terukur.</p>
+      <div class="hero-actions" data-hero="">
+        <a class="btn btn-dark magnetic" href="#projects"><span>Lihat proyek</span><span class="arrow">→</span></a>
+        <a class="btn magnetic" href="[CV_URL]"><span>Unduh CV</span><span class="arrow">↓</span></a>
+      </div>
+      <ul class="hero-meta" data-hero=""><li>Bekasi, Indonesia</li><li>Open for opportunity</li><li>Available for collaboration</li></ul>
+    </div>
+    <div aria-label="Foto profil Irsyad" class="hero-visual">
+      <div class="profile-slot profile-slot--hero" id="profileHeroSlot">
+        <div class="photo-wrap" id="heroPhoto">
+          <ResponsivePicture
+            src={profilePhoto}
+            alt="Irsyad, IoT, AI, dan Full-Stack Systems Engineer"
+            width={450}
+            height={654}
+            quality={82}
+            priority
+            position="50% 18%"
+            class="profile-photo"
+          />
+        </div>
+      </div>
+      <div class="photo-card"><span>Current focus</span><strong>IoT, platform engineering, dan integrasi sistem AI.</strong></div>
+      <div aria-hidden="true" class="orbit">
+        <svg viewBox="0 0 100 100"><defs><path d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0" id="circlePath"></path></defs><text font-family="IBM Plex Mono" font-size="8" letter-spacing="2"><textPath href="#circlePath">BUILD · TEST · MEASURE · ITERATE · </textPath></text></svg><b>↗</b>
+      </div>
+    </div>
+  </div>
+</section>

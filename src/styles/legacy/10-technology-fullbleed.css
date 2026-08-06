@@ -1,0 +1,94 @@
+
+/* =========================================================
+   TECHNOLOGY RAIL — FULL BLEED, COMPLETE, NO PROFILE OVERLAP
+   The portrait may travel behind this opaque strip, but the
+   technology logos always remain visible from label to edge.
+   ========================================================= */
+.tech-strip{
+  position:relative!important;
+  z-index:1090!important;
+  isolation:isolate;
+  width:100%;
+  background:#fbfbf8!important;
+  overflow:hidden;
+}
+.tech-strip::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:#fbfbf8;
+  pointer-events:none;
+}
+.profile-lane-spacer{display:none!important}
+
+/* Remove the old reserved portrait column and let the marquee use every
+   available pixel through the right-hand viewport edge. */
+@media (min-width:768px){
+  .tech-strip .tech-inner.container{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0 0 0 max(24px,calc((100vw - var(--container))/2))!important;
+    grid-template-columns:230px minmax(0,1fr)!important;
+  }
+}
+
+.tech-strip .marquee{
+  min-width:0;
+  width:100%;
+  border-right:0;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  background:#fbfbf8;
+}
+.tech-strip .marquee-track{
+  min-width:max-content;
+  padding-right:0;
+}
+.tech-strip .marquee-set{
+  padding-left:20px;
+}
+.tech-strip .tech{
+  flex:none;
+}
+
+/* The shared portrait travels under—not over—the technology strip. */
+#heroPhoto.profile-card--travelling{
+  z-index:1080!important;
+}
+
+/* Tablet and mobile keep the rail full-width and preserve the advanced
+   marquee interaction without creating horizontal page overflow. */
+@media (max-width:767px){
+  .tech-strip .tech-inner.container{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    grid-template-columns:1fr!important;
+  }
+  .tech-strip .tech-label{
+    padding:20px 20px 14px!important;
+  }
+  .tech-strip .marquee{
+    width:100%!important;
+    margin:0!important;
+    border-left:0!important;
+    border-top:1px solid var(--line);
+  }
+  .tech-strip .marquee-set{
+    padding-left:8px;
+  }
+  .tech-strip .tech{
+    grid-template-columns:40px auto;
+    gap:11px;
+    padding:13px 18px;
+  }
+  .tech-strip .tech-logo,
+  .tech-strip .tech-logo--sbc,
+  .tech-strip .tech-logo--mcp{
+    width:40px;
+    height:40px;
+  }
+}

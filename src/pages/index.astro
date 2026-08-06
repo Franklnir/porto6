@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PortfolioChrome from '@/features/portfolio/components/PortfolioChrome.astro';
+import ProjectViewOverlay from '@/features/portfolio/components/ProjectViewOverlay.astro';
+import HeroSection from '@/features/portfolio/components/sections/HeroSection.astro';
+import TechnologySection from '@/features/portfolio/components/sections/TechnologySection.astro';
+import AboutSection from '@/features/portfolio/components/sections/AboutSection.astro';
+import CapabilitiesSection from '@/features/portfolio/components/sections/CapabilitiesSection.astro';
+import FeaturedProjectSection from '@/features/portfolio/components/sections/FeaturedProjectSection.astro';
+import ProjectPortfolioSection from '@/features/portfolio/components/sections/ProjectPortfolioSection.astro';
+import ExperienceSection from '@/features/portfolio/components/sections/ExperienceSection.astro';
+import ProcessEngineeringSection from '@/features/portfolio/components/sections/ProcessEngineeringSection.astro';
+import MyToolsSection from '@/features/portfolio/components/sections/MyToolsSection.astro';
+import TestimonialSection from '@/features/portfolio/components/sections/TestimonialSection.astro';
+import FaqSection from '@/features/portfolio/components/sections/FaqSection.astro';
+import ContactSection from '@/features/portfolio/components/sections/ContactSection.astro';
+---
+<BaseLayout
+  title="Irsyad — IoT, AI & Full-Stack Systems Engineer"
+  description="Portofolio Irsyad: sistem IoT, embedded, backend platform, integrasi AI, dan engineering sistem real-time."
+>
+  <PortfolioChrome />
+  <main id="main">
+    <HeroSection />
+    <TechnologySection />
+    <AboutSection />
+    <CapabilitiesSection />
+    <FeaturedProjectSection />
+    <ProjectPortfolioSection />
+    <ExperienceSection />
+    <ProcessEngineeringSection />
+    <MyToolsSection />
+    <TestimonialSection />
+    <FaqSection />
+    <ContactSection />
+  </main>
+  <ProjectViewOverlay />
+</BaseLayout>
+
+<script>
+  import '@/features/portfolio/client/index';
+</script>

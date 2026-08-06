@@ -1,0 +1,20 @@
+---
+import RawFragment from '@/components/primitives/RawFragment.astro';
+import { renderLegacyMarkup } from '../lib/renderLegacyMarkup';
+import SkipLinkMarkup from '../fragments/chrome/skip-link.html?raw';
+import ScrollProgressMarkup from '../fragments/chrome/scroll-progress.html?raw';
+import MotionLoaderMarkup from '../fragments/chrome/motion-loader.html?raw';
+import MotionCursorMarkup from '../fragments/chrome/motion-cursor.html?raw';
+import MotionCursorDotMarkup from '../fragments/chrome/motion-cursor-dot.html?raw';
+import DarkPageCurtainMarkup from '../fragments/chrome/dark-page-curtain.html?raw';
+import SiteHeaderMarkup from '../fragments/chrome/site-header.html?raw';
+import MobileMenuMarkup from '../fragments/chrome/mobile-menu.html?raw';
+---
+<RawFragment html={renderLegacyMarkup(SkipLinkMarkup)} />
+<RawFragment html={renderLegacyMarkup(ScrollProgressMarkup)} />
+<RawFragment html={renderLegacyMarkup(MotionLoaderMarkup)} />
+<RawFragment html={renderLegacyMarkup(MotionCursorMarkup)} />
+<RawFragment html={renderLegacyMarkup(MotionCursorDotMarkup)} />
+<RawFragment html={renderLegacyMarkup(DarkPageCurtainMarkup)} />
+<RawFragment html={renderLegacyMarkup(SiteHeaderMarkup)} />
+<RawFragment html={renderLegacyMarkup(MobileMenuMarkup)} />

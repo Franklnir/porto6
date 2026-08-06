@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+<BaseLayout title="Halaman tidak ditemukan — Irsyad">
+  <main class="not-found">
+    <p>404</p>
+    <h1>Halaman tidak ditemukan.</h1>
+    <a href="/">Kembali ke portofolio →</a>
+  </main>
+</BaseLayout>
+<style>
+  .not-found { min-height: 100svh; display: grid; place-content: center; gap: 20px; width: min(calc(100% - 40px), 900px); margin: auto; }
+  .not-found p { color: #1858ee; font: 500 12px/1 'IBM Plex Mono', monospace; }
+  .not-found a { font-weight: 700; }
+</style>

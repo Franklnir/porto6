@@ -1,0 +1,71 @@
+
+/* Mobile-only enhancement for 01 / Project Unggulan.
+   Desktop/tablet-wide sticky choreography remains untouched. */
+@media (max-width:820px){
+  .featured-mobile-list{
+    display:flex!important;
+    grid-template-columns:none!important;
+    gap:14px!important;
+    width:100vw;
+    margin:46px 0 0 calc(50% - 50vw)!important;
+    padding:8px 8vw 30px;
+    overflow-x:auto;
+    overflow-y:visible;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:8vw;
+    overscroll-behavior-inline:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    touch-action:pan-x pan-y;
+  }
+  .featured-mobile-list::-webkit-scrollbar{display:none}
+
+  .featured-mobile-card{
+    flex:0 0 min(82vw,360px);
+    min-width:0;
+    scroll-snap-align:center;
+    scroll-snap-stop:always;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 22px 55px rgba(16,16,16,.16);
+    transform-origin:50% 92%;
+    transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+  }
+  .featured-mobile-card:first-child{scroll-snap-align:start;transform:rotate(-.7deg)}
+  .featured-mobile-card:nth-child(2){transform:rotate(.65deg)}
+  .featured-mobile-card:nth-child(3){transform:rotate(-.35deg)}
+  .featured-mobile-card:active{
+    transform:translateY(-4px) rotate(0deg) scale(.992);
+    box-shadow:0 28px 70px rgba(16,16,16,.22);
+  }
+  .featured-mobile-card img{
+    aspect-ratio:1.06/1!important;
+  }
+  .featured-mobile-card-body{
+    min-height:245px;
+    display:flex;
+    flex-direction:column;
+  }
+  .featured-mobile-card-body p{margin-bottom:0}
+  .featured-mobile-card-body button{margin-top:auto!important}
+}
+
+@media (max-width:480px){
+  .featured-mobile-list{
+    gap:12px!important;
+    padding-inline:6vw;
+    scroll-padding-inline:6vw;
+  }
+  .featured-mobile-card{flex-basis:87vw}
+  .featured-mobile-card-body{min-height:228px;padding:20px!important}
+  .featured-mobile-card-body h3{font-size:26px!important}
+}
+
+@media (max-width:820px) and (prefers-reduced-motion:reduce){
+  .featured-mobile-card,
+  .featured-mobile-card:first-child,
+  .featured-mobile-card:nth-child(2),
+  .featured-mobile-card:nth-child(3){
+    transform:none!important;
+    transition:none!important;
+  }
+}

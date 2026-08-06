@@ -1,0 +1,69 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  width: number;
+  height: number;
+  priority?: boolean;
+  quality?: number;
+  position?: string;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  priority = false,
+  quality = 80,
+  position = 'center',
+  class: className,
+} = Astro.props;
+---
+
+<div
+  class:list={['responsive-picture', className]}
+  style={`--media-ratio:${width}/${height}; --media-position:${position}`}
+>
+  <Picture
+    src={src}
+    alt={alt}
+    formats={['avif', 'webp']}
+    layout="constrained"
+    width={width}
+    height={height}
+    quality={quality}
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    decoding="async"
+    fit="cover"
+  />
+</div>
+
+<style>
+  .responsive-picture {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--media-ratio);
+    overflow: hidden;
+    background: #e7e7e2;
+    contain: layout paint;
+  }
+
+  .responsive-picture :global(picture),
+  .responsive-picture :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .responsive-picture :global(img) {
+    object-fit: cover;
+    object-position: var(--media-position);
+  }
+</style>

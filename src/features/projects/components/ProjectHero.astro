@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import { getProjectCover } from '../data/projectCovers';
+
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+const cover = getProjectCover(id);
+---
+<div class="project-route-visual" transition:name={`project-cover-${id}`}>
+  {cover ? (
+    <Image
+      src={cover}
+      alt={`Visual proyek ${title}`}
+      widths={[480, 768, 1100, 1500]}
+      sizes="(max-width: 720px) 92vw, 80vw"
+      formats={['avif', 'webp']}
+      loading="eager"
+      fetchpriority="high"
+    />
+  ) : (
+    <div class="project-route-fallback" aria-hidden="true" />
+  )}
+</div>
+
+<style>
+  .project-route-visual { overflow: hidden; background: #dce6ff; min-height: 420px; }
+  .project-route-visual :global(img) { width: 100%; height: min(72vw, 780px); object-fit: cover; }
+  .project-route-fallback { min-height: 560px; background: linear-gradient(135deg, #1858ee, #101010); }
+</style>

@@ -1,0 +1,7 @@
+:root {
+  --site-max-width: 1240px;
+  --focus-ring: 3px solid rgb(24 88 238 / 48%);
+  --motion-duration-fast: 220ms;
+  --motion-duration-base: 520ms;
+  --motion-duration-slow: 900ms;
+}
