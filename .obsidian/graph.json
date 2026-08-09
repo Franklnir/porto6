@@ -1,0 +1,44 @@
+{
+  "collapse-color-groups": false,
+  "collapse-display": true,
+  "collapse-filter": false,
+  "collapse-forces": true,
+  "colorGroups": [
+    {
+      "query": "tag:#agent",
+      "color": {
+        "a": 1,
+        "rgb": 2508874
+      }
+    },
+    {
+      "query": "tag:#architecture",
+      "color": {
+        "a": 1,
+        "rgb": 7487204
+      }
+    },
+    {
+      "query": "tag:#content",
+      "color": {
+        "a": 1,
+        "rgb": 11657242
+      }
+    },
+    {
+      "query": "tag:#motion",
+      "color": {
+        "a": 1,
+        "rgb": 16747520
+      }
+    }
+  ],
+  "hideUnresolved": true,
+  "lineSizeMultiplier": 1,
+  "search": "path:docs/knowledge OR path:docs",
+  "showAttachments": false,
+  "showArrow": true,
+  "showOrphans": false,
+  "showTags": true,
+  "textFadeMultiplier": 0
+}

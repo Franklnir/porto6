@@ -3,7 +3,7 @@
    Motion, horizontal track, ordering and project actions remain unchanged. */
 .portfolio-detail-card{
   display:grid;
-  grid-template-rows:minmax(0,1fr) clamp(138px,22%,174px);
+  grid-template-rows:minmax(0,1fr) auto;
   padding:0!important;
   overflow:hidden;
   border:0!important;
@@ -15,6 +15,11 @@
 .portfolio-detail-card:hover{
   border-color:transparent!important;
   box-shadow:none!important;
+}
+.portfolio-detail-card--wide,
+.portfolio-detail-card--medium,
+.portfolio-detail-card--narrow{
+  width:clamp(320px,26vw,420px);
 }
 .portfolio-detail-card--visual::before,
 .portfolio-detail-card--visual::after{display:none!important}
@@ -41,12 +46,31 @@
   transform:translate3d(calc((.5 - var(--card-focus))*22px),0,0) scale(calc(1.12 - var(--card-focus)*.07));
   filter:grayscale(1) contrast(1.08);
 }
+.portfolio-detail-card .portfolio-detail-art--xiaozhi{
+  inset:0;
+  transform:none;
+  background:url('/assets/projects/xiaozhi/08-xiaozhi-photo.png') center center/cover no-repeat;
+  filter:none;
+}
+.portfolio-detail-card .portfolio-detail-art--school{
+  inset:0;
+  transform:none;
+  background:url('/assets/projects/platform-operasi-akademik/04-platform-operasi-akademik.png') left center/cover no-repeat;
+  filter:none;
+}
+.portfolio-detail-card .portfolio-detail-art--energy{
+  inset:0;
+  transform:none;
+  background:url('/assets/projects/monitoring-energi/03-monitoring-listrik.png') center center/cover no-repeat;
+  filter:none;
+}
 .portfolio-detail-card-top{
   z-index:5;
-  left:20px;
-  right:20px;
-  top:18px;
+  left:16px;
+  right:16px;
+  top:14px;
   color:#fff;
+  font-size:8px;
   text-shadow:0 2px 18px rgba(0,0,0,.52);
 }
 .portfolio-detail-info{
@@ -55,51 +79,51 @@
   display:flex;
   flex-direction:column;
   min-width:0;
-  padding:clamp(20px,2vw,28px) clamp(20px,2.2vw,30px) clamp(18px,1.8vw,25px);
+  padding:14px 16px 14px;
   background:#fff;
   color:#111;
 }
 .portfolio-detail-category{
   margin:0;
   color:var(--blue);
-  font:600 11px/1.2 var(--mono);
-  letter-spacing:.18em;
+  font:600 10px/1.2 var(--mono);
+  letter-spacing:.14em;
   text-transform:uppercase;
 }
 .portfolio-detail-info h3,
 .portfolio-statement-info h3{
-  margin:12px 0 0;
+  margin:6px 0 0;
   color:#111;
-  font:600 clamp(22px,2vw,32px)/1.08 var(--display);
-  letter-spacing:-.045em;
+  font:600 clamp(15px,1.25vw,20px)/1.15 var(--display);
+  letter-spacing:-.03em;
   text-wrap:balance;
 }
 .portfolio-detail-text-link{
   display:flex;
   align-items:center;
   justify-content:flex-start;
-  gap:12px;
+  gap:8px;
   width:max-content;
-  margin-top:auto;
-  padding:12px 0 0;
+  margin-top:10px;
+  padding:0;
   border:0;
   background:transparent;
   color:#111;
   cursor:pointer;
-  font:500 clamp(15px,1.2vw,18px)/1.2 var(--sans);
+  font:500 13px/1.2 var(--sans);
   transition:color .25s var(--ease),gap .35s var(--ease);
 }
 .portfolio-detail-text-link span:last-child{
-  font-size:23px;
+  font-size:16px;
   line-height:1;
   transition:transform .35s var(--ease);
 }
-.portfolio-detail-text-link:hover{color:var(--blue);gap:18px}
+.portfolio-detail-text-link:hover{color:var(--blue);gap:14px}
 .portfolio-detail-text-link:hover span:last-child{transform:translateX(4px)}
 
 /* The existing summary card receives the same image-over-body silhouette. */
 .portfolio-detail-card--statement{
-  grid-template-rows:minmax(0,1fr) clamp(170px,29%,215px);
+  grid-template-rows:minmax(0,1fr) auto;
 }
 .portfolio-statement-media{
   position:relative;
@@ -107,7 +131,7 @@
   overflow:hidden;
   display:flex;
   flex-direction:column;
-  padding:clamp(24px,2.3vw,36px);
+  padding:clamp(20px,2vw,30px);
   background:var(--blue);
   color:#fff;
 }
@@ -135,7 +159,7 @@
   z-index:2;
   margin:auto 0 0;
   color:#fff;
-  font:500 clamp(65px,7.2vw,112px)/.82 var(--display);
+  font:500 clamp(50px,5.8vw,90px)/.82 var(--display);
   letter-spacing:-.08em;
   white-space:nowrap;
 }
@@ -143,23 +167,23 @@
   display:flex;
   flex-direction:column;
   min-width:0;
-  padding:clamp(20px,2vw,28px);
+  padding:14px 16px 14px;
   background:#fff;
   color:#111;
 }
 .portfolio-statement-info>p:not(.portfolio-detail-category){
-  margin:11px 0 0;
+  margin:8px 0 0;
   color:#686861;
-  font-size:14px;
-  line-height:1.45;
+  font-size:12px;
+  line-height:1.4;
 }
 .portfolio-detail-card--statement .statement-foot{
-  margin-top:auto;
-  padding-top:12px;
+  margin-top:10px;
+  padding-top:8px;
   border-top:1px solid #d9d9d2;
   display:flex;
   justify-content:space-between;
-  gap:18px;
+  gap:14px;
   color:#66665f;
   font:500 8px/1.3 var(--mono);
   letter-spacing:.09em;
@@ -167,24 +191,30 @@
 
 @media (max-width:980px){
   .portfolio-detail-card{
-    grid-template-rows:minmax(0,1fr) 158px;
+    grid-template-rows:minmax(0,1fr) auto;
     border-radius:0!important;
   }
-  .portfolio-detail-card--statement{grid-template-rows:minmax(0,1fr) 205px}
+  .portfolio-detail-card--statement{
+    width:min(72vw,360px)!important;
+    grid-template-rows:minmax(0,1fr) auto;
+  }
   .portfolio-detail-info,
-  .portfolio-statement-info{padding:20px}
+  .portfolio-statement-info{padding:16px}
   .portfolio-detail-info h3,
-  .portfolio-statement-info h3{font-size:24px}
+  .portfolio-statement-info h3{font-size:20px}
 }
 @media (max-width:640px){
-  .portfolio-detail-card{grid-template-rows:minmax(0,1fr) 150px}
-  .portfolio-detail-card--statement{grid-template-rows:minmax(0,1fr) 210px}
+  .portfolio-detail-card{grid-template-rows:minmax(0,1fr) auto}
+  .portfolio-detail-card--statement{
+    width:86vw!important;
+    grid-template-rows:minmax(0,1fr) auto;
+  }
   .portfolio-detail-card-top{left:14px;right:14px;top:13px;font-size:8px}
   .portfolio-detail-info,
-  .portfolio-statement-info{padding:17px 18px}
+  .portfolio-statement-info{padding:14px 15px}
   .portfolio-detail-category{font-size:9px}
   .portfolio-detail-info h3,
-  .portfolio-statement-info h3{margin-top:8px;font-size:21px}
-  .portfolio-detail-text-link{padding-top:8px;font-size:15px}
-  .portfolio-detail-card--statement .statement-title{font-size:62px}
+  .portfolio-statement-info h3{margin-top:6px;font-size:18px}
+  .portfolio-detail-text-link{margin-top:8px;font-size:13px}
+  .portfolio-detail-card--statement .statement-title{font-size:52px}
 }

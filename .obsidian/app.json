@@ -1,0 +1,23 @@
+{
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "docs/knowledge/assets",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "docs/knowledge/inbox",
+  "promptDelete": false,
+  "readableLineLength": false,
+  "showLineNumber": true,
+  "strictLineBreaks": false,
+  "userIgnoreFilters": [
+    "node_modules/",
+    "dist/",
+    ".astro/",
+    ".vercel/",
+    ".wrangler/",
+    "coverage/",
+    "playwright-report/",
+    "test-results/",
+    "preview-static/",
+    "public/sequences/",
+    "public/assets/media/"
+  ]
+}

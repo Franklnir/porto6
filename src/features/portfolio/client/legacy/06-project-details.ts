@@ -8,7 +8,9 @@
   const smooth=t=>t*t*(3-2*t);
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const desktop=matchMedia('(min-width: 900px)');
+  const mobileScrub=matchMedia('(max-width: 899px) and (min-height: 560px)');
   let raf=0;
+  let projectScrollDrivenActive=false;
 
   function resetProjectDetails(){
     const wrap=document.getElementById('projectDetailsScroll');
@@ -28,9 +30,18 @@
     const allCards=[...track.querySelectorAll('.portfolio-detail-card')];
     const progressBar=document.getElementById('projectDetailsProgress');
     const current=document.getElementById('projectDetailsCurrent');
+    const section=wrap.closest('.project-details-section');
+    const mobileScrubEnabled=mobileScrub.matches&&!reduced.matches;
+    const scrollDriven=desktop.matches||mobileScrubEnabled;
+    section?.classList.toggle('portfolio-mobile-scrub',mobileScrubEnabled);
 
-    if(!desktop.matches||reduced.matches){
-      resetProjectDetails();
+    if(!scrollDriven||reduced.matches){
+      if(projectScrollDrivenActive){
+        resetProjectDetails();
+        projectScrollDrivenActive=false;
+      }
+      const bounds=viewport.getBoundingClientRect();
+      if(bounds.bottom<0||bounds.top>innerHeight)return;
       const max=Math.max(1,viewport.scrollWidth-viewport.clientWidth);
       const ratio=clamp(viewport.scrollLeft/max);
       if(progressBar)progressBar.style.transform=`scaleX(${ratio})`;
@@ -43,8 +54,9 @@
       return;
     }
 
+    projectScrollDrivenActive=true;
     const horizontal=Math.max(0,track.scrollWidth-viewport.clientWidth);
-    const scrollDistance=Math.max(innerHeight*.9,horizontal*1.03);
+    const scrollDistance=Math.max(innerHeight*.9,horizontal*(desktop.matches?1.03:.72));
     const desiredHeight=innerHeight+scrollDistance;
     if(Math.abs(wrap.offsetHeight-desiredHeight)>2)wrap.style.height=`${desiredHeight}px`;
 
@@ -72,7 +84,7 @@
   }
 
   const detailViewport=document.getElementById('projectDetailsViewport');
-  detailViewport?.addEventListener('scroll',()=>{if(!desktop.matches)updateProjectDetails()},{passive:true});
+  detailViewport?.addEventListener('scroll',()=>{if(!desktop.matches)request()},{passive:true});
 
 
   function updateProcessFlip(){
@@ -102,6 +114,8 @@
       const bar=document.getElementById('processFlipProgress');
       if(bar)bar.style.transform=`scaleX(${progress})`;
     }else{
+      const bounds=wrap.getBoundingClientRect();
+      if(bounds.bottom<0||bounds.top>innerHeight)return;
       cards.forEach(card=>{
         const r=card.getBoundingClientRect();
         const t=smooth(clamp((innerHeight*.86-r.top)/(innerHeight*.52)));
@@ -118,6 +132,7 @@
   addEventListener('scroll',request,{passive:true});
   addEventListener('resize',request,{passive:true});
   desktop.addEventListener?.('change',request);
+  mobileScrub.addEventListener?.('change',request);
   reduced.addEventListener?.('change',request);
   document.addEventListener('astro:page-load',request);
   document.addEventListener('astro:after-swap',request);

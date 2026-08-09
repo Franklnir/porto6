@@ -29,8 +29,11 @@
     width:100%!important;
     max-width:none!important;
     margin:0!important;
-    padding:0 0 0 max(24px,calc((100vw - var(--container))/2))!important;
-    grid-template-columns:230px minmax(0,1fr)!important;
+    padding:0!important;
+    grid-template-columns:minmax(260px,18vw) minmax(0,1fr)!important;
+  }
+  .tech-strip .tech-label{
+    padding:24px 30px 24px clamp(20px,2vw,38px)!important;
   }
 }
 

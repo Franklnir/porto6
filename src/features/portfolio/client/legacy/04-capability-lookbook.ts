@@ -65,7 +65,7 @@
   };
 
   const queue=()=>{if(!frame)frame=requestAnimationFrame(render)};
-  addEventListener('scroll',queue,{passive:true});
+  addEventListener('scroll',()=>{if(desktop.matches&&!reduce.matches)queue()},{passive:true});
   addEventListener('resize',queue,{passive:true});
   reduce.addEventListener?.('change',queue);
   desktop.addEventListener?.('change',queue);

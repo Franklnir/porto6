@@ -5,6 +5,17 @@
    cards rise from below, settle at different depths, then drift
    upward at independent rates. No flip and no scroll-jacking.
    ========================================================== */
+.project-details-section{
+  margin-top:0;
+  margin-bottom:0;
+}
+.project-details-section::after{
+  content:"";
+  display:block;
+  height:clamp(64px,5vw,80px);
+  background:var(--dark);
+}
+.process-lookbook-section{margin-block:0}
 .process-lookbook-section{
   --process-look-progress:0;
   position:relative;
@@ -30,10 +41,9 @@
   inset:0;
   z-index:-1;
   pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:48px 48px;
+  background-image:var(--grid-dark);
+  background-size:var(--grid-size);
+  opacity:.72;
   mask-image:linear-gradient(180deg,transparent,#000 18%,#000 80%,transparent);
 }
 .process-lookbook-head{
@@ -312,7 +322,35 @@
   .process-look-copy p{margin-top:8px}
 }
 @media (max-width:900px){
+  .project-details-section{
+    margin-top:0;
+    margin-bottom:0;
+  }
+  .project-details-section::after{height:40px}
+  .process-lookbook-section{margin-block:0}
   .process-lookbook-section{padding-bottom:72px}
   .process-lookbook-stage{padding-top:12px}
   .process-look-card,.process-look-card:nth-child(n){border-radius:0!important}
+}
+
+@media (max-width:900px), (pointer:coarse){
+  .services-lookbook.lookbook-compact-motion .service-card[data-look-card]{
+    clip-path:none!important;
+    transform:translate3d(0,32px,0)!important;
+    transition:opacity .58s var(--ease),transform .58s var(--ease)!important;
+  }
+  .services-lookbook.lookbook-compact-motion .service-card[data-look-card].look-visible{
+    transform:none!important;
+  }
+  .process-look-card,
+  .process-look-card:nth-child(n){
+    clip-path:none;
+    transform:translate3d(0,34px,0);
+    transition:opacity .58s var(--ease),transform .58s var(--ease);
+    will-change:transform,opacity;
+  }
+  .process-look-card.look-visible{transform:none}
+  .process-look-card.look-visible,
+  .services-lookbook.lookbook-compact-motion .service-card[data-look-card].look-visible{will-change:auto}
+  .process-look-visual svg{filter:none}
 }

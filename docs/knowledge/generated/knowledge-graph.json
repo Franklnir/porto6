@@ -1,0 +1,304 @@
+{
+  "generatedAt": "2026-08-09T15:31:11.857Z",
+  "project": {
+    "name": "irsyad-portfolio-astro",
+    "version": "2.0.0",
+    "node": ">=22.12.0",
+    "astro": "^7.1.6"
+  },
+  "nodes": [
+    {
+      "id": "agent-index",
+      "label": "Agent Index",
+      "kind": "knowledge",
+      "path": "docs/knowledge/00-agent-index.md",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "project-map",
+      "label": "Project Map",
+      "kind": "knowledge",
+      "path": "docs/knowledge/01-project-map.md",
+      "tags": [
+        "architecture"
+      ]
+    },
+    {
+      "id": "knowledge-graph",
+      "label": "Knowledge Graph",
+      "kind": "knowledge",
+      "path": "docs/knowledge/02-knowledge-graph.md",
+      "tags": [
+        "architecture"
+      ]
+    },
+    {
+      "id": "maintenance",
+      "label": "Knowledge Maintenance",
+      "kind": "knowledge",
+      "path": "docs/knowledge/03-maintenance.md",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "generated-snapshot",
+      "label": "Generated Project Snapshot",
+      "kind": "generated",
+      "path": "docs/knowledge/generated/project-snapshot.md",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "astro-shell",
+      "label": "Astro Shell",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/astro-shell.md",
+      "tags": [
+        "architecture",
+        "astro"
+      ]
+    },
+    {
+      "id": "portfolio-homepage",
+      "label": "Portfolio Homepage",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/portfolio-homepage.md",
+      "tags": [
+        "architecture",
+        "portfolio"
+      ]
+    },
+    {
+      "id": "portfolio-chrome",
+      "label": "Portfolio Chrome",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/portfolio-chrome.md",
+      "tags": [
+        "portfolio"
+      ]
+    },
+    {
+      "id": "legacy-fragments",
+      "label": "Legacy Fragments",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/legacy-fragments.md",
+      "tags": [
+        "migration"
+      ]
+    },
+    {
+      "id": "motion-system",
+      "label": "Motion System",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/motion-system.md",
+      "tags": [
+        "motion"
+      ]
+    },
+    {
+      "id": "scroll-sequence-hero",
+      "label": "Scroll Sequence Hero",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/scroll-sequence-hero.md",
+      "tags": [
+        "motion",
+        "asset-pipeline"
+      ]
+    },
+    {
+      "id": "project-content",
+      "label": "Project Content",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/project-content.md",
+      "tags": [
+        "content"
+      ]
+    },
+    {
+      "id": "project-pages",
+      "label": "Project Pages",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/project-pages.md",
+      "tags": [
+        "content",
+        "astro"
+      ]
+    },
+    {
+      "id": "styling-system",
+      "label": "Styling System",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/styling-system.md",
+      "tags": [
+        "styling"
+      ]
+    },
+    {
+      "id": "seo-routing",
+      "label": "SEO Routing",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/seo-routing.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
+      "id": "quality-deployment",
+      "label": "Quality And Deployment",
+      "kind": "subsystem",
+      "path": "docs/knowledge/nodes/quality-deployment.md",
+      "tags": [
+        "quality",
+        "deployment"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "agent-index",
+      "to": "generated-snapshot",
+      "relation": "read-first"
+    },
+    {
+      "from": "agent-index",
+      "to": "project-map",
+      "relation": "routes-to"
+    },
+    {
+      "from": "agent-index",
+      "to": "knowledge-graph",
+      "relation": "visualizes"
+    },
+    {
+      "from": "agent-index",
+      "to": "maintenance",
+      "relation": "updates-through"
+    },
+    {
+      "from": "project-map",
+      "to": "astro-shell",
+      "relation": "contains"
+    },
+    {
+      "from": "project-map",
+      "to": "portfolio-homepage",
+      "relation": "contains"
+    },
+    {
+      "from": "project-map",
+      "to": "project-content",
+      "relation": "contains"
+    },
+    {
+      "from": "project-map",
+      "to": "quality-deployment",
+      "relation": "contains"
+    },
+    {
+      "from": "portfolio-homepage",
+      "to": "portfolio-chrome",
+      "relation": "renders"
+    },
+    {
+      "from": "portfolio-homepage",
+      "to": "legacy-fragments",
+      "relation": "renders"
+    },
+    {
+      "from": "portfolio-homepage",
+      "to": "motion-system",
+      "relation": "loads"
+    },
+    {
+      "from": "portfolio-homepage",
+      "to": "scroll-sequence-hero",
+      "relation": "optionally-renders"
+    },
+    {
+      "from": "portfolio-homepage",
+      "to": "project-pages",
+      "relation": "links-to"
+    },
+    {
+      "from": "astro-shell",
+      "to": "seo-routing",
+      "relation": "feeds"
+    },
+    {
+      "from": "astro-shell",
+      "to": "styling-system",
+      "relation": "imports"
+    },
+    {
+      "from": "legacy-fragments",
+      "to": "styling-system",
+      "relation": "depends-on"
+    },
+    {
+      "from": "motion-system",
+      "to": "styling-system",
+      "relation": "coordinates-with"
+    },
+    {
+      "from": "scroll-sequence-hero",
+      "to": "motion-system",
+      "relation": "parallel-motion"
+    },
+    {
+      "from": "scroll-sequence-hero",
+      "to": "styling-system",
+      "relation": "depends-on"
+    },
+    {
+      "from": "project-content",
+      "to": "project-pages",
+      "relation": "feeds"
+    },
+    {
+      "from": "project-content",
+      "to": "seo-routing",
+      "relation": "feeds"
+    },
+    {
+      "from": "quality-deployment",
+      "to": "astro-shell",
+      "relation": "verifies"
+    },
+    {
+      "from": "quality-deployment",
+      "to": "motion-system",
+      "relation": "verifies"
+    },
+    {
+      "from": "quality-deployment",
+      "to": "project-content",
+      "relation": "validates"
+    }
+  ],
+  "facts": {
+    "sourceFileCount": 74,
+    "sourceCountsByExtension": {
+      ".astro": 23,
+      ".ts": 16,
+      ".md": 6,
+      ".html": 18,
+      ".css": 11
+    },
+    "sectionFragmentCount": 10,
+    "chromeFragmentCount": 7,
+    "motionModuleCount": 9,
+    "projectCount": 6,
+    "sequenceManifest": {
+      "frameCount": 240,
+      "pattern": "/sequences/hero/frame-%04d.webp",
+      "width": 1920,
+      "height": 1080,
+      "format": "webp",
+      "quality": 82
+    }
+  }
+}

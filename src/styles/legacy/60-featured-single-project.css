@@ -12,15 +12,19 @@
 .featured-showcase--single .featured-frame:not(:first-child){transform:translateY(108%) rotate(3.2deg) scale(.955);clip-path:inset(100% 0 0 0);opacity:0}
 .featured-frame-media,
 .featured-mobile-gallery-media{position:absolute;inset:0;background-image:var(--featured-image);background-size:cover;background-position:var(--featured-object-position,50% 50%);transform:scale(var(--featured-image-scale,1.075));will-change:transform}
+.featured-showcase--xiaozhi .featured-frame-media,.featured-showcase--xiaozhi .featured-mobile-gallery-media{background-color:#111}
+.featured-showcase--xiaozhi .featured-frame::before,.featured-showcase--xiaozhi .featured-mobile-gallery-item::after{display:none}
+.featured-showcase--xiaozhi .featured-frame-meta,.featured-showcase--xiaozhi .featured-mobile-gallery-item figcaption{display:none}
 .featured-showcase--single .featured-frame-meta strong{font-size:clamp(24px,2.7vw,40px)}
 @media (max-width:1050px) and (min-width:821px){.featured-showcase--single{height:525svh}}
 @media (max-width:820px){
-  .featured-showcase--single{height:auto!important}
+  .featured-showcase--single{height:auto}
   .featured-showcase--single .featured-mobile-list--single{display:block!important;width:auto!important;margin:46px 0 0!important;padding:0!important;overflow:visible!important}
   .featured-showcase--single .featured-mobile-card--single{width:100%!important;max-width:none!important;transform:none!important;border:1px solid rgba(255,255,255,.14);background:#111}
-  .featured-mobile-gallery{display:flex;width:100%;gap:10px;padding:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:10px;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .featured-mobile-gallery{display:block;width:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-padding-inline:10px;scroll-behavior:smooth;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x pan-y}
   .featured-mobile-gallery::-webkit-scrollbar{display:none}
-  .featured-mobile-gallery-item{position:relative;flex:0 0 min(84vw,520px);aspect-ratio:1.08/1;margin:0;overflow:hidden;scroll-snap-align:center;scroll-snap-stop:always;background:#222}
+  .featured-mobile-gallery-track{display:flex;width:max-content;height:100%;gap:10px;padding:10px}
+  .featured-mobile-gallery-item{position:relative;flex:0 0 min(84vw,520px);aspect-ratio:1.08/1;margin:0;overflow:hidden;scroll-snap-align:center;scroll-snap-stop:normal;background:#222;contain:layout paint;backface-visibility:hidden}
   .featured-mobile-gallery-item:first-child{scroll-snap-align:start}
   .featured-mobile-gallery-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.78));pointer-events:none}
   .featured-mobile-gallery-item figcaption{position:absolute;z-index:2;left:18px;right:18px;bottom:16px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;color:#fff}
@@ -31,5 +35,46 @@
   .featured-showcase--single .featured-mobile-card-body{min-height:0!important;padding:22px!important}
   .featured-showcase--single .featured-mobile-card-body button{margin-top:22px!important}
 }
-@media (max-width:480px){.featured-mobile-gallery{gap:8px;padding:8px}.featured-mobile-gallery-item{flex-basis:86vw}.featured-mobile-gallery-item figcaption{left:14px;right:14px;bottom:13px}.featured-mobile-gallery-item figcaption strong{font-size:18px}}
+@media (max-width:480px){.featured-mobile-gallery-track{gap:8px;padding:8px}.featured-mobile-gallery-item{flex-basis:86vw}.featured-mobile-gallery-item figcaption{left:14px;right:14px;bottom:13px}.featured-mobile-gallery-item figcaption strong{font-size:18px}}
+@media (max-width:820px) and (min-height:560px){
+  .featured-showcase--single.featured-mobile-scrub{padding:0!important;overflow:clip}
+  .featured-mobile-scrub .featured-sticky{
+    position:sticky;
+    top:0;
+    height:100svh;
+    min-height:0;
+    display:block;
+    padding:calc(var(--header) + 8px) 0 12px;
+    overflow:hidden;
+  }
+  .featured-mobile-scrub .featured-layout{
+    width:min(calc(100% - 32px),var(--container));
+    height:100%;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto minmax(0,1fr);
+    align-items:stretch;
+    gap:10px;
+  }
+  .featured-mobile-scrub .featured-copy{display:block;min-height:0;padding:0}
+  .featured-mobile-scrub .featured-title{margin-top:12px;font-size:clamp(32px,9.5vw,44px)}
+  .featured-mobile-scrub .featured-tags{margin-top:14px}
+  .featured-mobile-scrub .featured-mobile-list--single{width:100%!important;max-width:100%;height:100%;min-height:0;margin:0!important;overflow:hidden!important}
+  .featured-mobile-scrub .featured-mobile-card--single{height:100%;min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto auto}
+  .featured-mobile-scrub .featured-mobile-gallery{height:100%;overflow:hidden;scroll-snap-type:none;touch-action:pan-y}
+  .featured-mobile-scrub .featured-mobile-gallery-track{height:100%;will-change:transform}
+  .featured-mobile-scrub .featured-mobile-gallery-item{height:100%;aspect-ratio:auto;scroll-snap-align:none}
+  .featured-mobile-scrub .featured-mobile-gallery-progress{padding:10px 16px}
+  .featured-mobile-scrub .featured-mobile-card-body{min-height:0!important;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:13px 16px!important}
+  .featured-mobile-scrub .featured-mobile-card-body>span,
+  .featured-mobile-scrub .featured-mobile-card-body>p{display:none}
+  .featured-mobile-scrub .featured-mobile-card-body h3{margin:0;font-size:clamp(19px,5.4vw,24px)}
+  .featured-mobile-scrub .featured-mobile-card-body button{width:auto!important;margin:0!important;padding:12px 14px}
+}
 @media (prefers-reduced-motion:reduce){.featured-showcase--single{height:auto!important}.featured-showcase--single .featured-frame{transform:none!important;clip-path:inset(0)!important;opacity:1!important;position:relative!important;margin-top:16px}}
+
+.featured-showcase--single .featured-mobile-card--single{
+  background-color:var(--dark);
+  background-image:var(--grid-dark);
+  background-size:var(--grid-size);
+}

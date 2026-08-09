@@ -1,0 +1,66 @@
+---
+/**
+ * ScrollSequenceHero.astro
+ * Full-screen scroll-driven image sequence hero.
+ * Renders a canvas controlled by scroll position.
+ * Falls back to a static poster when JS is unavailable or
+ * prefers-reduced-motion is active.
+ */
+---
+<section id="seqScroll" class="seq-scroll" aria-label="Hero animasi IoT">
+  <div class="seq-sticky">
+    <!-- Canvas (purely decorative — text is baked into frames) -->
+    <canvas
+      id="seqCanvas"
+      class="seq-canvas"
+      aria-hidden="true"
+    ></canvas>
+
+    <!-- Reduced-motion / CSS-only poster -->
+    <img
+      src="/sequences/hero/frame-0240.webp"
+      alt=""
+      aria-hidden="true"
+      class="seq-poster seq-poster--reduced"
+      width="1280"
+      height="720"
+      loading="eager"
+    />
+
+    <!-- Loading overlay -->
+    <div id="seqLoader" class="seq-loader">
+      <span class="seq-loader__label">Loading experience</span>
+      <div class="seq-loader__track">
+        <span id="seqLoaderBar" class="seq-loader__bar"></span>
+      </div>
+      <span id="seqLoaderPct" class="seq-loader__pct">0%</span>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div id="seqIndicator" class="seq-indicator" role="presentation">
+      <span class="seq-indicator__text">Scroll to explore</span>
+      <span class="seq-indicator__arrow"></span>
+    </div>
+  </div>
+
+  <!-- No-JS fallback -->
+  <noscript>
+    <style>
+      .seq-scroll { height: auto !important; }
+      .seq-sticky { position: relative !important; }
+      .seq-canvas, .seq-loader, .seq-indicator { display: none !important; }
+    </style>
+    <img
+      src="/sequences/hero/frame-0240.webp"
+      alt="IoT — Membangun Sistem IoT Cerdas yang Terhubung dengan AI & Aplikasi"
+      class="seq-poster seq-poster--noscript"
+      width="1280"
+      height="720"
+      loading="eager"
+    />
+  </noscript>
+</section>
+
+<script>
+  import '@/features/portfolio/client/scroll-sequence';
+</script>

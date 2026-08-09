@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PortfolioChrome from '@/features/portfolio/components/PortfolioChrome.astro';
 import ProjectViewOverlay from '@/features/portfolio/components/ProjectViewOverlay.astro';
+import ScrollSequenceHero from '@/components/hero/ScrollSequenceHero.astro';
 import HeroSection from '@/features/portfolio/components/sections/HeroSection.astro';
 import TechnologySection from '@/features/portfolio/components/sections/TechnologySection.astro';
 import AboutSection from '@/features/portfolio/components/sections/AboutSection.astro';
@@ -14,14 +15,17 @@ import MyToolsSection from '@/features/portfolio/components/sections/MyToolsSect
 import TestimonialSection from '@/features/portfolio/components/sections/TestimonialSection.astro';
 import FaqSection from '@/features/portfolio/components/sections/FaqSection.astro';
 import ContactSection from '@/features/portfolio/components/sections/ContactSection.astro';
+
+const ENABLE_SEQUENCE_HERO = import.meta.env.PUBLIC_ENABLE_SEQUENCE_HERO === 'true';
 ---
 <BaseLayout
   title="Irsyad — IoT, AI & Full-Stack Systems Engineer"
   description="Portofolio Irsyad: sistem IoT, embedded, backend platform, integrasi AI, dan engineering sistem real-time."
 >
   <PortfolioChrome />
+  {ENABLE_SEQUENCE_HERO && <ScrollSequenceHero />}
+  <HeroSection />
   <main id="main">
-    <HeroSection />
     <TechnologySection />
     <AboutSection />
     <CapabilitiesSection />

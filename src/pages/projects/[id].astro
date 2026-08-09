@@ -5,25 +5,27 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ProjectHero from '@/features/projects/components/ProjectHero.astro';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+  const total = projects.length;
   return projects.map((project) => ({
     params: { id: project.id },
-    props: { project },
+    props: { project, total },
   }));
 }
 
 interface Props {
   project: CollectionEntry<'projects'>;
+  total: number;
 }
 
-const { project } = Astro.props;
+const { project, total } = Astro.props;
 const { Content } = await render(project);
 const title = `${project.data.title} — Irsyad`;
 ---
 <BaseLayout title={title} description={project.data.summary} bodyClass="project-route-page">
   <header class="project-route-nav">
     <a href="/" data-astro-reload>← Kembali ke portofolio</a>
-    <span>{String(project.data.order).padStart(2, '0')} / 06</span>
+    <span>{String(project.data.order).padStart(2, '0')} / {String(total).padStart(2, '0')}</span>
   </header>
   <main>
     <section class="project-route-hero">

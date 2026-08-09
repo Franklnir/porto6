@@ -46,7 +46,7 @@
 
     if (reduced.matches) return;
     const fromY = direction === 'down' ? 28 : -18;
-    handoffAnimation = card.animate([
+    const animation = card.animate([
       {opacity:0,transform:`translateY(${fromY}px) scale(.985)`,clipPath:'inset(10% 0 10% 0 round 2px)',filter:'blur(5px)'},
       {opacity:1,transform:'translateY(0) scale(1)',clipPath:'inset(0 0 0 0 round 0)',filter:'blur(0)'}
     ],{
@@ -54,12 +54,19 @@
       easing:'cubic-bezier(.16,1,.3,1)',
       fill:'both'
     });
-    handoffAnimation.finished.finally(()=>{
-      if (!handoffAnimation) return;
-      handoffAnimation = null;
-      card.classList.remove('profile-card--safe-handoff');
-      ['opacity','transform','clip-path','filter'].forEach(prop=>card.style.removeProperty(prop));
-    });
+    handoffAnimation = animation;
+    void animation.finished.then(
+      () => {
+        if (handoffAnimation !== animation) return;
+        handoffAnimation = null;
+        card.classList.remove('profile-card--safe-handoff');
+        ['opacity','transform','clip-path','filter'].forEach(prop=>card.style.removeProperty(prop));
+      },
+      error => {
+        if (error instanceof DOMException && error.name === 'AbortError') return;
+        console.error('Profile handoff animation failed',error);
+      }
+    );
   };
 
   const measure = () => {

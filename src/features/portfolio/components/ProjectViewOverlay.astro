@@ -1,6 +1,13 @@
 ---
+import { getCollection } from 'astro:content';
 import RawFragment from '@/components/primitives/RawFragment.astro';
 import { renderLegacyMarkup } from '../lib/renderLegacyMarkup';
 import markup from '../fragments/overlays/project-view.html?raw';
+
+const projectCatalog = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((project) => ({ id: project.id, ...project.data }));
+const serializedCatalog = JSON.stringify(projectCatalog).replaceAll('<', '\\u003c');
 ---
 <RawFragment html={renderLegacyMarkup(markup)} />
+<script is:inline id="projectCatalog" type="application/json" set:html={serializedCatalog}></script>

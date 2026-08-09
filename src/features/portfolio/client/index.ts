@@ -4,7 +4,7 @@
  */
 import './legacy/01-core-ui';
 import './legacy/02-motion-system';
-import './legacy/03-dark-curtain';
+import './legacy/03-dark-section-cover';
 import './legacy/04-capability-lookbook';
 import './legacy/05-shared-profile';
 import './legacy/06-project-details';

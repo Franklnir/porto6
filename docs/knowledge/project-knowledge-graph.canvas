@@ -1,0 +1,342 @@
+{
+  "nodes": [
+    {
+      "id": "agent-index",
+      "type": "file",
+      "file": "docs/knowledge/00-agent-index.md",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "project-map",
+      "type": "file",
+      "file": "docs/knowledge/01-project-map.md",
+      "x": 430,
+      "y": 60,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "knowledge-graph",
+      "type": "file",
+      "file": "docs/knowledge/02-knowledge-graph.md",
+      "x": 0,
+      "y": 300,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "maintenance",
+      "type": "file",
+      "file": "docs/knowledge/03-maintenance.md",
+      "x": 0,
+      "y": 580,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "generated-snapshot",
+      "type": "file",
+      "file": "docs/knowledge/generated/project-snapshot.md",
+      "x": 430,
+      "y": -220,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "astro-shell",
+      "type": "file",
+      "file": "docs/knowledge/nodes/astro-shell.md",
+      "x": 860,
+      "y": -380,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "portfolio-homepage",
+      "type": "file",
+      "file": "docs/knowledge/nodes/portfolio-homepage.md",
+      "x": 860,
+      "y": -100,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "portfolio-chrome",
+      "type": "file",
+      "file": "docs/knowledge/nodes/portfolio-chrome.md",
+      "x": 1290,
+      "y": 40,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "legacy-fragments",
+      "type": "file",
+      "file": "docs/knowledge/nodes/legacy-fragments.md",
+      "x": 1290,
+      "y": 320,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "motion-system",
+      "type": "file",
+      "file": "docs/knowledge/nodes/motion-system.md",
+      "x": 1720,
+      "y": 40,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "scroll-sequence-hero",
+      "type": "file",
+      "file": "docs/knowledge/nodes/scroll-sequence-hero.md",
+      "x": 1720,
+      "y": 320,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "project-content",
+      "type": "file",
+      "file": "docs/knowledge/nodes/project-content.md",
+      "x": 860,
+      "y": 180,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "project-pages",
+      "type": "file",
+      "file": "docs/knowledge/nodes/project-pages.md",
+      "x": 1290,
+      "y": 600,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "styling-system",
+      "type": "file",
+      "file": "docs/knowledge/nodes/styling-system.md",
+      "x": 1290,
+      "y": -240,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "seo-routing",
+      "type": "file",
+      "file": "docs/knowledge/nodes/seo-routing.md",
+      "x": 1290,
+      "y": -520,
+      "width": 360,
+      "height": 220
+    },
+    {
+      "id": "quality-deployment",
+      "type": "file",
+      "file": "docs/knowledge/nodes/quality-deployment.md",
+      "x": 860,
+      "y": 460,
+      "width": 360,
+      "height": 220
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-01",
+      "fromNode": "agent-index",
+      "fromSide": "right",
+      "toNode": "generated-snapshot",
+      "toSide": "left",
+      "label": "read-first"
+    },
+    {
+      "id": "edge-02",
+      "fromNode": "agent-index",
+      "fromSide": "right",
+      "toNode": "project-map",
+      "toSide": "left",
+      "label": "routes-to"
+    },
+    {
+      "id": "edge-03",
+      "fromNode": "agent-index",
+      "fromSide": "right",
+      "toNode": "knowledge-graph",
+      "toSide": "left",
+      "label": "visualizes"
+    },
+    {
+      "id": "edge-04",
+      "fromNode": "agent-index",
+      "fromSide": "right",
+      "toNode": "maintenance",
+      "toSide": "left",
+      "label": "updates-through"
+    },
+    {
+      "id": "edge-05",
+      "fromNode": "project-map",
+      "fromSide": "right",
+      "toNode": "astro-shell",
+      "toSide": "left",
+      "label": "contains"
+    },
+    {
+      "id": "edge-06",
+      "fromNode": "project-map",
+      "fromSide": "right",
+      "toNode": "portfolio-homepage",
+      "toSide": "left",
+      "label": "contains"
+    },
+    {
+      "id": "edge-07",
+      "fromNode": "project-map",
+      "fromSide": "right",
+      "toNode": "project-content",
+      "toSide": "left",
+      "label": "contains"
+    },
+    {
+      "id": "edge-08",
+      "fromNode": "project-map",
+      "fromSide": "right",
+      "toNode": "quality-deployment",
+      "toSide": "left",
+      "label": "contains"
+    },
+    {
+      "id": "edge-09",
+      "fromNode": "portfolio-homepage",
+      "fromSide": "right",
+      "toNode": "portfolio-chrome",
+      "toSide": "left",
+      "label": "renders"
+    },
+    {
+      "id": "edge-10",
+      "fromNode": "portfolio-homepage",
+      "fromSide": "right",
+      "toNode": "legacy-fragments",
+      "toSide": "left",
+      "label": "renders"
+    },
+    {
+      "id": "edge-11",
+      "fromNode": "portfolio-homepage",
+      "fromSide": "right",
+      "toNode": "motion-system",
+      "toSide": "left",
+      "label": "loads"
+    },
+    {
+      "id": "edge-12",
+      "fromNode": "portfolio-homepage",
+      "fromSide": "right",
+      "toNode": "scroll-sequence-hero",
+      "toSide": "left",
+      "label": "optionally-renders"
+    },
+    {
+      "id": "edge-13",
+      "fromNode": "portfolio-homepage",
+      "fromSide": "right",
+      "toNode": "project-pages",
+      "toSide": "left",
+      "label": "links-to"
+    },
+    {
+      "id": "edge-14",
+      "fromNode": "astro-shell",
+      "fromSide": "right",
+      "toNode": "seo-routing",
+      "toSide": "left",
+      "label": "feeds"
+    },
+    {
+      "id": "edge-15",
+      "fromNode": "astro-shell",
+      "fromSide": "right",
+      "toNode": "styling-system",
+      "toSide": "left",
+      "label": "imports"
+    },
+    {
+      "id": "edge-16",
+      "fromNode": "legacy-fragments",
+      "fromSide": "right",
+      "toNode": "styling-system",
+      "toSide": "left",
+      "label": "depends-on"
+    },
+    {
+      "id": "edge-17",
+      "fromNode": "motion-system",
+      "fromSide": "right",
+      "toNode": "styling-system",
+      "toSide": "left",
+      "label": "coordinates-with"
+    },
+    {
+      "id": "edge-18",
+      "fromNode": "scroll-sequence-hero",
+      "fromSide": "right",
+      "toNode": "motion-system",
+      "toSide": "left",
+      "label": "parallel-motion"
+    },
+    {
+      "id": "edge-19",
+      "fromNode": "scroll-sequence-hero",
+      "fromSide": "right",
+      "toNode": "styling-system",
+      "toSide": "left",
+      "label": "depends-on"
+    },
+    {
+      "id": "edge-20",
+      "fromNode": "project-content",
+      "fromSide": "right",
+      "toNode": "project-pages",
+      "toSide": "left",
+      "label": "feeds"
+    },
+    {
+      "id": "edge-21",
+      "fromNode": "project-content",
+      "fromSide": "right",
+      "toNode": "seo-routing",
+      "toSide": "left",
+      "label": "feeds"
+    },
+    {
+      "id": "edge-22",
+      "fromNode": "quality-deployment",
+      "fromSide": "right",
+      "toNode": "astro-shell",
+      "toSide": "left",
+      "label": "verifies"
+    },
+    {
+      "id": "edge-23",
+      "fromNode": "quality-deployment",
+      "fromSide": "right",
+      "toNode": "motion-system",
+      "toSide": "left",
+      "label": "verifies"
+    },
+    {
+      "id": "edge-24",
+      "fromNode": "quality-deployment",
+      "fromSide": "right",
+      "toNode": "project-content",
+      "toSide": "left",
+      "label": "validates"
+    }
+  ]
+}

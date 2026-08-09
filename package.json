@@ -7,6 +7,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "predev": "npm run assets:projects",
+    "prebuild": "npm run assets:projects",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -18,10 +20,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "test:e2e:serve": "npm run build && node scripts/serve-preview.mjs dist 4325",
     "test:e2e:install": "playwright install chromium",
     "quality": "npm run check && npm run lint && npm run test && npm run build",
     "audit:deadcode": "knip",
     "lighthouse": "lhci autorun",
+    "knowledge:graph": "node scripts/graphify-knowledge.mjs",
+    "assets:projects": "node scripts/build-xiaozhi-gallery.mjs",
     "verify:structure": "node scripts/verify-project.mjs",
     "deploy:cloudflare": "npm run build && wrangler deploy",
     "doctor": "node scripts/doctor.mjs",
@@ -35,19 +40,21 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@eslint/js": "^9.32.0",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.54.0",
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.38.0",
     "eslint": "^9.32.0",
     "eslint-plugin-astro": "^1.3.1",
+    "globals": "^17.9.0",
     "knip": "^5.62.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
+    "sharp": "^0.35.3",
     "typescript": "^5.9.0",
+    "typescript-eslint": "^8.38.0",
     "vitest": "^3.2.4",
-    "wrangler": "^4.26.0",
-    "@eslint/js": "^9.32.0",
-    "typescript-eslint": "^8.38.0"
+    "wrangler": "^4.26.0"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "frameCount": 240,
+  "pattern": "/sequences/hero/frame-%04d.webp",
+  "width": 1920,
+  "height": 1080,
+  "format": "webp",
+  "quality": 82
+}

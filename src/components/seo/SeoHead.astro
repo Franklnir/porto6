@@ -2,11 +2,11 @@
 import { siteConfig } from '@/config/site';
 
 interface Props {
-  title?: string;
-  description?: string;
-  canonical?: string;
-  image?: string;
-  type?: 'website' | 'article';
+  title?: string | undefined;
+  description?: string | undefined;
+  canonical?: string | undefined;
+  image?: string | undefined;
+  type?: 'website' | 'article' | undefined;
 }
 
 const {
@@ -38,4 +38,4 @@ const jsonLd = {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={image} />
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>

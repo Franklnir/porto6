@@ -14,8 +14,45 @@ const required = [
 const missing = required.filter((file) => !existsSync(file));
 if (missing.length) throw new Error(`Missing required files: ${missing.join(', ')}`);
 
+const expectedSectionComponents = [
+  'AboutSection.astro',
+  'CapabilitiesSection.astro',
+  'ContactSection.astro',
+  'ExperienceSection.astro',
+  'FaqSection.astro',
+  'FeaturedProjectSection.astro',
+  'HeroSection.astro',
+  'MyToolsSection.astro',
+  'ProcessEngineeringSection.astro',
+  'ProjectPortfolioSection.astro',
+  'TechnologySection.astro',
+  'TestimonialSection.astro',
+];
+
+const expectedSectionFragments = [
+  'about.html',
+  'capabilities.html',
+  'contact.html',
+  'experience.html',
+  'faq.html',
+  'featured-project.html',
+  'my-tools.html',
+  'process-engineering.html',
+  'technology.html',
+  'testimonial.html',
+];
+
+const sectionComponents = readdirSync('src/features/portfolio/components/sections').filter((name) => name.endsWith('.astro'));
+const missingComponents = expectedSectionComponents.filter((name) => !sectionComponents.includes(name));
+if (missingComponents.length) throw new Error(`Missing section components: ${missingComponents.join(', ')}`);
+const unexpectedComponents = sectionComponents.filter((name) => !expectedSectionComponents.includes(name));
+if (unexpectedComponents.length) throw new Error(`Unexpected section components: ${unexpectedComponents.join(', ')}`);
+
 const fragments = readdirSync('src/features/portfolio/fragments/sections').filter((name) => name.endsWith('.html'));
-if (fragments.length !== 12) throw new Error(`Expected 12 section fragments, found ${fragments.length}`);
+const missingFragments = expectedSectionFragments.filter((name) => !fragments.includes(name));
+if (missingFragments.length) throw new Error(`Missing section fragments: ${missingFragments.join(', ')}`);
+const unexpectedFragments = fragments.filter((name) => !expectedSectionFragments.includes(name));
+if (unexpectedFragments.length) throw new Error(`Unexpected section fragments: ${unexpectedFragments.join(', ')}`);
 
 const mediaManifest = JSON.parse(readFileSync('public/assets/media/manifest.json', 'utf8'));
 if (!Array.isArray(mediaManifest) || mediaManifest.length === 0) throw new Error('No externalized media assets found');
@@ -26,4 +63,22 @@ for (const file of fragments) {
   if (content.includes('<script')) throw new Error(`Inline script remains in ${file}`);
 }
 
-console.log(`Structure OK: ${fragments.length} sections, ${mediaManifest.length} externalized media assets.`);
+const projectPortfolioComponent = readFileSync(
+  'src/features/portfolio/components/sections/ProjectPortfolioSection.astro',
+  'utf8',
+);
+if (projectPortfolioComponent.includes('?raw') || projectPortfolioComponent.includes('RawFragment')) {
+  throw new Error('ProjectPortfolioSection must remain a native Astro component');
+}
+
+const projectOverlayComponent = readFileSync(
+  'src/features/portfolio/components/ProjectViewOverlay.astro',
+  'utf8',
+);
+if (!projectOverlayComponent.includes('projectCatalog')) {
+  throw new Error('Project overlay is missing the serialized project catalog');
+}
+
+console.log(
+  `Structure OK: ${sectionComponents.length} section components, ${fragments.length} raw section fragments, ${mediaManifest.length} externalized media assets.`,
+);

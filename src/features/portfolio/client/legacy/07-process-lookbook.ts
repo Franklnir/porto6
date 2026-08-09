@@ -98,7 +98,7 @@
 
   setupCompact();
   render();
-  addEventListener('scroll',queue,{passive:true});
+  addEventListener('scroll',()=>{if(desktop.matches&&!reduce.matches)queue()},{passive:true});
   addEventListener('resize',()=>{setupCompact();queue()},{passive:true});
   reduce.addEventListener?.('change',()=>{setupCompact();queue()});
   desktop.addEventListener?.('change',()=>{setupCompact();queue()});

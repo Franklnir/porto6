@@ -1,6 +1,88 @@
 ---
-import RawFragment from '@/components/primitives/RawFragment.astro';
-import { renderLegacyMarkup } from '../../lib/renderLegacyMarkup';
-import markup from '../../fragments/sections/project-portfolio.html?raw';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const total = projects.length;
+const totalLabel = String(total).padStart(2, '0');
 ---
-<RawFragment html={renderLegacyMarkup(markup)} />
+<section aria-labelledby="projectsTitle" class="section projects project-details-section" id="projects">
+  <div class="portfolio-detail-scroll" id="projectDetailsScroll">
+    <div class="portfolio-detail-sticky">
+      <header class="portfolio-detail-header">
+        <div class="portfolio-detail-heading">
+          <p class="section-kicker">10 — The details</p>
+          <h2 id="projectsTitle">Project portfolio sebagai rangkaian detail sistem.</h2>
+        </div>
+        <div aria-hidden="true" class="portfolio-detail-meta">
+          <span>SCROLL TO EXPLORE</span>
+          <strong><span id="projectDetailsCurrent">01</span> / {totalLabel}</strong>
+        </div>
+      </header>
+      <div aria-label="Project portfolio horizontal" class="portfolio-detail-viewport" id="projectDetailsViewport">
+        <div class="portfolio-detail-edge portfolio-detail-edge--left"></div>
+        <div class="portfolio-detail-edge portfolio-detail-edge--right"></div>
+        <div class="portfolio-detail-track" id="projectDetailsTrack">
+          {projects.map((project, index) => {
+            const itemLabel = String(index + 1).padStart(2, '0');
+            const presentation = project.data.presentation;
+
+            return (
+              <Fragment>
+                <article
+                  class:list={[
+                    'portfolio-detail-card',
+                    'portfolio-detail-card--visual',
+                    `portfolio-detail-card--${presentation.cardSize}`,
+                  ]}
+                  data-project-detail={project.data.key}
+                >
+                  <div class="portfolio-detail-media">
+                    <div
+                      aria-hidden="true"
+                      class:list={['project-art', 'portfolio-detail-art', presentation.cardArtClass]}
+                    ></div>
+                    <div class="portfolio-detail-card-top">
+                      <span>{itemLabel} / {totalLabel}</span>
+                      <span>{presentation.kicker}</span>
+                    </div>
+                  </div>
+                  <div class="portfolio-detail-info">
+                    <p class="portfolio-detail-category">{presentation.category}</p>
+                    <h3>{project.data.title}</h3>
+                    <button
+                      aria-label={`View ${project.data.title}`}
+                      class="portfolio-detail-text-link"
+                      data-project={project.data.key}
+                      type="button"
+                    >
+                      <span>View Project</span><span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </article>
+
+                {index === 0 && (
+                  <article
+                    aria-label="Project portfolio summary"
+                    class="portfolio-detail-card portfolio-detail-card--statement portfolio-detail-card--medium"
+                  >
+                    <div class="portfolio-statement-media">
+                      <div class="statement-top"><span>SELECTED SYSTEMS</span><span>{totalLabel} / {totalLabel}</span></div>
+                      <div class="statement-title">SYSTEMS</div>
+                    </div>
+                    <div class="portfolio-statement-info">
+                      <p class="portfolio-detail-category">Engineering Portfolio</p>
+                      <h3>Enam studi kasus sistem terapan</h3>
+                      <p>IoT, platform operasional, layanan AI, computer vision, dan digitalisasi layanan publik.</p>
+                      <div class="statement-foot"><span>DESIGNED TO BE TESTED</span><span>2024—2026</span></div>
+                    </div>
+                  </article>
+                )}
+              </Fragment>
+            );
+          })}
+        </div>
+      </div>
+      <div aria-hidden="true" class="portfolio-detail-progress"><span id="projectDetailsProgress"></span></div>
+    </div>
+  </div>
+</section>

@@ -132,14 +132,16 @@
       if(y>180&&delta>7)header.classList.add('nav-hidden');
       if(delta<-5||y<100)header.classList.remove('nav-hidden');
     }
-    depthItems.forEach((el,index)=>{
-      const rect=el.getBoundingClientRect();
-      if(rect.bottom<0||rect.top>innerHeight)return;
-      const center=rect.top+rect.height/2-innerHeight/2;
-      const speed=index<6?.026:.04;
-      const amount=clamp(-center*speed,-20,20);
-      el.style.translate=`0 ${amount.toFixed(2)}px`;
-    });
+    if(fine){
+      depthItems.forEach((el,index)=>{
+        const rect=el.getBoundingClientRect();
+        if(rect.bottom<0||rect.top>innerHeight)return;
+        const center=rect.top+rect.height/2-innerHeight/2;
+        const speed=index<6?.026:.04;
+        const amount=clamp(-center*speed,-20,20);
+        el.style.translate=`0 ${amount.toFixed(2)}px`;
+      });
+    }
     lastScroll=y;
     ticking=false;
   };
@@ -230,10 +232,17 @@
     const featuredProgress=d.getElementById('featuredProgress');
     const featuredCurrent=d.getElementById('featuredCurrent');
     const featuredMobileGallery=featuredSection.querySelector('.featured-mobile-gallery');
+    const featuredMobileTrack=featuredSection.querySelector('.featured-mobile-gallery-track');
     const featuredMobileProgress=featuredSection.querySelector('.featured-mobile-gallery-progress i');
+    const featuredMobileCurrent=featuredSection.querySelector('[data-featured-mobile-current]');
+    const featuredMobileScrub=matchMedia('(max-width:820px) and (min-height:560px)');
     let featuredTicking=false;
+    let featuredStatic=false;
+    let featuredMobileScrubActive=false;
 
     const setFeaturedStatic=()=>{
+      if(featuredStatic)return;
+      featuredStatic=true;
       featuredFrames.forEach((frame,index)=>{
         frame.style.transform=index===0?'none':'translateY(108%) rotate(3.2deg) scale(.955)';
         frame.style.clipPath=index===0?'inset(0)':'inset(100% 0 0 0)';
@@ -245,7 +254,32 @@
 
     const renderFeatured=()=>{
       featuredTicking=false;
+      const mobileScrubEnabled=!reduced&&featuredMobileScrub.matches&&featuredMobileGallery&&featuredMobileTrack;
+      featuredSection.classList.toggle('featured-mobile-scrub',!!mobileScrubEnabled);
+
+      if(mobileScrubEnabled){
+        featuredMobileScrubActive=true;
+        setFeaturedStatic();
+        const horizontal=Math.max(0,featuredMobileGallery.scrollWidth-featuredMobileGallery.clientWidth);
+        const scrollDistance=Math.max(innerHeight*.9,horizontal*.72);
+        const desiredHeight=innerHeight+scrollDistance;
+        if(Math.abs(featuredSection.offsetHeight-desiredHeight)>2)featuredSection.style.height=`${desiredHeight}px`;
+        const total=Math.max(1,featuredSection.offsetHeight-innerHeight);
+        const progress=clamp(-featuredSection.getBoundingClientRect().top/total,0,1);
+        const x=horizontal*progress;
+        featuredMobileTrack.style.transform=`translate3d(${-x}px,0,0)`;
+        if(featuredMobileProgress)featuredMobileProgress.style.transform=`scaleX(${Math.max(.08,progress).toFixed(4)})`;
+        if(featuredMobileCurrent)featuredMobileCurrent.textContent=String(Math.min(6,Math.round(progress*5)+1)).padStart(2,'0');
+        return;
+      }
+
+      if(featuredMobileScrubActive){
+        featuredMobileScrubActive=false;
+        featuredSection.style.removeProperty('height');
+        featuredMobileTrack?.style.removeProperty('transform');
+      }
       if(reduced||innerWidth<=820){setFeaturedStatic();return}
+      featuredStatic=false;
       const rect=featuredSection.getBoundingClientRect();
       const travel=Math.max(1,featuredSection.offsetHeight-innerHeight);
       const progress=clamp(-rect.top/travel,0,1);
@@ -281,7 +315,9 @@
     if(featuredMobileGallery&&featuredMobileProgress){
       const updateMobileFeatured=()=>{
         const max=Math.max(1,featuredMobileGallery.scrollWidth-featuredMobileGallery.clientWidth);
-        featuredMobileProgress.style.transform=`scaleX(${Math.max(.08,featuredMobileGallery.scrollLeft/max).toFixed(4)})`;
+        const progress=featuredMobileGallery.scrollLeft/max;
+        featuredMobileProgress.style.transform=`scaleX(${Math.max(.08,progress).toFixed(4)})`;
+        if(featuredMobileCurrent)featuredMobileCurrent.textContent=String(Math.min(6,Math.round(progress*5)+1)).padStart(2,'0');
       };
       featuredMobileGallery.addEventListener('scroll',updateMobileFeatured,{passive:true});
       updateMobileFeatured();

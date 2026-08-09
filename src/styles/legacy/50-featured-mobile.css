@@ -11,7 +11,8 @@
     padding:8px 8vw 30px;
     overflow-x:auto;
     overflow-y:visible;
-    scroll-snap-type:x mandatory;
+    scroll-snap-type:x proximity;
+    scroll-behavior:smooth;
     scroll-padding-inline:8vw;
     overscroll-behavior-inline:contain;
     -webkit-overflow-scrolling:touch;
@@ -24,7 +25,7 @@
     flex:0 0 min(82vw,360px);
     min-width:0;
     scroll-snap-align:center;
-    scroll-snap-stop:always;
+    scroll-snap-stop:normal;
     border:1px solid rgba(255,255,255,.12);
     box-shadow:0 22px 55px rgba(16,16,16,.16);
     transform-origin:50% 92%;

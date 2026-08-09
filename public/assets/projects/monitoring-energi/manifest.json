@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "src": "/assets/projects/monitoring-energi/01-monitoring-listrik.png",
+      "alt": "Monitoring Listrik - 01 monitoring listrik"
+    },
+    {
+      "src": "/assets/projects/monitoring-energi/02-monitoring-listrik.png",
+      "alt": "Monitoring Listrik - 02 monitoring listrik"
+    },
+    {
+      "src": "/assets/projects/monitoring-energi/03-monitoring-listrik.png",
+      "alt": "Monitoring Listrik - 03 monitoring listrik"
+    },
+    {
+      "src": "/assets/projects/monitoring-energi/04-monitoring-listrik.png",
+      "alt": "Monitoring Listrik - 04 monitoring listrik"
+    }
+  ]
+}

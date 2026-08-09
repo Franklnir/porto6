@@ -12,13 +12,16 @@
   addEventListener('load',()=>requestAnimationFrame(()=>body.classList.add('page-ready')),{once:true});
   if(d.readyState==='complete') body.classList.add('page-ready');
 
+  let coreScrollFrame=0;
   const onScroll=()=>{
+    coreScrollFrame=0;
     const max=d.documentElement.scrollHeight-innerHeight;
     const ratio=max>0?scrollY/max:0;
     progress.style.transform=`scaleX(${ratio})`;
     header.classList.toggle('scrolled',scrollY>18);
   };
-  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+  const queueCoreScroll=()=>{if(!coreScrollFrame)coreScrollFrame=requestAnimationFrame(onScroll)};
+  onScroll(); addEventListener('scroll',queueCoreScroll,{passive:true});
 
   const menuBtn=d.getElementById('menuBtn');
   const mobileMenu=d.getElementById('mobileMenu');
@@ -80,29 +83,55 @@
     item.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));
   }));
 
-  const projects={
-    school:{kicker:'FULL-STACK · EDUCATION · RFID',title:'Platform Operasi Akademik Terintegrasi',summary:'Platform modular yang menyatukan banyak proses akademik dan perangkat RFID ke dalam satu alur.',problem:'Presensi, tugas, quiz, data siswa, laporan, dan perangkat RFID mudah membentuk silo. Operator berpindah konteks, data sulit dilacak, dan error tidak memiliki jejak konsisten.',approach:'Laravel 13 digunakan sebagai API domain, Next.js sebagai frontend, PostgreSQL sebagai sumber data relasional, Redis untuk cache dan runtime, serta MQTT untuk event perangkat RFID.',arch:['RFID / Web Client','MQTT / HTTPS','Laravel 13 API','Queue & Redis','PostgreSQL','Next.js Dashboard','Observability'],decisions:['Arsitektur modular menjaga domain akademik tetap terpisah tetapi konsisten.','Typed API client mengurangi drift kontrak frontend-backend.','X-Request-ID, Problem Details, idempotency, dan tenant scope memudahkan keamanan serta debugging.'],limits:'Platform masih berkembang. Klaim skala produksi belum ditampilkan sebelum ada runtime benchmark yang dapat diverifikasi.',next:'Menyelesaikan E2E runtime, load test, security regression, observability dashboard, dan OpenAPI penuh.'},
-    cog:{kicker:'VOICE AI · MCP · EMBEDDED',title:'COG AI — Asisten Suara Modular',summary:'Eksperimen asisten suara berbasis perangkat yang terhubung ke model AI dan tool eksternal.',problem:'Voice assistant tertutup sulit dihubungkan dengan workflow atau tool buatan sendiri.',approach:'ESP32 menangani perangkat dan input dasar, sedangkan FastAPI menjadi jembatan ke model AI serta MCP server.',arch:['Microphone / Input','ESP32 Device','Network Gateway','FastAPI Service','AI Model','MCP Tools','Audio / Action Output'],decisions:['FastAPI efektif untuk layanan AI asynchronous.','MCP memisahkan model dari tool agar kapabilitas dapat diperluas.','Perangkat dan layanan AI dipisah supaya keterbatasan embedded tidak menjadi bottleneck utama.'],limits:'Masih berupa prototype. Latensi, privasi audio, fallback offline, dan keamanan tool perlu pengujian.',next:'Menambahkan autentikasi perangkat, permission per tool, streaming audio stabil, dan observability.'},
-    energy:{kicker:'IOT · ENERGY · AUTOMATION',title:'Monitoring & Otomasi Energi',summary:'Sistem untuk memberi visibilitas konsumsi listrik dan mengendalikan beban berdasarkan aturan.',problem:'Pengguna sering baru mengetahui konsumsi setelah tagihan diterima dan tidak memiliki kontrol otomatis berbasis kondisi.',approach:'Sensor energi mengirim telemetry melalui ESP32, disimpan untuk histori, lalu aturan jadwal atau fuzzy logic dapat memicu relay.',arch:['PZEM / Sensor','ESP32','MQTT / Firebase','Monitoring API','Database','Rule / Fuzzy Logic','Relay / Load'],decisions:['Komunikasi real-time menghindari polling agresif.','Kontrol relay dipisahkan dari dashboard.','Fuzzy logic digunakan saat keputusan tidak cukup direpresentasikan oleh kondisi biner.'],limits:'Instalasi tegangan tinggi memerlukan proteksi dan review keselamatan oleh pihak berkualifikasi.',next:'Menguji akurasi sensor, fail-safe relay, local broker, audit event, dan mode offline.'},
-    library:{kicker:'PUBLIC SERVICE · INTERNSHIP',title:'Digitalisasi Layanan Perpustakaan',summary:'Digitalisasi registrasi pengunjung dan peminjaman untuk mengurangi ketergantungan pada pencatatan manual.',problem:'Alur pengunjung, peminjaman, dan rekap masih manual atau terpisah sehingga penelusuran menjadi lambat.',approach:'Menyusun alur terintegrasi untuk registrasi, peminjaman, data anggota, dan administrasi perpustakaan.',arch:['Pengunjung / Petugas','Form Registrasi','Aplikasi Layanan','Database Anggota','Integrasi SLiMS','Rekap / Laporan'],decisions:['Alur mengikuti proses petugas agar digitalisasi tidak menambah beban.','Validasi ditempatkan dekat input untuk mengurangi koreksi.','Integrasi diprioritaskan dibanding membuat sumber data kedua.'],limits:'Detail integrasi harus menyesuaikan otorisasi dan kebijakan data instansi.',next:'Melengkapi audit trail, usability testing, backup, dan dokumentasi operasional.'},
-    cctv:{kicker:'COMPUTER VISION · REAL-TIME',title:'Smart CCTV Tracker',summary:'Eksplorasi pipeline kamera, tracking, dan notifikasi untuk membuat pemantauan lebih aktif.',problem:'CCTV tradisional lebih banyak berfungsi sebagai rekaman pasif.',approach:'Sumber video mengirim stream ke server pemrosesan. Computer vision melakukan deteksi atau tracking, lalu event tertentu menghasilkan notifikasi.',arch:['ESP32-CAM','Streaming Server','Vision Pipeline','Object Tracking','Event Rules','Notification','Operator Review'],decisions:['Pemrosesan dipindahkan ke server karena perangkat kamera terbatas.','Tracking mengikuti objek, bukan menyimpulkan niat atau identitas.','Notifikasi tetap memerlukan verifikasi manusia.'],limits:'Akurasi dipengaruhi pencahayaan, sudut, occlusion, jaringan, dan dataset.',next:'Menguji false positive, privacy masking, threshold, dan dashboard review manusia.'},
-    weather:{kicker:'IOT · WEATHER API · ANALYTICS',title:'Monitoring & Prediksi Cuaca IoT',summary:'Platform yang menggabungkan sensor lokal dan data cuaca eksternal untuk monitoring serta analitik.',problem:'Data lingkungan tersebar antara sensor lokal dan layanan cuaca online.',approach:'Sensor mengirim data melalui ESP32 ke API, lalu platform menggabungkan telemetry dengan weather API dan histori.',arch:['Environmental Sensors','ESP32','Monitoring API','Weather API','PostgreSQL','Analytics','Dashboard'],decisions:['Sensor lokal mempertahankan konteks lokasi.','Database relasional cukup untuk fase awal time-series.','Model prediksi baru dipilih setelah kualitas data dan target jelas.'],limits:'Akurasi ML belum diklaim karena memerlukan dataset, baseline, dan evaluasi.',next:'Menentukan target prediksi, data quality checks, baseline statistik, dan visualisasi uncertainty.'}
-  };
+  const projectCatalogNode=d.getElementById('projectCatalog');
+  let projectEntries=[];
+  try{projectEntries=JSON.parse(projectCatalogNode?.textContent||'[]')}
+  catch(error){console.error('Project catalog could not be parsed.',error)}
+
+  const projects=Object.fromEntries(projectEntries.map(project=>[
+    project.key,
+    {
+      kicker:project.presentation.kicker,
+      title:project.title,
+      repo:project.repository,
+      summary:project.overview,
+      problem:project.caseStudy.problem,
+      approach:project.caseStudy.approach,
+      arch:project.caseStudy.architecture,
+      decisions:project.caseStudy.decisions,
+      limits:project.caseStudy.limitations,
+      next:project.caseStudy.nextIteration
+    }
+  ]));
 
   const projectView=d.getElementById('projectView');
   const casePage=d.getElementById('casePage');
   const caseContent=d.getElementById('caseContent');
   const curtain=d.getElementById('projectCurtain');
   const siteMain=d.querySelector('body > main');
-  const projectOrder=['school','cog','energy','library','cctv','weather'];
-  const projectMeta={
-    school:{role:'System Architect & Full-Stack Engineer',timeline:'2026 — Ongoing',status:'Developed / Evolving',art:'art-school'},
-    cog:{role:'AI & Embedded Engineer',timeline:'2026 — Prototype',status:'Prototype / Integrated',art:'art-cog'},
-    energy:{role:'IoT Systems Engineer',timeline:'2025 — Prototype',status:'Designed / Prototype',art:'art-energy'},
-    library:{role:'System Analyst & Developer',timeline:'Internship Project',status:'Internship / Developed',art:'art-library'},
-    cctv:{role:'Computer Vision Engineer',timeline:'2025 — Exploration',status:'Explored / Prototype',art:'art-cctv'},
-    weather:{role:'IoT & Data Engineer',timeline:'2025 — Developed',status:'Developed / Explored',art:'art-weather'}
-  };
+  const projectOrder=projectEntries.map(project=>project.key);
+  const projectMeta=Object.fromEntries(projectEntries.map(project=>[
+    project.key,
+    {
+      role:project.presentation.role,
+      timeline:project.presentation.timeline,
+      status:project.presentation.projectStatus,
+      art:project.presentation.caseArtClass
+    }
+  ]));
+  const projectGallery=Object.fromEntries(projectEntries.map(project=>[
+    project.key,
+    project.gallery.labels
+  ]));
+  const projectMedia=Object.fromEntries(projectEntries.map(project=>[
+    project.key,
+    {
+      manifest:project.gallery.manifest,
+      title:project.gallery.title||project.title,
+      featured:project.featured,
+      featuredImages:project.gallery.featuredImages||[]
+    }
+  ]));
   let lastFocus=null;
   let activeProject=null;
   let projectBusy=false;
@@ -134,9 +163,81 @@
     elements.forEach(el=>caseObserver.observe(el));
   };
 
+  const initCaseGallery=()=>{
+    const gallery=caseContent.querySelector('[data-case-gallery]');
+    if(!gallery)return;
+    const track=gallery.querySelector('.case-gallery-track');
+    const slides=[...gallery.querySelectorAll('.case-gallery-slide')];
+    const current=gallery.querySelector('[data-case-gallery-current]');
+    const buttons=[...gallery.querySelectorAll('[data-case-gallery-go]')];
+    let active=0;
+    const render=index=>{
+      active=(index+slides.length)%slides.length;
+      track.style.transform=`translateX(-${active*100}%)`;
+      current.textContent=String(active+1).padStart(2,'0');
+      buttons.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===active)));
+    };
+    gallery.querySelector('[data-case-gallery-prev]').addEventListener('click',()=>render(active-1));
+    gallery.querySelector('[data-case-gallery-next]').addEventListener('click',()=>render(active+1));
+    buttons.forEach((button,index)=>button.addEventListener('click',()=>render(index)));
+    gallery.addEventListener('keydown',event=>{
+      if(event.key==='ArrowLeft'){event.preventDefault();render(active-1)}
+      if(event.key==='ArrowRight'){event.preventDefault();render(active+1)}
+    });
+    let pointerStart=null;
+    gallery.addEventListener('pointerdown',event=>{pointerStart=event.clientX});
+    gallery.addEventListener('pointerup',event=>{
+      if(pointerStart===null)return;
+      const distance=event.clientX-pointerStart;
+      pointerStart=null;
+      if(Math.abs(distance)>42)render(active+(distance<0?1:-1));
+    });
+    gallery.addEventListener('pointercancel',()=>{pointerStart=null});
+    render(0);
+  };
+
+  const renderProjectPhotoGallery=(key,title,items)=>{
+    if(activeProject!==key||!items.length)return;
+    const gallery=caseContent.querySelector('[data-case-gallery]');
+    if(!gallery)return;
+    const total=String(items.length).padStart(2,'0');
+    gallery.setAttribute('aria-label',`Galeri ${items.length} foto ${title}`);
+    gallery.querySelector('.case-gallery-track').innerHTML=items.map((item,index)=>`<figure class="case-gallery-slide case-gallery-slide--photo"><img class="case-gallery-image" src="${item.src}" alt="${item.alt}" loading="${index===0?'eager':'lazy'}" decoding="async"/><figcaption><span>${String(index+1).padStart(2,'0')} / ${total}</span><strong>${title}</strong></figcaption></figure>`).join('');
+    gallery.querySelector('.case-gallery-progress').innerHTML=`<span data-case-gallery-current>01</span><i></i><span>${total}</span>`;
+    gallery.querySelector('.case-gallery-dots').innerHTML=items.map((item,index)=>`<button data-case-gallery-go type="button" aria-label="Lihat foto ${index+1}" aria-pressed="${index===0}"></button>`).join('');
+    initCaseGallery();
+  };
+
+  const loadProjectMedia=key=>{
+    const mediaConfig=projectMedia[key];
+    if(!mediaConfig?.manifest)return Promise.resolve();
+    return fetch(mediaConfig.manifest)
+      .then(response=>response.ok?response.json():null)
+      .then(manifest=>{
+        const items=manifest?.items||[];
+        if(!items.length)return;
+        if(mediaConfig.featured){
+          const selectedItems=mediaConfig.featuredImages
+            .map(name=>items.find(item=>item.src.endsWith(`/${name}`)))
+            .filter(Boolean);
+          const featuredSources=selectedItems.length?selectedItems:items;
+          const featured=d.querySelector('.featured-showcase--xiaozhi');
+          featured?.querySelectorAll('.featured-frame-media,.featured-mobile-gallery-media').forEach((media,index)=>{
+            const item=featuredSources[index%featuredSources.length];
+            media.style.setProperty('--featured-image',`url("${item.src}")`);
+          });
+        }
+        renderProjectPhotoGallery(key,mediaConfig.title,items);
+      })
+      .catch(()=>{});
+  };
+  const featuredMediaKey=projectOrder.find(key=>projectMedia[key]?.featured);
+  if(featuredMediaKey)loadProjectMedia(featuredMediaKey);
+
   const renderCase=(key)=>{
     const p=projects[key];
     const meta=projectMeta[key];
+    const gallery=projectGallery[key];
     const index=projectOrder.indexOf(key);
     const nextKey=projectOrder[(index+1)%projectOrder.length];
     const next=projects[nextKey];
@@ -156,8 +257,13 @@
           </div>
         </div>
       </header>
-      <section class="case-visual-shell" aria-label="Visual proyek">
-        <div class="case-visual"><div class="project-art ${meta.art}"></div><div class="case-visual-overlay"></div><span class="case-visual-label">${meta.status}</span></div>
+      <section class="case-visual-shell" aria-label="Galeri visual proyek">
+        <div class="case-visual case-gallery" data-case-gallery tabindex="0" aria-roledescription="carousel" aria-label="Empat visual ${p.title}">
+          <div class="case-gallery-track">${gallery.map((label,i)=>`<figure class="case-gallery-slide case-gallery-slide--${i+1}"><div class="project-art ${meta.art}"></div><figcaption><span>${String(i+1).padStart(2,'0')} / 04</span><strong>${label}</strong></figcaption></figure>`).join('')}</div>
+          <div class="case-visual-overlay"></div>
+          <div class="case-gallery-controls"><button class="case-gallery-arrow" data-case-gallery-prev type="button" aria-label="Visual sebelumnya">&larr;</button><div class="case-gallery-progress"><span data-case-gallery-current>01</span><i></i><span>04</span></div><button class="case-gallery-arrow" data-case-gallery-next type="button" aria-label="Visual berikutnya">&rarr;</button></div>
+          <div class="case-gallery-dots" aria-label="Pilih visual">${gallery.map((label,i)=>`<button data-case-gallery-go type="button" aria-label="Lihat ${label}" aria-pressed="${i===0}"></button>`).join('')}</div>
+        </div>
       </section>
       <div class="case-article">
         <section class="case-opening case-reveal">
@@ -178,13 +284,15 @@
         </section>
         <section class="case-status case-reveal">
           <article><p class="case-section-label">Current limitations</p><h3>Batasan saat ini</h3><p>${p.limits}</p></article>
-          <article><p class="case-section-label">Next iteration</p><h3>Langkah berikutnya</h3><p>${p.next}</p><div class="case-actions"><a class="btn btn-dark" href="[PROJECT_URL]">Repository / Demo <span class="arrow">↗</span></a><button class="btn" type="button" data-close-project>Kembali</button></div></article>
+          <article><p class="case-section-label">Next iteration</p><h3>Langkah berikutnya</h3><p>${p.next}</p><div class="case-actions"><a class="btn btn-dark" href="${p.repo||'#'}"${p.repo?' target="_blank" rel="noreferrer"':''}>Repository / Demo <span class="arrow">↗</span></a><button class="btn" type="button" data-close-project>Kembali</button></div></article>
         </section>
       </div>
       <button class="case-next" type="button" data-next-project="${nextKey}"><span class="case-next-inner"><span><span class="case-next-label">Next Project</span><span class="case-next-title">${next.title}</span></span><span class="case-next-arrow">↗</span></span></button>`;
     caseContent.querySelectorAll('[data-close-project]').forEach(btn=>btn.addEventListener('click',closeProject));
     caseContent.querySelector('[data-next-project]')?.addEventListener('click',event=>openProject(event.currentTarget.dataset.nextProject,event.currentTarget,true));
+    initCaseGallery();
     initCaseReveal();
+    loadProjectMedia(key);
   };
 
   async function openProject(key,trigger,isSwitch=false){
@@ -243,6 +351,15 @@
   });
 
   const myToolsPanel=d.getElementById('myToolsPanel');
+  const myToolsWrap=d.getElementById('my-tools');
+  if(myToolsWrap&&!reduced){
+    if('IntersectionObserver'in window){
+      const toolsMotionObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>myToolsWrap.classList.toggle('tools-motion-visible',entry.isIntersecting));
+      },{threshold:.01,rootMargin:'18% 0px'});
+      toolsMotionObserver.observe(myToolsWrap);
+    }else myToolsWrap.classList.add('tools-motion-visible');
+  }
   if(myToolsPanel&&!reduced){
     let toolsRaf=0;
     myToolsPanel.addEventListener('pointermove',e=>{

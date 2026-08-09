@@ -72,6 +72,15 @@
 .project-details-progress{height:2px;background:#33332f;margin-top:16px;overflow:hidden;flex:0 0 auto}
 .project-details-progress span{display:block;width:100%;height:100%;background:#79a1ff;transform:scaleX(0);transform-origin:left;will-change:transform}
 
+.process-flip-back,
+.project-details-sticky,
+.project-details-panel,
+.project-detail-copy{
+  background-color:var(--dark);
+  background-image:var(--grid-dark);
+  background-size:var(--grid-size);
+}
+
 @media(max-width:1120px){
   .project-details-panel{grid-template-columns:repeat(10,minmax(0,1fr))}
   .project-detail-main{grid-column:1/7}
@@ -132,7 +141,7 @@
 @media (min-width:900px){
   .portfolio-detail-sticky{
     grid-template-rows:auto minmax(0,1fr) auto;
-    padding-bottom:clamp(12px,2.2vh,22px);
+    padding-bottom:clamp(36px,4.5vh,48px);
   }
   .portfolio-detail-viewport{min-height:0;height:100%}
   .portfolio-detail-track{
@@ -141,6 +150,7 @@
     padding-top:clamp(10px,1.8vh,18px);
     padding-bottom:clamp(10px,1.8vh,18px);
   }
+  .portfolio-detail-progress{margin-top:clamp(20px,2.5vh,28px)}
   .portfolio-detail-card{
     height:100%;
     min-height:0;
@@ -151,14 +161,14 @@
 @media (min-width:900px) and (max-height:760px){
   .portfolio-detail-sticky{
     padding-top:calc(var(--header) + 7px);
-    padding-bottom:10px;
+    padding-bottom:24px;
   }
   .portfolio-detail-header{padding-bottom:9px}
   .portfolio-detail-heading .section-kicker{margin-bottom:5px}
   .portfolio-detail-heading h2{font-size:clamp(30px,3.8vw,48px);line-height:.98}
   .portfolio-detail-meta{padding-bottom:3px}
   .portfolio-detail-track{padding-block:9px}
-  .portfolio-detail-progress{margin-top:8px}
+  .portfolio-detail-progress{margin-top:14px}
   .portfolio-detail-card-top{top:14px}
   .portfolio-detail-card-bottom{bottom:12px}
   .portfolio-detail-card--statement{padding:clamp(20px,2vw,28px)}
