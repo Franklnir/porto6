@@ -17,17 +17,35 @@ const { title, description, canonical, image, bodyClass } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-    <meta name="theme-color" content="#f4f4ef" />
-    <meta name="color-scheme" content="light" />
+    <meta id="themeColor" name="theme-color" content="#f4f4ef" />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&family=Permanent+Marker&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <SeoHead {title} {description} {canonical} {image} />
-    <script is:inline>document.documentElement.className='js';</script>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        root.className = 'js';
+
+        try {
+          const savedTheme = localStorage.getItem('irsyad-theme');
+          const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+
+          root.dataset.theme = savedTheme === 'dark' || savedTheme === 'light' || savedTheme === 'flowy' || savedTheme === 'neo' || savedTheme === 'brand'
+            ? savedTheme
+            : preferredTheme;
+        } catch {
+          root.dataset.theme = 'light';
+        }
+      })();
+    </script>
   </head>
   <body id="top" class={bodyClass}>
     <slot />

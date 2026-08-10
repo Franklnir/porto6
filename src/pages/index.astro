@@ -10,6 +10,7 @@ import CapabilitiesSection from '@/features/portfolio/components/sections/Capabi
 import FeaturedProjectSection from '@/features/portfolio/components/sections/FeaturedProjectSection.astro';
 import ProjectPortfolioSection from '@/features/portfolio/components/sections/ProjectPortfolioSection.astro';
 import ExperienceSection from '@/features/portfolio/components/sections/ExperienceSection.astro';
+import CertificatesSection from '@/features/portfolio/components/sections/CertificatesSection.astro';
 import ProcessEngineeringSection from '@/features/portfolio/components/sections/ProcessEngineeringSection.astro';
 import MyToolsSection from '@/features/portfolio/components/sections/MyToolsSection.astro';
 import TestimonialSection from '@/features/portfolio/components/sections/TestimonialSection.astro';
@@ -18,6 +19,7 @@ import ContactSection from '@/features/portfolio/components/sections/ContactSect
 
 const ENABLE_SEQUENCE_HERO = import.meta.env.PUBLIC_ENABLE_SEQUENCE_HERO === 'true';
 ---
+
 <BaseLayout
   title="Irsyad — IoT, AI & Full-Stack Systems Engineer"
   description="Portofolio Irsyad: sistem IoT, embedded, backend platform, integrasi AI, dan engineering sistem real-time."
@@ -32,6 +34,7 @@ const ENABLE_SEQUENCE_HERO = import.meta.env.PUBLIC_ENABLE_SEQUENCE_HERO === 'tr
     <FeaturedProjectSection />
     <ProjectPortfolioSection />
     <ExperienceSection />
+    <CertificatesSection />
     <ProcessEngineeringSection />
     <MyToolsSection />
     <TestimonialSection />

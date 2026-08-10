@@ -1,0 +1,104 @@
+---
+const certificates = [
+  {
+    title: 'Introduction to Cyber Security',
+    issuer: 'Komdigi Digital Talent Scholarship',
+    year: '2025',
+    preview: '/assets/certificates/cyber-security-awareness.webp',
+    document: '/assets/certificates/cyber-security-awareness.pdf',
+  },
+  {
+    title: 'Praktikum Data Mining',
+    issuer: 'Laboratorium Teknik Informatika UPB',
+    year: '2026',
+    preview: '/assets/certificates/data-mining-practicum.webp',
+    document: '/assets/certificates/data-mining-practicum.png',
+  },
+  {
+    title: 'Praktik Kerja Lapangan',
+    issuer: 'Dinas Arsip dan Perpustakaan Kabupaten Bekasi',
+    year: '2026',
+    preview: '/assets/certificates/library-internship.webp',
+    document: '/assets/certificates/library-internship.pdf',
+  },
+  {
+    title: 'Seminar Nasional Data & AI',
+    issuer: 'Asosiasi Riset Ilmu Matematika dan Sains Indonesia',
+    year: '2026',
+    preview: '/assets/certificates/national-data-ai-seminar.webp',
+    document: '/assets/certificates/national-data-ai-seminar.png',
+  },
+  {
+    title: 'Seminar Keamanan Informasi',
+    issuer: 'Universitas Pelita Bangsa',
+    year: '2024',
+    preview: '/assets/certificates/information-security-seminar.webp',
+    document: '/assets/certificates/information-security-seminar.pdf',
+  },
+  {
+    title: 'Lomba Desain Merchandise',
+    issuer: 'Universitas Pelita Bangsa',
+    year: '2024',
+    preview: '/assets/certificates/merchandise-design-competition.webp',
+    document: '/assets/certificates/merchandise-design-competition.pdf',
+  },
+];
+---
+
+<section aria-labelledby="certificatesTitle" class="section certificates" id="certificates">
+  <div class="container">
+    <header class="certificates-head" data-reveal>
+      <p class="section-kicker">Sertifikat & pencapaian</p>
+      <h2 id="certificatesTitle">Dokumentasi proses belajar yang terus berkembang.</h2>
+      <p>
+        Pelatihan, praktik, kompetisi, dan forum akademik yang memperkuat dasar engineering saya.
+      </p>
+    </header>
+  </div>
+
+  <div class="certificate-viewport" aria-label="Daftar sertifikat">
+    <div class="certificate-grid">
+      {
+        certificates.map((certificate, index) => (
+          <a
+            aria-label={`Buka sertifikat ${certificate.title}`}
+            class="certificate-card"
+            data-reveal="scale"
+            href={certificate.document}
+            rel="noreferrer"
+            style={`--certificate-index:${index}`}
+            target="_blank"
+          >
+            <figure class="certificate-preview">
+              <img
+                alt={`Sertifikat ${certificate.title} atas nama Irsyad`}
+                decoding="async"
+                height="905"
+                loading="lazy"
+                src={certificate.preview}
+                width="1280"
+              />
+            </figure>
+            <div class="certificate-body">
+              <div class="certificate-meta">
+                <span class="certificate-mark" aria-hidden="true">
+                  &#10003;
+                </span>
+                <span>
+                  {String(index + 1).padStart(2, '0')} /{' '}
+                  {String(certificates.length).padStart(2, '0')}
+                </span>
+                <time>{certificate.year}</time>
+              </div>
+              <h3>{certificate.title}</h3>
+              <p>{certificate.issuer}</p>
+              <span class="certificate-link">
+                Lihat sertifikat <span aria-hidden="true">&#8599;</span>
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

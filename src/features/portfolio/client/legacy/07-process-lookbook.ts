@@ -17,12 +17,12 @@
   const clamp=(v,min=0,max=1)=>Math.min(max,Math.max(min,v));
   const mix=(a,b,t)=>a+(b-a)*t;
   const smooth=t=>t*t*(3-2*t);
-  const entryY=[150,210,170,230];
-  const entryR=[-4.2,3.5,-2.8,4.1];
-  const settleY=[12,-8,20,0];
-  const driftY=[-48,-76,-58,-88];
-  const driftX=[-10,7,-5,12];
-  const imageDrift=[-26,-44,-31,-50];
+  const entryY=[150,210,170,230,184,214,168];
+  const entryR=[-4.2,3.5,-2.8,4.1,-3.3,2.6,-2.1];
+  const settleY=[12,-8,20,0,15,-5,10];
+  const driftY=[-48,-76,-58,-88,-64,-72,-54];
+  const driftX=[-10,7,-5,12,-8,9,-6];
+  const imageDrift=[-26,-44,-31,-50,-36,-46,-30];
 
   const renderDesktop=()=>{
     const total=Math.max(1,runway.offsetHeight-innerHeight);
@@ -32,13 +32,18 @@
     const active=Math.min(cards.length-1,Math.max(0,Math.floor(clamp(p*.98)*cards.length)));
     if(current)current.textContent=String(active+1).padStart(2,'0');
 
+    const slot=cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:0;
+    const hiddenSlots=Math.max(0,cards.length-4);
+    const track=smooth(clamp((p-.24)/.62));
+    const trackShift=slot*hiddenSlots*track;
+
     cards.forEach((card,index)=>{
-      const enterStart=-.055+index*.07;
-      const enter=smooth(clamp((p-enterStart)/.24));
-      const depart=smooth(clamp((p-.78)/.22));
+      const enterStart=index<4?-.055+index*.065:.32+(index-4)*.13;
+      const enter=smooth(clamp((p-enterStart)/.22));
+      const depart=smooth(clamp((p-.88)/.12));
       const breathing=Math.sin(clamp((p-enterStart)/.82)*Math.PI)*2.2;
       const y=mix(entryY[index],settleY[index],enter)+driftY[index]*depart+breathing;
-      const x=driftX[index]*depart;
+      const x=-trackShift+driftX[index]*depart;
       const r=mix(entryR[index],0,enter)+(index%2?1:-1)*depart*.8;
       const scale=mix(.93,1,enter)-depart*.018;
       const opacity=mix(.18,1,enter);
@@ -81,7 +86,7 @@
         if(!entry.isIntersecting)return;
         const card=entry.target;
         const index=cards.indexOf(card);
-        setTimeout(()=>card.classList.add('look-visible'),Math.max(0,index)*90);
+        setTimeout(()=>card.classList.add('look-visible'),Math.min(Math.max(0,index),3)*70);
         compactObserver?.unobserve(card);
       });
     },{threshold:.16,rootMargin:'0px 0px -8% 0px'});

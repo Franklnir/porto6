@@ -6,10 +6,10 @@ function parseProjectKeys(value: string): string[] {
   const projects: unknown[] = parsed;
   return projects.map((project) => {
     if (
-      typeof project !== 'object'
-      || project === null
-      || !('key' in project)
-      || typeof project.key !== 'string'
+      typeof project !== 'object' ||
+      project === null ||
+      !('key' in project) ||
+      typeof project.key !== 'string'
     ) {
       throw new Error('Project catalog contains an invalid key');
     }
@@ -24,6 +24,102 @@ test('homepage renders the preserved portfolio sections', async ({ page }) => {
   await expect(page.locator('#featured-projects')).toBeVisible();
   await expect(page.locator('#projects')).toBeVisible();
   await expect(page.locator('#faq')).toBeVisible();
+
+  const desktopNav = page.locator('#desktopNav');
+  await expect(desktopNav.locator('a', { hasText: 'Kapabilitas' })).toHaveCount(0);
+  await expect(desktopNav.locator('a')).toHaveCount(5);
+  expect(
+    await desktopNav
+      .locator('a')
+      .evaluateAll((links) => links.map((link) => link.getAttribute('href'))),
+  ).toEqual(['#about', '#projects', '#experience', '#certificates', '#faq']);
+  await expect(desktopNav.locator('a[href="#certificates"]')).toHaveText('Sertifikat');
+  await expect(desktopNav.locator('a[href="#certificates"]')).toHaveAttribute(
+    'href',
+    '#certificates',
+  );
+  await expect(page.locator('#mobileMenu a[href="#certificates"]')).toContainText('Sertifikat');
+  await expect(page.locator('#mobileMenu a[href="#certificates"]')).toHaveAttribute(
+    'href',
+    '#certificates',
+  );
+});
+
+test('capability cards expose the complete engineering scope', async ({ page }) => {
+  await page.goto('/#services');
+
+  const cards = page.locator('#services .service-card');
+  await expect(cards).toHaveCount(3);
+  await expect(cards.nth(0)).toContainText('ESP32, Sensor Integration & SBC');
+  await expect(cards.nth(0)).toContainText('MQTT / Mosquitto / Firebase / Supabase');
+  await expect(cards.nth(1)).toContainText('modular monolith');
+  await expect(cards.nth(1)).toContainText('PostgreSQL, MySQL, NoSQL, Redis, queue, worker');
+  await expect(cards.nth(2)).toContainText('FastAPI AI services / Hugging Face');
+  await expect(cards.nth(2)).toContainText('Hermes Agent & 9Router');
+});
+
+test('theme picker offers and persists all five appearances', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(() => {
+    localStorage.removeItem('irsyad-theme');
+  });
+  await page.reload();
+
+  const isMobile = (page.viewportSize()?.width ?? 0) <= 760;
+  if (isMobile) await page.locator('#menuBtn').click();
+
+  const toggle = page.locator('.header-theme-toggle');
+  const picker = page.locator(isMobile ? '.mobile-theme-options' : '.header-theme-picker');
+  if (!isMobile) await toggle.click();
+
+  await expect(picker).toBeVisible();
+  await expect(picker.locator('[data-theme-option]')).toHaveCount(5);
+  await picker.locator('[data-theme-option="dark"]').click();
+
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.locator('#themeColor')).toHaveAttribute('content', '#10110f');
+
+  if (!isMobile) await toggle.click();
+  await picker.locator('[data-theme-option="flowy"]').click();
+
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'flowy');
+  await expect(page.locator('#themeColor')).toHaveAttribute('content', '#f7f0d7');
+
+  if (!isMobile) await toggle.click();
+  await picker.locator('[data-theme-option="neo"]').click();
+
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'neo');
+  await expect(page.locator('#themeColor')).toHaveAttribute('content', '#f7f7f5');
+
+  if (!isMobile) await toggle.click();
+  await picker.locator('[data-theme-option="brand"]').click();
+
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'brand');
+  await expect(page.locator('#themeColor')).toHaveAttribute('content', '#f5ecdc');
+
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'brand');
+  await expect.poll(() => page.evaluate(() => localStorage.getItem('irsyad-theme'))).toBe('brand');
+});
+
+test('certificate section exposes all source documents', async ({ page }) => {
+  await page.goto('/#certificates');
+
+  const section = page.locator('#certificates');
+  await expect(section).toBeVisible();
+  await expect(section.locator('.certificate-card')).toHaveCount(6);
+  await expect(section.locator('.certificate-card').first().locator('h3')).toHaveText(
+    'Introduction to Cyber Security',
+  );
+
+  const links = await section
+    .locator('.certificate-card')
+    .evaluateAll((cards) => cards.map((card) => (card as HTMLAnchorElement).href));
+
+  for (const link of links) {
+    const response = await page.request.get(link);
+    expect(response.ok()).toBeTruthy();
+  }
 });
 
 test('project cards and overlay use the same content catalog', async ({ page }) => {
