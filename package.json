@@ -36,6 +36,7 @@
     "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true});require('node:fs').rmSync('.astro',{recursive:true,force:true})\""
   },
   "dependencies": {
+    "@mdi/js": "^7.4.47",
     "astro": "^7.1.6"
   },
   "devDependencies": {

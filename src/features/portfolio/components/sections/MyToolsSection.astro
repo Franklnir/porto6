@@ -1,6 +1,113 @@
 ---
-import RawFragment from '@/components/primitives/RawFragment.astro';
-import { renderLegacyMarkup } from '../../lib/renderLegacyMarkup';
-import markup from '../../fragments/sections/my-tools.html?raw';
+import { mdiCreationOutline, mdiGraphOutline, mdiRocketLaunchOutline, mdiRouterNetwork } from '@mdi/js';
+
+type Tool = {
+  name: string;
+  accent: string;
+  iconUrl?: string;
+  iconPath?: string;
+  fallback?: string;
+  variant?: 'is-solid' | 'is-blue';
+};
+
+type ToolRow = {
+  speed: string;
+  reverse?: boolean;
+  tools: Tool[];
+};
+
+const rows: ToolRow[] = [
+  {
+    speed: '36s',
+    tools: [
+      { name: 'ChatGPT', accent: '#10A37F', iconUrl: 'https://cdn.simpleicons.org/openai/10A37F', fallback: 'GPT', variant: 'is-solid' },
+      { name: 'Gemini', accent: '#8E75B2', iconUrl: 'https://cdn.simpleicons.org/googlegemini/8E75B2', fallback: 'G' },
+      { name: 'Codex', accent: '#111111', iconUrl: 'https://cdn.simpleicons.org/openai/111111', fallback: 'CX' },
+      { name: 'Antigravity IDE', accent: '#1858EE', iconPath: mdiRocketLaunchOutline, variant: 'is-blue' },
+      { name: 'OpenAI', accent: '#111111', iconUrl: 'https://cdn.simpleicons.org/openai/111111', fallback: 'AI' },
+    ],
+  },
+  {
+    speed: '40s',
+    reverse: true,
+    tools: [
+      { name: 'Arduino IDE', accent: '#00878F', iconUrl: 'https://cdn.simpleicons.org/arduino/00878F', fallback: 'ARD' },
+      { name: 'ESP-IDF', accent: '#E7352C', iconUrl: 'https://cdn.simpleicons.org/espressif/E7352C', fallback: 'ESP', variant: 'is-solid' },
+      { name: 'Visual Studio Code', accent: '#007ACC', iconUrl: 'https://cdn.simpleicons.org/visualstudiocode/007ACC', fallback: 'VS' },
+      { name: 'Google Sheets', accent: '#34A853', iconUrl: 'https://cdn.simpleicons.org/googlesheets/34A853', fallback: 'GS' },
+      { name: 'Tinkercad', accent: '#0696D7', iconUrl: 'https://cdn.simpleicons.org/autodesk/0696D7', fallback: 'TC', variant: 'is-solid' },
+    ],
+  },
+  {
+    speed: '44s',
+    tools: [
+      { name: 'DeepSeek', accent: '#4D6BFE', iconUrl: 'https://cdn.simpleicons.org/deepseek/4D6BFE', fallback: 'DS', variant: 'is-blue' },
+      { name: 'Qwen - Alibaba', accent: '#FF6A00', iconUrl: 'https://cdn.simpleicons.org/alibabacloud/FF6A00', fallback: 'Q' },
+      { name: 'Comet Code AI', accent: '#7C3AED', iconPath: mdiCreationOutline, variant: 'is-solid' },
+      { name: '9Router', accent: '#FF6B35', iconPath: mdiRouterNetwork },
+      { name: 'Graphify', accent: '#1858EE', iconPath: mdiGraphOutline },
+      { name: 'draw.io', accent: '#F08705', iconUrl: 'https://cdn.simpleicons.org/diagramsdotnet/F08705', fallback: 'D', variant: 'is-solid' },
+    ],
+  },
+];
 ---
-<RawFragment html={renderLegacyMarkup(markup)} />
+
+<section aria-labelledby="myToolsTitle" class="my-tools-wrap" id="my-tools">
+  <div id="myToolsPanel">
+    <header class="my-tools-head" data-reveal>
+      <div>
+        <p class="my-tools-label">Toolkit / workflow</p>
+        <h3 class="my-tools-title" id="myToolsTitle">My <em>Tools.</em></h3>
+      </div>
+      <div>
+        <p class="my-tools-copy">
+          Tool yang saya gunakan untuk merancang arsitektur, mengembangkan software,
+          bereksperimen dengan embedded system, dan menjalankan workflow engineering berbantuan AI.
+        </p>
+      </div>
+    </header>
+
+    <div aria-label="Daftar tools yang digunakan" class="tool-streams">
+      {
+        rows.map((row) => (
+          <div class:list={['tool-row', { 'is-reverse': row.reverse }]} style={`--speed:${row.speed}`}>
+            <div class="tool-flow">
+              {[0, 1].map((setIndex) => (
+                <div class="tool-set" aria-hidden={setIndex === 1 ? 'true' : undefined}>
+                  {row.tools.map((tool, toolIndex) => (
+                    <>
+                      <div class:list={['tool-pill', tool.variant]} style={`--tool-accent:${tool.accent}`}>
+                        <span class="tool-icon">
+                          {tool.iconUrl && (
+                            <img
+                              alt=""
+                              aria-hidden="true"
+                              loading="lazy"
+                              onerror="this.remove()"
+                              src={tool.iconUrl}
+                            />
+                          )}
+                          {tool.iconPath && (
+                            <svg aria-hidden="true" viewBox="0 0 24 24"><path d={tool.iconPath}></path></svg>
+                          )}
+                          {tool.fallback && <span class="tool-monogram">{tool.fallback}</span>}
+                        </span>
+                        <span class="tool-word">
+                          <span class="tool-word-track">
+                            <span>{tool.name}</span>
+                            <span aria-hidden="true">{tool.name}</span>
+                          </span>
+                        </span>
+                      </div>
+                      {toolIndex < row.tools.length - 1 && <span aria-hidden="true" class="tool-plus">+</span>}
+                    </>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

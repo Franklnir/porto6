@@ -57,7 +57,7 @@ const applyTheme = (theme: Theme, persist = false): void => {
 };
 
 const currentTheme = root.dataset.theme;
-const initialTheme: Theme = isTheme(currentTheme) ? currentTheme : 'light';
+const initialTheme: Theme = isTheme(currentTheme) ? currentTheme : 'brand';
 applyTheme(initialTheme);
 
 themeToggle?.addEventListener('click', () => {

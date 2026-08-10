@@ -17,7 +17,7 @@ const { title, description, canonical, image, bodyClass } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-    <meta id="themeColor" name="theme-color" content="#f4f4ef" />
+    <meta id="themeColor" name="theme-color" content="#f5ecdc" />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,15 +34,11 @@ const { title, description, canonical, image, bodyClass } = Astro.props;
 
         try {
           const savedTheme = localStorage.getItem('irsyad-theme');
-          const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light';
-
           root.dataset.theme = savedTheme === 'dark' || savedTheme === 'light' || savedTheme === 'flowy' || savedTheme === 'neo' || savedTheme === 'brand'
             ? savedTheme
-            : preferredTheme;
+            : 'brand';
         } catch {
-          root.dataset.theme = 'light';
+          root.dataset.theme = 'brand';
         }
       })();
     </script>

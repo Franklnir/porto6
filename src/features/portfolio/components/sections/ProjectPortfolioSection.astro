@@ -49,6 +49,7 @@ const totalLabel = String(total).padStart(2, '0');
                   <div class="portfolio-detail-info">
                     <p class="portfolio-detail-category">{presentation.category}</p>
                     <h3>{project.data.title}</h3>
+                    <p class="portfolio-detail-summary">{project.data.overview}</p>
                     <button
                       aria-label={`View ${project.data.title}`}
                       class="portfolio-detail-text-link"

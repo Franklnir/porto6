@@ -1,6 +1,7 @@
 @import './tokens.css';
 @import './view-transitions.css';
 @import './scroll-sequence.css';
+@import './mobile-slider-nav.css';
 @import './legacy/00-legacy-base.css';
 @import './legacy/10-technology-fullbleed.css';
 @import './legacy/20-editorial-scroll-motion.css';

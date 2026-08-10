@@ -3,6 +3,7 @@
  * be located by section without loading a UI framework runtime.
  */
 import './theme-controller';
+import './mobile-slider-nav';
 import './legacy/01-core-ui';
 import './legacy/02-motion-system';
 import './legacy/03-dark-section-cover';

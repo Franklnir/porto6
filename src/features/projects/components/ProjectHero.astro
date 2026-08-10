@@ -10,24 +10,48 @@ interface Props {
 const { id, title } = Astro.props;
 const cover = getProjectCover(id);
 ---
+
 <div class="project-route-visual" transition:name={`project-cover-${id}`}>
-  {cover ? (
-    <Image
-      src={cover}
-      alt={`Visual proyek ${title}`}
-      widths={[480, 768, 1100, 1500]}
-      sizes="(max-width: 720px) 92vw, 80vw"
-      format="webp"
-      loading="eager"
-      fetchpriority="high"
-    />
-  ) : (
-    <div class="project-route-fallback" aria-hidden="true" />
-  )}
+  {
+    cover ? (
+      <Image
+        src={cover}
+        alt={`Visual proyek ${title}`}
+        widths={[480, 768, 1100, 1500]}
+        sizes="(max-width: 720px) 92vw, min(100vw, 1440px)"
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
+    ) : (
+      <div class="project-route-fallback" aria-hidden="true" />
+    )
+  }
 </div>
 
 <style>
-  .project-route-visual { overflow: hidden; background: #dce6ff; min-height: 420px; }
-  .project-route-visual :global(img) { width: 100%; height: min(72vw, 780px); object-fit: cover; }
-  .project-route-fallback { min-height: 560px; background: linear-gradient(135deg, #1858ee, #101010); }
+  .project-route-visual {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #111;
+    min-height: 0;
+  }
+  .project-route-visual :global(img) {
+    display: block;
+    width: 100%;
+    height: clamp(360px, 56vw, 760px);
+    object-fit: contain;
+    object-position: center;
+    image-rendering: auto;
+  }
+  .project-route-fallback {
+    min-height: 560px;
+    background: linear-gradient(135deg, #1858ee, #101010);
+  }
+  @media (max-width: 620px) {
+    .project-route-visual :global(img) {
+      height: min(112vw, 570px);
+    }
+  }
 </style>

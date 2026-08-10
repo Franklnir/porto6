@@ -13,7 +13,7 @@ repository: "https://github.com/Franklnir/xiaozhi-AI-esp32c3-mini.git"
 presentation:
   kicker: "VOICE AI · MCP · EMBEDDED"
   category: "AI & Embedded Systems"
-  cardSize: wide
+  cardSize: narrow
   cardArtClass: "portfolio-detail-art--xiaozhi"
   caseArtClass: "art-cog"
   role: "AI & Embedded Engineer"

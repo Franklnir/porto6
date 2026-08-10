@@ -2,19 +2,27 @@
   "items": [
     {
       "src": "/assets/projects/monitoring-energi/01-monitoring-listrik.png",
-      "alt": "Monitoring Listrik - 01 monitoring listrik"
+      "alt": "Monitoring Listrik - 01 monitoring listrik",
+      "width": 1672,
+      "height": 941
     },
     {
       "src": "/assets/projects/monitoring-energi/02-monitoring-listrik.png",
-      "alt": "Monitoring Listrik - 02 monitoring listrik"
+      "alt": "Monitoring Listrik - 02 monitoring listrik",
+      "width": 1254,
+      "height": 1254
     },
     {
       "src": "/assets/projects/monitoring-energi/03-monitoring-listrik.png",
-      "alt": "Monitoring Listrik - 03 monitoring listrik"
+      "alt": "Monitoring Listrik - 03 monitoring listrik",
+      "width": 1122,
+      "height": 1402
     },
     {
       "src": "/assets/projects/monitoring-energi/04-monitoring-listrik.png",
-      "alt": "Monitoring Listrik - 04 monitoring listrik"
+      "alt": "Monitoring Listrik - 04 monitoring listrik",
+      "width": 1086,
+      "height": 1448
     }
   ]
 }

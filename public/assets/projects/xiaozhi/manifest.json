@@ -2,71 +2,105 @@
   "items": [
     {
       "src": "/assets/projects/xiaozhi/01-device-front.png",
-      "alt": "Xiaozhi AI - 01 device front"
+      "alt": "Xiaozhi AI - 01 device front",
+      "width": 680,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/02-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 02 xiaozhi photo"
+      "alt": "Xiaozhi AI - 02 xiaozhi photo",
+      "width": 510,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/03-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 03 xiaozhi photo"
+      "alt": "Xiaozhi AI - 03 xiaozhi photo",
+      "width": 510,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/04-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 04 xiaozhi photo"
+      "alt": "Xiaozhi AI - 04 xiaozhi photo",
+      "width": 510,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/05-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 05 xiaozhi photo"
+      "alt": "Xiaozhi AI - 05 xiaozhi photo",
+      "width": 680,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/06-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 06 xiaozhi photo"
+      "alt": "Xiaozhi AI - 06 xiaozhi photo",
+      "width": 680,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/07-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 07 xiaozhi photo"
+      "alt": "Xiaozhi AI - 07 xiaozhi photo",
+      "width": 510,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/08-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 08 xiaozhi photo"
+      "alt": "Xiaozhi AI - 08 xiaozhi photo",
+      "width": 680,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/09-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 09 xiaozhi photo"
+      "alt": "Xiaozhi AI - 09 xiaozhi photo",
+      "width": 510,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/10-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 10 xiaozhi photo"
+      "alt": "Xiaozhi AI - 10 xiaozhi photo",
+      "width": 510,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/11-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 11 xiaozhi photo"
+      "alt": "Xiaozhi AI - 11 xiaozhi photo",
+      "width": 680,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/12-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 12 xiaozhi photo"
+      "alt": "Xiaozhi AI - 12 xiaozhi photo",
+      "width": 510,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/13-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 13 xiaozhi photo"
+      "alt": "Xiaozhi AI - 13 xiaozhi photo",
+      "width": 906,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/14-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 14 xiaozhi photo"
+      "alt": "Xiaozhi AI - 14 xiaozhi photo",
+      "width": 906,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/15-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 15 xiaozhi photo"
+      "alt": "Xiaozhi AI - 15 xiaozhi photo",
+      "width": 510,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/16-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 16 xiaozhi photo"
+      "alt": "Xiaozhi AI - 16 xiaozhi photo",
+      "width": 680,
+      "height": 906
     },
     {
       "src": "/assets/projects/xiaozhi/17-xiaozhi-photo.png",
-      "alt": "Xiaozhi AI - 17 xiaozhi photo"
+      "alt": "Xiaozhi AI - 17 xiaozhi photo",
+      "width": 510,
+      "height": 906
     }
   ]
 }

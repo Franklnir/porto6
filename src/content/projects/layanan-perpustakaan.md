@@ -12,7 +12,7 @@ featured: false
 presentation:
   kicker: "PUBLIC SERVICE · LIBRARY"
   category: "Public Service Platform"
-  cardSize: wide
+  cardSize: narrow
   cardArtClass: "art-library"
   caseArtClass: "art-library"
   role: "System Analyst & Developer"

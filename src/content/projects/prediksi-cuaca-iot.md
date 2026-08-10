@@ -12,7 +12,7 @@ featured: false
 presentation:
   kicker: "IOT · WEATHER API · ANALYTICS"
   category: "IoT Analytics"
-  cardSize: wide
+  cardSize: narrow
   cardArtClass: "art-weather"
   caseArtClass: "art-weather"
   role: "IoT & Data Engineer"

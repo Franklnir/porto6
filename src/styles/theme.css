@@ -1402,7 +1402,7 @@
 :root[data-theme='brand'] .portfolio-detail-info,
 :root[data-theme='brand'] .portfolio-statement-info,
 :root[data-theme='brand'] .project-card {
-  background: var(--brand-paper);
+  background: #fff;
 }
 
 :root[data-theme='brand'] .portfolio-detail-progress span,

@@ -2,19 +2,27 @@
   "items": [
     {
       "src": "/assets/projects/platform-operasi-akademik/01-platform-operasi-akademik.png",
-      "alt": "Platform Operasi Akademik - 01 platform operasi akademik"
+      "alt": "Platform Operasi Akademik - 01 platform operasi akademik",
+      "width": 1756,
+      "height": 895
     },
     {
       "src": "/assets/projects/platform-operasi-akademik/02-platform-operasi-akademik.png",
-      "alt": "Platform Operasi Akademik - 02 platform operasi akademik"
+      "alt": "Platform Operasi Akademik - 02 platform operasi akademik",
+      "width": 1672,
+      "height": 941
     },
     {
       "src": "/assets/projects/platform-operasi-akademik/03-platform-operasi-akademik.png",
-      "alt": "Platform Operasi Akademik - 03 platform operasi akademik"
+      "alt": "Platform Operasi Akademik - 03 platform operasi akademik",
+      "width": 1672,
+      "height": 941
     },
     {
       "src": "/assets/projects/platform-operasi-akademik/04-platform-operasi-akademik.png",
-      "alt": "Platform Operasi Akademik - 04 platform operasi akademik"
+      "alt": "Platform Operasi Akademik - 04 platform operasi akademik",
+      "width": 1672,
+      "height": 941
     }
   ]
 }

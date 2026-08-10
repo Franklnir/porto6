@@ -1,6 +1,95 @@
 ---
-import RawFragment from '@/components/primitives/RawFragment.astro';
-import { renderLegacyMarkup } from '../../lib/renderLegacyMarkup';
-import markup from '../../fragments/sections/capabilities.html?raw';
+import { mdiApplicationBracesOutline, mdiMemory, mdiRobotOutline } from '@mdi/js';
+
+const capabilities = [
+  {
+    index: '01',
+    label: 'CONNECTED SYSTEMS',
+    accent: '#1858ee',
+    icon: mdiMemory,
+    title: 'IoT & Embedded Engineering',
+    description:
+      'Merancang jalur sensor, aktuator, perangkat, komunikasi, dan telemetri untuk prototipe sistem yang terhubung ke aplikasi atau website.',
+    items: [
+      'ESP32, Sensor Integration & SBC',
+      'MQTT / Mosquitto / Firebase / Supabase',
+      'RFID, relay, camera modules',
+    ],
+  },
+  {
+    index: '02',
+    label: 'APPLICATION SYSTEMS',
+    accent: '#111111',
+    icon: mdiApplicationBracesOutline,
+    title: 'Full-Stack Platform Engineering',
+    description:
+      'Membangun API dan antarmuka modular monolith yang terstruktur, aman, responsif, serta mudah dikelola ketika terjadi error.',
+    items: [
+      'Laravel 13 API architecture',
+      'Next.js / React interfaces',
+      'PostgreSQL, MySQL, NoSQL, Redis, queue, worker',
+    ],
+  },
+  {
+    index: '03',
+    label: 'INTELLIGENT SYSTEMS',
+    accent: '#1858ee',
+    icon: mdiRobotOutline,
+    title: 'AI System Integration',
+    description:
+      'Menghubungkan model AI, MCP, computer vision, dan agentic workflow ke sistem dengan tujuan operasional jelas.',
+    items: [
+      'FastAPI AI services / Hugging Face',
+      'MCP & tool integration',
+      'Vision and automation pipeline',
+      'Hermes Agent & 9Router',
+    ],
+  },
+];
 ---
-<RawFragment html={renderLegacyMarkup(markup)} />
+
+<section aria-labelledby="servicesTitle" class="section services-lookbook" data-services-lookbook id="services">
+  <div class="container">
+    <header class="section-head services-lookbook-head" data-reveal>
+      <p class="section-kicker">Kapabilitas</p>
+      <div>
+        <h2 id="servicesTitle">Merancang sistem dari perangkat hingga platform operasional.</h2>
+        <p class="lede">
+          Saya bekerja pada batas antara hardware, software, data, komunikasi real-time, dan AI,
+          dengan fokus pada arsitektur yang dapat diuji serta dikembangkan.
+        </p>
+        <div aria-hidden="true" class="services-scroll-status">
+          <span>SCROLL TO REVEAL</span>
+          <i><b data-services-progress></b></i>
+          <span>01 - 03</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="services services-lookbook-grid">
+      {
+        capabilities.map((capability, index) => (
+          <article
+            class="service-card"
+            data-look-card
+            data-look-index={capability.index}
+            data-reveal
+            style={`--delay:${index * 90}ms;--look-accent:${capability.accent}`}
+          >
+            <div class="service-no">
+              <span>{capability.index} / {capability.label}</span>
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d={capability.icon}></path></svg>
+              </span>
+            </div>
+            <h3>{capability.title}</h3>
+            <p>{capability.description}</p>
+            <ul class="service-list">
+              {capability.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

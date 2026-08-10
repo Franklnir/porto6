@@ -17,6 +17,7 @@ if (missing.length) throw new Error(`Missing required files: ${missing.join(', '
 const expectedSectionComponents = [
   'AboutSection.astro',
   'CapabilitiesSection.astro',
+  'CertificatesSection.astro',
   'ContactSection.astro',
   'ExperienceSection.astro',
   'FaqSection.astro',
@@ -31,12 +32,10 @@ const expectedSectionComponents = [
 
 const expectedSectionFragments = [
   'about.html',
-  'capabilities.html',
   'contact.html',
   'experience.html',
   'faq.html',
   'featured-project.html',
-  'my-tools.html',
   'process-engineering.html',
   'technology.html',
   'testimonial.html',
@@ -63,12 +62,17 @@ for (const file of fragments) {
   if (content.includes('<script')) throw new Error(`Inline script remains in ${file}`);
 }
 
-const projectPortfolioComponent = readFileSync(
-  'src/features/portfolio/components/sections/ProjectPortfolioSection.astro',
-  'utf8',
-);
-if (projectPortfolioComponent.includes('?raw') || projectPortfolioComponent.includes('RawFragment')) {
-  throw new Error('ProjectPortfolioSection must remain a native Astro component');
+const nativeSections = [
+  'CapabilitiesSection.astro',
+  'CertificatesSection.astro',
+  'MyToolsSection.astro',
+  'ProjectPortfolioSection.astro',
+];
+for (const file of nativeSections) {
+  const content = readFileSync(`src/features/portfolio/components/sections/${file}`, 'utf8');
+  if (content.includes('?raw') || content.includes('RawFragment')) {
+    throw new Error(`${file} must remain a native Astro component`);
+  }
 }
 
 const projectOverlayComponent = readFileSync(

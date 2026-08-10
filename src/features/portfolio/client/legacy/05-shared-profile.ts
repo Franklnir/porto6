@@ -22,6 +22,15 @@
   let safeTarget = mounted === 'target';
   let handoffAnimation = null;
 
+  const syncTargetSize = () => {
+    const sourceRect = source.getBoundingClientRect();
+    if (sourceRect.width < 20 || sourceRect.height < 20) return null;
+    target.style.width = `${sourceRect.width}px`;
+    target.style.height = `${sourceRect.height}px`;
+    target.style.minHeight = `${sourceRect.height}px`;
+    return sourceRect;
+  };
+
   const clearInline = () => {
     handoffAnimation?.cancel();
     handoffAnimation = null;
@@ -73,10 +82,8 @@
     if (!desktop.matches) return;
     if (card.parentElement !== source && card.parentElement !== target) source.appendChild(card);
     clearInline();
-    const sourceRect = source.getBoundingClientRect();
-    if (sourceRect.width < 20 || sourceRect.height < 20) return;
-
-    target.style.height = `${Math.min(sourceRect.height,Math.max(470,innerHeight*.67))}px`;
+    const sourceRect = syncTargetSize();
+    if (!sourceRect) return;
     const targetRect = target.getBoundingClientRect();
     const pageY = scrollY;
     const sourceDocTop = sourceRect.top + pageY;
@@ -131,7 +138,7 @@
 
   const renderSafe = () => {
     metrics=null;
-    target.style.removeProperty('height');
+    syncTargetSize();
     techInner?.style.removeProperty('--profile-reserve-width');
 
     const rect=about.getBoundingClientRect();
@@ -149,7 +156,7 @@
   const render=()=>{
     frame=0;
     if (reduced.matches) {
-      target.style.removeProperty('height');
+      syncTargetSize();
       techInner?.style.removeProperty('--profile-reserve-width');
       const shouldTarget = !desktop.matches && about.getBoundingClientRect().top <= innerHeight*.94;
       mount(shouldTarget?target:source,shouldTarget?'target':'source');

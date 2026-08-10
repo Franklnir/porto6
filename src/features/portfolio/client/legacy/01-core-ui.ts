@@ -171,8 +171,32 @@
     const current=gallery.querySelector('[data-case-gallery-current]');
     const buttons=[...gallery.querySelectorAll('[data-case-gallery-go]')];
     let active=0;
+    const applySlideLayout=slide=>{
+      const image=slide.querySelector('.case-gallery-image');
+      if(!image){
+        gallery.dataset.mediaOrientation='landscape';
+        gallery.style.removeProperty('--case-gallery-aspect');
+        gallery.style.removeProperty('--case-gallery-max-width');
+        gallery.style.removeProperty('--case-gallery-mobile-max-width');
+        return;
+      }
+      const update=()=>{
+        const width=Number(image.getAttribute('width'))||image.naturalWidth;
+        const height=Number(image.getAttribute('height'))||image.naturalHeight;
+        if(!width||!height)return;
+        const ratio=width/height;
+        const orientation=ratio>1.15?'landscape':ratio<.9?'portrait':'square';
+        gallery.dataset.mediaOrientation=orientation;
+        gallery.style.setProperty('--case-gallery-aspect',`${width} / ${height}`);
+        gallery.style.setProperty('--case-gallery-max-width',`${Math.min(1440,Math.round(720*ratio))}px`);
+        gallery.style.setProperty('--case-gallery-mobile-max-width',`${Math.round(570*ratio)}px`);
+      };
+      if(image.complete||image.hasAttribute('width'))update();
+      else image.addEventListener('load',update,{once:true});
+    };
     const render=index=>{
       active=(index+slides.length)%slides.length;
+      applySlideLayout(slides[active]);
       track.style.transform=`translateX(-${active*100}%)`;
       current.textContent=String(active+1).padStart(2,'0');
       buttons.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===active)));
@@ -202,7 +226,7 @@
     if(!gallery)return;
     const total=String(items.length).padStart(2,'0');
     gallery.setAttribute('aria-label',`Galeri ${items.length} foto ${title}`);
-    gallery.querySelector('.case-gallery-track').innerHTML=items.map((item,index)=>`<figure class="case-gallery-slide case-gallery-slide--photo"><img class="case-gallery-image" src="${item.src}" alt="${item.alt}" loading="${index===0?'eager':'lazy'}" decoding="async"/><figcaption><span>${String(index+1).padStart(2,'0')} / ${total}</span><strong>${title}</strong></figcaption></figure>`).join('');
+    gallery.querySelector('.case-gallery-track').innerHTML=items.map((item,index)=>`<figure class="case-gallery-slide case-gallery-slide--photo"><img class="case-gallery-image" src="${item.src}" alt="${item.alt}" width="${item.width||''}" height="${item.height||''}" loading="${index===0?'eager':'lazy'}" decoding="async"/><figcaption><span>${String(index+1).padStart(2,'0')} / ${total}</span><strong>${title}</strong></figcaption></figure>`).join('');
     gallery.querySelector('.case-gallery-progress').innerHTML=`<span data-case-gallery-current>01</span><i></i><span>${total}</span>`;
     gallery.querySelector('.case-gallery-dots').innerHTML=items.map((item,index)=>`<button data-case-gallery-go type="button" aria-label="Lihat foto ${index+1}" aria-pressed="${index===0}"></button>`).join('');
     initCaseGallery();

@@ -68,8 +68,8 @@
   letter-spacing:.1em;
   text-transform:uppercase;
 }
-.process-lookbook-link span{font-size:18px;transition:transform .35s var(--ease)}
-.process-lookbook-link:hover span{transform:translateX(6px)}
+.process-lookbook-link svg{width:18px;height:18px;fill:currentColor;transition:transform .35s var(--ease)}
+.process-lookbook-link:hover svg{transform:translateX(6px)}
 .process-lookbook-runway{position:relative;height:330svh}
 .process-lookbook-sticky{
   position:sticky;

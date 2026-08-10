@@ -6,7 +6,10 @@ interface ImportMetaEnv {
   readonly PUBLIC_CONTACT_EMAIL?: string;
   readonly PUBLIC_CV_URL?: string;
   readonly PUBLIC_GITHUB_URL?: string;
+  readonly PUBLIC_INSTAGRAM_URL?: string;
   readonly PUBLIC_LINKEDIN_URL?: string;
+  readonly PUBLIC_FACEBOOK_URL?: string;
+  readonly PUBLIC_WHATSAPP_URL?: string;
   readonly PUBLIC_ENABLE_SEQUENCE_HERO?: string;
 }
 

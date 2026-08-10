@@ -1,4 +1,6 @@
 ---
+import { mdiArrowLeft, mdiArrowRight, mdiCheckBold, mdiOpenInNew } from '@mdi/js';
+
 const certificates = [
   {
     title: 'Introduction to Cyber Security',
@@ -29,11 +31,39 @@ const certificates = [
     document: '/assets/certificates/national-data-ai-seminar.png',
   },
   {
+    title: 'Panitia Seminar Web Development & API',
+    issuer: 'Program Studi Teknik Informatika Universitas Pelita Bangsa',
+    year: '2025',
+    preview: '/assets/certificates/web-development-api-committee.webp',
+    document: '/assets/certificates/web-development-api-committee.pdf',
+  },
+  {
     title: 'Seminar Keamanan Informasi',
     issuer: 'Universitas Pelita Bangsa',
     year: '2024',
     preview: '/assets/certificates/information-security-seminar.webp',
     document: '/assets/certificates/information-security-seminar.pdf',
+  },
+  {
+    title: 'Seminar Technopreneur & SDGs',
+    issuer: 'Fakultas Teknik Universitas Pelita Bangsa',
+    year: '2024',
+    preview: '/assets/certificates/technopreneur-sdgs-seminar.webp',
+    document: '/assets/certificates/technopreneur-sdgs-seminar.pdf',
+  },
+  {
+    title: 'Seminar Evolusi Teknologi Web',
+    issuer: 'Program Studi Teknik Informatika Universitas Pelita Bangsa',
+    year: '2024',
+    preview: '/assets/certificates/web-evolution-seminar.webp',
+    document: '/assets/certificates/web-evolution-seminar.pdf',
+  },
+  {
+    title: 'Seminar Fisika & Robotika',
+    issuer: 'Program Studi Teknik Informatika Universitas Pelita Bangsa',
+    year: '2024',
+    preview: '/assets/certificates/physics-robotics-seminar.webp',
+    document: '/assets/certificates/physics-robotics-seminar.png',
   },
   {
     title: 'Lomba Desain Merchandise',
@@ -56,7 +86,7 @@ const certificates = [
     </header>
   </div>
 
-  <div class="certificate-viewport" aria-label="Daftar sertifikat">
+  <div class="certificate-viewport" aria-label="Daftar sertifikat" id="certificateViewport">
     <div class="certificate-grid">
       {
         certificates.map((certificate, index) => (
@@ -82,7 +112,7 @@ const certificates = [
             <div class="certificate-body">
               <div class="certificate-meta">
                 <span class="certificate-mark" aria-hidden="true">
-                  &#10003;
+                  <svg viewBox="0 0 24 24"><path d={mdiCheckBold}></path></svg>
                 </span>
                 <span>
                   {String(index + 1).padStart(2, '0')} /{' '}
@@ -93,12 +123,31 @@ const certificates = [
               <h3>{certificate.title}</h3>
               <p>{certificate.issuer}</p>
               <span class="certificate-link">
-                Lihat sertifikat <span aria-hidden="true">&#8599;</span>
+                Lihat sertifikat
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d={mdiOpenInNew}></path></svg>
               </span>
             </div>
           </a>
         ))
       }
     </div>
+  </div>
+
+  <div
+    aria-label="Navigasi sertifikat"
+    class="mobile-slider-nav certificate-slider-nav"
+    data-mobile-slider-nav
+    data-slider-items=".certificate-card"
+    data-slider-target="certificateViewport"
+  >
+    <button aria-label="Sertifikat sebelumnya" class="mobile-slider-button" data-slider-prev disabled title="Sebelumnya" type="button">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d={mdiArrowLeft}></path></svg>
+    </button>
+    <span aria-live="polite" class="mobile-slider-counter">
+      <strong data-slider-current>01</strong> / {String(certificates.length).padStart(2, '0')}
+    </span>
+    <button aria-label="Sertifikat berikutnya" class="mobile-slider-button" data-slider-next title="Berikutnya" type="button">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d={mdiArrowRight}></path></svg>
+    </button>
   </div>
 </section>

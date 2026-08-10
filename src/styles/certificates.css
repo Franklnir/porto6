@@ -91,7 +91,7 @@
 .certificate-preview img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.65s var(--ease);
 }
 
@@ -132,6 +132,12 @@
   font: 700 14px/1 var(--display);
 }
 
+.certificate-mark svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
 .certificate-body h3 {
   margin: 0;
   font: 600 clamp(18px, 1.65vw, 23px)/1.25 var(--mono);
@@ -155,6 +161,12 @@
   font: 600 11px/1.2 var(--mono);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.certificate-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
 }
 
 :root[data-theme='dark'] .certificates {
