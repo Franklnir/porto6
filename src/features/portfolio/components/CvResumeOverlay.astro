@@ -1,0 +1,106 @@
+---
+import { siteConfig } from '@/config/site';
+import {
+  mdiClose,
+  mdiDownload,
+  mdiFitToPageOutline,
+  mdiMagnifyMinusOutline,
+  mdiMagnifyPlusOutline,
+} from '@mdi/js';
+
+const docs = [
+  {
+    label: 'CV IoT Engineer',
+    shortLabel: 'IoT Engineer',
+    title: 'CV / Resume IoT Engineer',
+    url: siteConfig.links.cvIotEngineer,
+    filename: 'irsyad-cv-iot-engineer.pdf',
+  },
+  {
+    label: 'CV IT Support',
+    shortLabel: 'IT Support',
+    title: 'CV / Resume IT Support',
+    url: siteConfig.links.cvItSupport,
+    filename: 'irsyad-cv-it-support.pdf',
+  },
+] as const;
+
+const initialDoc = docs[0];
+---
+
+<div
+  aria-hidden="true"
+  aria-labelledby="cvViewerTitle"
+  aria-modal="true"
+  class="cv-viewer-overlay"
+  id="cvResumeViewer"
+  role="dialog"
+>
+  <button aria-label="Tutup CV viewer" class="cv-viewer-backdrop" data-cv-close type="button"></button>
+  <section class="cv-viewer-panel" tabindex="-1">
+    <header class="cv-viewer-topbar">
+      <div class="cv-viewer-heading">
+        <p>CV / Resume</p>
+        <h2 id="cvViewerTitle">Lihat CV/Resume</h2>
+      </div>
+      <button aria-label="Tutup overlay CV" class="cv-icon-button cv-close-button" data-cv-close type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d={mdiClose}></path></svg>
+      </button>
+    </header>
+
+    <div class="cv-viewer-toolbar">
+      <div aria-label="Pilih CV atau resume" class="cv-viewer-tabs" role="group">
+        {
+          docs.map((doc, index) => (
+            <button
+              aria-pressed={index === 0 ? 'true' : 'false'}
+              class="cv-viewer-tab"
+              data-cv-select
+              data-cv-filename={doc.filename}
+              data-cv-src={doc.url}
+              data-cv-title={doc.title}
+              type="button"
+            >
+              {doc.shortLabel}
+            </button>
+          ))
+        }
+      </div>
+
+      <div aria-label="Kontrol zoom CV" class="cv-viewer-controls" role="group">
+        <button aria-label="Perkecil CV" class="cv-icon-button" data-cv-zoom="out" type="button">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d={mdiMagnifyMinusOutline}></path></svg>
+        </button>
+        <output aria-live="polite" class="cv-zoom-label" data-cv-zoom-label>100%</output>
+        <button aria-label="Perbesar CV" class="cv-icon-button" data-cv-zoom="in" type="button">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d={mdiMagnifyPlusOutline}></path></svg>
+        </button>
+        <button aria-label="Sesuaikan tampilan CV" class="cv-icon-button" data-cv-zoom="fit" type="button">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d={mdiFitToPageOutline}></path></svg>
+        </button>
+      </div>
+
+      <a class="cv-download-action" data-cv-download download={initialDoc.filename} href={initialDoc.url}>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d={mdiDownload}></path></svg>
+        <span>Download</span>
+      </a>
+    </div>
+
+    <div
+      aria-label="Preview CV. Gunakan scroll atau drag untuk menggeser saat diperbesar."
+      class="cv-viewer-stage"
+      data-cv-stage
+      tabindex="0"
+    >
+      <div class="cv-document-shell" data-cv-shell>
+        <p class="cv-document-status" data-cv-status>Memuat preview CV...</p>
+        <div
+          aria-label={initialDoc.title}
+          class="cv-document-pages"
+          data-cv-pages
+          role="document"
+        ></div>
+      </div>
+    </div>
+  </section>
+</div>

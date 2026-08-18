@@ -7,4 +7,9 @@ describe('siteConfig', () => {
     expect(siteConfig.title.length).toBeGreaterThan(20);
     expect(siteConfig.description.length).toBeGreaterThan(50);
   });
+
+  it('has both CV download links', () => {
+    expect(siteConfig.links.cvIotEngineer).toBe('/documents/irsyad-cv-iot-engineer.pdf');
+    expect(siteConfig.links.cvItSupport).toBe('/documents/irsyad-cv-it-support.pdf');
+  });
 });

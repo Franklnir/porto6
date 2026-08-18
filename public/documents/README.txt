@@ -1,1 +1,3 @@
-Letakkan CV final sebagai public/documents/cv-irsyad.pdf, lalu ubah PUBLIC_CV_URL.
+CV yang tersedia untuk tombol download portfolio:
+- irsyad-cv-iot-engineer.pdf
+- irsyad-cv-it-support.pdf

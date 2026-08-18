@@ -16,6 +16,7 @@ import MyToolsSection from '@/features/portfolio/components/sections/MyToolsSect
 import TestimonialSection from '@/features/portfolio/components/sections/TestimonialSection.astro';
 import FaqSection from '@/features/portfolio/components/sections/FaqSection.astro';
 import ContactSection from '@/features/portfolio/components/sections/ContactSection.astro';
+import CvResumeOverlay from '@/features/portfolio/components/CvResumeOverlay.astro';
 
 const ENABLE_SEQUENCE_HERO = import.meta.env.PUBLIC_ENABLE_SEQUENCE_HERO === 'true';
 ---
@@ -41,6 +42,7 @@ const ENABLE_SEQUENCE_HERO = import.meta.env.PUBLIC_ENABLE_SEQUENCE_HERO === 'tr
     <FaqSection />
     <ContactSection />
   </main>
+  <CvResumeOverlay />
   <ProjectViewOverlay />
 </BaseLayout>
 

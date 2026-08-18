@@ -65,6 +65,41 @@ test('hero exposes accessible social profile icons', async ({ page }) => {
   await expect(page.locator('.hero-meta')).toHaveCount(0);
 });
 
+test('hero CV resume action opens the viewer overlay with controls', async ({ page }) => {
+  await page.goto('/');
+
+  const overlay = page.locator('#cvResumeViewer');
+  await expect(overlay).toHaveAttribute('aria-hidden', 'true');
+
+  await page.locator('.hero-actions [data-cv-open]').click();
+  await expect(overlay).toHaveAttribute('aria-hidden', 'false');
+  await expect(overlay.locator('.cv-viewer-tab')).toHaveCount(2);
+  await expect(overlay.locator('[data-cv-pages] canvas').first()).toBeVisible({
+    timeout: 15_000,
+  });
+
+  await overlay.getByRole('button', { name: 'IT Support' }).click();
+  await expect(overlay.locator('[data-cv-pages] canvas').first()).toBeVisible({
+    timeout: 15_000,
+  });
+  await expect(overlay.locator('[data-cv-download]')).toHaveAttribute(
+    'href',
+    '/documents/irsyad-cv-it-support.pdf',
+  );
+  await expect(overlay.locator('[data-cv-download]')).toHaveAttribute(
+    'download',
+    'irsyad-cv-it-support.pdf',
+  );
+
+  const zoomBefore = Number((await overlay.locator('[data-cv-zoom-label]').textContent())?.replace('%', ''));
+  await overlay.getByRole('button', { name: 'Perbesar CV' }).click();
+  const zoomAfter = Number((await overlay.locator('[data-cv-zoom-label]').textContent())?.replace('%', ''));
+  expect(zoomAfter).toBeGreaterThan(zoomBefore);
+
+  await overlay.getByRole('button', { name: 'Tutup overlay CV' }).click();
+  await expect(overlay).toHaveAttribute('aria-hidden', 'true');
+});
+
 test('mobile certificate and process rails expose button navigation', async ({
   page,
 }, testInfo) => {

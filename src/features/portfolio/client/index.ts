@@ -4,6 +4,7 @@
  */
 import './theme-controller';
 import './mobile-slider-nav';
+import './cv-resume-viewer';
 import './legacy/01-core-ui';
 import './legacy/02-motion-system';
 import './legacy/03-dark-section-cover';

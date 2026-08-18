@@ -7,6 +7,8 @@ export interface SiteConfig {
   email: string;
   links: {
     cv: string;
+    cvIotEngineer: string;
+    cvItSupport: string;
     github: string;
     instagram: string;
     linkedin: string;
@@ -14,6 +16,11 @@ export interface SiteConfig {
     whatsapp: string;
   };
 }
+
+const cvIotEngineerUrl =
+  import.meta.env.PUBLIC_CV_IOT_ENGINEER_URL ?? '/documents/irsyad-cv-iot-engineer.pdf';
+const cvItSupportUrl =
+  import.meta.env.PUBLIC_CV_IT_SUPPORT_URL ?? '/documents/irsyad-cv-it-support.pdf';
 
 export const siteConfig = {
   name: 'Irsyad',
@@ -24,7 +31,9 @@ export const siteConfig = {
   locale: 'id_ID',
   email: import.meta.env.PUBLIC_CONTACT_EMAIL ?? 'irsyad@example.com',
   links: {
-    cv: import.meta.env.PUBLIC_CV_URL ?? '#contact',
+    cv: import.meta.env.PUBLIC_CV_URL ?? cvIotEngineerUrl,
+    cvIotEngineer: cvIotEngineerUrl,
+    cvItSupport: cvItSupportUrl,
     github: import.meta.env.PUBLIC_GITHUB_URL ?? 'https://github.com/Franklnir',
     instagram: import.meta.env.PUBLIC_INSTAGRAM_URL ?? 'https://www.instagram.com/ir_syad2612/',
     linkedin:

@@ -5,6 +5,8 @@ interface ImportMetaEnv {
   readonly PUBLIC_SITE_URL?: string;
   readonly PUBLIC_CONTACT_EMAIL?: string;
   readonly PUBLIC_CV_URL?: string;
+  readonly PUBLIC_CV_IOT_ENGINEER_URL?: string;
+  readonly PUBLIC_CV_IT_SUPPORT_URL?: string;
   readonly PUBLIC_GITHUB_URL?: string;
   readonly PUBLIC_INSTAGRAM_URL?: string;
   readonly PUBLIC_LINKEDIN_URL?: string;

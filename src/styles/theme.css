@@ -1211,6 +1211,23 @@
   color: var(--brand-red);
 }
 
+:root[data-theme='brand'] .cv-viewer-panel,
+:root[data-theme='brand'] .cv-viewer-tab,
+:root[data-theme='brand'] .cv-icon-button {
+  border-color: var(--brand-black);
+}
+
+:root[data-theme='brand'] .cv-viewer-tab[aria-pressed='true'],
+:root[data-theme='brand'] .cv-icon-button:hover,
+:root[data-theme='brand'] .cv-download-action {
+  background: var(--brand-red);
+  color: #fff;
+}
+
+:root[data-theme='brand'] .cv-download-action:hover {
+  background: var(--brand-black);
+}
+
 :root[data-theme='brand'] .photo-wrap {
   border: 3px solid var(--brand-black);
   background: var(--brand-yellow);
