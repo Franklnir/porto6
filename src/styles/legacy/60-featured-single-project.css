@@ -16,7 +16,15 @@
 .featured-showcase--xiaozhi .featured-frame::before,.featured-showcase--xiaozhi .featured-mobile-gallery-item::after{display:none}
 .featured-showcase--xiaozhi .featured-frame-meta,.featured-showcase--xiaozhi .featured-mobile-gallery-item figcaption{display:none}
 .featured-showcase--single .featured-frame-meta strong{font-size:clamp(24px,2.7vw,40px)}
-@media (max-width:1050px) and (min-width:821px){.featured-showcase--single{height:525svh}}
+@media (min-width:821px){
+  .featured-showcase--single .featured-visual-column{width:min(92%,680px);justify-self:end}
+  .featured-showcase--single .featured-visual{height:min(66svh,700px);min-height:540px}
+}
+@media (max-width:1050px) and (min-width:821px){
+  .featured-showcase--single{height:525svh}
+  .featured-showcase--single .featured-visual-column{width:94%}
+  .featured-showcase--single .featured-visual{height:min(62svh,620px);min-height:490px}
+}
 @media (max-width:820px){
   .featured-showcase--single{height:auto}
   .featured-showcase--single .featured-mobile-list--single{display:block!important;width:auto!important;margin:46px 0 0!important;padding:0!important;overflow:visible!important}

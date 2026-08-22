@@ -175,7 +175,7 @@
       if(!entry.isIntersecting)return;
       const el=entry.target;
       const original=el.textContent.trim();
-      const match=original.match(/([0-9]+)(.*)/);
+      const match=original.match(/^([0-9]+)(.*)$/);
       if(!match)return;
       const target=Number(match[1]);
       const suffix=match[2];

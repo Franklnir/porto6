@@ -38,7 +38,8 @@
   "dependencies": {
     "@mdi/js": "^7.4.47",
     "astro": "^7.1.6",
-    "pdfjs-dist": "^6.2.108"
+    "pdfjs-dist": "^6.2.108",
+    "simple-icons": "^16.28.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

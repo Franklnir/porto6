@@ -93,10 +93,13 @@
     {
       kicker:project.presentation.kicker,
       title:project.title,
-      repo:project.repository,
+      repos:project.repositories||[project.repository&&{label:'Repository',url:project.repository,scope:'Source project'}].filter(Boolean),
+      technologies:project.technologies,
       summary:project.overview,
       problem:project.caseStudy.problem,
       approach:project.caseStudy.approach,
+      functions:project.caseStudy.functions,
+      workflow:project.caseStudy.workflow,
       arch:project.caseStudy.architecture,
       decisions:project.caseStudy.decisions,
       limits:project.caseStudy.limitations,
@@ -298,6 +301,14 @@
           <article class="case-content-block"><span>01 / Challenge</span><h3>Masalah yang perlu diselesaikan</h3><p>${p.problem}</p></article>
           <article class="case-content-block"><span>02 / Approach</span><h3>Pendekatan sistem</h3><p>${p.approach}</p></article>
         </section>
+        <section class="case-functions case-reveal">
+          <div class="case-section-head"><p class="case-section-label">Fungsi utama</p><div><h3>Apa yang dilakukan sistem.</h3><p>Fungsi berikut berasal dari fitur dan alur yang benar-benar tersedia pada source proyek.</p></div></div>
+          <div class="case-function-list">${p.functions.map((item,i)=>`<article class="case-function-item"><span>${String(i+1).padStart(2,'0')}</span><h4>${item.title}</h4><p>${item.description}</p></article>`).join('')}</div>
+        </section>
+        <section class="case-workflow case-reveal">
+          <div class="case-section-head"><p class="case-section-label">Cara kerja</p><div><h3>Alur saat sistem digunakan.</h3><p>Langkah ini menunjukkan perjalanan input, validasi, pemrosesan, penyimpanan, hingga hasil yang diterima pengguna atau perangkat.</p></div></div>
+          <ol class="case-workflow-list">${p.workflow.map((item,i)=>`<li><span>${String(i+1).padStart(2,'0')}</span><div><strong>${item.title}</strong><p>${item.description}</p></div></li>`).join('')}</ol>
+        </section>
         <section class="case-architecture case-reveal">
           <div class="case-section-head"><p class="case-section-label">System architecture</p><div><h3>Dari input hingga hasil yang dapat ditindaklanjuti.</h3><p>Arsitektur ditampilkan sebagai alur komponen utama agar hubungan perangkat, layanan, data, dan pengguna mudah dipahami.</p></div></div>
           <ol class="case-flow">${p.arch.map((item,i)=>`<li><span>${String(i+1).padStart(2,'0')}</span><strong>${item}</strong></li>`).join('')}</ol>
@@ -306,9 +317,17 @@
           <div><p class="case-section-label">Engineering decisions</p><h3 class="case-lead">Keputusan yang menjaga sistem tetap terstruktur.</h3></div>
           <ol class="case-decision-list">${p.decisions.map(item=>`<li>${item}</li>`).join('')}</ol>
         </section>
+        <section class="case-stack case-reveal">
+          <div class="case-section-head"><p class="case-section-label">Technology stack</p><div><h3>Teknologi yang benar-benar digunakan.</h3><p>Stack dirangkum dari manifest dependency, konfigurasi runtime, dan source pada repository proyek.</p></div></div>
+          <ul class="case-tech-list">${p.technologies.map(item=>`<li>${item}</li>`).join('')}</ul>
+        </section>
+        <section class="case-repositories case-reveal">
+          <div class="case-section-head"><p class="case-section-label">Source repositories</p><div><h3>Repository dan tanggung jawabnya.</h3><p>Setiap tautan mengarah ke source yang sesuai dengan bagian sistem yang dijelaskan.</p></div></div>
+          <div class="case-repository-list">${p.repos.map(repo=>`<a class="case-repository-link" href="${repo.url}" target="_blank" rel="noreferrer"><span><strong>${repo.label}</strong><small>${repo.scope}</small></span><span class="case-repository-arrow" aria-hidden="true">↗</span></a>`).join('')}</div>
+        </section>
         <section class="case-status case-reveal">
           <article><p class="case-section-label">Current limitations</p><h3>Batasan saat ini</h3><p>${p.limits}</p></article>
-          <article><p class="case-section-label">Next iteration</p><h3>Langkah berikutnya</h3><p>${p.next}</p><div class="case-actions"><a class="btn btn-dark" href="${p.repo||'#'}"${p.repo?' target="_blank" rel="noreferrer"':''}>Repository / Demo <span class="arrow">↗</span></a><button class="btn" type="button" data-close-project>Kembali</button></div></article>
+          <article><p class="case-section-label">Next iteration</p><h3>Langkah berikutnya</h3><p>${p.next}</p><div class="case-actions"><button class="btn btn-dark" type="button" data-close-project>Kembali</button></div></article>
         </section>
       </div>
       <button class="case-next" type="button" data-next-project="${nextKey}"><span class="case-next-inner"><span><span class="case-next-label">Next Project</span><span class="case-next-title">${next.title}</span></span><span class="case-next-arrow">↗</span></span></button>`;

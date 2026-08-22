@@ -1,12 +1,22 @@
 ---
-import { mdiCreationOutline, mdiGraphOutline, mdiRocketLaunchOutline, mdiRouterNetwork } from '@mdi/js';
+import { mdiMicrosoftVisualStudioCode } from '@mdi/js';
+import {
+  siArduino,
+  siDeepseek,
+  siDiagramsdotnet,
+  siEspressif,
+  siGooglegemini,
+  siGooglesheets,
+  siQwen,
+  siTinkercad,
+} from 'simple-icons';
+
+type ToolIcon = { path: string; viewBox?: string } | { src: string };
 
 type Tool = {
   name: string;
   accent: string;
-  iconUrl?: string;
-  iconPath?: string;
-  fallback?: string;
+  icon: ToolIcon;
   variant?: 'is-solid' | 'is-blue';
 };
 
@@ -20,33 +30,80 @@ const rows: ToolRow[] = [
   {
     speed: '36s',
     tools: [
-      { name: 'ChatGPT', accent: '#10A37F', iconUrl: 'https://cdn.simpleicons.org/openai/10A37F', fallback: 'GPT', variant: 'is-solid' },
-      { name: 'Gemini', accent: '#8E75B2', iconUrl: 'https://cdn.simpleicons.org/googlegemini/8E75B2', fallback: 'G' },
-      { name: 'Codex', accent: '#111111', iconUrl: 'https://cdn.simpleicons.org/openai/111111', fallback: 'CX' },
-      { name: 'Antigravity IDE', accent: '#1858EE', iconPath: mdiRocketLaunchOutline, variant: 'is-blue' },
-      { name: 'OpenAI', accent: '#111111', iconUrl: 'https://cdn.simpleicons.org/openai/111111', fallback: 'AI' },
+      {
+        name: 'ChatGPT',
+        accent: '#111111',
+        icon: { src: '/assets/brands/openai.svg' },
+        variant: 'is-solid',
+      },
+      {
+        name: 'Google Gemini',
+        accent: `#${siGooglegemini.hex}`,
+        icon: { path: siGooglegemini.path },
+      },
+      { name: 'OpenAI Codex', accent: '#111111', icon: { src: '/assets/brands/openai.svg' } },
+      {
+        name: 'Google Antigravity',
+        accent: '#1858EE',
+        icon: { src: '/assets/brands/google-antigravity.png' },
+        variant: 'is-blue',
+      },
+      { name: 'OpenAI API', accent: '#111111', icon: { src: '/assets/brands/openai.svg' } },
     ],
   },
   {
     speed: '40s',
     reverse: true,
     tools: [
-      { name: 'Arduino IDE', accent: '#00878F', iconUrl: 'https://cdn.simpleicons.org/arduino/00878F', fallback: 'ARD' },
-      { name: 'ESP-IDF', accent: '#E7352C', iconUrl: 'https://cdn.simpleicons.org/espressif/E7352C', fallback: 'ESP', variant: 'is-solid' },
-      { name: 'Visual Studio Code', accent: '#007ACC', iconUrl: 'https://cdn.simpleicons.org/visualstudiocode/007ACC', fallback: 'VS' },
-      { name: 'Google Sheets', accent: '#34A853', iconUrl: 'https://cdn.simpleicons.org/googlesheets/34A853', fallback: 'GS' },
-      { name: 'Tinkercad', accent: '#0696D7', iconUrl: 'https://cdn.simpleicons.org/autodesk/0696D7', fallback: 'TC', variant: 'is-solid' },
+      { name: 'Arduino IDE', accent: `#${siArduino.hex}`, icon: { path: siArduino.path } },
+      {
+        name: 'ESP-IDF',
+        accent: `#${siEspressif.hex}`,
+        icon: { path: siEspressif.path },
+        variant: 'is-solid',
+      },
+      {
+        name: 'Visual Studio Code',
+        accent: '#007ACC',
+        icon: { path: mdiMicrosoftVisualStudioCode },
+      },
+      {
+        name: 'Google Sheets',
+        accent: `#${siGooglesheets.hex}`,
+        icon: { path: siGooglesheets.path },
+      },
+      {
+        name: 'Autodesk Tinkercad',
+        accent: `#${siTinkercad.hex}`,
+        icon: { path: siTinkercad.path },
+        variant: 'is-solid',
+      },
     ],
   },
   {
     speed: '44s',
     tools: [
-      { name: 'DeepSeek', accent: '#4D6BFE', iconUrl: 'https://cdn.simpleicons.org/deepseek/4D6BFE', fallback: 'DS', variant: 'is-blue' },
-      { name: 'Qwen - Alibaba', accent: '#FF6A00', iconUrl: 'https://cdn.simpleicons.org/alibabacloud/FF6A00', fallback: 'Q' },
-      { name: 'Comet Code AI', accent: '#7C3AED', iconPath: mdiCreationOutline, variant: 'is-solid' },
-      { name: '9Router', accent: '#FF6B35', iconPath: mdiRouterNetwork },
-      { name: 'Graphify', accent: '#1858EE', iconPath: mdiGraphOutline },
-      { name: 'draw.io', accent: '#F08705', iconUrl: 'https://cdn.simpleicons.org/diagramsdotnet/F08705', fallback: 'D', variant: 'is-solid' },
+      {
+        name: 'DeepSeek',
+        accent: `#${siDeepseek.hex}`,
+        icon: { path: siDeepseek.path },
+        variant: 'is-blue',
+      },
+      { name: 'Qwen', accent: `#${siQwen.hex}`, icon: { path: siQwen.path } },
+      {
+        name: 'Comet',
+        accent: '#147CE5',
+        icon: { src: '/assets/brands/comet.png' },
+        variant: 'is-solid',
+      },
+      { name: '9Router', accent: '#E68A6E', icon: { src: '/assets/brands/9router.svg' } },
+      { name: 'Graphify', accent: '#2D8C5A', icon: { src: '/assets/brands/graphify.png' } },
+      {
+        name: 'diagrams.net (draw.io)',
+        accent: `#${siDiagramsdotnet.hex}`,
+        icon: { path: siDiagramsdotnet.path },
+        variant: 'is-solid',
+      },
     ],
   },
 ];
@@ -61,8 +118,8 @@ const rows: ToolRow[] = [
       </div>
       <div>
         <p class="my-tools-copy">
-          Tool yang saya gunakan untuk merancang arsitektur, mengembangkan software,
-          bereksperimen dengan embedded system, dan menjalankan workflow engineering berbantuan AI.
+          Tool yang saya gunakan untuk merancang arsitektur, mengembangkan software, bereksperimen
+          dengan embedded system, dan menjalankan workflow engineering berbantuan AI.
         </p>
       </div>
     </header>
@@ -70,27 +127,27 @@ const rows: ToolRow[] = [
     <div aria-label="Daftar tools yang digunakan" class="tool-streams">
       {
         rows.map((row) => (
-          <div class:list={['tool-row', { 'is-reverse': row.reverse }]} style={`--speed:${row.speed}`}>
+          <div
+            class:list={['tool-row', { 'is-reverse': row.reverse }]}
+            style={`--speed:${row.speed}`}
+          >
             <div class="tool-flow">
               {[0, 1].map((setIndex) => (
                 <div class="tool-set" aria-hidden={setIndex === 1 ? 'true' : undefined}>
                   {row.tools.map((tool, toolIndex) => (
                     <>
-                      <div class:list={['tool-pill', tool.variant]} style={`--tool-accent:${tool.accent}`}>
+                      <div
+                        class:list={['tool-pill', tool.variant]}
+                        style={`--tool-accent:${tool.accent}`}
+                      >
                         <span class="tool-icon">
-                          {tool.iconUrl && (
-                            <img
-                              alt=""
-                              aria-hidden="true"
-                              loading="lazy"
-                              onerror="this.remove()"
-                              src={tool.iconUrl}
-                            />
+                          {'src' in tool.icon ? (
+                            <img alt="" aria-hidden="true" loading="lazy" src={tool.icon.src} />
+                          ) : (
+                            <svg aria-hidden="true" viewBox={tool.icon.viewBox ?? '0 0 24 24'}>
+                              <path d={tool.icon.path} />
+                            </svg>
                           )}
-                          {tool.iconPath && (
-                            <svg aria-hidden="true" viewBox="0 0 24 24"><path d={tool.iconPath}></path></svg>
-                          )}
-                          {tool.fallback && <span class="tool-monogram">{tool.fallback}</span>}
                         </span>
                         <span class="tool-word">
                           <span class="tool-word-track">
@@ -99,7 +156,11 @@ const rows: ToolRow[] = [
                           </span>
                         </span>
                       </div>
-                      {toolIndex < row.tools.length - 1 && <span aria-hidden="true" class="tool-plus">+</span>}
+                      {toolIndex < row.tools.length - 1 && (
+                        <span aria-hidden="true" class="tool-plus">
+                          +
+                        </span>
+                      )}
                     </>
                   ))}
                 </div>

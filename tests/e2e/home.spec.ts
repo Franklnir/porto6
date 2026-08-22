@@ -19,8 +19,24 @@ function parseProjectKeys(value: string): string[] {
 
 test('homepage renders the preserved portfolio sections', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('h1')).toContainText("I'm Irsyad, a Web and IoT");
-  await expect(page.locator('#about')).toBeVisible();
+  await expect(page.locator('.site-header .brand')).toContainText('MYPORTFOLIO');
+  await expect(page.locator('h1')).toContainText("I'M IRSYAD");
+  await expect(page.locator('h1')).toContainText('I BUILD WEB, AI & IoT SYSTEMS.');
+  const about = page.locator('#about');
+  await expect(about).toBeVisible();
+  await expect(about.locator('h2')).toHaveText(
+    'MEMBANGUN SISTEM IOT, BACKEND, DAN INTEGRASI AI YANG SIAP DIGUNAKAN.',
+  );
+  await expect(about.locator('.info strong')).toHaveText([
+    'Irsyad',
+    'Bekasi, Indonesia',
+    'IoT · Backend · AI',
+    'Open to Opportunity',
+  ]);
+  await expect(about.locator('.stat strong')).toHaveText(['ESP32', 'API', 'AI', 'E2E']);
+  await about.locator('.stats').scrollIntoViewIfNeeded();
+  await page.waitForTimeout(300);
+  await expect(about.locator('.stat strong')).toHaveText(['ESP32', 'API', 'AI', 'E2E']);
   await expect(page.locator('#featured-projects')).toBeVisible();
   await expect(page.locator('#projects')).toBeVisible();
   await expect(page.locator('#faq')).toBeVisible();
@@ -91,9 +107,13 @@ test('hero CV resume action opens the viewer overlay with controls', async ({ pa
     'irsyad-cv-it-support.pdf',
   );
 
-  const zoomBefore = Number((await overlay.locator('[data-cv-zoom-label]').textContent())?.replace('%', ''));
+  const zoomBefore = Number(
+    (await overlay.locator('[data-cv-zoom-label]').textContent())?.replace('%', ''),
+  );
   await overlay.getByRole('button', { name: 'Perbesar CV' }).click();
-  const zoomAfter = Number((await overlay.locator('[data-cv-zoom-label]').textContent())?.replace('%', ''));
+  const zoomAfter = Number(
+    (await overlay.locator('[data-cv-zoom-label]').textContent())?.replace('%', ''),
+  );
   expect(zoomAfter).toBeGreaterThan(zoomBefore);
 
   await overlay.getByRole('button', { name: 'Tutup overlay CV' }).click();
@@ -143,22 +163,46 @@ test('capability cards expose the complete engineering scope', async ({ page }) 
   const cards = page.locator('#services .service-card');
   await expect(cards).toHaveCount(3);
   await expect(cards.locator('.service-icon svg')).toHaveCount(3);
-  await expect(cards.nth(0)).toContainText('ESP32, Sensor Integration & SBC');
-  await expect(cards.nth(0)).toContainText('MQTT / Mosquitto / Firebase / Supabase');
-  await expect(cards.nth(1)).toContainText('modular monolith');
-  await expect(cards.nth(1)).toContainText('PostgreSQL, MySQL, NoSQL, Redis, queue, worker');
-  await expect(cards.nth(2)).toContainText('FastAPI AI services / Hugging Face');
-  await expect(cards.nth(2)).toContainText('Hermes Agent & 9Router');
+  await expect(cards.nth(0).locator('h3')).toHaveText('IoT & Embedded Engineering');
+  await expect(cards.nth(0)).toContainText('ESP32 / Sensor Integration / SBC');
+  await expect(cards.nth(0)).toContainText('MQTT / Mosquitto');
+  await expect(cards.nth(0)).not.toContainText('Firebase');
+  await expect(cards.nth(0)).not.toContainText('Supabase');
+  await expect(cards.nth(1).locator('h3')).toHaveText('Backend & Platform Engineering');
+  await expect(cards.nth(1)).toContainText('Laravel / FastAPI');
+  await expect(cards.nth(1)).toContainText('PostgreSQL / MySQL / Redis');
+  await expect(cards.nth(1)).toContainText('WebSocket / Worker');
+  await expect(cards.nth(2).locator('h3')).toHaveText('AI System Integration');
+  await expect(cards.nth(2)).toContainText('AI Models / Hugging Face');
+  await expect(cards.nth(2)).toContainText('MCP / Tool Integration');
+  await expect(cards.nth(2)).toContainText('AI Agent Integration');
+  await expect(cards.nth(2)).not.toContainText('Hermes Agent');
+  await expect(cards.nth(2)).not.toContainText('9Router');
 });
 
-test('toolkit uses brand or library icons instead of placeholder initials', async ({ page }) => {
+test('toolkit uses local brand or library icons with official names', async ({ page }) => {
   await page.goto('/#my-tools');
 
-  await expect(page.locator('#my-tools .tool-icon > svg')).toHaveCount(8);
-  const fallbackInitials = await page
-    .locator('#my-tools .tool-monogram')
-    .evaluateAll((elements) => elements.map((element) => element.textContent.trim()));
-  expect(fallbackInitials).not.toEqual(expect.arrayContaining(['AG', 'CC', '9R', 'GF']));
+  await expect(page.locator('#my-tools .tool-pill')).toHaveCount(32);
+  await expect(page.locator('#my-tools .tool-icon > :is(svg, img)')).toHaveCount(32);
+  await expect(page.locator('#my-tools .tool-monogram')).toHaveCount(0);
+  await expect(page.locator('#my-tools img[src^="http"]')).toHaveCount(0);
+  await expect(page.locator('#my-tools')).toContainText('Google Gemini');
+  await expect(page.locator('#my-tools')).toContainText('OpenAI Codex');
+  await expect(page.locator('#my-tools')).toContainText('Autodesk Tinkercad');
+  await expect(page.locator('#my-tools')).toContainText('Comet');
+  await expect(page.locator('#my-tools')).toContainText('diagrams.net (draw.io)');
+});
+
+test('technology rail renders local vector logos and complete product names', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.locator('.tech-strip .tech')).toHaveCount(30);
+  await expect(page.locator('.tech-strip .tech-logo > :is(svg, img)')).toHaveCount(30);
+  await expect(page.locator('.tech-strip img[src^="http"]')).toHaveCount(0);
+  await expect(page.locator('.tech-strip')).toContainText('Eclipse Mosquitto');
+  await expect(page.locator('.tech-strip')).toContainText('Model Context Protocol');
+  await expect(page.locator('.tech-strip')).toContainText('Single-board computer');
 });
 
 test('theme picker offers and persists all five appearances', async ({ page }) => {
@@ -213,7 +257,7 @@ test('certificate section exposes all source documents', async ({ page }) => {
 
   const section = page.locator('#certificates');
   await expect(section).toBeVisible();
-  await expect(section.locator('.certificate-card')).toHaveCount(10);
+  await expect(section.locator('.certificate-card')).toHaveCount(9);
   await expect(section.locator('.certificate-card').first().locator('h3')).toHaveText(
     'Introduction to Cyber Security',
   );
@@ -227,7 +271,6 @@ test('certificate section exposes all source documents', async ({ page }) => {
     'Seminar Technopreneur & SDGs',
     'Seminar Evolusi Teknologi Web',
     'Seminar Fisika & Robotika',
-    'Lomba Desain Merchandise',
   ]);
 
   const links = await section
@@ -246,7 +289,7 @@ test('project cards and overlay use the same content catalog', async ({ page }) 
   await expect(cards).toHaveCount(6);
   await expect(cards.locator('.portfolio-detail-summary')).toHaveCount(6);
   await expect(cards.first().locator('.portfolio-detail-summary')).toContainText(
-    'Platform modular',
+    'Monorepo operasional sekolah',
   );
 
   const catalogSource = await page.locator('#projectCatalog').textContent();
@@ -257,31 +300,118 @@ test('project cards and overlay use the same content catalog', async ({ page }) 
   );
   expect(cardKeys).toEqual(catalog);
 
-  const firstProjectButton = cards
-    .first()
-    .getByRole('button', { name: /View Platform Operasi Akademik Sekolah/i });
+  const firstCard = cards.first();
+  const firstProjectTitle = (await firstCard.locator('h3').textContent())?.trim();
+  if (!firstProjectTitle) throw new Error('First project title is empty');
+  const firstProjectButton = firstCard.locator('button[data-project]');
+  await expect(firstProjectButton).toHaveAccessibleName(`View ${firstProjectTitle}`);
   await firstProjectButton.dispatchEvent('click');
   await expect(page.locator('#projectView')).toHaveAttribute('aria-hidden', 'false');
-  await expect(page.locator('#caseTitle')).toHaveText('Platform Operasi Akademik Sekolah');
+  await expect(page.locator('#caseTitle')).toHaveText(firstProjectTitle);
 });
 
-test('landscape project media widens its desktop card without increasing its height', async ({
-  page,
-}, testInfo) => {
-  test.skip(!testInfo.project.name.startsWith('desktop'), 'Desktop card proportions');
+test('project cards match the certificate card and preview proportions', async ({ page }) => {
   await page.goto('/#projects');
 
-  const landscapeCard = await page.locator('[data-project-detail="school"]').evaluate((card) => ({
-    width: (card as HTMLElement).offsetWidth,
-    height: (card as HTMLElement).offsetHeight,
-  }));
-  const portraitCard = await page.locator('[data-project-detail="cog"]').evaluate((card) => ({
-    width: (card as HTMLElement).offsetWidth,
-    height: (card as HTMLElement).offsetHeight,
-  }));
+  const certificateHeight = await page
+    .locator('.certificate-card')
+    .first()
+    .evaluate((card) => (card as HTMLElement).offsetHeight);
+  const certificateWidth = await page
+    .locator('.certificate-card')
+    .first()
+    .evaluate((card) => (card as HTMLElement).offsetWidth);
+  const certificateMedia = await page
+    .locator('.certificate-preview')
+    .first()
+    .evaluate((media) => ({
+      width: (media as HTMLElement).offsetWidth,
+      height: (media as HTMLElement).offsetHeight,
+    }));
+  const metrics = await page.locator('[data-project-detail]').evaluateAll((cards) =>
+    cards.map((card) => {
+      const media = card.querySelector<HTMLElement>('.portfolio-detail-media');
+      if (!media) throw new Error('Project media is missing');
+      return {
+        key: card.getAttribute('data-project-detail'),
+        cardWidth: (card as HTMLElement).offsetWidth,
+        cardHeight: (card as HTMLElement).offsetHeight,
+        mediaWidth: media.offsetWidth,
+        mediaHeight: media.offsetHeight,
+      };
+    }),
+  );
 
-  expect(landscapeCard.width).toBeGreaterThan(portraitCard.width * 1.8);
-  expect(landscapeCard.height).toBe(portraitCard.height);
+  const firstMetric = metrics[0];
+  if (!firstMetric) throw new Error('Project cards are missing');
+  expect(new Set(metrics.map(({ cardHeight }) => cardHeight)).size).toBe(1);
+  expect(new Set(metrics.map(({ cardWidth }) => cardWidth)).size).toBe(1);
+  expect(firstMetric.cardHeight).toBe(certificateHeight);
+  expect(firstMetric.cardWidth).toBe(certificateWidth);
+  for (const metric of metrics) {
+    expect(metric.mediaWidth).toBe(certificateMedia.width);
+    expect(metric.mediaHeight).toBe(certificateMedia.height);
+  }
+});
+
+test('project details expose audited repository and technology data', async ({ page }) => {
+  await page.goto('/#projects');
+
+  const catalogSource = await page.locator('#projectCatalog').textContent();
+  if (!catalogSource) throw new Error('Project catalog is empty');
+  const catalog = JSON.parse(catalogSource) as Array<{
+    key: string;
+    title: string;
+    technologies: string[];
+    repositories: Array<{ label: string; url: string; scope: string }>;
+    caseStudy: {
+      approach: string;
+      limitations: string;
+      functions: Array<{ title: string; description: string }>;
+      workflow: Array<{ title: string; description: string }>;
+    };
+  }>;
+
+  expect(catalog).toHaveLength(6);
+  expect(catalog.every((project) => project.repositories.length > 0)).toBeTruthy();
+  expect(catalog.every((project) => project.caseStudy.functions.length > 0)).toBeTruthy();
+  expect(catalog.every((project) => project.caseStudy.workflow.length > 0)).toBeTruthy();
+  const energy = catalog.find((project) => project.key === 'energy');
+  expect(energy?.repositories.map((repository) => repository.url)).toEqual([
+    'https://github.com/Franklnir/Dasboard-monitor-listrik',
+    'https://github.com/Franklnir/sensor-pzem-004t-v4',
+  ]);
+  expect(energy?.technologies).toContain('Supabase Realtime');
+  expect(energy?.caseStudy.functions).toHaveLength(6);
+  expect(energy?.caseStudy.workflow).toHaveLength(7);
+
+  const xiaozhi = catalog.find((project) => project.key === 'cog');
+  expect(xiaozhi?.title).toContain('Adaptasi Xiaozhi AI');
+  expect(xiaozhi?.caseStudy.approach).toContain('bukan firmware AI yang dibuat dari nol');
+
+  const weather = catalog.find((project) => project.key === 'weather');
+  expect(weather?.caseStudy.limitations).toContain('bukan model machine learning');
+
+  await page
+    .locator('[data-project-detail="energy"] button[data-project]')
+    .dispatchEvent('click');
+  await expect(page.locator('#projectView')).toHaveAttribute('aria-hidden', 'false');
+  await expect(page.locator('.case-function-item')).toHaveCount(6);
+  await expect(page.locator('.case-workflow-list li')).toHaveCount(7);
+  await expect(page.locator('.case-function-item').first()).toContainText(
+    'Pengukuran listrik lengkap',
+  );
+  await expect(page.locator('.case-workflow-list li').first()).toContainText(
+    'Sensor dibaca oleh ESP32-S3',
+  );
+  await expect(page.locator('.case-tech-list li', { hasText: 'ESP32-S3 Mini' })).toHaveCount(1);
+  await expect(page.locator('.case-repository-link')).toHaveCount(2);
+  await expect(page.locator('.case-repository-link').first()).toContainText(
+    'Dashboard Monitoring Listrik',
+  );
+  await expect(page.locator('.case-repository-link').nth(1)).toContainText(
+    'Firmware Sensor PZEM',
+  );
 });
 
 test('project detail gallery preserves image proportions and source resolution', async ({
@@ -318,6 +448,10 @@ test('project detail gallery preserves image proportions and source resolution',
 test('project route requests an HD cover without cropping it', async ({ page }, testInfo) => {
   test.skip(!testInfo.project.name.startsWith('desktop'), 'Desktop project cover resolution');
   await page.goto('/projects/platform-operasi-akademik/');
+  await expect(page.getByRole('heading', { name: 'Fungsi Utama' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Cara Kerja' })).toBeVisible();
+  await expect(page.locator('.function-grid article')).toHaveCount(5);
+  await expect(page.locator('.workflow-list li')).toHaveCount(6);
 
   const metrics = await page.locator('.project-route-visual img').evaluate((element) => {
     const image = element as HTMLImageElement;

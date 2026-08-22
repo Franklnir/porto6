@@ -1172,8 +1172,51 @@
 }
 
 :root[data-theme='brand'] .hero h1 {
-  font-size: clamp(58px, 7.7vw, 108px);
-  line-height: .9;
+  max-width: 980px;
+  font-size: clamp(56px, 7.1vw, 98px);
+  line-height: .97;
+}
+
+:root[data-theme='brand'] .hero-title-role {
+  margin-top: .04em;
+}
+
+:root[data-theme='brand'] .hero-title-line,
+:root[data-theme='brand'] .hero-title-systems {
+  display: block;
+}
+
+:root[data-theme='brand'] .hero-visual {
+  min-height: clamp(340px, 94vw, 430px);
+}
+
+@media (min-width: 901px) {
+  :root[data-theme='brand'] .hero-grid {
+    grid-template-columns: minmax(0, 1.62fr) minmax(300px, .48fr);
+    gap: clamp(24px, 3vw, 44px);
+  }
+
+  :root[data-theme='brand'] .hero h1 {
+    max-width: 1060px;
+    font-size: clamp(54px, 6.6vw, 92px);
+    line-height: 1;
+  }
+
+  :root[data-theme='brand'] .hero-title-role {
+    margin-top: .06em;
+    font-size: .86em;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  :root[data-theme='brand'] .hero-intro {
+    max-width: 720px;
+  }
+
+  :root[data-theme='brand'] .hero-visual {
+    width: min(100%, 380px);
+    min-height: clamp(390px, 54vh, 430px);
+  }
 }
 
 :root[data-theme='brand'] .hero .hero-greeting {
@@ -1230,8 +1273,13 @@
 
 :root[data-theme='brand'] .photo-wrap {
   border: 3px solid var(--brand-black);
-  background: var(--brand-yellow);
-  box-shadow: 18px 18px 0 var(--brand-yellow);
+  background: var(--brand-paper);
+  box-shadow: none;
+}
+
+:root[data-theme='brand'] .photo-wrap .responsive-picture {
+  height: 100%;
+  aspect-ratio: auto;
 }
 
 :root[data-theme='brand'] .photo-wrap img,
@@ -1250,8 +1298,8 @@
   border: 2px solid var(--brand-paper);
   background: var(--brand-black);
   color: #fff;
-  box-shadow: 7px 7px 0 var(--brand-red);
-  transform: rotate(-1deg);
+  box-shadow: none;
+  transform: none;
 }
 
 :root[data-theme='brand'] .photo-card span {
@@ -1261,6 +1309,10 @@
 :root[data-theme='brand'] .orbit {
   border: 2px solid var(--brand-black);
   background: var(--brand-yellow);
+}
+
+:root[data-theme='brand'] .hero-visual > .orbit {
+  display: none;
 }
 
 :root[data-theme='brand'] .tech-strip,
@@ -1455,7 +1507,8 @@
 }
 
 :root[data-theme='brand'] .info span,
-:root[data-theme='brand'] .stat span {
+:root[data-theme='brand'] .stat span,
+:root[data-theme='brand'] .stat small {
   color: #c9c1b5;
 }
 

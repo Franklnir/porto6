@@ -1,6 +1,146 @@
 ---
-import RawFragment from '@/components/primitives/RawFragment.astro';
-import { renderLegacyMarkup } from '../../lib/renderLegacyMarkup';
-import markup from '../../fragments/sections/technology.html?raw';
+import { mdiIntegratedCircuitChip } from '@mdi/js';
+import {
+  siDocker,
+  siEclipsemosquitto,
+  siEspressif,
+  siFastapi,
+  siFirebase,
+  siGooglecloud,
+  siLaravel,
+  siModelcontextprotocol,
+  siMqtt,
+  siNextdotjs,
+  siPostgresql,
+  siRedis,
+  siSupabase,
+} from 'simple-icons';
+
+type TechnologyIcon = { path: string; viewBox?: string } | { src: string };
+
+type Technology = {
+  name: string;
+  category: string;
+  color: string;
+  icon: TechnologyIcon;
+};
+
+const technologies: Technology[] = [
+  {
+    name: 'Laravel 13',
+    category: 'Framework',
+    color: `#${siLaravel.hex}`,
+    icon: { path: siLaravel.path },
+  },
+  { name: 'Next.js', category: 'Frontend', color: '#111111', icon: { path: siNextdotjs.path } },
+  {
+    name: 'FastAPI',
+    category: 'AI service',
+    color: `#${siFastapi.hex}`,
+    icon: { path: siFastapi.path },
+  },
+  {
+    name: 'ESP32',
+    category: 'Microcontroller',
+    color: `#${siEspressif.hex}`,
+    icon: { path: siEspressif.path },
+  },
+  { name: 'MQTT', category: 'IoT protocol', color: `#${siMqtt.hex}`, icon: { path: siMqtt.path } },
+  {
+    name: 'Eclipse Mosquitto',
+    category: 'MQTT broker',
+    color: `#${siEclipsemosquitto.hex}`,
+    icon: { path: siEclipsemosquitto.path },
+  },
+  {
+    name: 'Firebase',
+    category: 'Realtime backend',
+    color: `#${siFirebase.hex}`,
+    icon: { path: siFirebase.path },
+  },
+  {
+    name: 'Supabase',
+    category: 'Backend platform',
+    color: `#${siSupabase.hex}`,
+    icon: { path: siSupabase.path },
+  },
+  {
+    name: 'PostgreSQL',
+    category: 'Database',
+    color: `#${siPostgresql.hex}`,
+    icon: { path: siPostgresql.path },
+  },
+  {
+    name: 'Redis',
+    category: 'Cache & queue',
+    color: `#${siRedis.hex}`,
+    icon: { path: siRedis.path },
+  },
+  {
+    name: 'Docker',
+    category: 'Container',
+    color: `#${siDocker.hex}`,
+    icon: { path: siDocker.path },
+  },
+  {
+    name: 'Model Context Protocol',
+    category: 'AI tool protocol',
+    color: '#111111',
+    icon: { path: siModelcontextprotocol.path },
+  },
+  {
+    name: 'Single-board computer',
+    category: 'SBC hardware',
+    color: '#2457C5',
+    icon: { path: mdiIntegratedCircuitChip },
+  },
+  {
+    name: 'Google Cloud',
+    category: 'Cloud platform',
+    color: `#${siGooglecloud.hex}`,
+    icon: { path: siGooglecloud.path },
+  },
+  {
+    name: 'Nevacloud',
+    category: 'Cloud VPS Indonesia',
+    color: '#F26A21',
+    icon: { src: '/assets/brands/nevacloud.svg' },
+  },
+];
 ---
-<RawFragment html={renderLegacyMarkup(markup)} />
+
+<section aria-label="Teknologi yang saya gunakan" class="tech-strip">
+  <div class="container tech-inner">
+    <div class="tech-label">
+      <strong>Teknologi yang saya gunakan</strong>
+      <span>Software, IoT, data &amp; cloud</span>
+    </div>
+    <div aria-label="Daftar teknologi" class="marquee">
+      <div class="marquee-track">
+        {
+          [0, 1].map((setIndex) => (
+            <div class="marquee-set" aria-hidden={setIndex === 1 ? 'true' : undefined}>
+              {technologies.map((technology) => (
+                <span class="tech" style={`--brand:${technology.color}`}>
+                  <span aria-hidden="true" class="tech-logo tech-logo--svg">
+                    {'src' in technology.icon ? (
+                      <img alt="" loading="lazy" src={technology.icon.src} />
+                    ) : (
+                      <svg viewBox={technology.icon.viewBox ?? '0 0 24 24'}>
+                        <path d={technology.icon.path} />
+                      </svg>
+                    )}
+                  </span>
+                  <span class="tech-copy">
+                    <strong>{technology.name}</strong>
+                    <small>{technology.category}</small>
+                  </span>
+                </span>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

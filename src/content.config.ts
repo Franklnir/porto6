@@ -18,6 +18,15 @@ const projects = defineCollection({
     technologies: z.array(z.string()).min(1),
     featured: z.boolean().default(false),
     repository: z.url().optional(),
+    repositories: z
+      .array(
+        z.object({
+          label: z.string(),
+          url: z.url(),
+          scope: z.string(),
+        }),
+      )
+      .min(1),
     presentation: z.object({
       kicker: z.string(),
       category: z.string(),
@@ -31,6 +40,22 @@ const projects = defineCollection({
     caseStudy: z.object({
       problem: z.string(),
       approach: z.string(),
+      functions: z
+        .array(
+          z.object({
+            title: z.string(),
+            description: z.string(),
+          }),
+        )
+        .min(1),
+      workflow: z
+        .array(
+          z.object({
+            title: z.string(),
+            description: z.string(),
+          }),
+        )
+        .min(1),
       architecture: z.array(z.string()).min(1),
       decisions: z.array(z.string()).min(1),
       limitations: z.string(),

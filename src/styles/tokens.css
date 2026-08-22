@@ -4,4 +4,12 @@
   --motion-duration-fast: 220ms;
   --motion-duration-base: 520ms;
   --motion-duration-slow: 900ms;
+  --catalog-card-width: 390px;
+  --catalog-card-height: 520px;
+  --catalog-card-mobile-width: min(84vw, var(--catalog-card-width));
+  --catalog-card-mobile-height: min(
+    var(--catalog-card-height),
+    calc(84vw + 142px)
+  );
+  --catalog-media-ratio: 1.414 / 1;
 }
