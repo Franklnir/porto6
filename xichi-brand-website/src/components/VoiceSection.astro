@@ -1,0 +1,125 @@
+---
+// VoiceSection.astro - 02 / Voice Preview with interactive waveforms and audio playback
+import { voiceSamples } from '../data/voiceSamples';
+---
+<section class="voice-section" id="voice">
+  <header class="section-header dark">
+    <p>02 / Voice Preview</p>
+    <h2>
+      <span class="word"><span>BICARA</span></span>{' '}
+      <span class="word"><span>APA</span></span>{' '}
+      <span class="word"><span>SAJA</span></span>{' '}
+      <span class="word"><span>KE</span></span>{' '}
+      <span class="word"><span>XICHI.</span></span>
+    </h2>
+  </header>
+
+  <div class="voice-grid">
+    {
+      voiceSamples.map((voice) => (
+        <button
+          class="voice-item"
+          data-voice-id={voice.id}
+          data-response={voice.xichiResponse}
+          data-pitch={voice.tonePitch}
+          aria-label={`Dengarkan contoh suara: ${voice.category}`}
+        >
+          <div class="voice-num">{voice.num}</div>
+          <div class="voice-content">
+            <div class="voice-cat">{voice.category}</div>
+            <div class="voice-text">"{voice.userPrompt}"</div>
+            <div class="voice-response" aria-live="polite">
+              💬 <strong>Xichi:</strong> "{voice.xichiResponse}"
+            </div>
+            <div class="voice-wave" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </button>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  // Interactive Voice preview with Web Audio synth chime and SpeechSynthesis support
+  const voiceItems = document.querySelectorAll<HTMLButtonElement>('.voice-item');
+  let audioCtx: AudioContext | null = null;
+
+  function playTone(pitch: number) {
+    try {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(pitch, now);
+      osc.frequency.exponentialRampToValueAtTime(pitch * 1.5, now + 0.15);
+
+      gain.gain.setValueAtTime(0.18, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.45);
+    } catch {
+      // AudioContext not supported or blocked
+    }
+  }
+
+  function speakResponse(text: string) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'id-ID';
+      utterance.rate = 1.05;
+      utterance.pitch = 1.1;
+
+      // Select Indonesian voice if available
+      const voices = window.speechSynthesis.getVoices();
+      const idVoice = voices.find((v) => v.lang.startsWith('id') || v.lang.startsWith('ID'));
+      if (idVoice) utterance.voice = idVoice;
+
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  voiceItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      const isAlreadyPlaying = item.classList.contains('playing');
+
+      // Stop other playing items
+      voiceItems.forEach((i) => i.classList.remove('playing'));
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+
+      if (!isAlreadyPlaying) {
+        item.classList.add('playing');
+        const pitch = parseFloat(item.dataset.pitch || '440');
+        const responseText = item.dataset.response || '';
+
+        playTone(pitch);
+        speakResponse(responseText);
+
+        setTimeout(() => {
+          item.classList.remove('playing');
+        }, 4000);
+      }
+    });
+  });
+</script>

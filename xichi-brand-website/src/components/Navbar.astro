@@ -1,0 +1,101 @@
+---
+// Navbar.astro - Neo-brutalist sticky navbar with desktop pill and mobile menu
+import { siteConfig } from '../data/siteConfig';
+
+const navItems = siteConfig.navItems;
+---
+<nav class="navbar" id="navbar" aria-label="Navigasi utama">
+  <a href="#home" class="navbar-brand" aria-label="Xichi — Beranda">
+    <div class="brand-badge">
+      <img src="/assets/logoxichi.jpg" alt="Logo Xichi AI" class="brand-badge-img" />
+    </div>
+    <span class="brand-title">XICHI</span>
+  </a>
+
+  <div class="nav-pill" role="navigation">
+    {
+      navItems.map((item, idx) => (
+        <a href={item.href} class={idx === 0 ? 'active' : ''} data-section={item.sectionId}>
+          {item.label}
+        </a>
+      ))
+    }
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu navigasi mobile">
+  {
+    navItems.map((item) => (
+      <a href={item.href} class="mobile-link">
+        {item.label}
+      </a>
+    ))
+  }
+</div>
+
+<script>
+  // Navbar scroll & mobile menu handling
+  const navbar = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-pill a');
+  const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-link');
+
+  // Shrink navbar on scroll
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (navbar) {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+      }
+    },
+    { passive: true }
+  );
+
+  // Toggle mobile menu
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('active');
+      hamburger.classList.toggle('active', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    // Close when clicking link
+    mobileLinks.forEach((l) => {
+      l.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Active pill link on scroll
+  const sectionIds = ['home', 'products', 'voice', 'tools', 'comparison', 'culture', 'chronchi', 'buy'];
+  window.addEventListener(
+    'scroll',
+    () => {
+      let current = 'home';
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 240) {
+          current = id;
+        }
+      });
+      navLinks.forEach((link) => {
+        const target = link.getAttribute('href')?.replace('#', '');
+        link.classList.toggle('active', target === current);
+      });
+    },
+    { passive: true }
+  );
+</script>

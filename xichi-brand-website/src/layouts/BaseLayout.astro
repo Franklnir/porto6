@@ -1,0 +1,193 @@
+---
+// BaseLayout.astro - Master layout for Xichi AI Neo-Brutalist Brand Website
+import '../styles/global.css';
+import TopTape from '../components/TopTape.astro';
+import Loader from '../components/Loader.astro';
+import ScrollProgress from '../components/ScrollProgress.astro';
+import PreorderModal from '../components/PreorderModal.astro';
+import { siteConfig } from '../data/siteConfig';
+import { hardwareProducts } from '../data/products';
+import { faqItems } from '../data/faqs';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = siteConfig.name,
+  description = siteConfig.description,
+  image = siteConfig.ogImage,
+  canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : 'https://produk.irsyadlabs.id/',
+} = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.href : 'https://produk.irsyadlabs.id';
+const imageUrl = new URL(image, siteUrl).href;
+
+// 1. JSON-LD Organization
+const jsonLdOrganization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Xichi AI',
+  alternateName: 'Xichi Studio Indonesia',
+  url: siteUrl,
+  logo: `${siteUrl}/assets/logoxichi.jpg`,
+  description: description,
+  founder: {
+    '@type': 'Person',
+    name: 'Franklnir',
+    url: 'https://github.com/Franklnir',
+  },
+  sameAs: [
+    'https://github.com/Franklnir',
+    'https://instagram.com/xichiaipendant',
+    'https://tiktok.com/@xichiaipendant',
+    'https://youtube.com/@xichiaipendant',
+    'https://xiaozhiscig.biz.id',
+  ],
+};
+
+// 2. JSON-LD Product & Offers
+const jsonLdProduct = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Xichi Physical AI Assistant (ESP32-S3 / C3)',
+  image: hardwareProducts.map((p) => `${siteUrl}${p.image || '/assets/products/xichi-core-render.jpg'}`),
+  description: description,
+  brand: {
+    '@type': 'Brand',
+    name: 'Xichi',
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'IDR',
+    lowPrice: 300000,
+    highPrice: 630000,
+    offerCount: hardwareProducts.length,
+    availability: 'https://schema.org/PreOrder',
+    offers: hardwareProducts.map((p) => ({
+      '@type': 'Offer',
+      name: p.name,
+      price: p.priceValue,
+      priceCurrency: 'IDR',
+      availability: 'https://schema.org/PreOrder',
+      url: `${siteUrl}#buy`,
+    })),
+  },
+};
+
+// 3. JSON-LD FAQPage
+const jsonLdFaq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+
+// 4. JSON-LD SoftwareApplication (Chronchi)
+const jsonLdApp = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Chronchi Companion App',
+  operatingSystem: 'Android',
+  applicationCategory: 'SmartHomeApplication',
+  fileSize: '43.1MB',
+  downloadUrl: `${siteUrl}/Xichi-v1.4.0-debug.apk`,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'IDR',
+  },
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#FFE600" />
+    <link rel="icon" type="image/jpeg" href="/assets/logoxichi.jpg" />
+    <link rel="apple-touch-icon" href="/assets/logoxichi.jpg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Xichi, Xichi AI, asisten AI fisik, ESP32, ESP32-S3, Xiaozhi, Chronchi, robot meja AI, YouTube mandiri, AI Vision, BMKG gempa, open source Indonesia, smart home dual relay"
+    />
+    <meta name="author" content="Franklnir & Komunitas Xiaozhi Indonesia" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Xichi AI" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdProduct)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdFaq)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdApp)} />
+  </head>
+  <body>
+    <TopTape />
+    <Loader />
+    <ScrollProgress />
+
+    <slot />
+
+    <PreorderModal />
+
+    <script>
+      // Global Intersection Observer for staggered scroll reveals
+      const revealEls = document.querySelectorAll(
+        '.product-card, .tool-card, .voice-item, .buy-card, .section-header, .bento-item, .footer-brand'
+      );
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal', 'in');
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      revealEls.forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

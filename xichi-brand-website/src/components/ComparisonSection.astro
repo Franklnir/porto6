@@ -1,0 +1,112 @@
+---
+// ComparisonSection.astro - 04 / Komparasi 'Xichi vs Smart Speaker Konvensional'
+import { comparisonData } from '../data/comparisons';
+---
+
+<section class="comparison-section" id="comparison">
+  <header class="section-header">
+    <p>04 / Komparasi</p>
+    <h2>
+      <span class="word"><span>XICHI</span></span>{' '}
+      <span class="word"><span>VS</span></span>{' '}
+      <span class="word"><span>SPEAKER</span></span>{' '}
+      <span class="word"><span>KONVENSIONAL.</span></span>
+    </h2>
+    <p class="comparison-subtitle">
+      Membongkar kelemahan Google Nest & Amazon Alexa dibandingkan fleksibilitas dialog AI, kebebasan streaming YouTube tanpa biaya bulanan, dan integrasi data BMKG lokal milik Xichi.
+    </p>
+  </header>
+
+  <div class="comparison-container">
+    <!-- Desktop Table View -->
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th class="th-criteria">Kriteria / Fitur</th>
+            <th class="th-xichi">
+              <div class="table-brand-badge">
+                <span class="crown-badge">★ REKOMENDASI TERBAIK</span>
+                <span class="brand-name">XICHI PHYSICAL AI</span>
+                <span class="sub-tag">Asisten AI Fisik Masa Depan</span>
+              </div>
+            </th>
+            <th class="th-conventional">
+              <div class="table-brand-badge muted">
+                <span class="brand-name">GOOGLE NEST / ALEXA</span>
+                <span class="sub-tag">Smart Speaker Generasi Lama</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            comparisonData.map((row, idx) => (
+              <tr class={idx % 2 === 0 ? 'even-row' : 'odd-row'}>
+                <td class="td-category">
+                  <div class="category-num">0{idx + 1}</div>
+                  <div class="category-name">{row.category}</div>
+                </td>
+                <td class="td-xichi">
+                  <div class="cell-content">
+                    <div class="cell-header">
+                      <span class="icon-verdict ok" aria-hidden="true">✓</span>
+                      <strong class="cell-title">{row.xichi.title}</strong>
+                      {row.xichi.tag && <span class="spec-chip xichi-chip">{row.xichi.tag}</span>}
+                    </div>
+                    <p class="cell-desc">{row.xichi.description}</p>
+                  </div>
+                </td>
+                <td class="td-conventional">
+                  <div class="cell-content">
+                    <div class="cell-header">
+                      <span class="icon-verdict bad" aria-hidden="true">✕</span>
+                      <strong class="cell-title">{row.conventional.title}</strong>
+                      {row.conventional.tag && <span class="spec-chip conv-chip">{row.conventional.tag}</span>}
+                    </div>
+                    <p class="cell-desc">{row.conventional.description}</p>
+                  </div>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile Stacked Card View -->
+    <div class="comparison-mobile-list">
+      {
+        comparisonData.map((row, idx) => (
+          <article class="comparison-mobile-card">
+            <div class="mobile-card-top">
+              <span class="badge-num">KRITERIA 0{idx + 1}</span>
+              <h3 class="mobile-criteria-title">{row.category}</h3>
+            </div>
+
+            <!-- Xichi side -->
+            <div class="mobile-side xichi-side">
+              <div class="side-label-bar">
+                <span class="side-pill xichi-pill">✓ XICHI AI</span>
+                {row.xichi.tag && <span class="mini-tag">{row.xichi.tag}</span>}
+              </div>
+              <h4 class="side-title">{row.xichi.title}</h4>
+              <p class="side-desc">{row.xichi.description}</p>
+            </div>
+
+            <!-- Conventional side -->
+            <div class="mobile-side conv-side">
+              <div class="side-label-bar">
+                <span class="side-pill conv-pill">✕ GOOGLE NEST / ALEXA</span>
+                {row.conventional.tag && <span class="mini-tag">{row.conventional.tag}</span>}
+              </div>
+              <h4 class="side-title">{row.conventional.title}</h4>
+              <p class="side-desc">{row.conventional.description}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

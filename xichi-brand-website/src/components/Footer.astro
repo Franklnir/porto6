@@ -1,0 +1,65 @@
+---
+// Footer.astro - Neo-brutalist footer with roll brand animation and structured links
+import { siteConfig } from '../data/siteConfig';
+
+const { socialLinks, email } = siteConfig;
+const currentYear = new Date().getFullYear();
+---
+<footer class="footer" id="contact">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+        <img
+          src="/assets/logoxichi.jpg"
+          alt="Logo Xichi AI"
+          style="width:52px; height:52px; border:3px solid var(--yellow); box-shadow:4px 4px 0 var(--red); object-fit:cover; flex-shrink:0;"
+        />
+        <div class="footer-brand" id="footerBrand" style="margin-bottom:0;">
+          <span class="roll">XICHI<span class="dot">.</span></span>
+        </div>
+      </div>
+      <p class="footer-desc">
+        Asisten AI fisik masa depan. Ditenagai ESP32 + Xiaozhi, dibangun oleh komunitas open-source Indonesia.
+      </p>
+      <div class="footer-social">
+        {
+          socialLinks.map((s) => (
+            <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.ariaLabel}>
+              {s.shortLabel}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>PRODUCT</h4>
+      <a href="#products">Xichi Pocket</a>
+      <a href="#products">Xichi Core</a>
+      <a href="#products">Xichi Vision Pro</a>
+      <a href="#buy">DIY Maker Kit</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>RESOURCES</h4>
+      <a href="#flasher">Web Flasher</a>
+      <a href="#chronchi">Chronchi App</a>
+      <a href="#tools">MCP Tools</a>
+      <a href="https://github.com/Franklnir" target="_blank" rel="noopener noreferrer">Firmware GitHub</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>CONNECT</h4>
+      <a href="https://instagram.com/xichiaipendant" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://tiktok.com/@xichiaipendant" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://discord.gg" target="_blank" rel="noopener noreferrer">Discord Komunitas</a>
+      <a href={`mailto:${email}`}>{email}</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {currentYear} XICHI STUDIO</span>
+    <span>POWERED BY ESP32 + XIAOZHI</span>
+    <span>MADE IN INDONESIA 🇮🇩</span>
+  </div>
+</footer>

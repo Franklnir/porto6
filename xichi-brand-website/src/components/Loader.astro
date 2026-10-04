@@ -1,0 +1,45 @@
+---
+// Loader.astro - High-energy brutalist loader with X-I-C-H-I letter drops
+---
+<div id="loader" role="status" aria-label="Memuat Xichi AI">
+  <div class="loader-text" aria-hidden="true">
+    <span>X</span><span>I</span><span>C</span><span>H</span><span>I</span>
+  </div>
+  <div class="loader-bar" aria-hidden="true"></div>
+</div>
+
+<script>
+  (function () {
+    const loader = document.getElementById('loader');
+    if (!loader) return;
+
+    let done = false;
+    function killLoader() {
+      if (done) return;
+      done = true;
+      loader.classList.add('hidden');
+      setTimeout(() => {
+        loader.style.display = 'none';
+        loader.style.pointerEvents = 'none';
+        if (loader.parentNode) {
+          loader.parentNode.removeChild(loader);
+        }
+      }, 500);
+    }
+
+    if (document.readyState === 'complete') {
+      setTimeout(killLoader, 1000);
+    } else {
+      window.addEventListener('load', () => setTimeout(killLoader, 1000));
+    }
+
+    // Safety fallback
+    setTimeout(killLoader, 2200);
+
+    // Instant bypass on user interaction
+    document.addEventListener('click', killLoader, { once: true });
+    document.addEventListener('keydown', killLoader, { once: true });
+    window.addEventListener('wheel', killLoader, { once: true, passive: true });
+    window.addEventListener('touchstart', killLoader, { once: true, passive: true });
+  })();
+</script>

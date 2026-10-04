@@ -1,0 +1,253 @@
+---
+// ProductsSection.astro - 01 / Hardware Lineup with 3 brutalist cards
+import { hardwareProducts } from '../data/products';
+---
+<section class="products-section" id="products">
+  <header class="section-header">
+    <p>01 / Hardware Lineup</p>
+    <h2>
+      <span class="word"><span>TIGA</span></span>{' '}
+      <span class="word"><span>VARIAN.</span></span>{' '}
+      <span class="word"><span>SATU</span></span>{' '}
+      <span class="word"><span>OTAK.</span></span>
+    </h2>
+  </header>
+
+  <div class="product-grid">
+    {
+      hardwareProducts.map((product) => (
+        <article class={`product-card ${product.featured ? 'featured' : ''}`} data-product-id={product.id}>
+          <div class="card-top-bar">
+            <span class="id">{product.code}</span>
+            <span class="status">{product.status}</span>
+          </div>
+
+          <div class="product-visual">
+            <span class="sticker">{product.sticker}</span>
+            {product.id === 'xichi-pocket' && (
+              <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                <rect x="30" y="18" width="40" height="64" rx="6" stroke="#000" stroke-width="3" />
+                <rect x="38" y="28" width="24" height="24" fill="#FFE600" stroke="#000" stroke-width="2" />
+                <circle cx="44" cy="40" r="2.5" fill="#000" />
+                <circle cx="56" cy="40" r="2.5" fill="#000" />
+                <path d="M42 50 Q50 57 58 50" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" />
+                <rect x="42" y="62" width="16" height="6" fill="#000" />
+                <circle cx="50" cy="74" r="3" fill="#FF3B30" stroke="#000" stroke-width="1.5" />
+              </svg>
+            )}
+
+            {product.id === 'xichi-core' && (
+              <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                <rect x="18" y="24" width="64" height="52" rx="8" stroke="#FFE600" stroke-width="3" />
+                <circle cx="50" cy="50" r="18" fill="#FF3B30" opacity="0.2" />
+                <circle cx="50" cy="50" r="14" stroke="#FFE600" stroke-width="2" />
+                <circle cx="44" cy="48" r="2.5" fill="#FFE600" />
+                <circle cx="56" cy="48" r="2.5" fill="#FFE600" />
+                <path d="M44 56 Q50 62 56 56" stroke="#FFE600" stroke-width="2" fill="none" stroke-linecap="round" />
+              </svg>
+            )}
+
+            {product.id === 'xichi-vision-pro' && (
+              <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                <rect x="18" y="24" width="64" height="52" rx="8" stroke="#000" stroke-width="3" />
+                <circle cx="50" cy="50" r="16" stroke="#FF3B30" stroke-width="3" fill="none" />
+                <circle cx="50" cy="50" r="8" fill="#FF3B30" opacity="0.4" />
+                <circle cx="50" cy="50" r="3" fill="#000" />
+              </svg>
+            )}
+          </div>
+
+          <div class="product-info">
+            <h3 class="product-name">{product.name}</h3>
+            <div class="product-chip">{product.chipset}</div>
+            <p class="product-desc">{product.description}</p>
+
+            <button
+              type="button"
+              class="btn-view-specs"
+              data-product-id={product.id}
+              aria-haspopup="dialog"
+              aria-label={`Lihat spesifikasi ${product.name}`}
+            >
+              <span>Lihat Spesifikasi</span>
+              <span class="specs-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="product-price-row">
+              <div>
+                <div class="price-label">{product.priceLabel || 'Harga'}</div>
+                <div class="price-value">
+                  <span class="currency">Rp </span>
+                  {product.priceDisplay}
+                  <span class="currency">rb</span>
+                  {product.priceOld && <span class="price-old">{product.priceOld}</span>}
+                </div>
+              </div>
+            </div>
+
+            <a href="#buy" class="btn-buy" data-product={product.name}>
+              <span>Pre-Order</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <!-- Specs Overlay Modal -->
+  <div class="specs-modal-overlay" id="specsModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="specs-modal-card">
+      <button type="button" class="specs-modal-close" id="closeSpecsModal" aria-label="Tutup spesifikasi">×</button>
+
+      <div class="specs-modal-top">
+        <div class="specs-badge-row">
+          <span class="modal-badge-id" id="modalProductCode">PRD-001</span>
+          <span class="modal-badge-status" id="modalProductStatus">IN STOCK</span>
+        </div>
+        <h3 class="modal-product-title" id="modalProductName">Xichi Pocket</h3>
+        <div class="modal-product-chip" id="modalProductChip">ESP32-C3 SUPERMINI</div>
+      </div>
+
+      <div class="specs-modal-scroll">
+        <div class="specs-section-block">
+          <div class="specs-block-header">
+            <span class="sec-tag">HARDWARE SPECIFICATIONS</span>
+          </div>
+          <div class="specs-tiles-grid" id="modalSpecsGrid">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <div class="specs-section-block">
+          <div class="specs-block-header">
+            <span class="sec-tag">FITUR UTAMA</span>
+          </div>
+          <ul class="specs-features-list" id="modalFeaturesList">
+            <!-- Populated via JS -->
+          </ul>
+        </div>
+
+        <div class="specs-ideal-block" id="modalIdealBox">
+          <span class="ideal-label">💡 COCOK UNTUK</span>
+          <p class="ideal-text" id="modalIdealText"></p>
+        </div>
+      </div>
+
+      <div class="specs-modal-footer">
+        <div class="modal-price-wrap">
+          <span class="modal-price-label">Harga Varian</span>
+          <div class="modal-price-value" id="modalPriceDisplay">Rp 300 rb</div>
+        </div>
+        <button type="button" class="btn-brutal" id="btnModalPreorder">
+          <span>Pre-Order Varian Ini</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ productsData: hardwareProducts }}>
+  const modal = document.getElementById('specsModal');
+  const closeBtn = document.getElementById('closeSpecsModal');
+  const modalCode = document.getElementById('modalProductCode');
+  const modalStatus = document.getElementById('modalProductStatus');
+  const modalName = document.getElementById('modalProductName');
+  const modalChip = document.getElementById('modalProductChip');
+  const modalSpecsGrid = document.getElementById('modalSpecsGrid');
+  const modalFeaturesList = document.getElementById('modalFeaturesList');
+  const modalIdealText = document.getElementById('modalIdealText');
+  const modalPriceDisplay = document.getElementById('modalPriceDisplay');
+  const btnModalPreorder = document.getElementById('btnModalPreorder');
+
+  let currentSelectedProduct = null;
+
+  function openSpecsModal(productId) {
+    const product = productsData.find((p) => p.id === productId);
+    if (!product || !modal) return;
+    currentSelectedProduct = product;
+
+    if (modalCode) modalCode.textContent = product.code;
+    if (modalStatus) modalStatus.textContent = product.status;
+    if (modalName) modalName.textContent = product.name;
+    if (modalChip) modalChip.textContent = product.chipset;
+
+    if (modalSpecsGrid) {
+      modalSpecsGrid.innerHTML = product.specs
+        .map(
+          (spec) => `
+        <div class="spec-tile">
+          <span class="tile-label">${spec.label}</span>
+          <strong class="tile-val">${spec.value}</strong>
+        </div>
+      `
+        )
+        .join('');
+    }
+
+    if (modalFeaturesList) {
+      modalFeaturesList.innerHTML = (product.features || [])
+        .map(
+          (f) => `
+        <li><span class="bullet" aria-hidden="true">▸</span> <span>${f}</span></li>
+      `
+        )
+        .join('');
+    }
+
+    if (modalIdealText) {
+      modalIdealText.textContent = product.idealFor || '';
+    }
+
+    if (modalPriceDisplay) {
+      modalPriceDisplay.innerHTML = `<span style="font-size:0.65em; opacity:0.7;">Rp </span>${product.priceDisplay}<span style="font-size:0.65em; opacity:0.7;"> rb</span>`;
+    }
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSpecsModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.btn-view-specs').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pid = btn.getAttribute('data-product-id');
+      if (pid) openSpecsModal(pid);
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeSpecsModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeSpecsModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+      closeSpecsModal();
+    }
+  });
+
+  btnModalPreorder?.addEventListener('click', () => {
+    if (!currentSelectedProduct) return;
+    const targetProduct = currentSelectedProduct.name;
+    closeSpecsModal();
+
+    setTimeout(() => {
+      const preorderBtn = document.querySelector(`.btn-buy[data-product="${targetProduct}"]`);
+      if (preorderBtn) {
+        preorderBtn.click();
+      } else {
+        const fallbackBtn = document.querySelector('.open-preorder-modal');
+        fallbackBtn?.click();
+      }
+    }, 150);
+  });
+</script>

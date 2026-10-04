@@ -1,0 +1,290 @@
+---
+// ToolsSection.astro - 03 / Superpowers (36 MCP Tools, 8 Pilar)
+import { mcpToolPillars } from '../data/tools';
+import { mcpCatalogue } from '../data/mcpCatalogue';
+---
+
+<section class="tools-section" id="tools">
+  <header class="section-header">
+    <p>03 / Superpowers</p>
+    <h2>
+      <span class="word"><span>47</span></span>{' '}
+      <span class="word"><span>MCP</span></span>{' '}
+      <span class="word"><span>TOOLS.</span></span>{' '}
+      <span class="word"><span>DELAPAN</span></span>{' '}
+      <span class="word"><span>PILAR.</span></span>
+    </h2>
+    <div class="tools-header-action">
+      <button type="button" class="btn-tools-header open-mcp-modal" aria-haspopup="dialog">
+        <span>⚡ Klik Di Sini Untuk Melihat Seluruh Daftar Tools & Contoh Perintah Suara</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="tools-grid">
+    {
+      mcpToolPillars.map((tool) => (
+        <div class="tool-card" data-tool-id={tool.id}>
+          <div class="tool-icon" aria-hidden="true">
+            {tool.iconType === 'music' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+              </svg>
+            )}
+
+            {tool.iconType === 'memory' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 10 10H12V2z" />
+              </svg>
+            )}
+
+            {tool.iconType === 'education' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            )}
+
+            {tool.iconType === 'code' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            )}
+
+            {tool.iconType === 'heart' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            )}
+
+            {tool.iconType === 'worship' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M2 12h20" />
+              </svg>
+            )}
+
+            {tool.iconType === 'cloud' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+              </svg>
+            )}
+
+            {tool.iconType === 'home' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            )}
+          </div>
+
+          <h3 class="tool-title">{tool.title}</h3>
+          <p class="tool-desc">{tool.description}</p>
+          <div class="tool-count">
+            <span>TOOLS</span>
+            <span class="num">{tool.count}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="tools-cta-row">
+    <button type="button" class="btn-brutal open-mcp-modal" style="padding: 16px 32px; font-size: 14px;">
+      <span>📖 Buka Katalog Lengkap 47+ MCP Tools</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </button>
+  </div>
+
+  <!-- MCP Superpowers Catalogue Modal Overlay -->
+  <div class="mcp-modal-overlay" id="mcpModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="mcp-modal-card">
+      <button type="button" class="mcp-modal-close" id="closeMcpModal" aria-label="Tutup katalog MCP">×</button>
+
+      <div class="mcp-modal-head">
+        <div class="mcp-badge-top">
+          <span class="mcp-badge-proto">MODEL CONTEXT PROTOCOL (MCP)</span>
+          <span class="mcp-badge-count">10 KATEGORI · 47+ TOOLS</span>
+        </div>
+        <h3 class="mcp-modal-title">KATALOG LENGKAP MCP SUPERPOWERS</h3>
+        <p class="mcp-modal-sub">
+          Daftar lengkap kemampuan teknis, pilar spesialis, dan contoh perintah suara instan (voice prompt) untuk asisten AI fisik Xichi.
+        </p>
+
+        <div class="mcp-search-bar">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="mcpSearchInput"
+            class="mcp-search-input"
+            placeholder="Cari tool, fungsi, atau kata kunci (misal: youtube, bmkg, quiz, relay, sholat)..."
+            aria-label="Cari tool MCP"
+          />
+        </div>
+
+        <!-- Filter Category Pills -->
+        <div class="mcp-pills-row" id="mcpCategoryPills">
+          <button type="button" class="mcp-cat-pill active" data-cat="all">Semua ({mcpCatalogue.reduce((acc, c) => acc + c.tools.length, 0)})</button>
+          {
+            mcpCatalogue.map((cat) => (
+              <button type="button" class="mcp-cat-pill" data-cat={cat.id}>
+                <span>{cat.icon}</span> <span>{cat.title}</span>
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Scrollable Catalogue Body -->
+      <div class="mcp-modal-body" id="mcpModalBody">
+        {
+          mcpCatalogue.map((cat) => (
+            <section class="mcp-cat-section" data-cat-id={cat.id}>
+              <div class="mcp-cat-header">
+                <div class="mcp-cat-num">{cat.number}</div>
+                <div>
+                  <h4 class="mcp-cat-title">
+                    <span class="cat-icon">{cat.icon}</span> {cat.title}
+                  </h4>
+                  <p class="mcp-cat-tagline">{cat.tagline}</p>
+                </div>
+              </div>
+
+              <div class="mcp-tools-list">
+                {
+                  cat.tools.map((tool) => (
+                    <article class="mcp-tool-card" data-tool-name={tool.name} data-tool-desc={tool.description} data-tool-prompt={tool.promptExample || ''}>
+                      <div class="mcp-tool-top">
+                        <code class="mcp-tool-id">{tool.name}</code>
+                        {tool.badge && <span class="mcp-tool-badge">{tool.badge}</span>}
+                      </div>
+                      <p class="mcp-tool-desc">{tool.description}</p>
+                      {tool.parameters && (
+                        <div class="mcp-tool-params">
+                          <span class="param-label">Parameter:</span> <code>{tool.parameters}</code>
+                        </div>
+                      )}
+                      {tool.promptExample && (
+                        <div class="mcp-tool-prompt">
+                          <span class="prompt-icon" aria-hidden="true">🗣️</span>
+                          <span class="prompt-text">"{tool.promptExample}"</span>
+                        </div>
+                      )}
+                    </article>
+                  ))
+                }
+              </div>
+            </section>
+          ))
+        }
+      </div>
+
+      <div class="mcp-modal-footer">
+        <div class="footer-info">
+          💡 <strong>Tips Suara:</strong> Cukup ucapkan salah satu contoh perintah suara di atas saat berdialog dengan Xichi.
+        </div>
+        <button type="button" class="btn-brutal" id="btnCloseMcpFooter">
+          <span>Tutup Katalog</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const mcpModal = document.getElementById('mcpModal');
+  const closeMcpBtn = document.getElementById('closeMcpModal');
+  const closeMcpFooter = document.getElementById('btnCloseMcpFooter');
+  const openButtons = document.querySelectorAll('.open-mcp-modal');
+  const searchInput = document.getElementById('mcpSearchInput') as HTMLInputElement | null;
+  const catPills = document.querySelectorAll<HTMLButtonElement>('.mcp-cat-pill');
+  const catSections = document.querySelectorAll<HTMLElement>('.mcp-cat-section');
+  const toolCards = document.querySelectorAll<HTMLElement>('.mcp-tool-card');
+
+  function openModal() {
+    if (!mcpModal) return;
+    mcpModal.classList.add('active');
+    mcpModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => searchInput?.focus(), 150);
+  }
+
+  function closeModal() {
+    if (!mcpModal) return;
+    mcpModal.classList.remove('active');
+    mcpModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (window.location.hash === '#mcp' || window.location.hash === '#katalog-mcp') {
+      history.replaceState(null, '', '#tools');
+    }
+  }
+
+  function checkHash() {
+    if (window.location.hash === '#mcp' || window.location.hash === '#katalog-mcp') {
+      openModal();
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', checkHash);
+  window.addEventListener('hashchange', checkHash);
+  setTimeout(checkHash, 300);
+
+  openButtons.forEach((btn) => btn.addEventListener('click', openModal));
+  closeMcpBtn?.addEventListener('click', closeModal);
+  closeMcpFooter?.addEventListener('click', closeModal);
+
+  mcpModal?.addEventListener('click', (e) => {
+    if (e.target === mcpModal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mcpModal?.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  let currentCategory = 'all';
+
+  function filterTools() {
+    const q = (searchInput?.value || '').toLowerCase().trim();
+
+    catSections.forEach((section) => {
+      const catId = section.getAttribute('data-cat-id');
+      const matchesCat = currentCategory === 'all' || catId === currentCategory;
+
+      let sectionHasVisibleTool = false;
+
+      const cards = section.querySelectorAll<HTMLElement>('.mcp-tool-card');
+      cards.forEach((card) => {
+        const name = (card.getAttribute('data-tool-name') || '').toLowerCase();
+        const desc = (card.getAttribute('data-tool-desc') || '').toLowerCase();
+        const prompt = (card.getAttribute('data-tool-prompt') || '').toLowerCase();
+
+        const matchesSearch = !q || name.includes(q) || desc.includes(q) || prompt.includes(q);
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+          sectionHasVisibleTool = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      section.style.display = sectionHasVisibleTool ? 'flex' : 'none';
+    });
+  }
+
+  searchInput?.addEventListener('input', filterTools);
+
+  catPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      catPills.forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+      currentCategory = pill.getAttribute('data-cat') || 'all';
+      filterTools();
+    });
+  });
+</script>

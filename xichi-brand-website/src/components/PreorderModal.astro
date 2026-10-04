@@ -1,0 +1,144 @@
+---
+// PreorderModal.astro - Brutalist interactive checkout modal ready for WhatsApp & Backend API
+import { siteConfig } from '../data/siteConfig';
+
+const { whatsappNumber } = siteConfig;
+---
+<div class="modal-overlay" id="preorderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <button type="button" class="modal-close" id="closePreorderModal" aria-label="Tutup form pre-order">×</button>
+
+    <h3 class="modal-title" id="modalTitle">PRE-ORDER XICHI AI</h3>
+    <p class="modal-sub">Pilih varian favoritmu. Tim kami akan segera mengonfirmasi ketersediaan unit dan pengiriman.</p>
+
+    <form class="modal-form" id="preorderForm">
+      <div class="form-group">
+        <label for="variantSelect">Varian Produk</label>
+        <select class="form-select" id="variantSelect" name="variant" required>
+          <option value="Xichi Pocket (C3 Mini - Rp 300.000)">Xichi Pocket (C3 Mini - Rp 300.000)</option>
+          <option value="Xichi Core (Unit Jadi - Rp 560.000)">Xichi Core (Unit Jadi - Rp 560.000)</option>
+          <option value="Xichi Vision Pro (S3 CAM - Rp 630.000)">Xichi Vision Pro (S3 CAM - Rp 630.000)</option>
+          <option value="Xichi Kit (DIY Maker - Rp 299.000)">Xichi Kit (DIY Maker - Rp 299.000)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="customerName">Nama Lengkap</label>
+        <input type="text" class="form-input" id="customerName" name="name" placeholder="Misal: Franklin Irsyad" required />
+      </div>
+
+      <div class="form-group">
+        <label for="customerPhone">Nomor WhatsApp / HP</label>
+        <input type="tel" class="form-input" id="customerPhone" name="phone" placeholder="Misal: 081234567890" required />
+      </div>
+
+      <div class="form-group">
+        <label for="customerAddress">Kota / Alamat Pengiriman</label>
+        <input type="text" class="form-input" id="customerAddress" name="address" placeholder="Misal: Bandung, Jawa Barat" required />
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+        <button type="button" class="btn-brutal" id="btnSubmitWa" style="width:100%; justify-content:center;">
+          <span>📲 Pesan Cepat via WhatsApp</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </button>
+
+        <button type="submit" class="btn-brutal outline" id="btnSubmitApi" style="width:100%; justify-content:center;">
+          <span>⚡ Simpan Pre-Order (Backend API)</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script define:vars={{ whatsappNumber }}>
+  const modal = document.getElementById('preorderModal');
+  const closeBtn = document.getElementById('closePreorderModal');
+  const form = document.getElementById('preorderForm');
+  const variantSelect = document.getElementById('variantSelect');
+  const btnSubmitWa = document.getElementById('btnSubmitWa');
+
+  function openModal(defaultVariant) {
+    if (!modal) return;
+    if (defaultVariant && variantSelect) {
+      for (let i = 0; i < variantSelect.options.length; i++) {
+        if (variantSelect.options[i].text.toLowerCase().includes(defaultVariant.toLowerCase())) {
+          variantSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Open modal triggers from across the page
+  document.querySelectorAll('.open-preorder-modal, .btn-buy').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      // If it's a direct anchor jump with #buy, let it jump, or if clicked on CTA, open modal
+      const tierTitle = btn.getAttribute('data-title') || btn.getAttribute('data-product');
+      if (tierTitle || btn.classList.contains('open-preorder-modal')) {
+        e.preventDefault();
+        openModal(tierTitle || '');
+      }
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) closeModal();
+  });
+
+  // Submit via WhatsApp
+  btnSubmitWa?.addEventListener('click', () => {
+    const name = (document.getElementById('customerName')).value.trim();
+    const phone = (document.getElementById('customerPhone')).value.trim();
+    const address = (document.getElementById('customerAddress')).value.trim();
+    const variant = variantSelect.value;
+
+    if (!name || !phone) {
+      alert('Mohon lengkapi nama dan nomor WhatsApp Anda terlebih dahulu.');
+      return;
+    }
+
+    const text = `Halo tim Xichi AI!\nSaya ingin melakukan pre-order perangkat:\n\n📦 *Varian*: ${variant}\n👤 *Nama*: ${name}\n📞 *No. WA*: ${phone}\n📍 *Kota/Alamat*: ${address || '-'}\n\nMohon info ketersediaan stok & nomor rekening pembayaran. Terima kasih!`;
+    const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+    closeModal();
+  });
+
+  // Submit via Backend API (/api/preorder)
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch('/api/preorder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        alert('🎉 Terima kasih! Pre-order Anda telah tersimpan di sistem Xichi. Tim kami akan menghubungi nomor WA Anda segera.');
+        form.reset();
+        closeModal();
+      } else {
+        alert('Gagal menyimpan pre-order: ' + (data.message || 'Terjadi kesalahan'));
+      }
+    } catch (err) {
+      alert('Pre-order tersimpan secara lokal. Silakan lanjutkan konfirmasi melalui WhatsApp.');
+      closeModal();
+    }
+  });
+</script>

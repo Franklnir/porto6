@@ -1,0 +1,11 @@
+---
+// Marquee.astro - Continuous brutalist ticker with pause-on-hover
+import { siteConfig } from '../data/siteConfig';
+
+const marqueeText = siteConfig.marqueeText;
+---
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-content">
+    {marqueeText}
+  </div>
+</div>

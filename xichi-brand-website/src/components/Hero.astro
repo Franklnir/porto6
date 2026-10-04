@@ -1,0 +1,79 @@
+---
+// Hero.astro - Brutalist Hero section with character-drop animation and 3D parallax
+---
+<section class="hero" id="home">
+  <h1 class="hero-title" id="heroTitle">
+    <span class="line">Asisten AI</span>
+    <span class="line">Fisik <span class="accent">Masa Depan.</span></span>
+  </h1>
+
+  <p class="hero-sub">
+    Teman meja kerja cerdas dengan <strong>wajah ekspresif</strong>,{' '}
+    <strong>memori jangka panjang</strong>, pemutar YouTube mandiri, dan <strong>AI Vision</strong>.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#buy" class="btn-brutal">
+      <span>Pre-Order Sekarang</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+    <a href="#voice" class="btn-brutal outline">
+      <span>▶ Dengar Sampel Suara</span>
+    </a>
+  </div>
+</section>
+
+<script>
+  // Split hero title into individual animated character spans
+  (function splitHero() {
+    const lines = document.querySelectorAll<HTMLElement>('.hero-title .line');
+    let charIndex = 0;
+
+    lines.forEach((line) => {
+      const walk = (node: Node) => {
+        const children = Array.from(node.childNodes);
+        children.forEach((child) => {
+          if (child.nodeType === Node.TEXT_NODE) {
+            const text = child.textContent || '';
+            const frag = document.createDocumentFragment();
+            text.split('').forEach((ch) => {
+              if (ch === ' ') {
+                frag.appendChild(document.createTextNode(' '));
+              } else {
+                const span = document.createElement('span');
+                span.textContent = ch;
+                const randomRot = (Math.random() * 30 - 15).toFixed(1) + 'deg';
+                span.style.setProperty('--rot', randomRot);
+                span.style.setProperty('--i', String(charIndex++));
+                frag.appendChild(span);
+              }
+            });
+            node.replaceChild(frag, child);
+          } else if (child.nodeType === Node.ELEMENT_NODE) {
+            walk(child);
+          }
+        });
+      };
+      walk(line);
+    });
+  })();
+
+  // 3D Mouse Parallax (desktop with pointer)
+  if (window.matchMedia('(hover: hover) and (min-width: 1024px)').matches) {
+    const heroTitle = document.getElementById('heroTitle');
+    const hero = document.querySelector<HTMLElement>('.hero');
+
+    if (hero && heroTitle) {
+      hero.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = hero.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        heroTitle.style.transform = `translate3d(${x * 8}px, ${y * 8}px, 0)`;
+      });
+
+      hero.addEventListener('mouseleave', () => {
+        heroTitle.style.transform = '';
+      });
+    }
+  }
+</script>

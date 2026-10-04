@@ -1,0 +1,41 @@
+---
+// CultureSection.astro - 04 / Studio Life Bento Grid with static images
+import { bentoItems } from '../data/culture';
+---
+<section class="culture-section" id="culture">
+  <header class="section-header dark">
+    <p>05 / Studio Life</p>
+    <h2>
+      <span class="word"><span>WE</span></span>{' '}
+      <span class="word"><span>ARE</span></span>{' '}
+      <span class="word"><span>MAKERS.</span></span>
+    </h2>
+  </header>
+
+  <div class="bento-grid">
+    {
+      bentoItems.map((item) => (
+        <div class={`bento-item ${item.gridClass}`}>
+          {item.type === 'text' && (
+            <div class={`bento-text ${item.center ? 'center' : ''}`}>
+              {item.label && <div class="bento-label">{item.label}</div>}
+              {item.icon && <div class="bento-icon" aria-hidden="true">{item.icon}</div>}
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          )}
+
+          {item.type === 'image' && (
+            <img
+              src={item.image}
+              alt={item.alt || 'Xichi Maker Community'}
+              loading="lazy"
+              decoding="async"
+              onerror={`this.onerror=null;this.src='${item.fallbackImage}';`}
+            />
+          )}
+        </div>
+      ))
+    }
+  </div>
+</section>

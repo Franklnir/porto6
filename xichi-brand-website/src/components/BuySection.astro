@@ -1,0 +1,51 @@
+---
+// BuySection.astro - 07 / Pre-Order (Ready-to-Use Unit vs DIY Maker Kit)
+import { pricingTiers } from '../data/pricing';
+---
+<section class="buy-section" id="buy">
+  <header class="section-header dark">
+    <p>08 / Pre-Order</p>
+    <h2>
+      <span class="word"><span>PILIH</span></span>{' '}
+      <span class="word"><span>CARA</span></span>{' '}
+      <span class="word"><span>KAMU</span></span>{' '}
+      <span class="word"><span>MEMBANGUN.</span></span>
+    </h2>
+  </header>
+
+  <div class="buy-grid">
+    {
+      pricingTiers.map((tier) => (
+        <div class={`buy-card ${tier.featured ? 'featured' : ''}`} data-tier-id={tier.id}>
+          <div class="buy-tag">{tier.tag}</div>
+          <h3 class="buy-title">{tier.title}</h3>
+          <p class="buy-sub">{tier.subtitle}</p>
+
+          <div class="buy-price">
+            <span class="currency">Rp </span>
+            {tier.priceFormatted}
+          </div>
+          <div class="buy-price-note">{tier.note}</div>
+
+          <ul class="buy-features">
+            {tier.features.map((feat) => (
+              <li>{feat}</li>
+            ))}
+          </ul>
+
+          <button
+            type="button"
+            class="btn-buy-cta open-preorder-modal"
+            data-tier={tier.id}
+            data-title={tier.title}
+            data-price={tier.priceFormatted}
+            data-message={tier.whatsappMessage}
+          >
+            <span>{tier.ctaText}</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      ))
+    }
+  </div>
+</section>

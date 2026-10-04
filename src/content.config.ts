@@ -2,7 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-const projectKey = z.enum(['school', 'cog', 'energy', 'library', 'cctv', 'weather']);
+const projectKey = z.enum(['school', 'cog', 'energy', 'library', 'cctv', 'weather', 'recipe', 'cctv-ai', 'iot-control']);
 
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),

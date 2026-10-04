@@ -1,0 +1,54 @@
+---
+// FAQSection.astro - Brutalist FAQ Accordion for SEO & Customer Confidence
+import { faqItems } from '../data/faqs';
+---
+<section class="faq-section" id="faq">
+  <header class="section-header">
+    <p>09 / FAQ</p>
+    <h2>
+      <span class="word"><span>PERTANYAAN</span></span>{' '}
+      <span class="word"><span>SERING</span></span>{' '}
+      <span class="word"><span>DIAJUKAN.</span></span>
+    </h2>
+  </header>
+
+  <div class="faq-container">
+    {
+      faqItems.map((faq, idx) => (
+        <div class="faq-item" id={`faq-${idx}`}>
+          <button
+            class="faq-question"
+            type="button"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${idx}`}
+          >
+            <span>{faq.question}</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id={`faq-answer-${idx}`}>
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  // FAQ accordion toggling
+  const faqItems = document.querySelectorAll<HTMLElement>('.faq-item');
+  faqItems.forEach((item) => {
+    const btn = item.querySelector<HTMLButtonElement>('.faq-question');
+    btn?.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      faqItems.forEach((i) => {
+        i.classList.remove('active');
+        i.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

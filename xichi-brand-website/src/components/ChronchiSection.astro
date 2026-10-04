@@ -1,0 +1,162 @@
+---
+// ChronchiSection.astro - 06 / Support Aplikasi Chronos (fbiego ecosystem)
+import { chronchiConfig } from '../data/chronchi';
+
+const { sectionBadge, sectionTitleWords, description, features, demoUser, playStoreUrl, githubUrl } = chronchiConfig;
+---
+
+<section class="chronchi-section" id="chronchi">
+  <header class="section-header">
+    <p>{sectionBadge}</p>
+    <h2>
+      <span class="word"><span>CHRONOS</span></span>{' '}
+      <span class="word"><span>—</span></span>{' '}
+      <span class="word"><span>INTEGRASI</span></span>{' '}
+      <span class="word"><span>HP</span></span>{' '}
+      <span class="word"><span>VIA</span></span>{' '}
+      <span class="word"><span>BLE.</span></span>
+    </h2>
+  </header>
+
+  <div class="chronchi-grid">
+    <!-- Interactive Phone Mockup -->
+    <div class="phone-mockup" aria-label="Simulasi antarmuka aplikasi Chronos by fbiego">
+      <div class="phone-screen">
+        <div class="phone-status">
+          <span>09:41</span>
+          <span style="letter-spacing: 2px;">⚡ BLE ▮▮▮</span>
+        </div>
+
+        <div class="phone-header">
+          <div>
+            <div class="phone-greet">{demoUser.appName}</div>
+            <div class="phone-name">Chronos ESP32</div>
+          </div>
+          <div class="phone-avatar" title="Bluetooth Low Energy">ᛒ</div>
+        </div>
+
+        <div class="phone-device">
+          <div class="phone-device-status">{demoUser.connectionStatus}</div>
+          <div class="phone-device-name">{demoUser.deviceName}</div>
+          <div class="phone-device-meta">{demoUser.bleAddress} · 2.4GHz</div>
+        </div>
+
+        <!-- Simulated WhatsApp Notification Card -->
+        <div class="phone-notif-box">
+          <div class="notif-top">
+            <span class="notif-app">💬 {demoUser.notification.app}</span>
+            <span class="notif-time">SEKARANG</span>
+          </div>
+          <div class="notif-sender">{demoUser.notification.sender}</div>
+          <div class="notif-text">{demoUser.notification.message}</div>
+        </div>
+
+        <!-- Simulated Music Control Card -->
+        <div class="phone-music-box">
+          <div class="music-info">
+            <div class="music-tag">🎵 {demoUser.activeMusic.app}</div>
+            <div class="music-title">{demoUser.activeMusic.title}</div>
+            <div class="music-artist">{demoUser.activeMusic.artist}</div>
+          </div>
+          <div class="music-ctrls" aria-hidden="true">
+            <span>⏮</span>
+            <span class="play-btn">⏸</span>
+            <span>⏭</span>
+          </div>
+        </div>
+
+        <div class="phone-toggles">
+          <div class="phone-label">PENGATURAN CHRONOS</div>
+
+          <div class="phone-toggle" role="button" tabindex="0" id="toggleNotif" aria-label="Aktifkan/matikan Sinkron Notifikasi">
+            <span class="phone-toggle-label">Sinkron Notifikasi</span>
+            <div class="phone-switch on" id="switchNotif"></div>
+          </div>
+
+          <div class="phone-toggle" role="button" tabindex="0" id="toggleMedia" aria-label="Aktifkan/matikan Kontrol Musik">
+            <span class="phone-toggle-label">Kontrol Musik</span>
+            <div class="phone-switch on" id="switchMedia"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chronos Copy & Feature List -->
+    <div class="chronchi-content">
+      <p class="chronchi-desc">
+        {description}
+      </p>
+
+      <ul class="feature-list">
+        {
+          features.map((feat) => (
+            <li>
+              <div class="feature-num">{feat.num}</div>
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                  <div class="feature-title">{feat.title}</div>
+                  {feat.badge && <span class="feature-chip">{feat.badge}</span>}
+                </div>
+                <div class="feature-desc">{feat.desc}</div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="chronos-cta-group">
+        <a
+          href={playStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-brutal"
+          style="flex: 1; justify-content: space-between;"
+        >
+          <span>📱 Google Play Store</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a
+          href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-brutal outline"
+          style="flex: 1; justify-content: space-between; background: transparent; color: var(--yellow); border-color: var(--yellow); box-shadow: 4px 4px 0 var(--yellow);"
+        >
+          <span>⭐ GitHub (fbiego)</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Interactive phone toggle switches
+  const toggleNotif = document.getElementById('toggleNotif');
+  const switchNotif = document.getElementById('switchNotif');
+  const toggleMedia = document.getElementById('toggleMedia');
+  const switchMedia = document.getElementById('switchMedia');
+
+  function flip(sw: HTMLElement | null) {
+    if (sw) {
+      sw.classList.toggle('on');
+    }
+  }
+
+  toggleNotif?.addEventListener('click', () => flip(switchNotif));
+  toggleMedia?.addEventListener('click', () => flip(switchMedia));
+
+  toggleNotif?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      flip(switchNotif);
+    }
+  });
+
+  toggleMedia?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      flip(switchMedia);
+    }
+  });
+</script>

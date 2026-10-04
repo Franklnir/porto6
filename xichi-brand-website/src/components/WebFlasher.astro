@@ -1,0 +1,92 @@
+---
+// WebFlasher.astro - 06 / Web Flasher (Web Serial API Terminal & Flash Guide)
+---
+<section class="flasher-section" id="flasher">
+  <header class="section-header">
+    <p>07 / Web Flasher</p>
+    <h2>
+      <span class="word"><span>FLASH</span></span>{' '}
+      <span class="word"><span>FIRMWARE</span></span>{' '}
+      <span class="word"><span>DARI</span></span>{' '}
+      <span class="word"><span>BROWSER.</span></span>
+    </h2>
+  </header>
+
+  <div class="flasher-content">
+    <p class="flasher-desc">
+      Tanpa install Arduino IDE, tanpa setup driver. Cukup colok kabel USB-C dan klik tombol.
+    </p>
+
+    <div class="terminal" aria-label="Simulasi log Web Serial Terminal Xichi">
+      <div class="terminal-head">
+        <div class="terminal-dot r" aria-hidden="true"></div>
+        <div class="terminal-dot y" aria-hidden="true"></div>
+        <div class="terminal-dot g" aria-hidden="true"></div>
+        <div class="terminal-title">xichi-flasher — web serial api</div>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">connecting to device...</span></div>
+        <div class="terminal-line"><span class="info">→</span> Port detected: <span class="ok">/dev/ttyUSB0</span></div>
+        <div class="terminal-line"><span class="info">→</span> Chip: <span class="ok">ESP32-S3 (QFN56) rev 0.2</span></div>
+        <div class="terminal-line"><span class="info">→</span> MAC: <span class="ok">A4:CF:12:XX:XX:XX</span></div>
+        <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">flashing xichi_core_v1.4.2.bin...</span></div>
+        <div class="terminal-line"><span class="info">→</span> Writing at 0x00010000... <span class="ok">100%</span></div>
+        <div class="terminal-line"><span class="ok">✓ Firmware flashed successfully</span><span class="cursor-block" aria-hidden="true"></span></div>
+      </div>
+    </div>
+
+    <div class="flasher-steps">
+      <div class="flasher-step"><span class="n">1</span> Colok USB-C</div>
+      <div class="flasher-step"><span class="n">2</span> Buka Chrome</div>
+      <div class="flasher-step"><span class="n">3</span> Klik Flash</div>
+      <div class="flasher-step"><span class="n">4</span> Selesai</div>
+    </div>
+
+    <button class="btn-brutal" id="btnFlashAction" style="padding:16px 28px;">
+      <span>⚡ Flash Firmware Sekarang</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </button>
+  </div>
+</section>
+
+<script>
+  // Terminal typewriter line-by-line reveal on intersection
+  (function initTerminal() {
+    const body = document.getElementById('terminalBody');
+    if (!body) return;
+    const lines = body.querySelectorAll<HTMLElement>('.terminal-line');
+
+    const tIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          lines.forEach((line, i) => {
+            setTimeout(() => line.classList.add('show'), i * 220);
+          });
+          tIO.unobserve(body);
+        });
+      },
+      { threshold: 0.35 }
+    );
+    tIO.observe(body);
+  })();
+
+  // Web Serial API button handling
+  const btnFlash = document.getElementById('btnFlashAction');
+  btnFlash?.addEventListener('click', async () => {
+    if ('serial' in navigator) {
+      try {
+        const port = await (navigator as any).serial.requestPort();
+        alert('Port serial terpilih! Menghubungkan ke mikrokontroler ESP32...');
+      } catch (err: any) {
+        if (err.name !== 'NotFoundError') {
+          console.warn('Web Serial port error:', err);
+        }
+      }
+    } else {
+      alert(
+        'Web Serial API didukung pada Google Chrome, Edge, atau Opera desktop. Sambungkan ESP32 Anda melalui kabel USB data dan buka browser berbasis Chromium untuk flash langsung dari web!'
+      );
+    }
+  });
+</script>

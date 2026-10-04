@@ -1,0 +1,21 @@
+---
+// ScrollProgress.astro - Reading scroll progress bar at the top
+---
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<script>
+  const sp = document.getElementById('scrollProgress');
+  if (sp) {
+    window.addEventListener(
+      'scroll',
+      () => {
+        const st = document.documentElement.scrollTop;
+        const sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (sh > 0) {
+          sp.style.width = (st / sh) * 100 + '%';
+        }
+      },
+      { passive: true }
+    );
+  }
+</script>
