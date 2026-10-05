@@ -1064,8 +1064,8 @@ h1, h2, h3, h4, .logo-box, .nav-pill a, .marquee-content {
   width: 100%;
   padding: 10px 14px;
   margin-bottom: 16px;
-  background: transparent;
-  border: 2px dashed rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
   color: var(--black);
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
@@ -1087,8 +1087,7 @@ h1, h2, h3, h4, .logo-box, .nav-pill a, .marquee-content {
 .btn-view-specs:hover {
   background: var(--black);
   color: var(--yellow);
-  border-style: solid;
-  border-color: var(--black);
+  border: none;
   transform: translateY(-2px);
   box-shadow: 4px 4px 0 var(--yellow);
 }
@@ -1098,15 +1097,15 @@ h1, h2, h3, h4, .logo-box, .nav-pill a, .marquee-content {
 }
 
 .product-card.featured .btn-view-specs {
-  border-color: rgba(255, 230, 0, 0.5);
+  border: none;
   color: var(--yellow);
-  background: rgba(255, 230, 0, 0.04);
+  background: rgba(255, 230, 0, 0.08);
 }
 
 .product-card.featured .btn-view-specs:hover {
   background: var(--yellow);
   color: var(--black);
-  border-color: var(--yellow);
+  border: none;
   box-shadow: 4px 4px 0 var(--red);
 }
 

@@ -90,19 +90,4 @@ export const comparisonData: ComparisonRow[] = [
       tag: 'Ekosistem Tertutup',
     },
   },
-  {
-    category: 'Total Biaya 1 Tahun (TCO)',
-    xichi: {
-      title: 'Mulai Rp 300rb — Beli Sekali Selamanya',
-      description: 'Tidak ada biaya langganan bulanan tersembunyi. Penggunaan kuota token AI sangat hemat dan transparan.',
-      positive: true,
-      tag: 'Super Hemat',
-    },
-    conventional: {
-      title: 'Total > Rp 1.800.000 / Tahun',
-      description: 'Harga beli speaker awal (Rp 800rb - 1.5jt) + biaya langganan musik streaming (Rp 70rb x 12 bulan = Rp 840rb).',
-      positive: false,
-      tag: 'Biaya Membengkak',
-    },
-  },
 ];

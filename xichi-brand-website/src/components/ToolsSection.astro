@@ -114,17 +114,6 @@ import { mcpCatalogue } from '../data/mcpCatalogue';
           Daftar lengkap kemampuan teknis, pilar spesialis, dan contoh perintah suara instan (voice prompt) untuk asisten AI fisik Xichi.
         </p>
 
-        <div class="mcp-search-bar">
-          <span class="search-icon" aria-hidden="true">🔍</span>
-          <input
-            type="search"
-            id="mcpSearchInput"
-            class="mcp-search-input"
-            placeholder="Cari tool, fungsi, atau kata kunci (misal: youtube, bmkg, quiz, relay, sholat)..."
-            aria-label="Cari tool MCP"
-          />
-        </div>
-
         <!-- Filter Category Pills -->
         <div class="mcp-pills-row" id="mcpCategoryPills">
           <button type="button" class="mcp-cat-pill active" data-cat="all">Semua ({mcpCatalogue.reduce((acc, c) => acc + c.tools.length, 0)})</button>

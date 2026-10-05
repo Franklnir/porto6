@@ -57,7 +57,7 @@ export const siteConfig: SiteConfig = {
     { label: 'Compare', href: '#comparison', sectionId: 'comparison' },
     { label: 'Studio', href: '#culture', sectionId: 'culture' },
     { label: 'Chronos', href: '#chronchi', sectionId: 'chronchi' },
-    { label: 'Buy', href: '#buy', sectionId: 'buy' },
+    { label: 'FAQ', href: '#faq', sectionId: 'faq' },
   ],
   socialLinks: [
     { label: 'Instagram', shortLabel: 'IG', href: 'https://instagram.com/xichiaipendant', ariaLabel: 'Instagram Xichi AI' },

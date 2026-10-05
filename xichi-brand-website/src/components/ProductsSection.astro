@@ -17,13 +17,7 @@ import { hardwareProducts } from '../data/products';
     {
       hardwareProducts.map((product) => (
         <article class={`product-card ${product.featured ? 'featured' : ''}`} data-product-id={product.id}>
-          <div class="card-top-bar">
-            <span class="id">{product.code}</span>
-            <span class="status">{product.status}</span>
-          </div>
-
           <div class="product-visual">
-            <span class="sticker">{product.sticker}</span>
             {product.id === 'xichi-pocket' && (
               <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
                 <rect x="30" y="18" width="40" height="64" rx="6" stroke="#000" stroke-width="3" />
