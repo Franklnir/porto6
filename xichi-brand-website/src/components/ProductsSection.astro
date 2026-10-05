@@ -19,15 +19,13 @@ import { hardwareProducts } from '../data/products';
         <article class={`product-card ${product.featured ? 'featured' : ''}`} data-product-id={product.id}>
           <div class="product-visual">
             {product.id === 'xichi-pocket' && (
-              <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
-                <rect x="30" y="18" width="40" height="64" rx="6" stroke="#000" stroke-width="3" />
-                <rect x="38" y="28" width="24" height="24" fill="#FFE600" stroke="#000" stroke-width="2" />
-                <circle cx="44" cy="40" r="2.5" fill="#000" />
-                <circle cx="56" cy="40" r="2.5" fill="#000" />
-                <path d="M42 50 Q50 57 58 50" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" />
-                <rect x="42" y="62" width="16" height="6" fill="#000" />
-                <circle cx="50" cy="74" r="3" fill="#FF3B30" stroke="#000" stroke-width="1.5" />
-              </svg>
+              <img
+                src="/assets/products/xichi-pocket-real.jpg"
+                alt="Xichi Pocket Real Hardware - ESP32-C3 SuperMini"
+                loading="lazy"
+                decoding="async"
+                class="product-real-img"
+              />
             )}
 
             {product.id === 'xichi-core' && (

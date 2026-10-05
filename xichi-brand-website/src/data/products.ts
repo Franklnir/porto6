@@ -39,9 +39,9 @@ export const hardwareProducts: HardwareProduct[] = [
       'Ukuran jempol, ultra-ringkas, hemat daya. Ideal sebagai pendant saku atau pengontrol saklar mini dengan tombol PTT.',
     featured: false,
     sticker: '★ Entry',
-    image: '/assets/products/xichi-pocket-render.jpg',
+    image: '/assets/products/xichi-pocket-real.jpg',
     gallery: [
-      '/assets/products/xichi-pocket-render.jpg',
+      '/assets/products/xichi-pocket-real.jpg',
       '/assets/products/06-xiaozhi-photo.png',
       '/assets/products/10-xiaozhi-photo.png',
     ],
