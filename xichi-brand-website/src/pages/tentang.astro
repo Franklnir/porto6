@@ -1,18 +1,18 @@
 ---
-// tentang.astro - Halaman Resmi Profil Xichi AI Studio & Kemitraan B2B / Institusi
+// tentang.astro - Halaman Resmi Profil Xichi AI Studio & Pengadaan Kerjasama Institusi
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig } from '../data/siteConfig';
 
-const b2bWhatsappMessage = encodeURIComponent(
-  'Halo tim Xichi AI Studio!\nSaya tertarik untuk mendiskusikan peluang kemitraan B2B / pengadaan institusi untuk perangkat Xichi AI.\n\nInstansi/Perusahaan: \nKebutuhan: \nMohon informasi lebih lanjut. Terima kasih!'
+const contactWhatsappMessage = encodeURIComponent(
+  'Halo tim Xichi AI Studio!\nSaya tertarik untuk konsultasi pengadaan unit / kerjasama perangkat Xichi AI.\n\nInstansi/Komunitas: \nKebutuhan Unit: \nMohon informasi lebih lanjut. Terima kasih!'
 );
 ---
 
 <BaseLayout
-  title={`Tentang Xichi AI Studio — Profil Resmi & Kemitraan B2B`}
-  description="Profil resmi Xichi AI Studio: Pelopor asisten AI fisik dan Voice AI berbasis ESP32 di Indonesia. Visi, misi, profil tim engineering, dan solusi kemitraan B2B/edukasi kampus."
+  title={`Tentang Xichi AI Studio — Profil Resmi & Pengadaan Kerjasama`}
+  description="Profil resmi Xichi AI Studio: Pelopor asisten AI fisik dan Voice AI berbasis ESP32 di Indonesia. Visi, misi, profil tim engineering, dan layanan pengadaan unit untuk kampus, sekolah, dan institusi."
 >
   <Navbar />
 
@@ -26,7 +26,7 @@ const b2bWhatsappMessage = encodeURIComponent(
         <div class="about-badge-row">
           <span class="about-badge badge-black">PROFIL RESMI</span>
           <span class="about-badge badge-white">XICHI AI STUDIO</span>
-          <span class="about-badge badge-red">SOLUSI B2B & RISET INSTITUSI</span>
+          <span class="about-badge badge-red">PENGADAAN & KERJASAMA</span>
         </div>
 
         <!-- Main Title -->
@@ -41,8 +41,8 @@ const b2bWhatsappMessage = encodeURIComponent(
 
         <!-- Quick Jump Buttons -->
         <div class="about-hero-actions">
-          <a href="#b2b" class="about-btn btn-solid-black">
-            <span>Pelajari Kemitraan B2B</span>
+          <a href="#kerjasama" class="about-btn btn-solid-black">
+            <span>Pengadaan & Kerjasama</span>
             <span class="about-arrow" aria-hidden="true">↓</span>
           </a>
           <a href="#visi-misi" class="about-btn btn-solid-white">
@@ -60,7 +60,7 @@ const b2bWhatsappMessage = encodeURIComponent(
           <div class="about-stat-card">
             <span class="about-stat-num">100%</span>
             <strong class="about-stat-title">Dirakit & Diprogram Lokal</strong>
-            <p class="about-stat-caption">Riset skema sirkuit mikrokontroler mandiri dan manufaktur lab riset di Bandung.</p>
+            <p class="about-stat-caption">Riset skema sirkuit mikrokontroler mandiri dan lab studio di Cikarang Utara, Bekasi.</p>
           </div>
 
           <div class="about-stat-card">
@@ -186,11 +186,11 @@ const b2bWhatsappMessage = encodeURIComponent(
           <div class="about-white-card">
             <div class="about-founder-header">
               <div class="about-founder-avatar">
-                <span class="about-avatar-monogram">IR</span>
+                <span class="about-avatar-monogram">I</span>
               </div>
               <div class="about-founder-meta">
                 <span class="about-role-tag">FOUNDER & LEAD ARCHITECT</span>
-                <h3 class="about-founder-name">Franklin Irsyad</h3>
+                <h3 class="about-founder-name">Irsyad</h3>
                 <p class="about-founder-title">Lead Hardware & Software Architect • Founder Xichi AI</p>
               </div>
             </div>
@@ -203,7 +203,7 @@ const b2bWhatsappMessage = encodeURIComponent(
             </div>
 
             <p class="about-founder-bio">
-              Merintis riset sistem IoT, arsitektur distributed computing, dan rekayasa firmware mikrokontroler. Mengembangkan Xichi dari eksperimen breadboard di meja kerja hingga menjadi ekosistem produk utuh yang mencakup hardware fisik, web flashing tool, mobile BLE companion, dan katalog 47 alat cerdas terintegrasi.
+              Merintis riset sistem IoT, arsitektur distributed computing, dan rekayasa firmware mikrokontroler. Mengembangkan Xichi dari eksperimen breadboard di meja kerja hingga menjadi ekosistem produk utuh yang mencakup hardware fisik, arsitektur firmware terpadu, mobile BLE companion, dan katalog 47 alat cerdas terintegrasi.
             </p>
 
             <div class="about-founder-actions">
@@ -262,25 +262,25 @@ const b2bWhatsappMessage = encodeURIComponent(
     </section>
 
     <!-- ========================================================
-         HALAMAN 4: SOLUSI KEMITRAAN B2B & KAMPUS (WARNA: HITAM ⚫)
+         HALAMAN 4: LAYANAN PENGADAAN & KERJASAMA (WARNA: HITAM ⚫)
          ======================================================== -->
-    <section class="about-section about-section-black" id="b2b">
+    <section class="about-section about-section-black" id="kerjasama">
       <div class="about-container">
         <div class="about-header-wrap">
-          <span class="about-badge badge-yellow">03 / KEMITRAAN & SOLUSI B2B</span>
-          <h2 class="about-heading title-light">Kemitraan untuk Institusi & Industri</h2>
+          <span class="about-badge badge-yellow">03 / PENGADAAN & KERJASAMA</span>
+          <h2 class="about-heading title-light">Layanan Pengadaan & Kolaborasi Khusus</h2>
           <p class="about-lead desc-light">
-            Kerjasama pengadaan terstruktur, integrasi kustom, dan riset teknologi bersama instansi Anda.
+            Solusi pemesanan unit skala komunitas, paket praktikum kampus/sekolah, dan kustomisasi perangkat untuk instansi Anda.
           </p>
         </div>
 
-        <!-- Explainer Card: Apa itu B2B -->
+        <!-- Explainer Card: Ramah Orang Awam -->
         <div class="about-b2b-explainer">
-          <div class="about-explainer-icon">💡</div>
+          <div class="about-explainer-icon">📦</div>
           <div class="about-explainer-content">
-            <h3 class="about-explainer-title">Apa itu Kemitraan B2B (Business-to-Business)?</h3>
+            <h3 class="about-explainer-title">Pengadaan Mudah untuk Kampus, Sekolah, Komunitas & Kantor</h3>
             <p class="about-explainer-text">
-              <strong>B2B</strong> adalah model kemitraan langsung antara <strong>Xichi AI Studio</strong> dengan <strong>institusi pendidikan (Universitas, Institut, Politeknik, SMK), laboratorium riset, perkantoran modern, maupun perusahaan</strong> yang membutuhkan pengadaan perangkat dalam jumlah tertentu, integrasi software internal khusus, atau transfer keahlian teknologi Physical AI.
+              Ingin memesan perangkat <strong>Xichi AI</strong> dalam jumlah tertentu untuk <strong>laboratorium praktikum kampus, sekolah (SMK), workshop maker, komunitas, maupun perkantoran</strong>? Tim Xichi AI Studio siap melayani penyediaan unit siap pakai, paket starter kit komponen, materi praktikum, hingga kustomisasi software dengan pendampingan teknis langsung.
             </p>
           </div>
         </div>
@@ -412,7 +412,7 @@ const b2bWhatsappMessage = encodeURIComponent(
                 <span class="about-contact-icon">📍</span>
                 <div>
                   <strong>Lokasi Riset & Studio:</strong>
-                  <p>Bandung, Jawa Barat, Indonesia</p>
+                  <p>Cikarang Utara, Bekasi, Jawa Barat, Indonesia</p>
                 </div>
               </div>
 
@@ -428,7 +428,7 @@ const b2bWhatsappMessage = encodeURIComponent(
                 <span class="about-contact-icon">📞</span>
                 <div>
                   <strong>WhatsApp Tim Engineering:</strong>
-                  <p><a href={`https://wa.me/${siteConfig.whatsappNumber}?text=${b2bWhatsappMessage}`} target="_blank" rel="noopener noreferrer">+62 896-5825-2277</a></p>
+                  <p><a href={`https://wa.me/${siteConfig.whatsappNumber}?text=${contactWhatsappMessage}`} target="_blank" rel="noopener noreferrer">+62 896-5825-2277</a></p>
                 </div>
               </div>
 
@@ -450,7 +450,7 @@ const b2bWhatsappMessage = encodeURIComponent(
 
               <div class="about-action-buttons">
                 <a
-                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${b2bWhatsappMessage}`}
+                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${contactWhatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="about-btn btn-solid-black btn-full"
@@ -460,7 +460,7 @@ const b2bWhatsappMessage = encodeURIComponent(
                 </a>
 
                 <a
-                  href={`mailto:${siteConfig.email}?subject=Permohonan%20Kemitraan%20B2B%20-%20Xichi%20AI&body=Halo%20tim%20Xichi%20AI,%0A%0ASaya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20mengenai%20solusi%20kemitraan%20B2B/edukasi%20untuk%20instansi%20kami.`}
+                  href={`mailto:${siteConfig.email}?subject=Permohonan%20Pengadaan%20%26%20Kerjasama%20-%20Xichi%20AI&body=Halo%20tim%20Xichi%20AI,%0A%0ASaya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20mengenai%20layanan%20pengadaan%20unit/kerjasama%20untuk%20instansi%20kami.`}
                   class="about-btn btn-solid-white btn-full"
                 >
                   <span>✉️ Kirim Email Kerjasama</span>

@@ -76,7 +76,7 @@ export const chronchiConfig: ChronosConfig = {
     },
     notification: {
       app: 'WHATSAPP',
-      sender: 'Franklin Irsyad',
+      sender: 'Irsyad',
       message: 'Xichi berhasil tersambung ke Chronos App!',
     },
     defaultToggles: [

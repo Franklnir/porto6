@@ -62,7 +62,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Bisakah saya mengoprek atau memodifikasi firmware Xichi sendiri?',
     answer:
-      'Tentu saja! Xichi didesain untuk komunitas maker. Anda dapat mem-flash firmware custom langsung dari browser Chromium menggunakan fitur Web Flasher (Web Serial API) tanpa perlu menginstal driver Arduino atau VSCode sama sekali.',
+      'Tentu saja! Xichi didesain untuk komunitas maker. Anda dapat memodifikasi dan memperbarui firmware secara fleksibel melalui kabel USB-C atau pembaruan over-the-air (OTA) tanpa instalasi driver yang rumit.',
     category: 'hardware',
   },
 ];

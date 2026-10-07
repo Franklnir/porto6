@@ -46,7 +46,7 @@ export const pricingTiers: PricingTier[] = [
       'Layar LCD IPS bulat + speaker cavity I2S 3W',
       'Mikrofon INMP441 & komponen pasif pendukung',
       'Akses grup Discord VIP & panduan skematik',
-      'Tutorial video perakitan & flasher browser',
+      'Tutorial video perakitan & panduan setup lengkap',
     ],
     ctaText: 'Pre-Order Kit',
     whatsappMessage: 'Halo tim Xichi! Saya ingin memesan paket Xichi Kit (DIY Maker Kit Rp 299.000). Mohon informasi rekening dan estimasi kirim.',
