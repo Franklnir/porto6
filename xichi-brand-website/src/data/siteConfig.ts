@@ -51,8 +51,9 @@ export const siteConfig: SiteConfig = {
   navItems: [
     { label: 'Home', href: '#home', sectionId: 'home' },
     { label: 'Produk', href: '#products', sectionId: 'products' },
-    { label: 'Tools & Fitur', href: '#tools', sectionId: 'tools' },
-    { label: 'Tentang', href: '/tentang', sectionId: 'tentang' },
+    { label: 'Tools', href: '#tools', sectionId: 'tools' },
+    { label: 'Tentang', href: '#about', sectionId: 'about' },
+    { label: 'Pengadaan', href: '#pengadaan', sectionId: 'pengadaan' },
     { label: 'FAQ', href: '#faq', sectionId: 'faq' },
   ],
   socialLinks: [

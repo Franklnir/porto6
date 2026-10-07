@@ -1,0 +1,388 @@
+---
+// AboutSection.astro - 07 / Studio & Founder (Xichi AI Studio, Cikarang Utara, Bekasi)
+---
+
+<section class="about-home-section" id="about">
+  <header class="section-header dark">
+    <p>07 / Studio & Founder</p>
+    <h2>
+      <span class="word"><span>DIBANGUN</span></span>{' '}
+      <span class="word"><span>DI</span></span>{' '}
+      <span class="word"><span>CIKARANG</span></span>{' '}
+      <span class="word"><span>UTARA.</span></span>
+    </h2>
+    <p class="about-header-sub">
+      Mengenal <strong>Xichi AI Studio</strong>, visi asisten AI fisik mandiri, dan sosok engineer di balik rekayasa hardware & software.
+    </p>
+  </header>
+
+  <div class="about-home-grid">
+    <!-- Founder Card -->
+    <div class="about-founder-card">
+      <div class="founder-badge-strip">
+        <span class="badge-role">FOUNDER & LEAD ARCHITECT</span>
+        <span class="badge-loc">📍 CIKARANG UTARA, BEKASI</span>
+      </div>
+
+      <div class="founder-profile-row">
+        <div class="founder-avatar">
+          <span class="avatar-letter">I</span>
+        </div>
+        <div class="founder-meta">
+          <h3 class="founder-name">Irsyad</h3>
+          <p class="founder-title">Lead Hardware & Software Architect • Founder Xichi AI</p>
+        </div>
+      </div>
+
+      <div class="founder-tags">
+        <span class="tag">ESP32-S3 Embedded</span>
+        <span class="tag">Edge AI & Audio DSP</span>
+        <span class="tag">Distributed Cloud</span>
+        <span class="tag">Pelopor Xiaozhi ID</span>
+      </div>
+
+      <p class="founder-bio">
+        Merintis riset sistem IoT, arsitektur distributed computing, dan rekayasa firmware mikrokontroler. Mengembangkan Xichi dari eksperimen breadboard di meja kerja hingga menjadi ekosistem produk utuh yang mencakup hardware fisik, arsitektur firmware terpadu, mobile BLE companion, dan katalog 47 alat cerdas terintegrasi.
+      </p>
+
+      <div class="founder-actions">
+        <a href="https://github.com/Franklnir" target="_blank" rel="noopener noreferrer" class="btn-about-action outline">
+          <span>GitHub Repositori</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="#pengadaan" class="btn-about-action solid">
+          <span>Layanan Pengadaan</span>
+          <span class="arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Studio Pillars & Vision -->
+    <div class="about-studio-card">
+      <div class="studio-top">
+        <span class="badge-role">FOKUS & LANDASAN RISET</span>
+        <h3 class="studio-heading">3 Pilar Rekayasa Xichi AI Studio</h3>
+      </div>
+
+      <div class="pillars-list">
+        <div class="pillar-item">
+          <div class="pillar-icon">⚙️</div>
+          <div class="pillar-body">
+            <h4>Hardware Prototyping & Casing Modular</h4>
+            <p>Perancangan skema PCB terpadu, pemilihan komponen audio I2S amplifier berkualitas, manajemen termal chip ESP32, dan casing modular presisi.</p>
+          </div>
+        </div>
+
+        <div class="pillar-item">
+          <div class="pillar-icon">🧠</div>
+          <div class="pillar-body">
+            <h4>Voice AI Pipeline & Semantic Memory</h4>
+            <p>Optimasi kompresi audio Opus, penanganan audio buffering bebas jeda, dan arsitektur memori semantik untuk dialog kontekstual jangka panjang.</p>
+          </div>
+        </div>
+
+        <div class="pillar-item">
+          <div class="pillar-icon">🌐</div>
+          <div class="pillar-body">
+            <h4>Komunitas Terbuka Xiaozhi Indonesia</h4>
+            <p>Kolaborasi terbuka dengan komunitas Xiaozhi Indonesia dan developer open-source untuk pembaruan fitur berkelanjutan dan standarisasi tools MCP.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="studio-stats-strip">
+        <div class="stat-mini">
+          <strong>100%</strong>
+          <span>Dirakit Lokal di Cikarang Utara</span>
+        </div>
+        <div class="stat-mini">
+          <strong>47 TOOLS</strong>
+          <span>MCP Superpowers Aktif</span>
+        </div>
+        <div class="stat-mini">
+          <strong>XIAOZHISCIG</strong>
+          <span>Server Resmi Indonesia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-home-section {
+    padding: clamp(60px, 8vw, 100px) clamp(20px, 4vw, 40px);
+    background: #0d0d0d;
+    border-top: 3px solid var(--black, #000);
+    border-bottom: 3px solid var(--black, #000);
+    position: relative;
+  }
+
+  .about-header-sub {
+    color: #a3a3a3;
+    font-size: clamp(14px, 1.8vw, 17px);
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 12px auto 0 auto;
+    font-weight: 500;
+  }
+
+  .about-header-sub strong {
+    color: var(--yellow, #FFE600);
+  }
+
+  .about-home-grid {
+    max-width: 1200px;
+    margin: 48px auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  /* Founder Card */
+  .about-founder-card {
+    background: #141414;
+    border: 3px solid var(--yellow, #FFE600);
+    box-shadow: 6px 6px 0 var(--black, #000);
+    padding: clamp(24px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .founder-badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .badge-role {
+    display: inline-block;
+    padding: 5px 12px;
+    background: var(--yellow, #FFE600);
+    color: #000;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    border: 2px solid #000;
+  }
+
+  .badge-loc {
+    display: inline-block;
+    padding: 5px 12px;
+    background: #000;
+    color: var(--yellow, #FFE600);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    border: 2px solid var(--yellow, #FFE600);
+  }
+
+  .founder-profile-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .founder-avatar {
+    width: 68px;
+    height: 68px;
+    background: var(--yellow, #FFE600);
+    color: #000;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 var(--red, #FF3B30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .founder-name {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+
+  .founder-title {
+    font-size: 13px;
+    color: #a3a3a3;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .founder-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .founder-tags .tag {
+    padding: 4px 10px;
+    background: #222;
+    border: 1px solid #333;
+    color: #e5e5e5;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .founder-bio {
+    font-size: 14px;
+    color: #d4d4d4;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    flex-grow: 1;
+  }
+
+  .founder-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .btn-about-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+  }
+
+  .btn-about-action.solid {
+    background: var(--yellow, #FFE600);
+    color: #000;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0 #000;
+  }
+
+  .btn-about-action.solid:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+  }
+
+  .btn-about-action.outline {
+    background: #1a1a1a;
+    color: #fff;
+    border: 2px solid #444;
+  }
+
+  .btn-about-action.outline:hover {
+    border-color: var(--yellow, #FFE600);
+    color: var(--yellow, #FFE600);
+  }
+
+  /* Studio Card */
+  .about-studio-card {
+    background: #141414;
+    border: 3px solid #333;
+    box-shadow: 6px 6px 0 var(--black, #000);
+    padding: clamp(24px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .studio-top {
+    margin-bottom: 24px;
+  }
+
+  .studio-heading {
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-weight: 900;
+    color: #fff;
+    margin-top: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .pillars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .pillar-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    transition: border-color 0.2s;
+  }
+
+  .pillar-item:hover {
+    border-color: var(--yellow, #FFE600);
+  }
+
+  .pillar-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .pillar-body h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .pillar-body p {
+    font-size: 12.5px;
+    color: #a3a3a3;
+    line-height: 1.5;
+  }
+
+  .studio-stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: #000;
+    border: 2px solid var(--yellow, #FFE600);
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .stat-mini strong {
+    display: block;
+    color: var(--yellow, #FFE600);
+    font-size: 15px;
+    font-weight: 900;
+  }
+
+  .stat-mini span {
+    display: block;
+    color: #888;
+    font-size: 10.5px;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .about-home-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .studio-stats-strip {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      text-align: left;
+      padding: 12px;
+    }
+  }
+</style>
