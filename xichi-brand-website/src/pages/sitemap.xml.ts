@@ -19,7 +19,7 @@ export const GET: APIRoute = async () => {
     <image:image>
       <image:loc>${siteUrl}/assets/products/xichi-core-render.jpg</image:loc>
       <image:title>Xichi Core - Asisten AI Fisik Xiaozhi Indonesia</image:title>
-      <image:caption>Perangkat pintar Voice AI Xiaozhi ESP32-S3 dengan layar ekspresi emosi 60 FPS</image:caption>
+      <image:caption>Perangkat pintar Voice AI Xiaozhi ESP32-S3 dengan layar ekspresi emosi dinamis</image:caption>
     </image:image>
     <image:image>
       <image:loc>${siteUrl}/assets/products/xichi-pocket-render.jpg</image:loc>

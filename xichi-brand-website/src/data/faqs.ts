@@ -6,9 +6,27 @@ export interface FAQItem {
 
 export const faqItems: FAQItem[] = [
   {
+    question: 'Apa itu Xiaozhi Indonesia dan hubungannya dengan asisten AI fisik Xichi?',
+    answer:
+      'Xiaozhi Indonesia adalah ekosistem asisten suara cerdas (Voice AI) open-source berbahasa Indonesia. Xichi adalah wujud perangkat keras (hardware) asisten AI fisik resmi yang dikembangkan oleh IrsyadLabs, membawa teknologi Xiaozhi ke meja kerja Anda dengan interaksi suara cepat, layar ekspresi emosi dinamis, smart home dual relay, dan kemampuan streaming mandiri.',
+    category: 'product',
+  },
+  {
+    question: 'Apakah Xichi adalah perangkat Voice AI resmi karya IrsyadLabs dan server xiaozhiscig?',
+    answer:
+      'Benar! Xichi dirancang dan diproduksi oleh Franklnir melalui laboratorium inovasi IrsyadLabs (irsyadlabs.id). Xichi terhubung ke infrastruktur backend Voice AI server xiaozhiscig (xiaozhiscig.biz.id), menghadirkan pemrosesan bahasa alami (NLP), pengenalan suara Indonesia akurat, dan 47 MCP tools terintegrasi.',
+    category: 'product',
+  },
+  {
+    question: 'Bagaimana kemampuan Voice AI dan kecerdasan AI asisten Xichi dalam bahasa Indonesia?',
+    answer:
+      'Xichi menggunakan model AI suara generasi terbaru dengan latensi sangat rendah (<1.2 detik). Anda cukup memanggil wake-word "Xiaozhi" dan berbicara dalam bahasa Indonesia sehari-hari. Asisten AI ini dapat menjawab pertanyaan kompleks, mengingat konteks percakapan sebelumnya (long-term memory), memutar musik YouTube tanpa iklan, membacakan data cuaca BMKG, hingga mengontrol lampu smart home.',
+    category: 'product',
+  },
+  {
     question: 'Apa perbedaan mendasar antara Xichi, Xiaozhi, dan Chronchi?',
     answer:
-      'Xichi adalah produk fisik AI companion (casing 3D, layar ekspresi, mic, speaker, kamera). Xiaozhi adalah protokol inti dan voice engine suara AI berbasis WebSocket. Chronchi adalah aplikasi Android pendamping untuk scan QR, pairing Bluetooth BLE SmartConfig, dan pengaturan saklar smart home.',
+      'Xichi adalah produk fisik AI companion (casing 3D, layar ekspresi GC9A01, mic I2S, speaker, kamera AI vision). Xiaozhi adalah protokol inti dan voice engine suara AI berbasis WebSocket. Chronchi / Chronos adalah aplikasi Android pendamping untuk scan QR, pairing Bluetooth BLE SmartConfig, dan pengaturan saklar smart home.',
     category: 'product',
   },
   {

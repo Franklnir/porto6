@@ -29,7 +29,6 @@ export interface SiteConfig {
   stats: {
     mcpTools: number;
     pillars: number;
-    fps: number;
     variants: number;
   };
 }
@@ -39,7 +38,7 @@ export const siteConfig: SiteConfig = {
   shortName: 'XICHI',
   tagline: 'Asisten AI Fisik Masa Depan di Meja Kerja Anda — Xiaozhi Indonesia by IrsyadLabs',
   description:
-    'Xichi adalah asisten AI fisik & voice AI pintar berbasis Xiaozhi Indonesia dari IrsyadLabs (xiaozhiscig). Wajah ekspresif 60 FPS, memori semantik, YouTube streaming mandiri, AI Vision on-device, dan IoT smart home ESP32-S3.',
+    'Xichi adalah asisten AI fisik & voice AI pintar berbasis Xiaozhi Indonesia dari IrsyadLabs (xiaozhiscig). Memori semantik, YouTube streaming mandiri, AI Vision on-device, dan IoT smart home ESP32-S3.',
   author: 'Franklnir • IrsyadLabs & Komunitas Xiaozhi Indonesia',
   authorUrl: 'https://irsyadlabs.id',
   siteUrl: 'https://produk.irsyadlabs.id',
@@ -69,7 +68,6 @@ export const siteConfig: SiteConfig = {
   stats: {
     mcpTools: 47,
     pillars: 8,
-    fps: 60,
     variants: 3,
   },
 };

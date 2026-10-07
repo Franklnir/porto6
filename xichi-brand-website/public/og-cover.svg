@@ -23,7 +23,7 @@
   <!-- Bullet specifications -->
   <text x="120" y="340" font-family="'IBM Plex Mono', monospace" font-size="16" font-weight="600" fill="#0b0b0a">■ ESP32-S3 Dual-Core (240MHz + 8MB PSRAM)</text>
   <text x="120" y="375" font-family="'IBM Plex Mono', monospace" font-size="16" font-weight="600" fill="#0b0b0a">■ Pemutar Musik YouTube Mandiri Bebas Langganan</text>
-  <text x="120" y="410" font-family="'IBM Plex Mono', monospace" font-size="16" font-weight="600" fill="#0b0b0a">■ Layar LCD 60 FPS Emosi Dinamis &amp; AI Vision Multimodal</text>
+  <text x="120" y="410" font-family="'IBM Plex Mono', monospace" font-size="16" font-weight="600" fill="#0b0b0a">■ Layar LCD Bulat Emosi Dinamis &amp; AI Vision Multimodal</text>
   <text x="120" y="445" font-family="'IBM Plex Mono', monospace" font-size="16" font-weight="600" fill="#0b0b0a">■ 36 MCP Superpowers (DevOps, BMKG, EduSmart)</text>
 
   <!-- Footer Meta in Card -->

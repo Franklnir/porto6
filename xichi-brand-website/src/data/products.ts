@@ -86,11 +86,11 @@ export const hardwareProducts: HardwareProduct[] = [
     specs: [
       { label: 'CHIP', value: 'ESP32-S3 N16R8' },
       { label: 'MEMORY', value: '8MB PSRAM' },
-      { label: 'DISPLAY', value: 'LCD Face 60FPS' },
+      { label: 'DISPLAY', value: 'Round LCD Display' },
       { label: 'AUDIO', value: 'I2S Speaker 3W' },
     ],
     features: [
-      'Layar LCD bulat ekspresi emosional hidup (60 FPS)',
+      'Layar LCD bulat ekspresi emosional hidup',
       'Pemutar musik YouTube mandiri tanpa langganan/iklan',
       '47 MCP Superpower Tools (Koding, BMKG, Edukasi)',
       'Memori semantik percakapan jangka panjang',

@@ -31,7 +31,15 @@ const jsonLdOrganization = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Xichi AI',
-  alternateName: 'Xichi Studio Indonesia',
+  alternateName: [
+    'Xiaozhi Indonesia',
+    'Xiaozhi Indoensia',
+    'IrsyadLabs AI',
+    'xiaozhiscig',
+    'Xichi Voice AI Assistant',
+    'Asisten AI Fisik Indonesia',
+    'Xichi Studio',
+  ],
   url: siteUrl,
   logo: `${siteUrl}/assets/logoxichi.jpg`,
   description: description,
@@ -40,26 +48,65 @@ const jsonLdOrganization = {
     name: 'Franklnir',
     url: 'https://github.com/Franklnir',
   },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'IrsyadLabs',
+    url: 'https://irsyadlabs.id',
+  },
   sameAs: [
+    'https://irsyadlabs.id',
+    'https://xiaozhiscig.biz.id',
     'https://github.com/Franklnir',
     'https://instagram.com/xichiaipendant',
     'https://tiktok.com/@xichiaipendant',
     'https://youtube.com/@xichiaipendant',
-    'https://xiaozhiscig.biz.id',
   ],
 };
 
-// 2. JSON-LD Product & Offers
+// 2. JSON-LD WebSite
+const jsonLdWebSite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Xichi — Xiaozhi Indonesia & Voice AI Assistant | IrsyadLabs',
+  alternateName: [
+    'Xiaozhi Indonesia',
+    'Xiaozhi Indoensia',
+    'Xichi AI',
+    'IrsyadLabs AI',
+    'xiaozhiscig',
+    'Asisten AI Fisik',
+    'Voice AI Indonesia',
+  ],
+  url: siteUrl,
+  description: description,
+  inLanguage: 'id-ID',
+  publisher: {
+    '@type': 'Organization',
+    name: 'IrsyadLabs',
+    url: 'https://irsyadlabs.id',
+  },
+};
+
+// 3. JSON-LD Product & Offers
 const jsonLdProduct = {
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: 'Xichi Physical AI Assistant (ESP32-S3 / C3)',
+  name: 'Xichi Physical AI Assistant — Xiaozhi Indonesia (ESP32-S3 / C3)',
+  alternateName: [
+    'Xiaozhi Indonesia Hardware',
+    'Voice AI Assistant Xichi',
+    'Asisten AI Fisik IrsyadLabs',
+    'xiaozhiscig AI companion',
+  ],
   image: hardwareProducts.map((p) => `${siteUrl}${p.image || '/assets/products/xichi-core-render.webp'}`),
-  description: description,
+  description:
+    'Perangkat keras asisten AI fisik dan Voice AI Xiaozhi Indonesia dari IrsyadLabs (xiaozhiscig). Dilengkapi suara interaktif bahasa Indonesia, layar ekspresi emosi dinamis, pemutar YouTube mandiri tanpa iklan, AI vision on-device, dan IoT smart home dual relay.',
   brand: {
     '@type': 'Brand',
-    name: 'Xichi',
+    name: 'Xichi (Xiaozhi Indonesia by IrsyadLabs)',
   },
+  keywords:
+    'xiaozhi, xiaozhi indonesia, xiaozhi indoensia, ai asisten, asisten ai, voice ai, ai, irsyadlabs, xiaozhiscig, xichi, esp32-s3 ai',
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'IDR',
@@ -78,7 +125,7 @@ const jsonLdProduct = {
   },
 };
 
-// 3. JSON-LD FAQPage
+// 4. JSON-LD FAQPage
 const jsonLdFaq = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -92,20 +139,45 @@ const jsonLdFaq = {
   })),
 };
 
-// 4. JSON-LD SoftwareApplication (Chronchi)
+// 5. JSON-LD SoftwareApplication (Chronos App)
 const jsonLdApp = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Chronchi Companion App',
+  name: 'Chronos Companion App',
   operatingSystem: 'Android',
   applicationCategory: 'SmartHomeApplication',
-  fileSize: '43.1MB',
-  downloadUrl: `${siteUrl}/Xichi-v1.4.0-debug.apk`,
+  downloadUrl: 'https://play.google.com/store/apps/details?id=com.fbiego.chronos',
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'IDR',
   },
+};
+
+// 6. JSON-LD BreadcrumbList
+const jsonLdBreadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'IrsyadLabs',
+      item: 'https://irsyadlabs.id',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Xiaozhi Indonesia (Produk)',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Xichi Voice AI Assistant',
+      item: canonicalUrl,
+    },
+  ],
 };
 ---
 
@@ -132,10 +204,16 @@ const jsonLdApp = {
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="Xichi, Xichi AI, asisten AI fisik, ESP32, ESP32-S3, Xiaozhi, Chronchi, robot meja AI, YouTube mandiri, AI Vision, BMKG gempa, open source Indonesia, smart home dual relay"
+      content="xiaozhi, xiaozhi indonesia, xiaozhi indoensia, ai asisten, asisten ai, voice ai, ai, irsyadlabs, xiaozhiscig, xichi, xichi ai, esp32, esp32-s3, chronos app, robot meja ai, open source indonesia, voice engine ai"
     />
-    <meta name="author" content="Franklnir & Komunitas Xiaozhi Indonesia" />
-    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Franklnir • IrsyadLabs & Komunitas Xiaozhi Indonesia" />
+    <meta name="publisher" content="IrsyadLabs" />
+    <meta name="copyright" content="IrsyadLabs & Xichi Studio" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="geo.region" content="ID" />
+    <meta name="geo.placename" content="Indonesia" />
+    <meta name="language" content="Indonesian" />
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph / Facebook -->
@@ -145,7 +223,7 @@ const jsonLdApp = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageUrl} />
     <meta property="og:locale" content="id_ID" />
-    <meta property="og:site_name" content="Xichi AI" />
+    <meta property="og:site_name" content="Xichi — Xiaozhi Indonesia & Voice AI | IrsyadLabs" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -156,9 +234,11 @@ const jsonLdApp = {
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdWebSite)} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdProduct)} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdFaq)} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdApp)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumbs)} />
   </head>
   <body>
     <TopTape />
