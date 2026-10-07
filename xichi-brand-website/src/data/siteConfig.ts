@@ -34,20 +34,20 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: 'Xichi — Asisten AI Fisik, Xiaozhi Indonesia & Voice AI | IrsyadLabs',
+  name: 'Xichi AI — Asisten AI Fisik & Voice AI Pintar Indonesia',
   shortName: 'XICHI',
-  tagline: 'Asisten AI Fisik Masa Depan di Meja Kerja Anda — Xiaozhi Indonesia by IrsyadLabs',
+  tagline: 'Asisten AI Fisik Masa Depan di Meja Kerja Anda — Ditenagai ESP32-S3',
   description:
-    'Xichi adalah asisten AI fisik & voice AI pintar berbasis Xiaozhi Indonesia dari IrsyadLabs (xiaozhiscig). Memori semantik, YouTube streaming mandiri, AI Vision on-device, dan IoT smart home ESP32-S3.',
-  author: 'Franklnir • IrsyadLabs & Komunitas Xiaozhi Indonesia',
-  authorUrl: 'https://irsyadlabs.id',
+    'Xichi AI adalah asisten AI fisik & voice AI pintar berbasis Xiaozhi Indonesia. Memori semantik, YouTube streaming mandiri, AI Vision on-device, dan IoT smart home ESP32-S3.',
+  author: 'Xichi AI Studio & Komunitas Xiaozhi Indonesia',
+  authorUrl: 'https://produk.irsyadlabs.id',
   siteUrl: 'https://produk.irsyadlabs.id',
   ogImage: '/og-cover.svg',
   whatsappNumber: '6289658252277',
   whatsappMessageTemplate: 'Halo tim Xichi! Saya ingin memesan unit [PRODUCT_NAME]. Mohon informasi ketersediaan dan cara pembayaran.',
   email: 'hello@xiaozhiscig.biz.id',
   marqueeText:
-    'XICHI AI ✦ PELOPOR XIAOZHI INDONESIA ✦ VOICE AI ASISTEN ✦ BY IRSYADLABS ✦ XIAOZHISCIG ✦ POWERED BY ESP32-S3 ✦ YOUTUBE STREAMING MANDIRI ✦ AI VISION ✦ SMART HOME DUAL RELAY ✦ OPEN SOURCE ✦ XICHI AI ✦ PELOPOR XIAOZHI INDONESIA ✦ VOICE AI ASISTEN ✦ BY IRSYADLABS ✦ XIAOZHISCIG ✦ POWERED BY ESP32-S3 ✦',
+    'XICHI AI ✦ PELOPOR ASISTEN AI FISIK ✦ VOICE AI INDONESIA ✦ POWERED BY ESP32-S3 ✦ YOUTUBE STREAMING MANDIRI ✦ AI VISION ON-DEVICE ✦ SMART HOME DUAL RELAY ✦ 47 MCP SUPERPOWERS ✦ OPEN SOURCE ✦ XICHI AI ✦ VOICE AI COMPANION ✦',
   navItems: [
     { label: 'Home', href: '#home', sectionId: 'home' },
     { label: 'Produk', href: '#products', sectionId: 'products' },

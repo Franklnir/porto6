@@ -32,10 +32,8 @@ const jsonLdOrganization = {
   '@type': 'Organization',
   name: 'Xichi AI',
   alternateName: [
+    'Xichi AI Studio',
     'Xiaozhi Indonesia',
-    'Xiaozhi Indoensia',
-    'IrsyadLabs AI',
-    'xiaozhiscig',
     'Xichi Voice AI Assistant',
     'Asisten AI Fisik Indonesia',
     'Xichi Studio',
@@ -45,16 +43,10 @@ const jsonLdOrganization = {
   description: description,
   founder: {
     '@type': 'Person',
-    name: 'Franklnir',
+    name: 'Franklin Irsyad',
     url: 'https://github.com/Franklnir',
   },
-  parentOrganization: {
-    '@type': 'Organization',
-    name: 'IrsyadLabs',
-    url: 'https://irsyadlabs.id',
-  },
   sameAs: [
-    'https://irsyadlabs.id',
     'https://xiaozhiscig.biz.id',
     'https://github.com/Franklnir',
     'https://instagram.com/xichiaipendant',
@@ -67,12 +59,11 @@ const jsonLdOrganization = {
 const jsonLdWebSite = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Xichi — Xiaozhi Indonesia & Voice AI Assistant | IrsyadLabs',
+  name: 'Xichi AI — Xiaozhi Indonesia & Voice AI Assistant',
   alternateName: [
     'Xiaozhi Indonesia',
     'Xiaozhi Indoensia',
     'Xichi AI',
-    'IrsyadLabs AI',
     'xiaozhiscig',
     'Asisten AI Fisik',
     'Voice AI Indonesia',
@@ -82,8 +73,8 @@ const jsonLdWebSite = {
   inLanguage: 'id-ID',
   publisher: {
     '@type': 'Organization',
-    name: 'IrsyadLabs',
-    url: 'https://irsyadlabs.id',
+    name: 'Xichi AI Studio',
+    url: siteUrl,
   },
 };
 
@@ -95,18 +86,18 @@ const jsonLdProduct = {
   alternateName: [
     'Xiaozhi Indonesia Hardware',
     'Voice AI Assistant Xichi',
-    'Asisten AI Fisik IrsyadLabs',
+    'Asisten AI Fisik Xichi',
     'xiaozhiscig AI companion',
   ],
   image: hardwareProducts.map((p) => `${siteUrl}${p.image || '/assets/products/xichi-core-render.webp'}`),
   description:
-    'Perangkat keras asisten AI fisik dan Voice AI Xiaozhi Indonesia dari IrsyadLabs (xiaozhiscig). Dilengkapi suara interaktif bahasa Indonesia, layar ekspresi emosi dinamis, pemutar YouTube mandiri tanpa iklan, AI vision on-device, dan IoT smart home dual relay.',
+    'Perangkat keras asisten AI fisik dan Voice AI Xiaozhi Indonesia dari Xichi AI Studio. Dilengkapi suara interaktif bahasa Indonesia, layar ekspresi emosi dinamis, pemutar YouTube mandiri tanpa iklan, AI vision on-device, dan IoT smart home dual relay.',
   brand: {
     '@type': 'Brand',
-    name: 'Xichi (Xiaozhi Indonesia by IrsyadLabs)',
+    name: 'Xichi AI',
   },
   keywords:
-    'xiaozhi, xiaozhi indonesia, xiaozhi indoensia, ai asisten, asisten ai, voice ai, ai, irsyadlabs, xiaozhiscig, xichi, esp32-s3 ai',
+    'xiaozhi, xiaozhi indonesia, xiaozhi indoensia, ai asisten, asisten ai, voice ai, ai, xichi ai, xiaozhiscig, xichi, esp32-s3 ai',
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'IDR',
@@ -162,13 +153,13 @@ const jsonLdBreadcrumbs = {
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'IrsyadLabs',
-      item: 'https://irsyadlabs.id',
+      name: 'Xichi AI',
+      item: siteUrl,
     },
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'Xiaozhi Indonesia (Produk)',
+      name: 'Xiaozhi Indonesia',
       item: siteUrl,
     },
     {
@@ -204,11 +195,11 @@ const jsonLdBreadcrumbs = {
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="xiaozhi, xiaozhi indonesia, xiaozhi indoensia, ai asisten, asisten ai, voice ai, ai, irsyadlabs, xiaozhiscig, xichi, xichi ai, esp32, esp32-s3, chronos app, robot meja ai, open source indonesia, voice engine ai"
+      content="xiaozhi, xiaozhi indonesia, xiaozhi indoensia, ai asisten, asisten ai, voice ai, ai, xichi, xichi ai, xiaozhiscig, esp32, esp32-s3, chronos app, robot meja ai, open source indonesia, voice engine ai"
     />
-    <meta name="author" content="Franklnir • IrsyadLabs & Komunitas Xiaozhi Indonesia" />
-    <meta name="publisher" content="IrsyadLabs" />
-    <meta name="copyright" content="IrsyadLabs & Xichi Studio" />
+    <meta name="author" content="Xichi AI Studio & Komunitas Xiaozhi Indonesia" />
+    <meta name="publisher" content="Xichi AI Studio" />
+    <meta name="copyright" content="Xichi AI Studio" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
     <meta name="geo.region" content="ID" />
@@ -223,7 +214,7 @@ const jsonLdBreadcrumbs = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageUrl} />
     <meta property="og:locale" content="id_ID" />
-    <meta property="og:site_name" content="Xichi — Xiaozhi Indonesia & Voice AI | IrsyadLabs" />
+    <meta property="og:site_name" content="Xichi AI — Xiaozhi Indonesia & Voice AI" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

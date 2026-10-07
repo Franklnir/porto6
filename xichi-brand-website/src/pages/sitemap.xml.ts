@@ -14,7 +14,7 @@ export const GET: APIRoute = async () => {
     <image:image>
       <image:loc>${siteUrl}/assets/logoxichi.jpg</image:loc>
       <image:title>Logo Xichi AI - Pelopor Xiaozhi Indonesia Voice AI</image:title>
-      <image:caption>Xichi AI Asisten Fisik Xiaozhi Indonesia karya IrsyadLabs</image:caption>
+      <image:caption>Xichi AI Asisten Fisik Xiaozhi Indonesia</image:caption>
     </image:image>
     <image:image>
       <image:loc>${siteUrl}/assets/products/xichi-core-render.jpg</image:loc>

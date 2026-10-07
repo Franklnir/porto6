@@ -8,13 +8,13 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Apa itu Xiaozhi Indonesia dan hubungannya dengan asisten AI fisik Xichi?',
     answer:
-      'Xiaozhi Indonesia adalah ekosistem asisten suara cerdas (Voice AI) open-source berbahasa Indonesia. Xichi adalah wujud perangkat keras (hardware) asisten AI fisik resmi yang dikembangkan oleh IrsyadLabs, membawa teknologi Xiaozhi ke meja kerja Anda dengan interaksi suara cepat, layar ekspresi emosi dinamis, smart home dual relay, dan kemampuan streaming mandiri.',
+      'Xiaozhi Indonesia adalah ekosistem asisten suara cerdas (Voice AI) open-source berbahasa Indonesia. Xichi adalah wujud perangkat keras (hardware) asisten AI fisik resmi yang dikembangkan oleh Xichi AI Studio, membawa teknologi Xiaozhi ke meja kerja Anda dengan interaksi suara cepat, layar ekspresi emosi dinamis, smart home dual relay, dan kemampuan streaming mandiri.',
     category: 'product',
   },
   {
-    question: 'Apakah Xichi adalah perangkat Voice AI resmi karya IrsyadLabs dan server xiaozhiscig?',
+    question: 'Apakah Xichi adalah perangkat Voice AI resmi dan terhubung ke server xiaozhiscig?',
     answer:
-      'Benar! Xichi dirancang dan diproduksi oleh Franklnir melalui laboratorium inovasi IrsyadLabs (irsyadlabs.id). Xichi terhubung ke infrastruktur backend Voice AI server xiaozhiscig (xiaozhiscig.biz.id), menghadirkan pemrosesan bahasa alami (NLP), pengenalan suara Indonesia akurat, dan 47 MCP tools terintegrasi.',
+      'Benar! Xichi dirancang dan diproduksi secara mandiri oleh tim engineering Xichi AI Studio. Xichi terhubung ke infrastruktur backend Voice AI server xiaozhiscig (xiaozhiscig.biz.id), menghadirkan pemrosesan bahasa alami (NLP), pengenalan suara Indonesia akurat, dan 47 MCP tools terintegrasi.',
     category: 'product',
   },
   {

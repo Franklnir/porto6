@@ -19,7 +19,7 @@ export const bentoItems: BentoItem[] = [
     type: 'image',
     image: '/assets/culture/studio7.webp',
     fallbackImage: '/assets/culture/studio7.jpg',
-    alt: 'Chronchi Smartwatch ESP32 di stand lab IrsyadLabs',
+    alt: 'Chronchi Smartwatch ESP32 di stand lab Xichi AI',
   },
   {
     id: 'b-2',
@@ -67,7 +67,7 @@ export const bentoItems: BentoItem[] = [
     type: 'image',
     image: '/assets/culture/studio1.webp',
     fallbackImage: '/assets/culture/studio1.jpg',
-    alt: 'Laboratorium & Studio Kerja Xichi Maker IrsyadLabs',
+    alt: 'Laboratorium & Studio Kerja Xichi Maker',
   },
   {
     id: 'b-8',
@@ -83,6 +83,6 @@ export const bentoItems: BentoItem[] = [
     type: 'image',
     image: '/assets/culture/studio6.webp',
     fallbackImage: '/assets/culture/studio6.jpg',
-    alt: 'Suasana studio kerja dan prototyping hardware IrsyadLabs',
+    alt: 'Suasana studio kerja dan prototyping hardware Xichi AI',
   },
 ];
