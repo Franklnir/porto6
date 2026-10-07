@@ -3,7 +3,7 @@
 ---
 
 <section class="about-home-section" id="about">
-  <header class="section-header dark">
+  <header class="section-header">
     <p>07 / Studio & Founder</p>
     <h2>
       <span class="word"><span>DIBANGUN</span></span>{' '}
@@ -111,10 +111,22 @@
 <style>
   .about-home-section {
     padding: clamp(60px, 8vw, 100px) clamp(20px, 4vw, 40px);
-    background: #0d0d0d;
-    border-top: 3px solid var(--black, #000);
-    border-bottom: 3px solid var(--black, #000);
+    background: #0b0b0a;
+    color: #ffffff;
+    border-top: 4px solid var(--black, #000);
+    border-bottom: 4px solid var(--black, #000);
     position: relative;
+  }
+
+  .about-home-section .section-header p {
+    background: var(--yellow, #FFE600) !important;
+    color: #000 !important;
+    border-color: var(--yellow, #FFE600) !important;
+  }
+
+  .about-home-section .section-header h2,
+  .about-home-section .section-header h2 .word > span {
+    color: #ffffff !important;
   }
 
   .about-header-sub {
