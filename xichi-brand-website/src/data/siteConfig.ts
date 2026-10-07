@@ -35,28 +35,29 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: 'Xichi | Asisten AI Fisik Masa Depan',
+  name: 'Xichi — Asisten AI Fisik, Xiaozhi Indonesia & Voice AI | IrsyadLabs',
   shortName: 'XICHI',
-  tagline: 'Asisten AI Fisik Masa Depan di Meja Kerja Anda',
+  tagline: 'Asisten AI Fisik Masa Depan di Meja Kerja Anda — Xiaozhi Indonesia by IrsyadLabs',
   description:
-    'Xichi — asisten AI fisik dengan wajah ekspresif 60 FPS, memori semantik jangka panjang, YouTube streaming mandiri, AI Vision on-device, dan smart home dual relay. ESP32 + Xiaozhi open-source Indonesia.',
-  author: 'Franklnir & Komunitas Xiaozhi Indonesia',
-  authorUrl: 'https://github.com/Franklnir',
+    'Xichi adalah asisten AI fisik & voice AI pintar berbasis Xiaozhi Indonesia dari IrsyadLabs (xiaozhiscig). Wajah ekspresif 60 FPS, memori semantik, YouTube streaming mandiri, AI Vision on-device, dan IoT smart home ESP32-S3.',
+  author: 'Franklnir • IrsyadLabs & Komunitas Xiaozhi Indonesia',
+  authorUrl: 'https://irsyadlabs.id',
   siteUrl: 'https://produk.irsyadlabs.id',
   ogImage: '/og-cover.svg',
   whatsappNumber: '6289658252277',
   whatsappMessageTemplate: 'Halo tim Xichi! Saya ingin memesan unit [PRODUCT_NAME]. Mohon informasi ketersediaan dan cara pembayaran.',
   email: 'hello@xiaozhiscig.biz.id',
   marqueeText:
-    'XICHI AI ✦ POWERED BY ESP32 ✦ YOUTUBE FREE STREAMING ✦ AI VISION ✦ BMKG REALTIME ✦ SMART HOME DUAL RELAY ✦ OPEN SOURCE ✦ XICHI AI ✦ POWERED BY ESP32 ✦ YOUTUBE FREE STREAMING ✦ AI VISION ✦ BMKG REALTIME ✦ SMART HOME DUAL RELAY ✦ OPEN SOURCE ✦',
+    'XICHI AI ✦ PELOPOR XIAOZHI INDONESIA ✦ VOICE AI ASISTEN ✦ BY IRSYADLABS ✦ XIAOZHISCIG ✦ POWERED BY ESP32-S3 ✦ YOUTUBE STREAMING MANDIRI ✦ AI VISION ✦ SMART HOME DUAL RELAY ✦ OPEN SOURCE ✦ XICHI AI ✦ PELOPOR XIAOZHI INDONESIA ✦ VOICE AI ASISTEN ✦ BY IRSYADLABS ✦ XIAOZHISCIG ✦ POWERED BY ESP32-S3 ✦',
   navItems: [
     { label: 'Home', href: '#home', sectionId: 'home' },
     { label: 'Products', href: '#products', sectionId: 'products' },
+    { label: 'Studio', href: '#culture', sectionId: 'culture' },
     { label: 'Voice', href: '#voice', sectionId: 'voice' },
     { label: 'Tools', href: '#tools', sectionId: 'tools' },
     { label: 'Compare', href: '#comparison', sectionId: 'comparison' },
-    { label: 'Studio', href: '#culture', sectionId: 'culture' },
     { label: 'Chronos', href: '#chronchi', sectionId: 'chronchi' },
+    { label: 'Tentang', href: '/tentang', sectionId: 'tentang' },
     { label: 'FAQ', href: '#faq', sectionId: 'faq' },
   ],
   socialLinks: [

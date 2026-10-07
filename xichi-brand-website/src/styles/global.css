@@ -550,14 +550,14 @@ h1, h2, h3, h4, .logo-box, .nav-pill a, .marquee-content {
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 11vw, 11rem);
+  font-size: clamp(2.4rem, 8.8vw, 8.5rem);
   font-weight: 800;
-  line-height: 0.85;
+  line-height: 0.88;
   text-align: center;
   letter-spacing: -0.055em;
   z-index: 5;
   position: relative;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .hero-title .line {
@@ -3989,7 +3989,7 @@ h1, h2, h3, h4, .logo-box, .nav-pill a, .marquee-content {
 @media (max-width: 768px) {
   :root { --nav-height: 72px; }
   .hero { padding: 120px 20px 120px; }
-  .hero-title { font-size: clamp(2.2rem, 14vw, 4.5rem); }
+  .hero-title { font-size: clamp(2rem, 12vw, 3.8rem); }
   .hero-ctas { flex-direction: column; width: 100%; max-width: 340px; }
   .hero-ctas .btn-brutal { width: 100%; justify-content: center; }
   .marquee-content { font-size: 14px; letter-spacing: 2px; }
@@ -4010,7 +4010,7 @@ h1, h2, h3, h4, .logo-box, .nav-pill a, .marquee-content {
 @media (max-width: 480px) {
   .logo-box { width: 46px; height: 46px; box-shadow: 3px 3px 0 var(--yellow); }
   .logo-box svg { width: 22px; height: 22px; }
-  .hero-title { font-size: clamp(2rem, 15vw, 3.4rem); }
+  .hero-title { font-size: clamp(1.8rem, 13vw, 2.9rem); }
   .product-info { padding: 20px; }
   .buy-card { padding: 26px 22px; }
   .tool-card { padding: 20px; }

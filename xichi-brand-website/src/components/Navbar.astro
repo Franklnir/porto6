@@ -3,9 +3,19 @@
 import { siteConfig } from '../data/siteConfig';
 
 const navItems = siteConfig.navItems;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHome = currentPath === '/';
+
+// Format href so subpages can jump to home anchors seamlessly
+const resolveHref = (href: string) => {
+  if (href.startsWith('#')) {
+    return isHome ? href : `/${href}`;
+  }
+  return href;
+};
 ---
 <nav class="navbar" id="navbar" aria-label="Navigasi utama">
-  <a href="#home" class="navbar-brand" aria-label="Xichi — Beranda">
+  <a href={isHome ? '#home' : '/'} class="navbar-brand" aria-label="Xichi — Beranda">
     <div class="brand-badge">
       <img src="/assets/logoxichi.jpg" alt="Logo Xichi AI" class="brand-badge-img" />
     </div>
@@ -14,11 +24,15 @@ const navItems = siteConfig.navItems;
 
   <div class="nav-pill" role="navigation">
     {
-      navItems.map((item, idx) => (
-        <a href={item.href} class={idx === 0 ? 'active' : ''} data-section={item.sectionId}>
-          {item.label}
-        </a>
-      ))
+      navItems.map((item, idx) => {
+        const href = resolveHref(item.href);
+        const isActive = isHome ? idx === 0 : currentPath === item.href;
+        return (
+          <a href={href} class={isActive ? 'active' : ''} data-section={item.sectionId}>
+            {item.label}
+          </a>
+        );
+      })
     }
   </div>
 
@@ -33,7 +47,7 @@ const navItems = siteConfig.navItems;
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu navigasi mobile">
   {
     navItems.map((item) => (
-      <a href={item.href} class="mobile-link">
+      <a href={resolveHref(item.href)} class="mobile-link">
         {item.label}
       </a>
     ))
@@ -80,7 +94,7 @@ const navItems = siteConfig.navItems;
   }
 
   // Active pill link on scroll
-  const sectionIds = ['home', 'products', 'voice', 'tools', 'comparison', 'culture', 'chronchi', 'buy'];
+  const sectionIds = ['home', 'products', 'culture', 'voice', 'tools', 'comparison', 'chronchi', 'buy'];
   window.addEventListener(
     'scroll',
     () => {

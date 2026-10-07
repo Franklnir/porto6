@@ -1,0 +1,1051 @@
+---
+// tentang.astro - Halaman Resmi Company Profile & Kemitraan B2B / Institusi IrsyadLabs & Xichi Studio
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const b2bWhatsappMessage = encodeURIComponent(
+  'Halo tim IrsyadLabs & Xichi Studio!\nSaya tertarik untuk mendiskusikan peluang kemitraan B2B / pengadaan institusi untuk perangkat Xichi AI.\n\nInstansi/Perusahaan: \nKebutuhan: \nMohon informasi lebih lanjut. Terima kasih!'
+);
+---
+
+<BaseLayout
+  title={`Tentang IrsyadLabs & Xichi Studio — Profil Perusahaan & Kemitraan B2B`}
+  description="Profil resmi IrsyadLabs & Xichi Studio: Pelopor asisten AI fisik dan Voice AI berbasis ESP32 di Indonesia. Visi, misi, profil engineer, dan solusi kemitraan B2B/edukasi kampus."
+>
+  <Navbar />
+
+  <main id="main-content" class="about-page">
+    <!-- Breadcrumb & Top Bar -->
+    <section class="about-hero">
+      <div class="about-container">
+        <div class="about-badge-row">
+          <span class="about-tag">PROFIL RESMI</span>
+          <span class="about-tag outline">IRSYADLABS STUDIO</span>
+          <span class="about-tag yellow">SOLUSI B2B & KEMITRAAN</span>
+        </div>
+
+        <h1 class="about-title">
+          Membangun Masa Depan <span class="highlight">AI Fisik</span> di Indonesia.
+        </h1>
+
+        <p class="about-subtitle">
+          IrsyadLabs adalah studio riset rekayasa perangkat keras (hardware) dan kecerdasan buatan terapan di balik lahirnya <strong>Xichi</strong> — asisten AI fisik interaktif pertama dengan suara bahasa Indonesia alami, wajah ekspresif 60 FPS, dan 47 MCP Superpower Tools.
+        </p>
+
+        <div class="about-hero-actions">
+          <a href="#b2b" class="btn-brutal">
+            <span>Pelajari Kemitraan B2B</span>
+            <span class="arrow" aria-hidden="true">↓</span>
+          </a>
+          <a href="/#products" class="btn-brutal outline">
+            <span>Lihat Produk Xichi</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stat Highlights -->
+    <section class="stats-strip">
+      <div class="about-container">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Dirakit & Diprogram di Indonesia</span>
+            <p class="stat-desc">Riset skema sirkuit mikrokontroler mandiri dan manufaktur lab lokal.</p>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">&lt;1.2s</span>
+            <span class="stat-label">Latensi Dialog Responsif</span>
+            <p class="stat-desc">Protokol audio streaming real-time berlatensi ultra-rendah.</p>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">47+</span>
+            <span class="stat-label">MCP Superpowers Terintegrasi</span>
+            <p class="stat-desc">Koneksi ke data BMKG, pencarian web, kontrol IoT, hingga pemutar musik.</p>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">Open</span>
+            <span class="stat-label">Ekosistem Terbuka & Kompatibel</span>
+            <p class="stat-desc">Mendukung firmware open-source Xiaozhi dan aplikasi mobile Chronos BLE.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visi & Misi Section -->
+    <section class="section-block" id="visi-misi">
+      <div class="about-container">
+        <div class="section-title-wrap">
+          <span class="sec-label">01 / LANDASAN KAMI</span>
+          <h2 class="sec-heading">Visi & Misi Studio</h2>
+        </div>
+
+        <div class="vision-mission-grid">
+          <div class="vision-card">
+            <div class="card-corner-tag">VISI KAMI</div>
+            <h3>Kedaulatan & Aksesibilitas Kecerdasan Buatan Fisik</h3>
+            <p>
+              Mewujudkan era baru komputasi fisik (Physical AI) di mana setiap meja kerja, ruang belajar, dan institusi di Indonesia dapat memiliki asisten cerdas yang berinteraksi secara nyata, independen dari biaya langganan bulanan yang mahal, dan aman bagi privasi pengguna.
+            </p>
+            <div class="quote-box">
+              "AI tidak seharusnya hanya terkunci di balik layar kaca smartphone, tetapi hadir secara nyata sebagai teman komputasi fisik di dunia nyata."
+            </div>
+          </div>
+
+          <div class="mission-card">
+            <div class="card-corner-tag">MISI KAMI</div>
+            <h3>3 Komitmen Rekayasa IrsyadLabs</h3>
+            <ul class="mission-list">
+              <li>
+                <div class="mission-bullet">01</div>
+                <div>
+                  <strong>Demokratisasi Hardware Cerdas</strong>
+                  <p>Menghadirkan perangkat AI fisik berbasis mikrokontroler hemat energi (ESP32-S3/C3) yang terjangkau tanpa mengorbankan performa responsif.</p>
+                </div>
+              </li>
+              <li>
+                <div class="mission-bullet">02</div>
+                <div>
+                  <strong>Pengembangan Ekosistem Terbuka & Berdaulat</strong>
+                  <p>Mendukung riset open-source di Indonesia, dari integrasi Model Context Protocol (MCP) hingga server mandiri xiaozhiscig.</p>
+                </div>
+              </li>
+              <li>
+                <div class="mission-bullet">03</div>
+                <div>
+                  <strong>Solusi Nyata Dunia Pendidikan & Industri</strong>
+                  <p>Menjembatani teknologi frontier AI ke ruang praktikum laboratorium kampus, sekolah kejuruan, dan automasi perkantoran modern.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profil Founder & Tim Rekayasa -->
+    <section class="section-block dark-bg" id="tim">
+      <div class="about-container">
+        <div class="section-title-wrap text-light">
+          <span class="sec-label yellow">02 / DI BALIK LAYAR</span>
+          <h2 class="sec-heading text-light">Founder & Rekayasa Studio</h2>
+          <p class="sec-sub text-light">Kombinasi antara gairah riset hardware mikrokontroler, software arsitektur, dan visi AI modern.</p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Founder Card -->
+          <div class="founder-card">
+            <div class="founder-visual">
+              <div class="founder-avatar-box">
+                <span class="avatar-monogram">IR</span>
+                <span class="avatar-badge">FOUNDER & LEAD ENGINEER</span>
+              </div>
+              <div class="founder-meta">
+                <h3>Franklin Irsyad</h3>
+                <p class="founder-role">Lead Hardware & Software Architect • Founder IrsyadLabs</p>
+                <div class="tags-row">
+                  <span class="badge-skill">ESP32-S3 Embedded</span>
+                  <span class="badge-skill">Edge AI & Audio DSP</span>
+                  <span class="badge-skill">Full-Stack Cloud Architecture</span>
+                  <span class="badge-skill">Pelopor Xiaozhi Indonesia</span>
+                </div>
+              </div>
+            </div>
+            <div class="founder-bio">
+              <p>
+                Merintis riset sistem IoT, arsitektur distributed computing, dan rekayasa firmware mikrokontroler. Mengembangkan Xichi dari eksperimen breadboard di meja kerja hingga menjadi ekosistem produk utuh yang mencakup hardware fisik, web flashing tool, mobile BLE companion, dan katalog 47 alat cerdas.
+              </p>
+              <div class="founder-links">
+                <a href="https://irsyadlabs.id" target="_blank" rel="noopener noreferrer" class="founder-link">
+                  <span>Portfolio Rekayasa (irsyadlabs.id)</span> ↗
+                </a>
+                <a href="https://github.com/Franklnir" target="_blank" rel="noopener noreferrer" class="founder-link">
+                  <span>GitHub Repositori</span> ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Divisions -->
+          <div class="divisions-card">
+            <h3 class="div-title">Fokus Riset Studio IrsyadLabs</h3>
+            <div class="div-list">
+              <div class="div-item">
+                <div class="div-icon">⚙️</div>
+                <div>
+                  <h4>Hardware Prototyping & 3D Industrial Design</h4>
+                  <p>Perancangan tata letak sirkuit terpadu, pemilihan komponen audio I2S premium, manajemen termal ESP32, dan casing presisi.</p>
+                </div>
+              </div>
+              <div class="div-item">
+                <div class="div-icon">🧠</div>
+                <div>
+                  <h4>Voice AI Pipeline & Semantic Memory</h4>
+                  <p>Optimasi kompresi audio Opus, penanganan audio buffering 32KB bebas jeda, dan arsitektur memori semantik jangka panjang.</p>
+                </div>
+              </div>
+              <div class="div-item">
+                <div class="div-icon">🌐</div>
+                <div>
+                  <h4>Komunitas & Ekosistem Terbuka</h4>
+                  <p>Kolaborasi aktif dengan komunitas Xiaozhi global dan pengembang open-source Indonesia untuk pembaruan fitur berkelanjutan.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solusi Kemitraan B2B & Institusi -->
+    <section class="section-block" id="b2b">
+      <div class="about-container">
+        <div class="section-title-wrap">
+          <span class="sec-label">03 / KEMITRAAN & SOLUSI B2B</span>
+          <h2 class="sec-heading">Kemitraan untuk Institusi & Industri</h2>
+          <p class="sec-sub">
+            <strong>Apa itu Kemitraan B2B?</strong> <em>Business-to-Business (B2B)</em> adalah model kerjasama langsung antara <strong>IrsyadLabs</strong> dengan <strong>kampus, sekolah, kantor, lab riset, maupun perusahaan</strong> yang membutuhkan pengadaan perangkat, integrasi khusus, atau pengembangan teknologi bersama.
+          </p>
+        </div>
+
+        <div class="b2b-offerings-grid">
+          <!-- Offering 1 -->
+          <div class="offering-card">
+            <div class="offering-num">01</div>
+            <h3>Lab Starter Pack: Kampus & Sekolah Vokasi</h3>
+            <p class="offering-desc">
+              Pengadaan unit kit riset Xichi untuk laboratorium praktikum IoT, teknik informatika, dan mekatronika.
+            </p>
+            <ul class="offering-features">
+              <li>✓ Unit lengkap siap pakai atau kit edukasi komponen terpisah</li>
+              <li>✓ Skema rangkaian, source code firmware C++/ESP-IDF, dan panduan praktikum</li>
+              <li>✓ Sesi webinar / workshop teknis langsung bersama tim engineer IrsyadLabs</li>
+              <li>✓ Bebas dikembangkan untuk skripsi, tesis, dan riset publikasi ilmiah</li>
+            </ul>
+            <div class="offering-target">Target: Universitas, Institut Teknologi, SMK Rekayasa Perangkat Keras</div>
+          </div>
+
+          <!-- Offering 2 -->
+          <div class="offering-card highlight-card">
+            <div class="card-ribbon">POPULER</div>
+            <div class="offering-num">02</div>
+            <h3>Custom Voice AI untuk Meja Kerja Kantor</h3>
+            <p class="offering-desc">
+              Asisten suara fisik personal untuk kebutuhan internal perusahaan, meja direksi, atau front desk kantor.
+            </p>
+            <ul class="offering-features">
+              <li>✓ Penyesuaian basis pengetahuan khusus dokumen internal SOP perusahaan</li>
+              <li>✓ Integrasi ke bot pengingat agenda meeting & monitoring status server internal</li>
+              <li>✓ Pemutar audio pengumuman internal kantor melalui speaker meja</li>
+              <li>✓ Privasi terjamin dengan isolasi data lokal</li>
+            </ul>
+            <div class="offering-target">Target: Perusahaan Teknologi, Startup Studio, Coworking Space, Kantor Modern</div>
+          </div>
+
+          <!-- Offering 3 -->
+          <div class="offering-card">
+            <div class="offering-num">03</div>
+            <h3>Automasi Gedung & Smart Home Multi-Relay</h3>
+            <p class="offering-desc">
+              Integrasi asisten suara fisik dengan jaringan saklar listrik nyata, lampu, pendingin ruangan, dan sensor IoT.
+            </p>
+            <ul class="offering-features">
+              <li>✓ Integrasi kontrol modul Dual Relay ESP32-S3 via perintah suara bahasa Indonesia</li>
+              <li>✓ Dukungan protokol MQTT lokal berkecepatan tinggi tanpa delay internet luar</li>
+              <li>✓ Kompatibel dengan instalasi kelistrikan pintar gedung & perumahan</li>
+              <li>✓ Pengawasan status saklar real-time dari antarmuka web</li>
+            </ul>
+            <div class="offering-target">Target: Pengembang Properti Pintar, Kontraktor IoT, Studio Desain Interior</div>
+          </div>
+
+          <!-- Offering 4 -->
+          <div class="offering-card">
+            <div class="offering-num">04</div>
+            <h3>OEM & Custom Hardware Branding</h3>
+            <p class="offering-desc">
+              Produksi unit asisten AI fisik dengan penyesuaian bentuk casing, logo merk klien, dan persona suara kustom.
+            </p>
+            <ul class="offering-features">
+              <li>✓ Kustomisasi casing 3D print berlogo identitas korporat Anda</li>
+              <li>✓ Pembuatan wake-word / sapaan nama khusus perusahaan</li>
+              <li>✓ Pengemasan merchandise teknologi eksklusif untuk cinderamata VIP</li>
+              <li>✓ Garansi perangkat keras dan dukungan pembaruan firmware berkala</li>
+            </ul>
+            <div class="offering-target">Target: Brand Korporat, Komunitas Eksekutif, Penyelenggara Event Teknologi</div>
+          </div>
+        </div>
+
+        <!-- 4-Step Process -->
+        <div class="process-card">
+          <h3 class="process-title">Alur Kerjasama Praktis 4 Langkah</h3>
+          <div class="process-steps-grid">
+            <div class="step-col">
+              <div class="step-digit">1</div>
+              <h4>Konsultasi Awal</h4>
+              <p>Diskusikan kebutuhan spesifik unit, kurikulum lab, atau fitur AI khusus instansi Anda.</p>
+            </div>
+            <div class="step-col">
+              <div class="step-digit">2</div>
+              <h4>Demo & Proposal</h4>
+              <p>Tim IrsyadLabs menyusun simulasi solusi, spesifikasi teknis, serta estimasi waktu produksi.</p>
+            </div>
+            <div class="step-col">
+              <div class="step-digit">3</div>
+              <h4>Perakitan & Uji Coba</h4>
+              <p>Perangkat dirakit, diuji latensi audio dan kestabilan mikrokontroler sebelum serah terima.</p>
+            </div>
+            <div class="step-col">
+              <div class="step-digit">4</div>
+              <h4>Dukungan & Pelatihan</h4>
+              <p>Pengiriman unit disertai dokumentasi lengkap, panduan setup, dan garansi pemeliharaan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- B2B Contact Box -->
+        <div class="cta-contact-box">
+          <div class="cta-content">
+            <span class="cta-tag">DISKUSIKAN KEBUTUHAN INSTITUSI ANDA</span>
+            <h2>Siap Berkolaborasi Bersama IrsyadLabs?</h2>
+            <p>
+              Apakah Anda membutuhkan pengadaan 10 unit kit lab kampus, integrasi kantor khusus, atau konsultasi teknologi AI fisik? Tim kami siap berdiskusi langsung dengan Anda.
+            </p>
+            <div class="contact-methods">
+              <div class="contact-pill">
+                <span class="pill-icon">📍</span>
+                <span>Bandung, Jawa Barat, Indonesia</span>
+              </div>
+              <div class="contact-pill">
+                <span class="pill-icon">✉️</span>
+                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+              </div>
+              <div class="contact-pill">
+                <span class="pill-icon">📞</span>
+                <span>+62 896-5825-2277</span>
+              </div>
+            </div>
+          </div>
+          <div class="cta-buttons">
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${b2bWhatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-brutal"
+            >
+              <span>📲 Hubungi via WhatsApp</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a
+              href={`mailto:${siteConfig.email}?subject=Permohonan%20Kemitraan%20B2B%20-%20Xichi%20AI&body=Halo%20tim%20IrsyadLabs,%0A%0ASaya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20mengenai%20solusi%20kemitraan%20B2B/edukasi%20untuk%20instansi%20kami.`}
+              class="btn-brutal outline"
+            >
+              <span>Kirim Email Kerjasama</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Scoped Styles for tentang.astro - Neo-Brutalist Aesthetic */
+  .about-page {
+    padding-top: calc(var(--nav-height) + 24px);
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  .about-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero Section */
+  .about-hero {
+    padding: 60px 0 50px;
+    border-bottom: var(--border-brutal);
+    background: var(--yellow);
+    position: relative;
+  }
+
+  .about-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .about-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    background: var(--black);
+    color: var(--white);
+    border: 2px solid var(--black);
+    box-shadow: 2px 2px 0 var(--black);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .about-tag.outline {
+    background: var(--white);
+    color: var(--black);
+  }
+
+  .about-tag.yellow {
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--black);
+  }
+
+  .about-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--black);
+    margin-bottom: 24px;
+    max-width: 950px;
+  }
+
+  .about-title .highlight {
+    background: var(--black);
+    color: var(--yellow);
+    padding: 2px 12px;
+    display: inline-block;
+    box-shadow: 4px 4px 0 var(--red);
+  }
+
+  .about-subtitle {
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.6;
+    color: var(--black);
+    max-width: 780px;
+    margin-bottom: 36px;
+  }
+
+  .about-hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* Stats Strip */
+  .stats-strip {
+    background: var(--black);
+    color: var(--white);
+    padding: 40px 0;
+    border-bottom: var(--border-brutal);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .stat-box {
+    border-left: 4px solid var(--yellow);
+    padding-left: 18px;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .stat-desc {
+    font-size: 13px;
+    color: #a8a29e;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* Section Common */
+  .section-block {
+    padding: 80px 0;
+    border-bottom: var(--border-brutal);
+  }
+
+  .section-block.dark-bg {
+    background: #0f0f0e;
+    color: var(--white);
+  }
+
+  .section-title-wrap {
+    margin-bottom: 48px;
+  }
+
+  .sec-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 800;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 4px 10px;
+    border: 2px solid var(--black);
+    box-shadow: 2px 2px 0 var(--black);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .sec-label.yellow {
+    background: var(--yellow);
+    color: var(--black);
+    border-color: var(--yellow);
+    box-shadow: 2px 2px 0 var(--red);
+  }
+
+  .sec-heading {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+
+  .sec-heading.text-light {
+    color: var(--white);
+  }
+
+  .sec-sub {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #44403c;
+    max-width: 760px;
+  }
+
+  .sec-sub.text-light {
+    color: #a8a29e;
+  }
+
+  /* Vision & Mission */
+  .vision-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 32px;
+  }
+
+  @media (max-width: 900px) {
+    .vision-mission-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .vision-card, .mission-card {
+    background: var(--white);
+    border: var(--border-brutal);
+    box-shadow: var(--shadow-brutal);
+    padding: 36px 32px;
+    position: relative;
+  }
+
+  .card-corner-tag {
+    position: absolute;
+    top: -14px;
+    left: 24px;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border: 2px solid var(--black);
+    box-shadow: 2px 2px 0 var(--red);
+    letter-spacing: 0.5px;
+  }
+
+  .vision-card h3, .mission-card h3 {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 12px 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .vision-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #44403c;
+    margin-bottom: 24px;
+  }
+
+  .quote-box {
+    background: #fefce8;
+    border: 2px solid var(--black);
+    padding: 16px 20px;
+    font-style: italic;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--black);
+    box-shadow: 3px 3px 0 var(--yellow);
+  }
+
+  .mission-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mission-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .mission-bullet {
+    width: 36px;
+    height: 36px;
+    background: var(--yellow);
+    border: 2px solid var(--black);
+    box-shadow: 2px 2px 0 var(--black);
+    font-family: var(--font-mono);
+    font-weight: 900;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .mission-list strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: var(--black);
+  }
+
+  .mission-list p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #57534e;
+    margin: 0;
+  }
+
+  /* Team Grid */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  @media (max-width: 900px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .founder-card {
+    background: #1c1917;
+    border: 3px solid var(--white);
+    box-shadow: 6px 6px 0 var(--yellow);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .founder-visual {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .founder-avatar-box {
+    width: 80px;
+    height: 80px;
+    background: var(--yellow);
+    border: 3px solid var(--white);
+    box-shadow: 3px 3px 0 var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  .avatar-monogram {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--black);
+  }
+
+  .avatar-badge {
+    display: none;
+  }
+
+  .founder-meta h3 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--white);
+    margin: 0 0 4px;
+  }
+
+  .founder-role {
+    font-size: 13px;
+    color: var(--yellow);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .badge-skill {
+    font-size: 11px;
+    font-weight: 700;
+    background: #292524;
+    color: #e7e5e4;
+    padding: 3px 8px;
+    border: 1px solid #44403c;
+    border-radius: 4px;
+  }
+
+  .founder-bio p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #d6d3d1;
+    margin: 0 0 20px;
+  }
+
+  .founder-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .founder-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--yellow);
+    text-decoration: none;
+    border-bottom: 2px solid var(--yellow);
+    padding-bottom: 2px;
+  }
+
+  .founder-link:hover {
+    color: var(--white);
+    border-color: var(--white);
+  }
+
+  .divisions-card {
+    background: #1c1917;
+    border: 3px solid var(--white);
+    box-shadow: 6px 6px 0 var(--red);
+    padding: 32px;
+  }
+
+  .div-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--white);
+    margin: 0 0 24px;
+  }
+
+  .div-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .div-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .div-icon {
+    font-size: 24px;
+    line-height: 1;
+    flex-shrink: 0;
+    background: #292524;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #44403c;
+  }
+
+  .div-item h4 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--yellow);
+    margin: 0 0 4px;
+  }
+
+  .div-item p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #a8a29e;
+    margin: 0;
+  }
+
+  /* B2B Offerings */
+  .b2b-offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .offering-card {
+    background: var(--white);
+    border: var(--border-brutal);
+    box-shadow: var(--shadow-brutal);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.15s ease;
+  }
+
+  .offering-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .offering-card.highlight-card {
+    background: #fffbeb;
+    border-color: var(--black);
+    box-shadow: 6px 6px 0 var(--red);
+  }
+
+  .card-ribbon {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 900;
+    padding: 3px 10px;
+    border: 2px solid var(--black);
+    box-shadow: 2px 2px 0 var(--black);
+  }
+
+  .offering-num {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  .offering-card h3 {
+    font-size: 19px;
+    font-weight: 900;
+    line-height: 1.25;
+    margin: 0 0 12px;
+    color: var(--black);
+  }
+
+  .offering-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #57534e;
+    margin-bottom: 18px;
+  }
+
+  .offering-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .offering-features li {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #1c1917;
+    font-weight: 600;
+  }
+
+  .offering-target {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #44403c;
+    background: #f5f5f4;
+    padding: 8px 10px;
+    border-left: 3px solid var(--black);
+  }
+
+  /* Process Steps */
+  .process-card {
+    background: var(--white);
+    border: var(--border-brutal);
+    box-shadow: var(--shadow-brutal);
+    padding: 36px 32px;
+    margin-bottom: 48px;
+  }
+
+  .process-title {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 0 0 28px;
+    text-align: center;
+  }
+
+  .process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    position: relative;
+  }
+
+  .step-col {
+    position: relative;
+    padding-left: 14px;
+    border-left: 3px solid var(--yellow);
+  }
+
+  .step-digit {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .step-col h4 {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0 0 6px;
+    color: var(--black);
+  }
+
+  .step-col p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #57534e;
+    margin: 0;
+  }
+
+  /* CTA Contact Box */
+  .cta-contact-box {
+    background: var(--black);
+    color: var(--white);
+    border: 3px solid var(--black);
+    box-shadow: 8px 8px 0 var(--yellow);
+    padding: 44px 36px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 36px;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .cta-contact-box {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cta-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 900;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 4px 10px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin: 0 0 14px;
+  }
+
+  .cta-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #d6d3d1;
+    margin-bottom: 24px;
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .contact-pill {
+    background: #1c1917;
+    border: 1px solid #44403c;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #f5f5f4;
+  }
+
+  .contact-pill a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cta-buttons .btn-brutal {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .about-hero {
+      padding: 40px 0;
+    }
+    .section-block {
+      padding: 50px 0;
+    }
+    .vision-card, .mission-card, .founder-card, .divisions-card, .process-card, .cta-contact-box {
+      padding: 24px 18px;
+    }
+  }
+</style>
