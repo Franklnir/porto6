@@ -93,23 +93,45 @@ const resolveHref = (href: string) => {
     });
   }
 
-  // Active pill link on scroll
-  const sectionIds = ['home', 'products', 'culture', 'voice', 'tools', 'comparison', 'chronchi', 'buy'];
-  window.addEventListener(
-    'scroll',
-    () => {
-      let current = 'home';
-      sectionIds.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 240) {
-          current = id;
-        }
-      });
-      navLinks.forEach((link) => {
-        const target = link.getAttribute('href')?.replace('#', '');
-        link.classList.toggle('active', target === current);
-      });
-    },
-    { passive: true }
-  );
+  // Active pill link on scroll & subpage handling
+  const sectionMapping: Record<string, string> = {
+    home: 'home',
+    products: 'products',
+    culture: 'products',
+    comparison: 'products',
+    voice: 'tools',
+    tools: 'tools',
+    chronchi: 'tools',
+    faq: 'faq',
+    buy: 'faq',
+  };
+
+  const isTentangPage = window.location.pathname.replace(/\/$/, '').endsWith('tentang');
+
+  if (isTentangPage) {
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      link.classList.toggle('active', href?.includes('tentang') || false);
+    });
+  } else {
+    const sectionIds = Object.keys(sectionMapping);
+    window.addEventListener(
+      'scroll',
+      () => {
+        let currentSection = 'home';
+        sectionIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && window.scrollY >= el.offsetTop - 240) {
+            currentSection = id;
+          }
+        });
+        const activeNavKey = sectionMapping[currentSection] || currentSection;
+        navLinks.forEach((link) => {
+          const target = link.getAttribute('href')?.replace('#', '');
+          link.classList.toggle('active', target === activeNavKey);
+        });
+      },
+      { passive: true }
+    );
+  }
 </script>
