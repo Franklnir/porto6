@@ -40,6 +40,19 @@
       color: #333333;
     }
 
+    .icon-svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      display: inline-block;
+      vertical-align: -1.5px;
+      flex-shrink: 0;
+    }
+
     .page-container {
       display: flex;
       flex-direction: column;
@@ -332,12 +345,14 @@
     }
 
     ul.formal-list li::before {
-      content: "▪";
+      content: "";
       position: absolute;
       left: 0;
-      top: 0;
-      font-size: 8pt;
-      color: #000000;
+      top: 6.5px;
+      width: 4px;
+      height: 4px;
+      background: #000000;
+      border-radius: 1px;
     }
 
     ul.formal-list li strong {
@@ -610,8 +625,14 @@
     </div>
 
     <div class="cover-bottom">
-      <span>📍 CIKARANG UTARA, KAB. BEKASI, JAWA BARAT</span>
-      <span>WEBSITE: <a href="https://produk.irsyadlabs.id" target="_blank" class="clickable-link">PRODUK.IRSYADLABS.ID</a></span>
+      <span style="display: inline-flex; align-items: center; gap: 5px;">
+        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        CIKARANG UTARA, KAB. BEKASI, JAWA BARAT
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 5px;">
+        <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        WEBSITE: <a href="https://produk.irsyadlabs.id" target="_blank" class="clickable-link">PRODUK.IRSYADLABS.ID</a>
+      </span>
     </div>
   </div>
 
@@ -966,19 +987,31 @@
       <h3 class="subheading" style="font-size: 11pt; margin-bottom: 1.5mm;">Ekosistem 47 MCP Tools Terintegrasi</h3>
       <div class="grid-4" style="gap: 2.5mm; margin-bottom: 3mm;">
         <div class="card-gray" style="margin: 0; padding: 2.5mm;">
-          <strong style="font-size: 8.8pt; color: #000; display: block; margin-bottom: 1px;">📻 Media &amp; Audio</strong>
+          <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 2px;">
+            <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            <strong style="font-size: 8.8pt; color: #000;">Media &amp; Audio</strong>
+          </div>
           <span style="font-size: 8.2pt; color: #555;">Pencarian audio, pemutar instrumen, podcast edukasi.</span>
         </div>
         <div class="card-gray" style="margin: 0; padding: 2.5mm;">
-          <strong style="font-size: 8.8pt; color: #000; display: block; margin-bottom: 1px;">💡 Smart Home IoT</strong>
+          <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 2px;">
+            <svg class="icon-svg" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+            <strong style="font-size: 8.8pt; color: #000;">Smart Home IoT</strong>
+          </div>
           <span style="font-size: 8.2pt; color: #555;">Kendali saklar relai, suhu ruangan, jadwal lampu meja.</span>
         </div>
         <div class="card-gray" style="margin: 0; padding: 2.5mm;">
-          <strong style="font-size: 8.8pt; color: #000; display: block; margin-bottom: 1px;">📚 Edukasi &amp; Sains</strong>
+          <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 2px;">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+            <strong style="font-size: 8.8pt; color: #000;">Edukasi &amp; Sains</strong>
+          </div>
           <span style="font-size: 8.2pt; color: #555;">Kamus dwibahasa, kalkulator formula, kuis interaktif.</span>
         </div>
         <div class="card-gray" style="margin: 0; padding: 2.5mm;">
-          <strong style="font-size: 8.8pt; color: #000; display: block; margin-bottom: 1px;">⏱️ Agenda &amp; DevOps</strong>
+          <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 2px;">
+            <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <strong style="font-size: 8.8pt; color: #000;">Agenda &amp; DevOps</strong>
+          </div>
           <span style="font-size: 8.2pt; color: #555;">Alarm pengingat, webhook server, notifikasi tugas harian.</span>
         </div>
       </div>
@@ -986,14 +1019,20 @@
       <!-- Keamanan Data & Keselamatan Kelistrikan -->
       <div class="grid-2" style="gap: 3.5mm;">
         <div class="card" style="margin: 0; padding: 2.8mm 3.5mm;">
-          <strong style="font-size: 9.2pt; color: #000; display: block; margin-bottom: 1mm;">🛡️ Keamanan Data &amp; Privasi:</strong>
+          <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1.5mm;">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <strong style="font-size: 9.2pt; color: #000;">Keamanan Data &amp; Privasi:</strong>
+          </div>
           <p style="font-size: 8.8pt; color: #333; margin: 0;">
             Sistem dapat diarahkan ke server mandiri lokal (*on-premise*) demi menjaga kerahasiaan data internal institusi. Detail alur data disepakati pada tahap SPK teknis.
           </p>
         </div>
 
         <div class="card" style="margin: 0; padding: 2.8mm 3.5mm; border-left: 4px solid #ff9900;">
-          <strong style="font-size: 9.2pt; color: #994d00; display: block; margin-bottom: 1mm;">⚡ Keselamatan Kelistrikan (Safety):</strong>
+          <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1.5mm;">
+            <svg class="icon-svg" style="stroke: #994d00;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <strong style="font-size: 9.2pt; color: #994d00;">Keselamatan Kelistrikan (Safety):</strong>
+          </div>
           <p style="font-size: 8.8pt; color: #333; margin: 0;">
             Instalasi modul relai 220V AC pada dinding wajib dilakukan teknisi berkompeten. Dilengkapi isolasi optocoupler demi melindungi sirkuit kontrol dari lonjakan arus.
           </p>
@@ -1073,7 +1112,10 @@
       <span class="section-tag">RUANG LINGKUP PEKERJAAN</span>
       <div class="grid-2" style="gap: 3.5mm; margin-bottom: 3.5mm;">
         <div class="card-gray" style="margin: 0; padding: 2.8mm 3.5mm;">
-          <strong style="font-size: 9.2pt; color: #007a33; display: block; margin-bottom: 1.5mm;">✓ TERMASUK (INCLUDED):</strong>
+          <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1.5mm;">
+            <svg class="icon-svg" style="stroke: #007a33; width: 14px; height: 14px; stroke-width: 2.2;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <strong style="font-size: 9.2pt; color: #007a33;">TERMASUK (INCLUDED):</strong>
+          </div>
           <ul class="formal-list" style="font-size: 8.8pt; margin: 0;">
             <li><strong>Unit:</strong> Pengadaan fisik perangkat sesuai pesanan resmi (PO).</li>
             <li><strong>Sistem:</strong> Flashing firmware stabil &amp; Quality Control (QC).</li>
@@ -1085,7 +1127,10 @@
         </div>
 
         <div class="card-gray" style="margin: 0; padding: 2.8mm 3.5mm;">
-          <strong style="font-size: 9.2pt; color: #b30000; display: block; margin-bottom: 1.5mm;">✗ TIDAK TERMASUK (EXCLUDED):</strong>
+          <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1.5mm;">
+            <svg class="icon-svg" style="stroke: #b30000; width: 14px; height: 14px; stroke-width: 2.2;" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <strong style="font-size: 9.2pt; color: #b30000;">TIDAK TERMASUK (EXCLUDED):</strong>
+          </div>
           <ul class="formal-list" style="font-size: 8.8pt; margin: 0;">
             <li><strong>Internet:</strong> Penyediaan bandwidth dan stabilitas Wi-Fi mitra.</li>
             <li><strong>Listrik:</strong> Penarikan kabel instalasi listrik AC 220V gedung.</li>
