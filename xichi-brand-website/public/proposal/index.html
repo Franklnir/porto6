@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Proposal Kemitraan & Pengadaan Resmi — Xichi AI Studio</title>
+  <title>Proposal Kemitraan, Pengadaan & Implementasi — Xichi AI Studio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap');
 
     @page {
       size: A4 portrait;
@@ -21,10 +21,11 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #e2e2e2;
+      font-weight: 400;
+      background: #e5e5e5;
       color: #171717;
-      line-height: 1.5;
-      font-size: 9.2pt;
+      line-height: 1.38;
+      font-size: 10pt;
     }
 
     .page-container {
@@ -41,7 +42,7 @@
       min-height: 297mm;
       max-height: 297mm;
       background: #ffffff;
-      padding: 18mm 20mm 15mm 20mm;
+      padding: 16mm 18mm 15mm 18mm;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -68,14 +69,17 @@
       }
     }
 
-    /* Running Header & Footer */
+    /* ========================================================
+       RUNNING HEADER & FOOTER
+       ======================================================== */
     .page-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-bottom: 2.8mm;
       border-bottom: 1.5px solid #000;
-      font-size: 8pt;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8.5pt;
       font-weight: 700;
       color: #000;
       letter-spacing: 0.04em;
@@ -92,9 +96,10 @@
       background: #FFE600;
       color: #000;
       padding: 2px 7px;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       border: 1.2px solid #000;
-      font-size: 8pt;
+      font-size: 8.5pt;
     }
 
     .page-content {
@@ -102,7 +107,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding-top: 4.5mm;
+      padding-top: 4mm;
       overflow: hidden;
     }
 
@@ -112,50 +117,88 @@
       align-items: center;
       padding-top: 2.5mm;
       border-top: 1px solid #d0d0d0;
+      font-family: 'Inter', sans-serif;
       font-size: 7.8pt;
-      color: #555;
-      font-weight: 600;
+      color: #555555;
+      font-weight: 400;
     }
 
     .page-footer .page-number {
-      font-weight: 800;
-      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: #000000;
     }
 
-    /* Section Tag & Titles */
+    /* ========================================================
+       TYPOGRAPHY HIERARCHY
+       ======================================================== */
     .section-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7.5pt;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8pt;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      color: #555;
+      letter-spacing: 0.06em;
+      color: #555555;
       text-transform: uppercase;
       margin-bottom: 1.5mm;
       display: inline-block;
     }
 
     .page-title {
-      font-size: 15pt;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 21pt;
       font-weight: 900;
-      color: #000;
-      letter-spacing: -0.02em;
+      color: #000000;
+      letter-spacing: -0.025em;
       margin-bottom: 2mm;
-      line-height: 1.25;
+      line-height: 1.12;
+      text-align: left;
     }
 
     .page-lead {
-      font-size: 9.2pt;
-      color: #333;
-      margin-bottom: 4mm;
-      line-height: 1.45;
+      font-family: 'Inter', sans-serif;
+      font-size: 10pt;
+      font-weight: 400;
+      color: #333333;
+      margin-bottom: 3.5mm;
+      line-height: 1.38;
+      text-align: left;
     }
 
-    /* Cards & Blocks */
+    .subheading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #000000;
+      letter-spacing: -0.015em;
+      margin-top: 1mm;
+      margin-bottom: 2mm;
+      text-align: left;
+    }
+
+    p {
+      margin-bottom: 2mm;
+      line-height: 1.38;
+      text-align: left;
+    }
+
+    /* ========================================================
+       CARDS & CONTAINERS
+       ======================================================== */
     .card {
       background: #ffffff;
       border: 1.2px solid #000000;
-      padding: 3.5mm 4.5mm;
-      margin-bottom: 3.2mm;
+      padding: 3.2mm 4mm;
+      margin-bottom: 3mm;
+    }
+
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 1.5mm;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
     .card-yellow {
@@ -163,17 +206,19 @@
       border: 1.2px solid #000000;
       border-left: 5px solid #FFE600;
       padding: 3mm 4mm;
-      margin-bottom: 3.2mm;
+      margin-bottom: 3mm;
     }
 
     .card-gray {
       background: #F8F9FA;
       border: 1px solid #d0d0d0;
       padding: 3mm 4mm;
-      margin-bottom: 3.2mm;
+      margin-bottom: 3mm;
     }
 
-    /* Grids */
+    /* ========================================================
+       GRIDS
+       ======================================================== */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -192,32 +237,37 @@
       gap: 2.8mm;
     }
 
-    /* Tables */
+    /* ========================================================
+       TABLES
+       ======================================================== */
     table.data-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 8.5pt;
-      margin-bottom: 3.2mm;
+      font-family: 'Inter', sans-serif;
+      font-size: 8.8pt;
+      margin-bottom: 3mm;
     }
 
     table.data-table th {
       background: #111111;
       color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
       text-align: left;
-      padding: 2.4mm 3mm;
+      padding: 2.2mm 2.8mm;
       font-weight: 700;
-      font-size: 7.8pt;
+      font-size: 8.5pt;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      border: 1px solid #000;
+      letter-spacing: 0.035em;
+      border: 1px solid #000000;
     }
 
     table.data-table td {
-      padding: 2.2mm 2.8mm;
+      padding: 2mm 2.6mm;
       border: 1px solid #d5d5d5;
       vertical-align: top;
-      color: #222;
-      line-height: 1.4;
+      color: #222222;
+      line-height: 1.35;
+      font-weight: 400;
     }
 
     table.data-table tr:nth-child(even) td {
@@ -230,10 +280,31 @@
       border-bottom: 1.2px solid #000;
     }
 
-    /* Pills */
+    .product-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .price-strong {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .price-best {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #000000;
+    }
+
+    /* ========================================================
+       BADGES & PILLS
+       ======================================================== */
     .pill {
       display: inline-block;
       padding: 1.5px 6px;
+      font-family: 'Montserrat', sans-serif;
       font-size: 7.2pt;
       font-weight: 700;
       text-transform: uppercase;
@@ -245,19 +316,23 @@
     .pill-black  { background: #000000; color: #fff; }
     .pill-gray   { background: #EDEDED; color: #333; border: 1px solid #ccc; }
 
-    /* Bullet List */
+    /* ========================================================
+       BULLET LISTS
+       ======================================================== */
     ul.formal-list {
       list-style: none;
       padding-left: 0;
-      font-size: 8.8pt;
+      font-family: 'Inter', sans-serif;
+      font-size: 9.5pt;
     }
 
     ul.formal-list li {
       position: relative;
       padding-left: 4mm;
-      margin-bottom: 1.6mm;
-      line-height: 1.45;
+      margin-bottom: 1.5mm;
+      line-height: 1.38;
       color: #262626;
+      font-weight: 400;
     }
 
     ul.formal-list li::before {
@@ -266,25 +341,66 @@
       left: 0;
       top: 0;
       font-size: 8pt;
-      color: #000;
+      color: #000000;
     }
 
-    /* Cover Styling */
+    ul.formal-list li strong {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    /* ========================================================
+       PLACEHOLDER [DIISI]
+       ======================================================== */
+    .placeholder-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 600;
+      background: #FFF3CD;
+      color: #856404;
+      padding: 1px 5px;
+      border-radius: 2px;
+      border: 1px dashed #D39E00;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* ========================================================
+       NOTES & DISCLAIMERS
+       ======================================================== */
+    .note-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.2pt;
+      color: #555555;
+      line-height: 1.32;
+      margin-top: 1mm;
+      margin-bottom: 2.5mm;
+    }
+
+    .note-text strong {
+      font-weight: 600;
+      color: #222222;
+    }
+
+    /* ========================================================
+       COVER PAGE SPECIFIC STYLES
+       ======================================================== */
     .cover-page {
       background: #FFE600;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border: 4mm solid #000;
-      padding: 20mm 22mm 18mm 22mm;
+      border: 4mm solid #000000;
+      padding: 18mm 20mm 16mm 20mm;
     }
 
     .cover-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      border-bottom: 2.5px solid #000;
-      padding-bottom: 5mm;
+      border-bottom: 2.5px solid #000000;
+      padding-bottom: 4mm;
     }
 
     .cover-brand-logo {
@@ -294,150 +410,170 @@
     }
 
     .cover-logo-box {
-      background: #000;
+      background: #000000;
       color: #FFE600;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 22pt;
-      padding: 4px 14px;
+      padding: 3px 12px;
       letter-spacing: -0.04em;
     }
 
     .cover-brand-meta {
+      font-family: 'Montserrat', sans-serif;
       font-size: 8.5pt;
       font-weight: 800;
       line-height: 1.25;
-      color: #000;
+      color: #000000;
       letter-spacing: 0.05em;
     }
 
     .cover-doc-id {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Montserrat', sans-serif;
       font-size: 8.5pt;
       font-weight: 700;
-      background: #000;
-      color: #fff;
-      padding: 3px 10px;
+      background: #000000;
+      color: #ffffff;
+      padding: 3px 9px;
+      letter-spacing: 0.04em;
     }
 
     .cover-hero {
-      margin: 14mm 0 12mm 0;
+      margin: 12mm 0 10mm 0;
     }
 
     .cover-badge-row {
       display: flex;
       gap: 8px;
-      margin-bottom: 5mm;
+      margin-bottom: 4mm;
     }
 
     .cover-badge {
-      font-size: 8.2pt;
-      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8.5pt;
       text-transform: uppercase;
-      padding: 2.5px 9px;
+      padding: 2.5px 8px;
       letter-spacing: 0.05em;
-      border: 1.5px solid #000;
+      border: 1.5px solid #000000;
     }
 
-    .cover-badge.black { background: #000; color: #FFE600; }
-    .cover-badge.white { background: #fff; color: #000; }
+    .cover-badge.black { background: #000000; color: #FFE600; font-weight: 900; }
+    .cover-badge.white { background: #ffffff; color: #000000; font-weight: 700; }
 
     .cover-title {
-      font-size: 25pt;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30pt;
       font-weight: 900;
-      color: #000;
-      line-height: 1.15;
+      color: #000000;
+      line-height: 1.0;
       letter-spacing: -0.03em;
       margin-bottom: 4mm;
       text-transform: uppercase;
     }
 
     .cover-subtitle {
-      font-size: 10.5pt;
+      font-family: 'Inter', sans-serif;
+      font-size: 11pt;
       color: #1a1a1a;
-      line-height: 1.5;
+      line-height: 1.28;
       font-weight: 600;
       max-width: 165mm;
-      border-left: 3.5px solid #000;
+      border-left: 3.5px solid #000000;
       padding-left: 12px;
     }
 
     .cover-meta-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4.5mm;
+      gap: 4mm;
       background: #ffffff;
-      border: 2px solid #000;
-      padding: 5mm 6mm;
-      box-shadow: 4px 4px 0 #000;
+      border: 2px solid #000000;
+      padding: 4.5mm 5.5mm;
+      box-shadow: 4px 4px 0 #000000;
     }
 
     .cover-meta-box h4 {
-      font-size: 7.8pt;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8.5pt;
       text-transform: uppercase;
-      color: #666;
-      margin-bottom: 2px;
+      color: #666666;
+      margin-bottom: 1.5px;
       letter-spacing: 0.05em;
       font-weight: 700;
     }
 
     .cover-meta-box p {
+      font-family: 'Inter', sans-serif;
       font-size: 9.8pt;
-      font-weight: 800;
-      color: #000;
+      font-weight: 600;
+      color: #000000;
       margin-bottom: 1px;
       line-height: 1.35;
+    }
+
+    .cover-meta-box span {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #444444;
+      font-weight: 400;
     }
 
     .cover-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 2.5px solid #000;
-      padding-top: 4.5mm;
-      font-size: 8.8pt;
+      border-top: 2.5px solid #000000;
+      padding-top: 4mm;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8.5pt;
       font-weight: 800;
-      color: #000;
+      color: #000000;
+      letter-spacing: 0.03em;
     }
 
-    /* Signatures Section */
+    /* ========================================================
+       SIGNATURES
+       ======================================================== */
     .sign-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 7mm;
-      margin-top: 3mm;
+      gap: 6mm;
+      margin-top: 2.5mm;
     }
 
     .sign-box {
-      border: 1.5px solid #000;
-      padding: 4mm 5mm;
-      background: #fff;
-      min-height: 48mm;
+      border: 1.5px solid #000000;
+      padding: 3.5mm 4.5mm;
+      background: #ffffff;
+      min-height: 46mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .sign-header {
-      font-size: 8pt;
-      font-weight: 800;
-      color: #555;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8.2pt;
+      font-weight: 700;
+      color: #555555;
       text-transform: uppercase;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 2mm;
+      border-bottom: 1px solid #cccccc;
+      padding-bottom: 1.5mm;
     }
 
     .sign-space {
-      height: 18mm;
+      height: 17mm;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .materai-box {
-      border: 1px dashed #888;
+      border: 1px dashed #888888;
       padding: 3px 8px;
-      font-size: 7pt;
-      color: #666;
+      font-family: 'Inter', sans-serif;
+      font-size: 7.2pt;
+      color: #666666;
       text-transform: uppercase;
       font-weight: 600;
       text-align: center;
@@ -445,8 +581,9 @@
     }
 
     .sign-footer {
-      border-top: 1px solid #000;
-      padding-top: 2mm;
+      border-top: 1px solid #000000;
+      padding-top: 1.8mm;
+      font-family: 'Inter', sans-serif;
       font-size: 8.5pt;
       line-height: 1.35;
     }
@@ -465,7 +602,7 @@
         <div class="cover-logo-box">XICHI.</div>
         <div class="cover-brand-meta">
           <div>XICHI AI STUDIO</div>
-          <div style="font-size: 7.2pt; color: #222; font-weight: 700;">PHYSICAL AI &amp; EMBEDDED COMPUTING</div>
+          <div style="font-size: 7pt; color: #222; font-weight: 700;">PHYSICAL AI &amp; EMBEDDED COMPUTING</div>
         </div>
       </div>
       <div class="cover-doc-id">DOC: XICHI-PROP/2026/Q4-01</div>
@@ -488,22 +625,22 @@
       <div class="cover-meta-box">
         <h4>Diajukan Oleh:</h4>
         <p>XICHI AI STUDIO</p>
-        <span style="font-size: 8pt; color: #444; font-weight: 600;">Cikarang Utara, Bekasi, Jawa Barat</span>
+        <span>Cikarang Utara, Bekasi, Jawa Barat</span>
       </div>
       <div class="cover-meta-box">
         <h4>Ditujukan Kepada:</h4>
-        <p>Pimpinan Instansi / Mitra Bisnis</p>
-        <span style="font-size: 8pt; color: #444; font-weight: 600;">Direksi / Rektorat / Dekanat / Procurement</span>
+        <p>Pimpinan Instansi / Mitra Bisnis <span class="placeholder-badge">[DIISI]</span></p>
+        <span>Direksi / Rektorat / Dekanat / Procurement</span>
       </div>
       <div class="cover-meta-box">
         <h4>Tim Pengembang / Inisiator:</h4>
-        <p style="font-size: 9pt;">Irsyad • Sena Dwi Ilham • M. Dhean Shafwan</p>
-        <span style="font-size: 8pt; color: #444; font-weight: 600;">Core Hardware, Firmware &amp; AI Integration Team</span>
+        <p>Irsyad • Sena Dwi Ilham • M. Dhean Shafwan</p>
+        <span>Core Hardware, Firmware &amp; AI Integration Team</span>
       </div>
       <div class="cover-meta-box">
         <h4>Periode &amp; Masa Berlaku:</h4>
         <p>Oktober 2026 / Kuartal IV</p>
-        <span style="font-size: 8pt; color: #444; font-weight: 600;">Masa Berlaku Penawaran: 60 Hari Kalender</span>
+        <span>Masa Berlaku Penawaran: 60 Hari Kalender</span>
       </div>
     </div>
 
@@ -531,65 +668,65 @@
       </p>
 
       <!-- 3 Fokus Utama Ringkasan Eksekutif -->
-      <div class="grid-3" style="margin-bottom: 3.5mm;">
+      <div class="grid-3" style="margin-bottom: 3.2mm;">
         <div class="card" style="margin: 0;">
-          <h4 style="font-size: 8.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">1. Tantangan Saat Ini</h4>
-          <p style="font-size: 8.5pt; color: #333; margin: 0; line-height: 1.45;">
+          <h4 class="card-title">1. Tantangan Saat Ini</h4>
+          <p style="font-size: 9.5pt; color: #333; margin: 0;">
             Sebagian besar penerapan AI masih terbatas pada layar aplikasi tertutup dengan biaya lisensi cloud berulang, serta minimnya kit hardware mandiri yang dapat dibedah dan dipelajari secara langsung.
           </p>
         </div>
 
         <div class="card" style="margin: 0;">
-          <h4 style="font-size: 8.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">2. Solusi Xichi AI</h4>
-          <p style="font-size: 8.5pt; color: #333; margin: 0; line-height: 1.45;">
+          <h4 class="card-title">2. Solusi Xichi AI</h4>
+          <p style="font-size: 9.5pt; color: #333; margin: 0;">
             Menghadirkan asisten fisik berbasis ESP32-S3 dengan dialog suara natural Bahasa Indonesia, pemrosesan cepat, dan ekosistem 47 perkakas cerdas (*MCP Tools*) yang dapat dikustomisasi.
           </p>
         </div>
 
         <div class="card" style="margin: 0;">
-          <h4 style="font-size: 8.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">3. Nilai Kemitraan</h4>
-          <p style="font-size: 8.5pt; color: #333; margin: 0; line-height: 1.45;">
+          <h4 class="card-title">3. Nilai Kemitraan</h4>
+          <p style="font-size: 9.5pt; color: #333; margin: 0;">
             Menyediakan media praktikum hands-on siap terap bagi institusi pendidikan, otomatisasi interaktif bagi perkantoran, serta fleksibilitas integrasi kontrol IoT tanpa ketergantungan vendor asing.
           </p>
         </div>
       </div>
 
       <!-- Scope Statement Box -->
-      <div class="card-yellow" style="margin-bottom: 4mm;">
-        <p style="font-size: 8.8pt; font-weight: 600; color: #000; margin: 0; line-height: 1.45;">
+      <div class="card-yellow" style="margin-bottom: 3.5mm;">
+        <p style="font-size: 9.5pt; font-weight: 500; color: #000; margin: 0;">
           Proposal ini mencakup solusi pengadaan perangkat keras, integrasi perangkat lunak, konfigurasi awal, buku dokumentasi teknis, pendampingan instruktur, serta opsi kustomisasi sesuai kebutuhan spesifik mitra.
         </p>
       </div>
 
-      <!-- Value Proposition untuk Mitra (4 Poin Lega) -->
+      <!-- Value Proposition untuk Mitra -->
       <span class="section-tag">VALUE PROPOSITION UNTUK MITRA</span>
-      <h3 style="font-size: 11pt; font-weight: 800; margin-bottom: 2mm;">Manfaat Nyata Implementasi Lintas Sektor</h3>
+      <h3 class="subheading">Manfaat Nyata Implementasi Lintas Sektor</h3>
 
-      <div class="grid-2" style="gap: 3.5mm;">
-        <div class="card-gray" style="margin: 0; padding: 3.5mm 4mm;">
-          <strong style="font-size: 8.8pt; color: #000; display: block; margin-bottom: 1mm;">A. Kampus &amp; Laboratorium Riset</strong>
-          <p style="font-size: 8.5pt; color: #444; margin: 0; line-height: 1.45;">
+      <div class="grid-2" style="gap: 3.2mm;">
+        <div class="card-gray" style="margin: 0; padding: 3mm 3.8mm;">
+          <strong style="font-size: 9.5pt; color: #000; display: block; margin-bottom: 1mm;">A. Kampus &amp; Laboratorium Riset</strong>
+          <p style="font-size: 9.2pt; color: #444; margin: 0;">
             Sebagai media riset terapan mikrokontroler, DSP audio, dan pengujian API AI fisik. Mendukung tugas akhir mahasiswa dan publikasi riset terapan.
           </p>
         </div>
 
-        <div class="card-gray" style="margin: 0; padding: 3.5mm 4mm;">
-          <strong style="font-size: 8.8pt; color: #000; display: block; margin-bottom: 1mm;">B. SMK &amp; Sekolah Kejuruan</strong>
-          <p style="font-size: 8.5pt; color: #444; margin: 0; line-height: 1.45;">
+        <div class="card-gray" style="margin: 0; padding: 3mm 3.8mm;">
+          <strong style="font-size: 9.5pt; color: #000; display: block; margin-bottom: 1mm;">B. SMK &amp; Sekolah Kejuruan</strong>
+          <p style="font-size: 9.2pt; color: #444; margin: 0;">
             Materi ajar praktik perakitan hardware, penyolderan audio codec I2S, dan pemrograman logika AI modern yang relevan dengan kebutuhan industri.
           </p>
         </div>
 
-        <div class="card-gray" style="margin: 0; padding: 3.5mm 4mm;">
-          <strong style="font-size: 8.8pt; color: #000; display: block; margin-bottom: 1mm;">C. Perkantoran &amp; Bisnis</strong>
-          <p style="font-size: 8.5pt; color: #444; margin: 0; line-height: 1.45;">
+        <div class="card-gray" style="margin: 0; padding: 3mm 3.8mm;">
+          <strong style="font-size: 9.5pt; color: #000; display: block; margin-bottom: 1mm;">C. Perkantoran &amp; Bisnis</strong>
+          <p style="font-size: 9.2pt; color: #444; margin: 0;">
             Membantu produktivitas staf meja kerja, pengingat jadwal otomatis, asisten informasi meja resepsionis, dan efisiensi komunikasi internal.
           </p>
         </div>
 
-        <div class="card-gray" style="margin: 0; padding: 3.5mm 4mm;">
-          <strong style="font-size: 8.8pt; color: #000; display: block; margin-bottom: 1mm;">D. Fasilitas Smart Building</strong>
-          <p style="font-size: 8.5pt; color: #444; margin: 0; line-height: 1.45;">
+        <div class="card-gray" style="margin: 0; padding: 3mm 3.8mm;">
+          <strong style="font-size: 9.5pt; color: #000; display: block; margin-bottom: 1mm;">D. Fasilitas Smart Building</strong>
+          <p style="font-size: 9.2pt; color: #444; margin: 0;">
             Integrasi langsung dengan saklar relai 220V dan sensor lingkungan via MQTT untuk otomasi efisiensi daya listrik ruangan secara terpusat.
           </p>
         </div>
@@ -620,68 +757,74 @@
       </p>
 
       <!-- Informasi Organisasi Table -->
-      <h3 style="font-size: 9.5pt; font-weight: 800; text-transform: uppercase; margin-bottom: 2mm;">Informasi Organisasi &amp; Kemitraan</h3>
-      <table class="data-table" style="margin-bottom: 4mm;">
+      <h3 class="subheading" style="font-size: 11pt; margin-bottom: 1.5mm;">Informasi Organisasi &amp; Kemitraan</h3>
+      <table class="data-table" style="margin-bottom: 3.5mm;">
         <tbody>
           <tr>
-            <td style="width: 25%; font-weight: 700;">Nama Organisasi / Brand</td>
+            <td style="width: 25%; font-weight: 600;">Nama Organisasi / Brand</td>
             <td style="width: 25%;">Xichi AI Studio</td>
-            <td style="width: 25%; font-weight: 700;">Bentuk Usaha</td>
-            <td style="width: 25%;">Studio Rekayasa Mandiri</td>
+            <td style="width: 25%; font-weight: 600;">Status Badan Usaha</td>
+            <td style="width: 25%;"><span class="placeholder-badge">[DIISI]</span></td>
           </tr>
           <tr>
-            <td style="font-weight: 700;">Alamat Operasional</td>
+            <td style="font-weight: 600;">Alamat Operasional</td>
             <td>Cikarang Utara, Bekasi, Jawa Barat</td>
-            <td style="font-weight: 700;">Status Legalitas</td>
-            <td>Registrasi OSS Berjalan / Terbit SPK</td>
+            <td style="font-weight: 600;">Nama Legalitas Badan Usaha</td>
+            <td><span class="placeholder-badge">[DIISI]</span></td>
           </tr>
           <tr>
-            <td style="font-weight: 700;">Website Resmi</td>
+            <td style="font-weight: 600;">Website Resmi</td>
             <td>produk.irsyadlabs.id</td>
-            <td style="font-weight: 700;">Email Korespondensi</td>
-            <td>hello@xiaozhiscig.biz.id</td>
+            <td style="font-weight: 600;">Nomor Induk Berusaha (NIB)</td>
+            <td><span class="placeholder-badge">[DIISI]</span></td>
           </tr>
           <tr>
-            <td style="font-weight: 700;">Hotline WhatsApp</td>
+            <td style="font-weight: 600;">Email Korespondensi</td>
+            <td>hello@xiaozhiscig.biz.id</td>
+            <td style="font-weight: 600;">Nomor Pokok Wajib Pajak (NPWP)</td>
+            <td><span class="placeholder-badge">[DIISI]</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 600;">Hotline WhatsApp</td>
             <td>+62 896-5825-2277</td>
-            <td style="font-weight: 700;">Kapasitas Produksi</td>
-            <td>50–100 Unit / Batch Bulanan</td>
+            <td style="font-weight: 600;">Kapasitas Produksi Batch</td>
+            <td>50–100 Unit / Bulan <span class="placeholder-badge">[DIISI]</span></td>
           </tr>
         </tbody>
       </table>
 
       <!-- Tim Pengembang Inti (3 Kartu Lega) -->
-      <h3 style="font-size: 9.5pt; font-weight: 800; text-transform: uppercase; margin-bottom: 2mm;">Struktur Tim Rekayasa &amp; Pengembang Inti</h3>
-      <div class="grid-3" style="gap: 3.5mm; margin-bottom: 4mm;">
-        <div class="card" style="margin: 0; padding: 3.5mm 4mm;">
-          <div style="font-weight: 800; font-size: 10pt; color: #000;">Irsyad</div>
-          <div style="font-size: 7.5pt; color: #666; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">Founder &amp; System Architect</div>
-          <p style="font-size: 8.2pt; color: #333; line-height: 1.4; margin: 0;">
+      <h3 class="subheading" style="font-size: 11pt; margin-bottom: 1.5mm;">Struktur Tim Rekayasa &amp; Pengembang Inti</h3>
+      <div class="grid-3" style="gap: 3.2mm; margin-bottom: 3.5mm;">
+        <div class="card" style="margin: 0; padding: 3.2mm 3.8mm;">
+          <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10.5pt; color: #000;">Irsyad</div>
+          <div style="font-family: 'Montserrat', sans-serif; font-size: 7.5pt; color: #666; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">Founder &amp; System Architect</div>
+          <p style="font-size: 8.8pt; color: #333; margin: 0;">
             Penanggung jawab arsitektur distributed computing, firmware low-latency ESP32-S3, dan integrasi pipeline voice AI.
           </p>
         </div>
 
-        <div class="card" style="margin: 0; padding: 3.5mm 4mm;">
-          <div style="font-weight: 800; font-size: 10pt; color: #000;">Sena Dwi Ilham</div>
-          <div style="font-size: 7.5pt; color: #666; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">Co-Founder &amp; Hardware Specialist</div>
-          <p style="font-size: 8.2pt; color: #333; line-height: 1.4; margin: 0;">
+        <div class="card" style="margin: 0; padding: 3.2mm 3.8mm;">
+          <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10.5pt; color: #000;">Sena Dwi Ilham</div>
+          <div style="font-family: 'Montserrat', sans-serif; font-size: 7.5pt; color: #666; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">Co-Founder &amp; Hardware Specialist</div>
+          <p style="font-size: 8.8pt; color: #333; margin: 0;">
             Penanggung jawab perancangan skema PCB, pemilihan codec audio I2S, manajemen termal &amp; daya, serta enclosure 3D printing.
           </p>
         </div>
 
-        <div class="card" style="margin: 0; padding: 3.5mm 4mm;">
-          <div style="font-weight: 800; font-size: 10pt; color: #000;">M. Dhean Shafwan</div>
-          <div style="font-size: 7.5pt; color: #666; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">Co-Founder &amp; Software Specialist</div>
-          <p style="font-size: 8.2pt; color: #333; line-height: 1.4; margin: 0;">
+        <div class="card" style="margin: 0; padding: 3.2mm 3.8mm;">
+          <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10.5pt; color: #000;">M. Dhean Shafwan</div>
+          <div style="font-family: 'Montserrat', sans-serif; font-size: 7.5pt; color: #666; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">Co-Founder &amp; Software Specialist</div>
+          <p style="font-size: 8.8pt; color: #333; margin: 0;">
             Penanggung jawab integrasi katalog 47 MCP Tools, companion app Android BLE, dan orkestrasi dialog semantik Bahasa Indonesia.
           </p>
         </div>
       </div>
 
-      <!-- 3 Fokus Riset Studio -->
-      <div class="card-gray" style="margin: 0; padding: 3mm 4mm;">
-        <h4 style="font-size: 8.5pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1mm;">Prinsip Rekayasa Xichi AI Studio:</h4>
-        <p style="font-size: 8.2pt; color: #444; margin: 0; line-height: 1.4;">
+      <!-- Prinsip Rekayasa Studio -->
+      <div class="card-gray" style="margin: 0; padding: 2.8mm 3.8mm;">
+        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 8.8pt; font-weight: 700; text-transform: uppercase; margin-bottom: 1mm;">Prinsip Rekayasa Xichi AI Studio:</h4>
+        <p style="font-size: 8.8pt; color: #444; margin: 0;">
           Mengedepankan kedaulatan perangkat pintar di Indonesia: sirkuit terpadu dirancang mandiri, data dapat dikelola di server lokal, dan arsitektur sistem dapat dipelajari secara transparan oleh dunia pendidikan.
         </p>
       </div>
@@ -710,8 +853,8 @@
         Lini produk Xichi AI dirancang modular guna menjawab kebutuhan praktikum laboratorium, workstation kantor, hingga otomasi fasilitas.
       </p>
 
-      <!-- Tabel Produk Lega -->
-      <table class="data-table" style="margin-bottom: 4mm;">
+      <!-- Tabel Produk -->
+      <table class="data-table" style="margin-bottom: 3.5mm;">
         <thead>
           <tr>
             <th style="width: 22%;">Produk &amp; Varian</th>
@@ -723,7 +866,7 @@
         <tbody>
           <tr>
             <td>
-              <strong>Xichi Kit</strong><br>
+              <span class="product-title">Xichi Kit</span><br>
               <span style="font-size: 7.5pt; color: #666;">(DIY Maker Edition)</span>
             </td>
             <td>Komponen modul terpisah untuk praktikum perakitan hardware, wiring I2S, dan eksperimen mic MEMS.</td>
@@ -732,7 +875,7 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              <strong>Xichi Core</strong><br>
+              <span class="product-title">Xichi Core</span><br>
               <span style="font-size: 7.5pt; color: #666;">(Standard Assistant)</span>
             </td>
             <td>Asisten fisik meja kerja siap pakai dengan layar IPS bulat 1.28", speaker cavity 3W, dan voice natural.</td>
@@ -741,7 +884,7 @@
           </tr>
           <tr>
             <td>
-              <strong>Xichi Vision Pro</strong><br>
+              <span class="product-title">Xichi Vision Pro</span><br>
               <span style="font-size: 7.5pt; color: #666;">(Vision AI Edition)</span>
             </td>
             <td>Asisten visual dengan kamera OV2640 untuk membaca teks dokumen (OCR) dan mendeskripsikan objek meja.</td>
@@ -750,7 +893,7 @@
           </tr>
           <tr>
             <td>
-              <strong>Modul Dual Relay</strong><br>
+              <span class="product-title">Modul Dual Relay</span><br>
               <span style="font-size: 7.5pt; color: #666;">(Smart Home 220V)</span>
             </td>
             <td>Modul ekspansi saklar listrik 220V AC terisolasi optocoupler untuk kendali lampu &amp; alat via suara/MQTT.</td>
@@ -762,33 +905,33 @@
 
       <!-- Checklist Deliverables Resmi -->
       <span class="section-tag">STANDAR PENGADAAN</span>
-      <h3 style="font-size: 9.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 2mm;">Checklist Deliverables Pengadaan Mitra</h3>
+      <h3 class="subheading" style="font-size: 11pt; margin-bottom: 1.5mm;">Checklist Deliverables Pengadaan Mitra</h3>
 
-      <div class="grid-2" style="gap: 3.5mm;">
-        <div class="card-gray" style="margin: 0; padding: 3mm 3.8mm;">
-          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1mm;">1. Unit Perangkat Keras Fisik</strong>
-          <p style="font-size: 8.2pt; color: #444; margin: 0; line-height: 1.4;">
+      <div class="grid-2" style="gap: 3.2mm;">
+        <div class="card-gray" style="margin: 0; padding: 2.8mm 3.5mm;">
+          <strong style="font-size: 9pt; color: #000; display: block; margin-bottom: 1mm;">1. Unit Perangkat Keras Fisik</strong>
+          <p style="font-size: 8.8pt; color: #444; margin: 0;">
             Seluruh unit telah melewati pengujian Quality Control (QC) fungsionalitas audio, layar, dan konektivitas sebelum serah terima.
           </p>
         </div>
 
-        <div class="card-gray" style="margin: 0; padding: 3mm 3.8mm;">
-          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1mm;">2. Firmware Stabil &amp; Akses OTA</strong>
-          <p style="font-size: 8.2pt; color: #444; margin: 0; line-height: 1.4;">
+        <div class="card-gray" style="margin: 0; padding: 2.8mm 3.5mm;">
+          <strong style="font-size: 9pt; color: #000; display: block; margin-bottom: 1mm;">2. Firmware Stabil &amp; Akses OTA</strong>
+          <p style="font-size: 8.8pt; color: #444; margin: 0;">
             Telah di-flashing build firmware resmi terbaru dengan dukungan pembaruan nirkabel (*Over-the-Air*) via jaringan lokal.
           </p>
         </div>
 
-        <div class="card-gray" style="margin: 0; padding: 3mm 3.8mm;">
-          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1mm;">3. Buku Panduan &amp; Dokumentasi</strong>
-          <p style="font-size: 8.2pt; color: #444; margin: 0; line-height: 1.4;">
+        <div class="card-gray" style="margin: 0; padding: 2.8mm 3.5mm;">
+          <strong style="font-size: 9pt; color: #000; display: block; margin-bottom: 1mm;">3. Buku Panduan &amp; Dokumentasi</strong>
+          <p style="font-size: 8.8pt; color: #444; margin: 0;">
             Buku manual petunjuk instalasi, daftar perintah suara Bahasa Indonesia, dan diagram sirkuit lengkap dalam format PDF.
           </p>
         </div>
 
-        <div class="card-gray" style="margin: 0; padding: 3mm 3.8mm;">
-          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1mm;">4. Workshop &amp; Garansi 6 Bulan</strong>
-          <p style="font-size: 8.2pt; color: #444; margin: 0; line-height: 1.4;">
+        <div class="card-gray" style="margin: 0; padding: 2.8mm 3.5mm;">
+          <strong style="font-size: 9pt; color: #000; display: block; margin-bottom: 1mm;">4. Workshop &amp; Garansi 6 Bulan</strong>
+          <p style="font-size: 8.8pt; color: #444; margin: 0;">
             Sesi workshop online bagi staf/instruktur institusi serta jaminan perlindungan suku cadang atas cacat produksi pabrik.
           </p>
         </div>
@@ -819,74 +962,74 @@
       </p>
 
       <!-- Hardware vs Software Grid -->
-      <div class="grid-2" style="gap: 4mm; margin-bottom: 3.5mm;">
+      <div class="grid-2" style="gap: 3.5mm; margin-bottom: 2.5mm;">
         <div>
-          <h3 style="font-size: 8.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">SPESIFIKASI HARDWARE</h3>
+          <h3 style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">SPESIFIKASI HARDWARE</h3>
           <table class="data-table" style="margin-bottom: 0;">
             <tbody>
-              <tr><td style="width: 36%; font-weight: 700;">Mikrokontroler</td><td>ESP32-S3 Dual-Core Xtensa LX7 @ 240MHz</td></tr>
-              <tr><td style="font-weight: 700;">Kapasitas Memori</td><td>8MB PSRAM internal + 16MB SPI Flash</td></tr>
-              <tr><td style="font-weight: 700;">Audio Output</td><td>I2S DAC MAX98357A (Amplifier 3W RMS)</td></tr>
-              <tr><td style="font-weight: 700;">Audio Input</td><td>INMP441 Omnidirectional MEMS Digital Mic</td></tr>
-              <tr><td style="font-weight: 700;">Layar Display</td><td>1.28" Round IPS LCD (240x240 px, GC9A01)</td></tr>
-              <tr><td style="font-weight: 700;">Konektivitas</td><td>Wi-Fi 2.4GHz 802.11 b/g/n &amp; Bluetooth 5.0 LE</td></tr>
+              <tr><td style="width: 36%; font-weight: 600;">Mikrokontroler</td><td>ESP32-S3 Dual-Core Xtensa LX7 @ 240MHz</td></tr>
+              <tr><td style="font-weight: 600;">Kapasitas Memori</td><td>8MB PSRAM internal + 16MB SPI Flash</td></tr>
+              <tr><td style="font-weight: 600;">Audio Output</td><td>I2S DAC MAX98357A (Amplifier 3W RMS)</td></tr>
+              <tr><td style="font-weight: 600;">Audio Input</td><td>INMP441 Omnidirectional MEMS Digital Mic</td></tr>
+              <tr><td style="font-weight: 600;">Layar Display</td><td>1.28" Round IPS LCD (240x240 px, GC9A01)</td></tr>
+              <tr><td style="font-weight: 600;">Konektivitas</td><td>Wi-Fi 2.4GHz 802.11 b/g/n &amp; Bluetooth 5.0 LE</td></tr>
             </tbody>
           </table>
         </div>
 
         <div>
-          <h3 style="font-size: 8.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">SOFTWARE &amp; PIPELINE AI</h3>
+          <h3 style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">SOFTWARE &amp; PIPELINE AI</h3>
           <table class="data-table" style="margin-bottom: 0;">
             <tbody>
-              <tr><td style="width: 36%; font-weight: 700;">Voice Streaming</td><td>Protokol WebSocket / MQTT Real-Time</td></tr>
-              <tr><td style="font-weight: 700;">Kompresi Audio</td><td>Opus Audio Codec (Hemat Bandwidth)</td></tr>
-              <tr><td style="font-weight: 700;">Target Latensi</td><td>&lt;800 ms (Kondisi Pengujian Standar)*</td></tr>
-              <tr><td style="font-weight: 700;">Kecerdasan Bahasa</td><td>LLM Multibahasa (Bahasa Indonesia Alami)</td></tr>
-              <tr><td style="font-weight: 700;">Memori Konteks</td><td>Penyimpanan ringkasan dialog semantik</td></tr>
-              <tr><td style="font-weight: 700;">Aplikasi Mobile</td><td>Companion BLE Android untuk setup Wi-Fi</td></tr>
+              <tr><td style="width: 36%; font-weight: 600;">Voice Streaming</td><td>Protokol WebSocket / MQTT Real-Time</td></tr>
+              <tr><td style="font-weight: 600;">Kompresi Audio</td><td>Opus Audio Codec (Hemat Bandwidth)</td></tr>
+              <tr><td style="font-weight: 600;">Target Latensi</td><td>&lt;800 ms (Kondisi Pengujian Standar)*</td></tr>
+              <tr><td style="font-weight: 600;">Kecerdasan Bahasa</td><td>LLM Multibahasa (Bahasa Indonesia Alami)</td></tr>
+              <tr><td style="font-weight: 600;">Memori Konteks</td><td>Penyimpanan ringkasan dialog semantik</td></tr>
+              <tr><td style="font-weight: 600;">Aplikasi Mobile</td><td>Companion BLE Android untuk setup Wi-Fi</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <p style="font-size: 7.5pt; color: #666; margin-bottom: 3.5mm; line-height: 1.35;">
-        *Catatan Kinerja: Target latency voice pipeline &lt;800 ms dicapai pada konfigurasi jaringan Wi-Fi stabil. Performa aktual dapat dipengaruhi oleh kondisi lalu lintas jaringan, topologi server, dan ketersediaan layanan eksternal.
+      <p class="note-text">
+        *<strong>Catatan Kinerja:</strong> Target latency voice pipeline &lt;800 ms dicapai pada konfigurasi jaringan Wi-Fi stabil. Performa aktual dapat dipengaruhi oleh kondisi lalu lintas jaringan, topologi server, dan ketersediaan layanan eksternal.
       </p>
 
       <!-- 47 MCP Tools Ringkasan Sederhana -->
       <span class="section-tag">MCP ECOSYSTEM</span>
-      <h3 style="font-size: 9.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 2mm;">Ekosistem 47 MCP Tools Terintegrasi</h3>
-      <div class="grid-4" style="gap: 2.5mm; margin-bottom: 3.5mm;">
+      <h3 class="subheading" style="font-size: 11pt; margin-bottom: 1.5mm;">Ekosistem 47 MCP Tools Terintegrasi</h3>
+      <div class="grid-4" style="gap: 2.5mm; margin-bottom: 3mm;">
         <div class="card-gray" style="margin: 0; padding: 2.5mm;">
-          <strong style="font-size: 8pt; color: #000; display: block; margin-bottom: 1px;">📻 Media &amp; Audio</strong>
-          <span style="font-size: 7.5pt; color: #555;">Pencarian audio, pemutar instrumen, podcast edukasi.</span>
+          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1px;">📻 Media &amp; Audio</strong>
+          <span style="font-size: 8pt; color: #555;">Pencarian audio, pemutar instrumen, podcast edukasi.</span>
         </div>
         <div class="card-gray" style="margin: 0; padding: 2.5mm;">
-          <strong style="font-size: 8pt; color: #000; display: block; margin-bottom: 1px;">💡 Smart Home IoT</strong>
-          <span style="font-size: 7.5pt; color: #555;">Kendali saklar relai, suhu ruangan, jadwal lampu meja.</span>
+          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1px;">💡 Smart Home IoT</strong>
+          <span style="font-size: 8pt; color: #555;">Kendali saklar relai, suhu ruangan, jadwal lampu meja.</span>
         </div>
         <div class="card-gray" style="margin: 0; padding: 2.5mm;">
-          <strong style="font-size: 8pt; color: #000; display: block; margin-bottom: 1px;">📚 Edukasi &amp; Sains</strong>
-          <span style="font-size: 7.5pt; color: #555;">Kamus dwibahasa, kalkulator formula, kuis interaktif.</span>
+          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1px;">📚 Edukasi &amp; Sains</strong>
+          <span style="font-size: 8pt; color: #555;">Kamus dwibahasa, kalkulator formula, kuis interaktif.</span>
         </div>
         <div class="card-gray" style="margin: 0; padding: 2.5mm;">
-          <strong style="font-size: 8pt; color: #000; display: block; margin-bottom: 1px;">⏱️ Agenda &amp; DevOps</strong>
-          <span style="font-size: 7.5pt; color: #555;">Alarm pengingat, webhook server, notifikasi tugas harian.</span>
+          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1px;">⏱️ Agenda &amp; DevOps</strong>
+          <span style="font-size: 8pt; color: #555;">Alarm pengingat, webhook server, notifikasi tugas harian.</span>
         </div>
       </div>
 
       <!-- Keamanan Data & Keselamatan Kelistrikan -->
       <div class="grid-2" style="gap: 3.5mm;">
-        <div class="card" style="margin: 0; padding: 3mm 3.5mm;">
-          <strong style="font-size: 8.5pt; color: #000; display: block; margin-bottom: 1mm;">🛡️ Keamanan Data &amp; Privasi:</strong>
-          <p style="font-size: 8pt; color: #333; margin: 0; line-height: 1.4;">
+        <div class="card" style="margin: 0; padding: 2.8mm 3.5mm;">
+          <strong style="font-size: 9pt; color: #000; display: block; margin-bottom: 1mm;">🛡️ Keamanan Data &amp; Privasi:</strong>
+          <p style="font-size: 8.5pt; color: #333; margin: 0;">
             Sistem dirancang fleksibel untuk dapat diarahkan ke server lokal/mandiri (*on-premise*) demi menjaga kedaulatan data rahasia institusi mitra. Alur data spesifik dapat disepakati pada tahap SPK teknis.
           </p>
         </div>
 
-        <div class="card" style="margin: 0; padding: 3mm 3.5mm; border-left: 4px solid #ff9900;">
-          <strong style="font-size: 8.5pt; color: #994d00; display: block; margin-bottom: 1mm;">⚡ Keselamatan Kelistrikan (Safety):</strong>
-          <p style="font-size: 8pt; color: #333; margin: 0; line-height: 1.4;">
+        <div class="card" style="margin: 0; padding: 2.8mm 3.5mm; border-left: 4px solid #ff9900;">
+          <strong style="font-size: 9pt; color: #994d00; display: block; margin-bottom: 1mm;">⚡ Keselamatan Kelistrikan (Safety):</strong>
+          <p style="font-size: 8.5pt; color: #333; margin: 0;">
             Instalasi modul relai 220V AC pada sirkuit gedung wajib dilakukan teknisi yang berkompeten. Modul Xichi dilengkapi isolasi optocoupler untuk melindungi mikrokontroler dari lonjakan daya listrik.
           </p>
         </div>
@@ -916,100 +1059,100 @@
         Skema kemitraan transparan dengan rincian batasan pekerjaan dan estimasi tahapan pelaksanaan yang terukur.
       </p>
 
-      <!-- 3 Pilihan Paket Pengadaan Lega -->
-      <div class="grid-3" style="gap: 3.5mm; margin-bottom: 4mm;">
-        <div class="card" style="margin: 0; padding: 3.5mm 4mm;">
+      <!-- 3 Pilihan Paket Pengadaan -->
+      <div class="grid-3" style="gap: 3.2mm; margin-bottom: 3.5mm;">
+        <div class="card" style="margin: 0; padding: 3mm 3.5mm;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5mm;">
-            <strong style="font-size: 9pt; color: #000;">1. Paket Lab Edukasi</strong>
+            <strong style="font-family: 'Montserrat', sans-serif; font-size: 9.5pt; color: #000;">1. Paket Lab Edukasi</strong>
             <span class="pill pill-yellow">KAMPUS / SMK</span>
           </div>
-          <p style="font-size: 8pt; color: #555; margin-bottom: 1.5mm;"><strong>Tujuan:</strong> Praktikum hands-on kurikulum IoT &amp; AI.</p>
-          <ul class="formal-list" style="font-size: 8pt; margin: 0;">
-            <li>10 Unit Xichi Kit (DIY) atau Core.</li>
-            <li>Modul panduan praktikum PDF.</li>
-            <li>1x Sesi workshop online instruktur.</li>
-            <li>Garansi penggantian modul 6 bulan.</li>
+          <p style="font-size: 8.5pt; color: #555; margin-bottom: 1.5mm;"><strong>Tujuan:</strong> Praktikum hands-on kurikulum IoT &amp; AI.</p>
+          <ul class="formal-list" style="font-size: 8.5pt; margin: 0;">
+            <li><strong>Komponen:</strong> 10 Unit Xichi Kit (DIY) atau Core.</li>
+            <li><strong>Deliverables:</strong> Modul panduan praktikum PDF.</li>
+            <li><strong>Layanan:</strong> 1x Sesi workshop online instruktur.</li>
+            <li><strong>Garansi:</strong> Penggantian modul resmi 6 bulan.</li>
           </ul>
         </div>
 
-        <div class="card" style="margin: 0; padding: 3.5mm 4mm;">
+        <div class="card" style="margin: 0; padding: 3mm 3.5mm;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5mm;">
-            <strong style="font-size: 9pt; color: #000;">2. Paket Workstation</strong>
+            <strong style="font-family: 'Montserrat', sans-serif; font-size: 9.5pt; color: #000;">2. Paket Workstation</strong>
             <span class="pill pill-black">KANTOR</span>
           </div>
-          <p style="font-size: 8pt; color: #555; margin-bottom: 1.5mm;"><strong>Tujuan:</strong> Asisten meja kerja &amp; otomasi operasional.</p>
-          <ul class="formal-list" style="font-size: 8pt; margin: 0;">
-            <li>5–15 Unit Xichi Core ready-to-use.</li>
-            <li>Konfigurasi awal Wi-Fi kantor.</li>
-            <li>Dudukan meja &amp; kabel adaptor resmi.</li>
-            <li>Layanan respon teknis prioritas.</li>
+          <p style="font-size: 8.5pt; color: #555; margin-bottom: 1.5mm;"><strong>Tujuan:</strong> Asisten meja kerja &amp; otomasi operasional.</p>
+          <ul class="formal-list" style="font-size: 8.5pt; margin: 0;">
+            <li><strong>Komponen:</strong> 5–15 Unit Xichi Core ready-to-use.</li>
+            <li><strong>Deliverables:</strong> Dudukan meja &amp; kabel adaptor.</li>
+            <li><strong>Layanan:</strong> Konfigurasi awal jaringan Wi-Fi.</li>
+            <li><strong>Support:</strong> Jalur respon teknis prioritas.</li>
           </ul>
         </div>
 
-        <div class="card" style="margin: 0; padding: 3.5mm 4mm;">
+        <div class="card" style="margin: 0; padding: 3mm 3.5mm;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5mm;">
-            <strong style="font-size: 9pt; color: #000;">3. Paket Smart Room</strong>
+            <strong style="font-family: 'Montserrat', sans-serif; font-size: 9.5pt; color: #000;">3. Paket Smart Room</strong>
             <span class="pill pill-gray">FASILITAS</span>
           </div>
-          <p style="font-size: 8pt; color: #555; margin-bottom: 1.5mm;"><strong>Tujuan:</strong> Otomasi saklar listrik &amp; perangkat gedung.</p>
-          <ul class="formal-list" style="font-size: 8pt; margin: 0;">
-            <li>Unit Xichi Core + Modul Dual Relay.</li>
-            <li>Panduan integrasi broker MQTT lokal.</li>
-            <li>Diagram kelistrikan aman 220V AC.</li>
-            <li>Pendampingan setup otomasi ruangan.</li>
+          <p style="font-size: 8.5pt; color: #555; margin-bottom: 1.5mm;"><strong>Tujuan:</strong> Otomasi saklar listrik &amp; perangkat gedung.</p>
+          <ul class="formal-list" style="font-size: 8.5pt; margin: 0;">
+            <li><strong>Komponen:</strong> Xichi Core + Modul Dual Relay.</li>
+            <li><strong>Deliverables:</strong> Skema diagram kelistrikan aman.</li>
+            <li><strong>Layanan:</strong> Panduan integrasi broker MQTT.</li>
+            <li><strong>Kustomisasi:</strong> Integrasi otomasi ruangan mitra.</li>
           </ul>
         </div>
       </div>
 
       <!-- Scope of Work (Included vs Excluded) -->
       <span class="section-tag">RUANG LINGKUP PEKERJAAN</span>
-      <div class="grid-2" style="gap: 4mm; margin-bottom: 4mm;">
-        <div class="card-gray" style="margin: 0; padding: 3mm 4mm;">
-          <strong style="font-size: 8.5pt; color: #007a33; display: block; margin-bottom: 1.5mm;">✓ TERMASUK (INCLUDED):</strong>
-          <ul class="formal-list" style="font-size: 8pt; margin: 0;">
-            <li>Pengadaan unit fisik perangkat sesuai pesanan resmi (PO).</li>
-            <li>Flashing build firmware stabil Xichi AI &amp; Quality Control (QC).</li>
-            <li>Konfigurasi awal audio dan kredensial jaringan dasar.</li>
-            <li>Buku petunjuk operasional dan skematik sirkuit PDF.</li>
-            <li>Sesi workshop online pengenalan teknis sesuai paket.</li>
-            <li>Layanan garansi suku cadang selama 6 bulan kalender.</li>
+      <div class="grid-2" style="gap: 3.5mm; margin-bottom: 3.5mm;">
+        <div class="card-gray" style="margin: 0; padding: 2.8mm 3.5mm;">
+          <strong style="font-size: 9pt; color: #007a33; display: block; margin-bottom: 1.5mm;">✓ TERMASUK (INCLUDED):</strong>
+          <ul class="formal-list" style="font-size: 8.5pt; margin: 0;">
+            <li><strong>Unit:</strong> Pengadaan fisik perangkat sesuai pesanan resmi (PO).</li>
+            <li><strong>Sistem:</strong> Flashing firmware stabil &amp; Quality Control (QC).</li>
+            <li><strong>Setup:</strong> Konfigurasi awal audio dan kredensial jaringan.</li>
+            <li><strong>Buku:</strong> Panduan operasional dan skematik sirkuit PDF.</li>
+            <li><strong>Workshop:</strong> Sesi pengenalan teknis daring bagi instruktur.</li>
+            <li><strong>Garansi:</strong> Perlindungan suku cadang selama 6 bulan kalender.</li>
           </ul>
         </div>
 
-        <div class="card-gray" style="margin: 0; padding: 3mm 4mm;">
-          <strong style="font-size: 8.5pt; color: #b30000; display: block; margin-bottom: 1.5mm;">✗ TIDAK TERMASUK (EXCLUDED):</strong>
-          <ul class="formal-list" style="font-size: 8pt; margin: 0;">
-            <li>Penyediaan bandwidth dan stabilitas jaringan Wi-Fi milik mitra.</li>
-            <li>Penarikan kabel instalasi listrik dinding AC 220V pada gedung.</li>
-            <li>Langganan API pihak ketiga berbayar di luar kuota standar.</li>
-            <li>Pengembangan fitur perangkat lunak khusus di luar kesepakatan SPK.</li>
+        <div class="card-gray" style="margin: 0; padding: 2.8mm 3.5mm;">
+          <strong style="font-size: 9pt; color: #b30000; display: block; margin-bottom: 1.5mm;">✗ TIDAK TERMASUK (EXCLUDED):</strong>
+          <ul class="formal-list" style="font-size: 8.5pt; margin: 0;">
+            <li><strong>Internet:</strong> Penyediaan bandwidth dan stabilitas Wi-Fi mitra.</li>
+            <li><strong>Listrik:</strong> Penarikan kabel instalasi listrik AC 220V gedung.</li>
+            <li><strong>Layanan Cloud:</strong> Langganan API pihak ketiga berbayar tambahan.</li>
+            <li><strong>Fitur Tambahan:</strong> Pengembangan kustomisasi di luar SPK: <span class="placeholder-badge">[DIISI]</span>.</li>
           </ul>
         </div>
       </div>
 
       <!-- Timeline 4 Tahap Ringkas -->
       <span class="section-tag">ESTIMASI TIMELINE IMPLEMENTASI</span>
-      <div class="card" style="margin: 0; padding: 3mm 4mm;">
-        <div class="grid-4" style="gap: 3mm; font-size: 8pt;">
+      <div class="card" style="margin: 0; padding: 2.8mm 3.5mm;">
+        <div class="grid-4" style="gap: 3mm; font-size: 8.5pt;">
           <div>
-            <strong style="color: #000; display: block;">1. Konsultasi</strong>
-            <span style="color: #666; font-size: 7.5pt; font-weight: 700;">Hari 1–3</span>
-            <p style="color: #444; margin: 0; line-height: 1.35;">Penyelarasan kebutuhan &amp; administrasi SPK/PO.</p>
+            <strong style="font-family: 'Montserrat', sans-serif; font-size: 8.5pt; color: #000; display: block;">1. Konsultasi</strong>
+            <span style="color: #666; font-size: 7.8pt; font-weight: 600;">Hari 1–3</span>
+            <p style="color: #444; margin: 0;">Penyelarasan kebutuhan &amp; administrasi SPK/PO.</p>
           </div>
           <div>
-            <strong style="color: #000; display: block;">2. Produksi &amp; QC</strong>
-            <span style="color: #666; font-size: 7.5pt; font-weight: 700;">Hari 4–10</span>
-            <p style="color: #444; margin: 0; line-height: 1.35;">Perakitan hardware, 3D printing, dan pengujian audio.</p>
+            <strong style="font-family: 'Montserrat', sans-serif; font-size: 8.5pt; color: #000; display: block;">2. Produksi &amp; QC</strong>
+            <span style="color: #666; font-size: 7.8pt; font-weight: 600;">Hari 4–10</span>
+            <p style="color: #444; margin: 0;">Perakitan hardware, 3D printing, dan uji audio.</p>
           </div>
           <div>
-            <strong style="color: #000; display: block;">3. Pengiriman</strong>
-            <span style="color: #666; font-size: 7.5pt; font-weight: 700;">Hari 11–14</span>
-            <p style="color: #444; margin: 0; line-height: 1.35;">Pengemasan protektif &amp; serah terima unit (BAST).</p>
+            <strong style="font-family: 'Montserrat', sans-serif; font-size: 8.5pt; color: #000; display: block;">3. Pengiriman</strong>
+            <span style="color: #666; font-size: 7.8pt; font-weight: 600;">Hari 11–14</span>
+            <p style="color: #444; margin: 0;">Pengemasan protektif &amp; serah terima unit (BAST).</p>
           </div>
           <div>
-            <strong style="color: #000; display: block;">4. Workshop</strong>
-            <span style="color: #666; font-size: 7.5pt; font-weight: 700;">Pasca Kirim</span>
-            <p style="color: #444; margin: 0; line-height: 1.35;">Pelatihan instruktur daring &amp; aktivasi garansi.</p>
+            <strong style="font-family: 'Montserrat', sans-serif; font-size: 8.5pt; color: #000; display: block;">4. Workshop</strong>
+            <span style="color: #666; font-size: 7.8pt; font-weight: 600;">Pasca Kirim</span>
+            <p style="color: #444; margin: 0;">Pelatihan instruktur daring &amp; aktivasi garansi.</p>
           </div>
         </div>
       </div>
@@ -1038,8 +1181,8 @@
         Skema investasi transparan dengan diskon volume pengadaan institusi dan perlindungan purna jual resmi.
       </p>
 
-      <!-- Tabel Harga Lega -->
-      <table class="data-table" style="margin-bottom: 4mm;">
+      <!-- Tabel Harga -->
+      <table class="data-table" style="margin-bottom: 3.5mm;">
         <thead>
           <tr>
             <th style="width: 34%;">Produk &amp; Paket Layanan</th>
@@ -1051,72 +1194,72 @@
         <tbody>
           <tr>
             <td>
-              <strong>Xichi Kit (DIY Maker Edition)</strong><br>
+              <span class="product-title">Xichi Kit (DIY Maker Edition)</span><br>
               <span style="font-size: 7.5pt; color: #666;">Komponen modul lengkap + tutorial wiring</span>
             </td>
             <td>Rp 299.000 / unit</td>
-            <td style="font-weight: 700;">Rp 269.000 / unit</td>
-            <td style="font-weight: 800; color: #b30000;">Rp 239.000 / unit</td>
+            <td class="price-strong">Rp 269.000 / unit</td>
+            <td class="price-best">Rp 239.000 / unit</td>
           </tr>
           <tr class="highlight-row">
             <td>
-              <strong>Xichi Core (Standard Assistant)</strong><br>
+              <span class="product-title">Xichi Core (Standard Assistant)</span><br>
               <span style="font-size: 7.5pt; color: #666;">Layar IPS bulat, speaker cavity, casing meja</span>
             </td>
             <td>Rp 450.000 / unit</td>
-            <td style="font-weight: 700;">Rp 405.000 / unit</td>
-            <td style="font-weight: 800; color: #b30000;">Rp 360.000 / unit</td>
+            <td class="price-strong">Rp 405.000 / unit</td>
+            <td class="price-best">Rp 360.000 / unit</td>
           </tr>
           <tr>
             <td>
-              <strong>Xichi Vision Pro (AI Cam Edition)</strong><br>
+              <span class="product-title">Xichi Vision Pro (AI Cam Edition)</span><br>
               <span style="font-size: 7.5pt; color: #666;">Kamera OV2640, OCR, visual processing</span>
             </td>
             <td>Rp 630.000 / unit</td>
-            <td style="font-weight: 700;">Rp 567.000 / unit</td>
-            <td style="font-weight: 800; color: #b30000;">Rp 504.000 / unit</td>
+            <td class="price-strong">Rp 567.000 / unit</td>
+            <td class="price-best">Rp 504.000 / unit</td>
           </tr>
           <tr>
             <td>
-              <strong>Paket Modul Dual Relay Smart Home</strong><br>
+              <span class="product-title">Paket Modul Dual Relay Smart Home</span><br>
               <span style="font-size: 7.5pt; color: #666;">Modul saklar 220V AC terisolasi optocoupler</span>
             </td>
             <td>Rp 85.000 / set</td>
-            <td style="font-weight: 700;">Rp 75.000 / set</td>
-            <td style="font-weight: 800; color: #b30000;">Rp 68.000 / set</td>
+            <td class="price-strong">Rp 75.000 / set</td>
+            <td class="price-best">Rp 68.000 / set</td>
           </tr>
         </tbody>
       </table>
 
       <!-- Ketentuan Komersial & Pembayaran Grid -->
-      <div class="grid-2" style="gap: 4mm; margin-bottom: 4mm;">
+      <div class="grid-2" style="gap: 3.5mm; margin-bottom: 3.5mm;">
         <!-- Syarat Pembayaran -->
-        <div class="card" style="margin: 0; padding: 3.5mm 4mm;">
-          <h4 style="font-size: 8.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">Syarat Pembayaran (Term of Payment):</h4>
-          <ul class="formal-list" style="font-size: 8.2pt; margin: 0;">
-            <li><strong>Uang Muka (DP):</strong> 50% setelah penandatanganan SPK / PO resmi.</li>
-            <li><strong>Pelunasan:</strong> 50% setelah unit diterima dan diverifikasi (BAST).</li>
-            <li><strong>Metode Pembayaran:</strong> Transfer Bank Resmi Xichi AI Studio.</li>
-            <li><strong>Rekening:</strong> Bank Central Asia (BCA) / Mandiri a.n Tim Xichi AI.</li>
+        <div class="card" style="margin: 0; padding: 3mm 3.5mm;">
+          <h4 class="card-title">Syarat Pembayaran (Term of Payment):</h4>
+          <ul class="formal-list" style="font-size: 8.8pt; margin: 0;">
+            <li><strong>Uang Muka (DP):</strong> 50% <span class="placeholder-badge">[DIISI]%</span> setelah terbitnya SPK/PO resmi.</li>
+            <li><strong>Pelunasan:</strong> 50% <span class="placeholder-badge">[DIISI]</span> setelah unit diterima dan diverifikasi (BAST).</li>
+            <li><strong>Metode:</strong> Transfer Bank Resmi Xichi AI Studio.</li>
+            <li><strong>Rekening:</strong> Bank Mandiri / BCA a.n Tim Xichi AI Studio <span class="placeholder-badge">[DIISI]</span>.</li>
           </ul>
         </div>
 
         <!-- Ketentuan Pengadaan -->
-        <div class="card" style="margin: 0; padding: 3.5mm 4mm;">
-          <h4 style="font-size: 8.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">Ketentuan Komersial:</h4>
-          <ul class="formal-list" style="font-size: 8.2pt; margin: 0;">
-            <li><strong>Masa Berlaku Harga:</strong> 60 hari kalender sejak penerbitan proposal.</li>
-            <li><strong>Pengiriman:</strong> Bebas biaya kirim untuk wilayah Jabodetabek.</li>
-            <li><strong>Faktur &amp; Pajak:</strong> Penyesuaian PPN dicantumkan pada invoice SPK.</li>
-            <li><strong>Minimum Pemesanan:</strong> Mulai dari 1 unit (Kit/Core) tanpa batasan.</li>
+        <div class="card" style="margin: 0; padding: 3mm 3.5mm;">
+          <h4 class="card-title">Ketentuan Komersial:</h4>
+          <ul class="formal-list" style="font-size: 8.8pt; margin: 0;">
+            <li><strong>Masa Berlaku:</strong> 60 hari kalender sejak penerbitan proposal.</li>
+            <li><strong>Pengiriman:</strong> Bebas ongkir Jabodetabek <span class="placeholder-badge">[SESUAIKAN]</span>.</li>
+            <li><strong>Faktur &amp; Pajak:</strong> Status PPN dicantumkan pada SPK <span class="placeholder-badge">[DIISI]</span>.</li>
+            <li><strong>Minimum Pemesanan:</strong> Mulai dari 1 unit tanpa batasan minimal.</li>
           </ul>
         </div>
       </div>
 
       <!-- Garansi Purna Jual -->
-      <div class="card-gray" style="margin: 0; padding: 3.5mm 4mm;">
-        <h4 style="font-size: 8.8pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">Kebijakan Garansi 6 Bulan &amp; Layanan Purna Jual:</h4>
-        <div class="grid-2" style="gap: 3mm; font-size: 8pt; line-height: 1.45;">
+      <div class="card-gray" style="margin: 0; padding: 3mm 3.5mm;">
+        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 8.8pt; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">Kebijakan Garansi 6 Bulan &amp; Layanan Purna Jual:</h4>
+        <div class="grid-2" style="gap: 3mm; font-size: 8.5pt; line-height: 1.38;">
           <div>
             <strong style="color: #007a33;">Mencakup Garansi:</strong>
             <p style="color: #333; margin: 0;">Penggantian modul gratis jika terdapat cacat produksi pabrik pada papan sirkuit PCB, layar display, atau speaker audio saat serah terima unit.</p>
@@ -1126,7 +1269,7 @@
             <p style="color: #333; margin: 0;">Kerusakan akibat jatuh fisik, terkena tumpahan cairan, penggunaan adaptor daya di atas 5V DC, atau modifikasi sirkuit mandiri tanpa izin.</p>
           </div>
         </div>
-        <div style="border-top: 1px solid #d5d5d5; margin-top: 2mm; padding-top: 1.5mm; font-size: 7.8pt; color: #555;">
+        <div style="border-top: 1px solid #d5d5d5; margin-top: 2mm; padding-top: 1.5mm; font-size: 8pt; color: #555;">
           Dukungan teknis respons cepat via WhatsApp Hotline &amp; Email resmi dalam 1 x 24 jam hari kerja.
         </div>
       </div>
@@ -1155,10 +1298,10 @@
         Dokumen penawaran ini merupakan dasar awal pembahasan teknis sebelum penerbitan Surat Perintah Kerja (SPK) resmi.
       </p>
 
-      <!-- 6 Poin Pokok Kerjasama Lega -->
-      <div class="card-gray" style="padding: 3mm 4mm; margin-bottom: 3.5mm;">
-        <h4 style="font-size: 8.5pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">Ketentuan Pokok Pelaksanaan Kemitraan:</h4>
-        <div class="grid-2" style="gap: 3.5mm; font-size: 8pt; line-height: 1.45; color: #333;">
+      <!-- 6 Poin Pokok Kerjasama -->
+      <div class="card-gray" style="padding: 2.8mm 3.5mm; margin-bottom: 3mm;">
+        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 8.8pt; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5mm;">Ketentuan Pokok Pelaksanaan Kemitraan:</h4>
+        <div class="grid-2" style="gap: 3mm; font-size: 8.5pt; line-height: 1.38; color: #333;">
           <div>
             1. <strong>Masa Berlaku Dokumen:</strong> Berlaku 60 hari kalender sejak tanggal pengajuan.<br>
             2. <strong>Dasar Pelaksanaan:</strong> Pengerjaan dimulai setelah terbitnya SPK atau PO resmi.<br>
@@ -1173,9 +1316,9 @@
       </div>
 
       <!-- Kontak Korespondensi Resmi -->
-      <div class="card" style="padding: 3mm 4mm; margin-bottom: 3.5mm;">
-        <h4 style="font-size: 8.5pt; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5mm;">Informasi Kontak &amp; Korespondensi Resmi:</h4>
-        <div class="grid-3" style="gap: 3mm; font-size: 8pt; color: #222;">
+      <div class="card" style="padding: 2.8mm 3.5mm; margin-bottom: 3mm;">
+        <h4 class="card-title">Informasi Kontak &amp; Korespondensi Resmi:</h4>
+        <div class="grid-3" style="gap: 2.5mm; font-size: 8.5pt; color: #222;">
           <div>
             <strong>Alamat Studio:</strong><br>
             Cikarang Utara, Bekasi, Jawa Barat
@@ -1194,7 +1337,7 @@
           </div>
           <div>
             <strong>PIC Penanggung Jawab:</strong><br>
-            Irsyad (System Architect)
+            Irsyad (System Architect) <span class="placeholder-badge">[DIISI]</span>
           </div>
           <div>
             <strong>Jam Operasional:</strong><br>
@@ -1204,24 +1347,24 @@
       </div>
 
       <!-- Lembar Pengesahan Resmi -->
-      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2mm;">
-        <h3 style="font-size: 9.5pt; font-weight: 800; text-transform: uppercase; margin: 0;">Lembar Persetujuan &amp; Pengesahan Kemitraan</h3>
-        <span style="font-size: 8pt; color: #555;">Tempat: Bekasi, Jawa Barat • Tanggal: Oktober 2026</span>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5mm;">
+        <h3 class="subheading" style="font-size: 10.5pt; margin: 0;">Lembar Persetujuan &amp; Pengesahan Kemitraan</h3>
+        <span style="font-size: 8.2pt; color: #555;">Tempat: Bekasi, Jawa Barat • Tanggal: Oktober 2026 <span class="placeholder-badge">[DIISI]</span></span>
       </div>
 
       <div class="sign-grid" style="margin-top: 0;">
         <!-- Pihak Pertama -->
         <div class="sign-box">
           <div class="sign-header">PIHAK PERTAMA (XICHI AI STUDIO)</div>
-          <div style="font-size: 8pt; color: #333; margin-top: 1mm;">
-            <strong>XICHI AI STUDIO</strong><br>
+          <div style="font-size: 8.2pt; color: #333; margin-top: 1mm;">
+            <strong style="font-family: 'Montserrat', sans-serif;">XICHI AI STUDIO</strong><br>
             Cikarang Utara, Bekasi, Jawa Barat
           </div>
           <div class="sign-space">
             <div class="materai-box">Materai Rp 10.000<br>(Tanda Tangan Pengaju)</div>
           </div>
           <div class="sign-footer">
-            <div style="font-weight: 800; font-size: 8.5pt; text-decoration: underline;">
+            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 8.5pt; text-decoration: underline;">
               IRSYAD • SENA DWI ILHAM • M. DHEAN SHAFWAN
             </div>
             <span style="font-size: 7.5pt; color: #555;">Tim Rekayasa, Pengembang &amp; Inisiator Xichi AI Studio</span>
@@ -1231,23 +1374,23 @@
         <!-- Pihak Kedua -->
         <div class="sign-box">
           <div class="sign-header">PIHAK KEDUA (INSTANSI / MITRA KLIEN)</div>
-          <div style="font-size: 8pt; color: #333; margin-top: 1mm;">
-            <strong>INSTANSI / PERUSAHAAN MITRA</strong><br>
-            Universitas / Sekolah / Lembaga Klien
+          <div style="font-size: 8.2pt; color: #333; margin-top: 1mm;">
+            <strong style="font-family: 'Montserrat', sans-serif;">INSTANSI / PERUSAHAAN MITRA</strong><br>
+            Universitas / Sekolah / Lembaga Klien <span class="placeholder-badge">[DIISI]</span>
           </div>
           <div class="sign-space">
             <div class="materai-box">Tanda Tangan &amp; Stempel Resmi<br>(Pihak Penerima)</div>
           </div>
           <div class="sign-footer">
-            <div style="font-weight: 800; font-size: 8.5pt;">
+            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 8.5pt;">
               ( ............................................................................ )
             </div>
-            <span style="font-size: 7.5pt; color: #555;">Pimpinan / Pejabat Pembuat Komitmen (PPK)</span>
+            <span style="font-size: 7.5pt; color: #555;">Pimpinan / Pejabat Pembuat Komitmen (PPK) <span class="placeholder-badge">[DIISI]</span></span>
           </div>
         </div>
       </div>
 
-      <div style="margin-top: 2.5mm; text-align: center; font-size: 7.2pt; color: #777;">
+      <div style="margin-top: 2.2mm; text-align: center; font-size: 7.2pt; color: #777;">
         Dokumen ini diterbitkan secara sah oleh Xichi AI Studio untuk keperluan evaluasi teknis dan proses pengadaan resmi instansi mitra.
       </div>
     </div>
