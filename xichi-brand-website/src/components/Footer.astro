@@ -2,7 +2,7 @@
 // Footer.astro - Neo-brutalist footer with roll brand animation and structured links
 import { siteConfig } from '../data/siteConfig';
 
-const { socialLinks, email } = siteConfig;
+const { socialLinks, email, whatsappNumber } = siteConfig;
 const currentYear = new Date().getFullYear();
 ---
 <footer class="footer" id="contact">
@@ -54,7 +54,7 @@ const currentYear = new Date().getFullYear();
       <a href="https://xiaozhiscig.biz.id" target="_blank" rel="noopener noreferrer">Server Xiaozhiscig</a>
       <a href="/#chronchi">Chronchi App</a>
       <a href="/#tools">47 MCP Tools</a>
-      <a href="https://wa.me/6289658252277" target="_blank" rel="noopener noreferrer">Hubungi Support</a>
+      <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">Hubungi Support</a>
     </div>
 
     <div class="footer-col">

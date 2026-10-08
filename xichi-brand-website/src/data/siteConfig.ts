@@ -43,11 +43,11 @@ export const siteConfig: SiteConfig = {
   authorUrl: 'https://produk.irsyadlabs.id',
   siteUrl: 'https://produk.irsyadlabs.id',
   ogImage: '/og-cover.svg',
-  whatsappNumber: '6289658252277',
+  whatsappNumber: '6289531832365',
   whatsappMessageTemplate: 'Halo tim Xichi! Saya ingin memesan unit [PRODUCT_NAME]. Mohon informasi ketersediaan dan cara pembayaran.',
-  email: 'hello@xiaozhiscig.biz.id',
+  email: 'franklnlynirsyad@gmail.com',
   marqueeText:
-    'XICHI AI ✦ PELOPOR ASISTEN AI FISIK ✦ VOICE AI INDONESIA ✦ POWERED BY ESP32-S3 ✦ YOUTUBE STREAMING MANDIRI ✦ AI VISION ON-DEVICE ✦ SMART HOME DUAL RELAY ✦ 47 MCP SUPERPOWERS ✦ OPEN SOURCE ✦ XICHI AI ✦ VOICE AI COMPANION ✦',
+    'XICHI AI ✦ PELOPOR ASISTEN AI FISIK ✦ VOICE AI INDONESIA ✦ POWERED BY ESP32-S3 ✦ YOUTUBE STREAMING MANDIRI ✦ AI VISION ON-DEVICE ✦ FITUR CERDAS TERINTEGRASI ✦ OPEN SOURCE ✦ XICHI AI ✦ VOICE AI COMPANION ✦',
   navItems: [
     { label: 'Home', href: '#home', sectionId: 'home' },
     { label: 'Produk', href: '#products', sectionId: 'products' },
