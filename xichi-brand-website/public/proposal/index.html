@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Proposal Kemitraan & Pengadaan — Xichi AI Studio</title>
+  <title>Proposal Kemitraan, Pengadaan & Implementasi — Xichi AI Studio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
 
@@ -20,19 +20,19 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #e5e5e5;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #e8e8e8;
       color: #171717;
-      line-height: 1.5;
-      font-size: 11pt;
+      line-height: 1.45;
+      font-size: 8.5pt;
     }
 
     .page-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-      padding: 20px 0;
+      gap: 18px;
+      padding: 18px 0;
     }
 
     .page {
@@ -41,13 +41,13 @@
       min-height: 297mm;
       max-height: 297mm;
       background: #ffffff;
-      padding: 22mm 22mm 18mm 22mm;
+      padding: 16mm 18mm 13mm 18mm;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       page-break-after: always;
       page-break-inside: avoid;
     }
@@ -73,9 +73,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 3.5mm;
-      border-bottom: 2px solid #000;
-      font-size: 8.5pt;
+      padding-bottom: 2.5mm;
+      border-bottom: 1.5px solid #000;
+      font-size: 7.5pt;
       font-weight: 700;
       color: #000;
       letter-spacing: 0.04em;
@@ -91,372 +91,382 @@
     .page-header .brand-box {
       background: #FFE600;
       color: #000;
-      padding: 2px 6px;
+      padding: 1.5px 6px;
       font-weight: 900;
-      border: 1.5px solid #000;
+      border: 1.2px solid #000;
+      font-size: 7.5pt;
     }
 
     .page-content {
       flex: 1;
-      padding-top: 5mm;
-      padding-bottom: 3mm;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 3.5mm;
+      overflow: hidden;
     }
 
     .page-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 3.5mm;
-      border-top: 1.5px solid #000;
-      font-size: 8pt;
+      padding-top: 2mm;
+      border-top: 1px solid #d0d0d0;
+      font-size: 7.2pt;
+      color: #555;
       font-weight: 600;
-      color: #666;
     }
 
     .page-footer .page-number {
       font-weight: 800;
       color: #000;
-      background: #FFE600;
-      padding: 2px 7px;
-      border: 1px solid #000;
     }
 
-    /* Typography Utilities */
-    h1, h2, h3, h4 {
-      color: #000;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-    }
-
+    /* Typography & Hierarchy */
     .section-tag {
-      display: inline-block;
-      padding: 3px 8px;
-      background: #000;
-      color: #FFE600;
-      font-size: 8pt;
-      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      font-weight: 700;
       letter-spacing: 0.08em;
+      color: #555;
       text-transform: uppercase;
-      margin-bottom: 6px;
-      border: 1px solid #000;
-      width: fit-content;
+      margin-bottom: 1mm;
+      display: inline-block;
     }
 
     .page-title {
-      font-size: 18pt;
-      line-height: 1.15;
-      margin-bottom: 4mm;
+      font-size: 13.5pt;
+      font-weight: 900;
       color: #000;
-      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5mm;
+      line-height: 1.2;
     }
 
     .page-lead {
-      font-size: 10pt;
-      color: #444;
-      line-height: 1.5;
-      margin-bottom: 5mm;
-      font-weight: 500;
-    }
-
-    p {
-      color: #2b2b2b;
-      line-height: 1.55;
-      font-size: 9.8pt;
+      font-size: 8.2pt;
+      color: #333;
       margin-bottom: 3mm;
+      line-height: 1.4;
     }
 
-    /* Neo-Brutalist Card Elements */
+    /* Cards & Containers */
     .card {
       background: #ffffff;
-      border: 2px solid #000;
-      box-shadow: 4px 4px 0 #000;
-      padding: 4mm 5mm;
-      margin-bottom: 4mm;
+      border: 1.2px solid #000000;
+      padding: 3mm 4mm;
+      margin-bottom: 2.5mm;
     }
 
     .card-yellow {
-      background: #FFE600;
-      border: 2px solid #000;
-      box-shadow: 4px 4px 0 #000;
-      padding: 4.5mm 5mm;
-      margin-bottom: 4.5mm;
+      background: #FFFBE6;
+      border: 1.2px solid #000000;
+      border-left: 5px solid #FFE600;
+      padding: 2.5mm 3.5mm;
+      margin-bottom: 2.5mm;
+    }
+
+    .card-gray {
+      background: #F7F7F7;
+      border: 1px solid #d5d5d5;
+      padding: 2.5mm 3.5mm;
+      margin-bottom: 2.5mm;
     }
 
     .card-dark {
-      background: #111111;
+      background: #141414;
       color: #ffffff;
-      border: 2px solid #000;
-      box-shadow: 4px 4px 0 #FFE600;
-      padding: 4.5mm 5mm;
-      margin-bottom: 4.5mm;
+      border: 1.2px solid #000000;
+      padding: 2.5mm 3.5mm;
+      margin-bottom: 2.5mm;
     }
 
-    .card-dark p {
-      color: #dcdcdc;
-    }
-
-    .card-dark h3, .card-dark h4 {
-      color: #FFE600;
-    }
-
+    /* Grids */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4mm;
-      margin-bottom: 4mm;
+      gap: 3mm;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 3.5mm;
-      margin-bottom: 4mm;
+      gap: 2.5mm;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 2mm;
     }
 
     /* Tables */
-    .table-custom {
+    table.data-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 3mm 0 4mm 0;
-      font-size: 9pt;
-      border: 2px solid #000;
+      font-size: 7.6pt;
+      margin-bottom: 2.5mm;
     }
 
-    .table-custom th {
-      background: #000;
-      color: #FFE600;
-      padding: 6px 10px;
-      font-weight: 900;
+    table.data-table th {
+      background: #111111;
+      color: #ffffff;
       text-align: left;
-      font-size: 8.5pt;
-      letter-spacing: 0.05em;
-      border: 1px solid #000;
-    }
-
-    .table-custom td {
-      padding: 6.5px 10px;
-      border: 1px solid #000;
-      color: #1a1a1a;
-      vertical-align: top;
-    }
-
-    .table-custom tr:nth-child(even) td {
-      background: #fbfbfb;
-    }
-
-    .table-custom .highlight-row td {
-      background: #fffde6;
+      padding: 2mm 2.5mm;
       font-weight: 700;
+      font-size: 7.2pt;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border: 1px solid #000;
     }
 
-    /* Badges & Bullets */
+    table.data-table td {
+      padding: 1.8mm 2.2mm;
+      border: 1px solid #d0d0d0;
+      vertical-align: top;
+      color: #222;
+      line-height: 1.35;
+    }
+
+    table.data-table tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    table.data-table tr.highlight-row td {
+      background: #FFFDE0;
+      border-top: 1.2px solid #000;
+      border-bottom: 1.2px solid #000;
+    }
+
+    /* Badges & Pills */
     .pill {
       display: inline-block;
-      padding: 2px 7px;
-      font-size: 7.5pt;
-      font-weight: 800;
-      border: 1px solid #000;
-      margin-right: 4px;
-      margin-bottom: 4px;
+      padding: 1px 5px;
+      font-size: 6.8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 2px;
+      margin-bottom: 2px;
     }
-    .pill-yellow { background: #FFE600; color: #000; }
-    .pill-black { background: #000; color: #fff; }
-    .pill-gray { background: #eee; color: #222; }
 
-    ul.bullet-list {
+    .pill-yellow { background: #FFE600; color: #000; border: 1px solid #000; }
+    .pill-black  { background: #000000; color: #fff; }
+    .pill-gray   { background: #EDEDED; color: #333; border: 1px solid #ccc; }
+    .pill-white  { background: #ffffff; color: #000; border: 1px solid #000; }
+
+    /* Bullet List */
+    ul.formal-list {
       list-style: none;
       padding-left: 0;
-      margin: 2mm 0;
+      font-size: 8pt;
     }
 
-    ul.bullet-list li {
+    ul.formal-list li {
       position: relative;
-      padding-left: 14px;
-      font-size: 9.3pt;
-      color: #2b2b2b;
-      margin-bottom: 1.8mm;
-      line-height: 1.45;
+      padding-left: 3.5mm;
+      margin-bottom: 1.2mm;
+      line-height: 1.38;
+      color: #262626;
     }
 
-    ul.bullet-list li::before {
-      content: '■';
+    ul.formal-list li::before {
+      content: "■";
       position: absolute;
       left: 0;
-      color: #FFE600;
-      text-shadow: 1px 1px 0 #000;
-      font-size: 7.5pt;
-      top: 0px;
+      top: 0;
+      font-size: 5pt;
+      color: #000;
     }
 
-    /* Cover Page Specific Styles */
+    .placeholder-badge {
+      font-family: 'JetBrains Mono', monospace;
+      background: #fff3cd;
+      color: #856404;
+      font-weight: 700;
+      padding: 0 4px;
+      border-radius: 2px;
+      border: 1px dashed #d39e00;
+    }
+
+    /* Specific Cover Styling */
     .cover-page {
       background: #FFE600;
-      padding: 20mm;
+      display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      border: 6mm solid #000;
+      border: 4mm solid #000;
+      padding: 16mm 18mm 14mm 18mm;
     }
 
-    .cover-header {
+    .cover-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      border-bottom: 3px solid #000;
-      padding-bottom: 5mm;
+      border-bottom: 2px solid #000;
+      padding-bottom: 4mm;
     }
 
     .cover-brand-logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .cover-logo-box {
       background: #000;
       color: #FFE600;
-      padding: 6px 14px;
-      font-size: 22pt;
       font-weight: 900;
-      letter-spacing: 0.05em;
-      box-shadow: 4px 4px 0 #fff;
+      font-size: 20pt;
+      padding: 3px 12px;
+      letter-spacing: -0.04em;
     }
 
     .cover-brand-meta {
-      font-size: 9pt;
+      font-size: 8pt;
       font-weight: 800;
+      line-height: 1.2;
       color: #000;
-      line-height: 1.25;
+      letter-spacing: 0.05em;
     }
 
     .cover-doc-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      font-weight: 700;
       background: #000;
       color: #fff;
-      padding: 4px 10px;
-      font-size: 8.5pt;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      border: 2px solid #000;
+      padding: 2.5px 8px;
     }
 
     .cover-hero {
-      margin: 8mm 0;
+      margin: 12mm 0 10mm 0;
     }
 
     .cover-badge-row {
       display: flex;
       gap: 6px;
-      margin-bottom: 5mm;
+      margin-bottom: 4mm;
     }
 
     .cover-badge {
-      padding: 4px 10px;
-      font-size: 8.5pt;
-      font-weight: 900;
+      font-size: 7.8pt;
+      font-weight: 800;
       text-transform: uppercase;
-      border: 2px solid #000;
+      padding: 2px 7px;
+      letter-spacing: 0.05em;
+      border: 1.5px solid #000;
     }
 
     .cover-badge.black { background: #000; color: #FFE600; }
     .cover-badge.white { background: #fff; color: #000; }
 
     .cover-title {
-      font-size: 32pt;
-      line-height: 1.05;
+      font-size: 24pt;
       font-weight: 900;
       color: #000;
-      margin-bottom: 5mm;
-      text-transform: uppercase;
+      line-height: 1.1;
       letter-spacing: -0.03em;
+      margin-bottom: 3mm;
+      text-transform: uppercase;
     }
 
     .cover-subtitle {
-      font-size: 13pt;
+      font-size: 9.5pt;
       color: #1a1a1a;
       line-height: 1.45;
       font-weight: 600;
-      max-width: 90%;
-      border-left: 4px solid #000;
-      padding-left: 12px;
+      max-width: 165mm;
+      border-left: 3px solid #000;
+      padding-left: 10px;
     }
 
     .cover-meta-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5mm;
-      background: #fff;
-      border: 3px solid #000;
-      box-shadow: 6px 6px 0 #000;
-      padding: 6mm 7mm;
+      gap: 3.5mm;
+      background: #ffffff;
+      border: 2px solid #000;
+      padding: 4mm 5mm;
+      box-shadow: 4px 4px 0 #000;
     }
 
-    .meta-box h4 {
-      font-size: 8.5pt;
+    .cover-meta-box h4 {
+      font-size: 7.2pt;
       text-transform: uppercase;
       color: #666;
-      margin-bottom: 2px;
+      margin-bottom: 1.5px;
       letter-spacing: 0.05em;
+      font-weight: 700;
     }
 
-    .meta-box p {
-      font-size: 10.5pt;
+    .cover-meta-box p {
+      font-size: 8.8pt;
       font-weight: 800;
       color: #000;
       margin-bottom: 0;
       line-height: 1.3;
     }
 
-    .cover-footer {
+    .cover-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 3px solid #000;
-      padding-top: 4mm;
-      font-size: 9pt;
+      border-top: 2px solid #000;
+      padding-top: 3.5mm;
+      font-size: 8pt;
       font-weight: 800;
       color: #000;
     }
 
-    /* Signature Section */
+    /* Signatures Section */
     .sign-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8mm;
-      margin-top: 5mm;
+      gap: 6mm;
+      margin-top: 3mm;
     }
 
     .sign-box {
-      border: 2px solid #000;
-      padding: 4mm 5mm;
+      border: 1.5px solid #000;
+      padding: 3mm 4mm;
       background: #fff;
-      min-height: 48mm;
+      min-height: 44mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .sign-header {
-      font-size: 8.5pt;
+      font-size: 7.5pt;
       font-weight: 800;
-      color: #666;
+      color: #555;
       text-transform: uppercase;
       border-bottom: 1px solid #ccc;
-      padding-bottom: 2mm;
+      padding-bottom: 1.5mm;
     }
 
     .sign-space {
-      height: 18mm;
+      height: 16mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .sign-footer strong {
-      display: block;
-      font-size: 10.5pt;
-      color: #000;
+    .materai-box {
+      border: 1px dashed #999;
+      padding: 2px 6px;
+      font-size: 6.5pt;
+      color: #777;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
-    .sign-footer span {
-      font-size: 8.5pt;
-      color: #666;
+    .sign-footer {
+      border-top: 1px solid #000;
+      padding-top: 1.5mm;
+      font-size: 7.8pt;
+      line-height: 1.3;
     }
   </style>
 </head>
@@ -465,15 +475,15 @@
 <div class="page-container">
 
   <!-- ========================================================
-       HALAMAN 1: COVER EKSEKUTIF (EXECUTIVE TITLE PAGE)
+       HALAMAN 1: COVER
        ======================================================== -->
   <div class="page cover-page">
-    <div class="cover-header">
+    <div class="cover-top">
       <div class="cover-brand-logo">
         <div class="cover-logo-box">XICHI.</div>
         <div class="cover-brand-meta">
           <div>XICHI AI STUDIO</div>
-          <div style="font-size: 7.5pt; color: #333; font-weight: 700;">PHYSICAL AI & EMBEDDED COMPUTING</div>
+          <div style="font-size: 6.8pt; color: #222; font-weight: 700;">PHYSICAL AI &amp; EMBEDDED COMPUTING</div>
         </div>
       </div>
       <div class="cover-doc-id">DOC: XICHI-PROP/2026/Q4-01</div>
@@ -481,402 +491,668 @@
 
     <div class="cover-hero">
       <div class="cover-badge-row">
-        <span class="cover-badge black">PROPOSAL RESMI</span>
-        <span class="cover-badge white">KEMITRAAN & PENGADAAN</span>
+        <span class="cover-badge black">DOKUMEN RESMI</span>
+        <span class="cover-badge white">PROPOSAL KEMITRAAN, PENGADAAN &amp; IMPLEMENTASI</span>
       </div>
       <h1 class="cover-title">
         SOLUSI ASISTEN AI FISIK &amp; EMBEDDED LAB
       </h1>
       <p class="cover-subtitle">
-        Pemberdayaan Teknologi Voice AI Bahasa Indonesia, Mikrokontroler ESP32-S3 Mandiri, dan Modul Automasi Cerdas untuk Kampus, Sekolah, &amp; Perkantoran.
+        Pemberdayaan Teknologi Voice AI Bahasa Indonesia, Mikrokontroler ESP32-S3 Mandiri, dan Modul Otomasi Terapan untuk Sektor Pendidikan, Perkantoran, &amp; Industri.
       </p>
     </div>
 
     <div class="cover-meta-grid">
-      <div class="meta-box">
+      <div class="cover-meta-box">
         <h4>Diajukan Oleh:</h4>
         <p>XICHI AI STUDIO</p>
-        <span style="font-size: 8.5pt; color:#444; font-weight: 600;">Cikarang Utara, Bekasi, Jawa Barat</span>
+        <span style="font-size: 7.5pt; color: #444; font-weight: 600;">Cikarang Utara, Bekasi, Jawa Barat</span>
       </div>
-      <div class="meta-box">
+      <div class="cover-meta-box">
         <h4>Ditujukan Kepada:</h4>
-        <p>Pimpinan Instansi / Mitra</p>
-        <span style="font-size: 8.5pt; color:#444; font-weight: 600;">Direksi / Rektorat / Dekanat / Kepala Lab</span>
+        <p>Pimpinan Instansi / Procurement Mitra <span class="placeholder-badge">[DIISI]</span></p>
+        <span style="font-size: 7.5pt; color: #444; font-weight: 600;">Direksi / Rektorat / Dekanat / Purchasing / Kepala Lab</span>
       </div>
-      <div class="meta-box">
-        <h4>Founder &amp; Tim Pengembang:</h4>
-        <p style="font-size: 9.2pt; font-weight: 800; line-height: 1.35; margin-bottom: 1px;">
-          Irsyad &bull; Sena Dwi Ilham &bull; M. Dhean Shafwan
-        </p>
-        <span style="font-size: 8pt; color:#444; font-weight: 600;">Hardware, Firmware &amp; AI Integration Team</span>
+      <div class="cover-meta-box">
+        <h4>Tim Pengembang / Inisiator:</h4>
+        <p style="font-size: 8.5pt;">Irsyad &bull; Sena Dwi Ilham &bull; M. Dhean Shafwan</p>
+        <span style="font-size: 7.5pt; color: #444; font-weight: 600;">Core Hardware, Firmware &amp; AI Integration Team</span>
       </div>
-      <div class="meta-box">
-        <h4>Periode / Tanggal:</h4>
+      <div class="cover-meta-box">
+        <h4>Periode &amp; Masa Berlaku:</h4>
         <p>Oktober 2026 / Kuartal IV</p>
-        <span style="font-size: 8.5pt; color:#444; font-weight: 600;">Berlaku: 60 Hari Sejak Tanggal Pengajuan</span>
+        <span style="font-size: 7.5pt; color: #444; font-weight: 600;">Masa Berlaku Penawaran: 60 Hari Kalender</span>
       </div>
     </div>
 
-    <div class="cover-footer">
+    <div class="cover-bottom">
       <span>📍 CIKARANG UTARA, KAB. BEKASI, JAWA BARAT</span>
-      <span>INSPIRING INDONESIAN PHYSICAL AI MAKERS</span>
+      <span>WEBSITE RESMI: PRODUK.IRSYADLABS.ID</span>
     </div>
   </div>
 
 
   <!-- ========================================================
-       HALAMAN 2: EXECUTIVE SUMMARY & LATAR BELAKANG
+       HALAMAN 2: EXECUTIVE SUMMARY & VALUE PROPOSITION MITRA
        ======================================================== -->
   <div class="page">
     <div class="page-header">
-      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN</span></div>
-      <div>BAGIAN 01 : LATAR BELAKANG</div>
+      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN &amp; PENGADAAN</span></div>
+      <div>BAGIAN 01 : RINGKASAN EKSEKUTIF</div>
     </div>
 
     <div class="page-content">
       <span class="section-tag">01 / RINGKASAN EKSEKUTIF</span>
-      <h2 class="page-title">Transformasi dari AI Layar Menuju Physical AI</h2>
-      <p class="page-lead">
-        Kecerdasan Buatan (AI) telah berkembang sangat pesat. Namun sebagian besar pemanfaatannya saat ini masih terkurung di dalam layar komputer dan aplikasi obrolan virtual.
-      </p>
+      <h2 class="page-title">Solusi Terintegrasi Physical AI untuk Kebutuhan Riil Mitra</h2>
 
-      <div class="card-yellow">
-        <h3 style="font-size: 11pt; margin-bottom: 2mm;">💡 Apa itu Physical AI (AI Fisik)?</h3>
-        <p style="margin-bottom: 0; font-size: 9.3pt; color: #000;">
-          Physical AI adalah perpaduan antara model kecerdasan komputasi modern (LLM, Voice Synthesis, Vision) dengan <strong>perangkat keras mikrokontroler nyata di meja kerja</strong>. Perangkat memiliki speaker, mikrofon, layar ekspresi, dan aktuator saklar fisik yang dapat mendengarkan, berbicara, mengingat, dan berinteraksi langsung di dunia nyata tanpa membuka laptop.
+      <!-- Executive Summary 6 Points -->
+      <div class="card" style="margin-bottom: 2.5mm;">
+        <div class="grid-2" style="gap: 3mm; margin-bottom: 2mm;">
+          <div>
+            <h4 style="font-size: 8pt; text-transform:uppercase; color:#000; margin-bottom: 1mm;">1. Kondisi &amp; Masalah</h4>
+            <p style="font-size: 7.8pt; color:#333; margin:0;">
+              Otomasi cerdas dan pemanfaatan AI saat ini didominasi aplikasi berbasis layar yang tertutup, memiliki ketergantungan lisensi cloud berbiaya berulang, serta minim media praktikum hardware mandiri yang dapat dibedah oleh institusi pendidikan dan korporat.
+            </p>
+          </div>
+          <div>
+            <h4 style="font-size: 8pt; text-transform:uppercase; color:#000; margin-bottom: 1mm;">2. Solusi Xichi AI</h4>
+            <p style="font-size: 7.8pt; color:#333; margin:0;">
+              Xichi AI Studio menghadirkan perangkat kecerdasan fisik (*Physical AI*) berbasis mikrokontroler ESP32-S3 dengan kemampuan dialog suara natural bahasa Indonesia, arsitektur server fleksibel, serta integrasi 47 modul perkakas cerdas (*MCP Tools*).
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="gap: 3mm; margin-bottom: 2mm;">
+          <div>
+            <h4 style="font-size: 8pt; text-transform:uppercase; color:#000; margin-bottom: 1mm;">3. Nilai Bisnis &amp; Operasional</h4>
+            <p style="font-size: 7.8pt; color:#333; margin:0;">
+              Meningkatkan efisiensi kerja melalui otomasi asisten fisik di meja kerja, menyederhanakan kontrol perangkat kelistrikan via relay, dan menyediakan kurikulum praktikum IoT/AI siap terap tanpa royalti vendor asing.
+            </p>
+          </div>
+          <div>
+            <h4 style="font-size: 8pt; text-transform:uppercase; color:#000; margin-bottom: 1mm;">4. Target Pengguna</h4>
+            <p style="font-size: 7.8pt; color:#333; margin:0;">
+              Laboratorium universitas, SMK/vokasi jurusan elektronika &amp; RPL, divisi teknologi perkantoran, pengelola smart building, serta praktisi riset tertanam (*embedded engineering*).
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="gap: 3mm;">
+          <div>
+            <h4 style="font-size: 8pt; text-transform:uppercase; color:#000; margin-bottom: 1mm;">5. Bentuk Kerja Sama</h4>
+            <p style="font-size: 7.8pt; color:#333; margin:0;">
+              Pengadaan unit fisik bergaransi (kit maupun *ready-to-use*), implementasi perangkat asisten kantor, workshop transfer pengetahuan teknis, serta opsi kustomisasi perangkat lunak dan casing.
+            </p>
+          </div>
+          <div>
+            <h4 style="font-size: 8pt; text-transform:uppercase; color:#000; margin-bottom: 1mm;">6. Deliverables Diterima Mitra</h4>
+            <p style="font-size: 7.8pt; color:#333; margin:0;">
+              Unit perangkat keras lulus uji *Quality Control* (QC), build firmware siap pakai, modul ekspansi (opsional), panduan penggunaan, sesi pelatihan instruktur, serta layanan purna jual resmi.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mandatory Scope Paragraph -->
+      <div class="card-yellow" style="margin-bottom: 2.5mm;">
+        <p style="font-size: 8pt; font-weight:600; color:#000; margin:0;">
+          Proposal ini mencakup solusi perangkat, integrasi perangkat lunak, konfigurasi awal, dokumentasi, pendampingan teknis, serta opsi pengadaan dan kustomisasi sesuai kebutuhan mitra.
         </p>
       </div>
 
-      <h3 style="font-size: 12pt; margin: 3mm 0 2mm 0;">Permasalahan di Lapangan yang Diselesaikan:</h3>
-      
-      <div class="grid-2">
-        <div class="card">
-          <h4 style="font-size: 9.5pt; margin-bottom: 1.5mm; color:#000;">1. Kesenjangan Praktikum Kampus &amp; SMK</h4>
-          <p style="font-size: 8.8pt; margin-bottom: 0;">
-            Banyak laboratorium teknik komputer dan IoT masih berkutat pada modul LED berkedip sederhana tanpa integrasi AI nyata. Mahasiswa dan siswa membutuhkan media riset modern yang menggabungkan embedded C++, audio DSP, dan AI speech interaktif.
-          </p>
+      <!-- Value Proposition untuk Mitra -->
+      <span class="section-tag" style="margin-top: 1mm;">VALUE PROPOSITION UNTUK MITRA</span>
+      <h3 style="font-size: 9.8pt; font-weight:800; margin-bottom: 1.5mm;">Pemberdayaan Teknologi Riil Lintas Sektor</h3>
+
+      <div class="grid-3" style="gap: 2mm; margin-bottom: 2mm;">
+        <div class="card-gray" style="padding: 2mm 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom: 1px;">1. Efisiensi Pengadaan</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">Solusi siap operasional dengan biaya terjangkau dibanding perangkat pintar impor tertutup.</p>
         </div>
-        <div class="card">
-          <h4 style="font-size: 9.5pt; margin-bottom: 1.5mm; color:#000;">2. Dominasi Perangkat Impor Tertutup</h4>
-          <p style="font-size: 8.8pt; margin-bottom: 0;">
-            Speaker pintar komersial asing (Google Nest, Amazon Echo) bersifat tertutup (*black-box*), memicu isu kebocoran data keluar negeri, tidak dapat diprogram ulang, dan tidak mendukung kustomisasi alur kerja lokal.
-          </p>
+        <div class="card-gray" style="padding: 2mm 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom: 1px;">2. Media Lab &amp; Riset</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">Perangkat terbuka yang mendukung riset firmware, sensorik audio I2S, dan integrasi API AI.</p>
+        </div>
+        <div class="card-gray" style="padding: 2mm 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom: 1px;">3. Fleksibilitas Kustomisasi</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">Dukungan personalisasi nama asisten (*wake word*), instruksi sistem (*prompt*), dan casing modular.</p>
         </div>
       </div>
 
-      <div class="card-dark">
-        <h3 style="font-size: 10.5pt; margin-bottom: 1.5mm;">Solusi Unggulan Xichi AI:</h3>
-        <p style="font-size: 9pt; margin-bottom: 1.5mm;">
-          Xichi hadir sebagai asisten AI fisik terdepan berbasis ekosistem <strong>Xiaozhi Indonesia</strong>. Ditenagai mikrokontroler <strong>ESP32-S3</strong> berbiaya efisien, firmware C++ terbuka yang bebas dioprek, dan arsitektur server lokal terdesentralisasi (xiaozhiscig).
-        </p>
-        <div style="display:flex; gap:6px;">
-          <span class="pill pill-yellow">Mandiri &amp; Fleksibel</span>
-          <span class="pill pill-yellow">Suara Bahasa Indonesia</span>
-          <span class="pill pill-yellow">47 Tools MCP Terintegrasi</span>
+      <div class="grid-3" style="gap: 2mm;">
+        <div class="card-gray" style="padding: 2mm 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom: 1px;">4. Integrasi IoT Fisik</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">Kendali langsung peralatan listrik via protokol MQTT, relai 220V, dan telemetri sensor lingkungan.</p>
+        </div>
+        <div class="card-gray" style="padding: 2mm 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom: 1px;">5. Kemandirian Sistem</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">Arsitektur yang dapat diarahkan ke server mandiri/lokal guna menjaga kedaulatan data internal mitra.</p>
+        </div>
+        <div class="card-gray" style="padding: 2mm 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom: 1px;">6. Pendampingan Teknis</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">Dukungan langsung dari tim pengembang mencakup panduan integrasi, manual book, dan garansi resmi.</p>
         </div>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Xichi AI Studio • Dokumen Kemitraan Resmi 2026</span>
+      <span>Xichi AI Studio • Ringkasan Eksekutif &amp; Value Proposition</span>
       <span class="page-number">Halaman 2 dari 8</span>
     </div>
   </div>
 
 
   <!-- ========================================================
-       HALAMAN 3: PROFIL STUDIO, VISI MISI & LEADERSHIP
+       HALAMAN 3: PROFIL ORGANISASI & TIM PENGEMBANG
        ======================================================== -->
   <div class="page">
     <div class="page-header">
-      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN</span></div>
-      <div>BAGIAN 02 : PROFIL STUDIO &amp; TIM</div>
+      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN &amp; PENGADAAN</span></div>
+      <div>BAGIAN 02 : PROFIL ORGANISASI</div>
     </div>
 
     <div class="page-content">
-      <span class="section-tag">02 / PROFIL PERUSAHAAN &amp; TIM REKAYASA</span>
-      <h2 class="page-title">Dedikasi Rekayasa dari Cikarang Utara</h2>
+      <span class="section-tag">02 / PROFIL ORGANISASI &amp; TIM PENGEMBANG</span>
+      <h2 class="page-title">Dedikasi Rekayasa Perangkat Mandiri dari Cikarang Utara</h2>
       <p class="page-lead">
-        Xichi AI Studio didirikan atas semangat riset mandiri, dipelopori oleh tim insinyur yang memadukan rekayasa perangkat keras tertanam (embedded) dan jaringan kecerdasan buatan terapan.
+        Xichi AI Studio berfokus pada riset rekayasa perangkat keras tertanam (*embedded system*), pemrosesan sinyal suara, dan integrasi distributed computing untuk kecerdasan buatan fisik.
       </p>
 
-      <!-- Founder & Engineering Team Card -->
-      <div class="card" style="border-left: 6px solid #FFE600; padding: 3.5mm 5mm;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2mm;">
-          <div>
-            <span class="pill pill-yellow">CORE TEAM &amp; FOUNDER</span>
-            <h3 style="font-size: 12.5pt; margin-top: 1mm; font-weight: 900; letter-spacing: -0.01em;">
-              Irsyad &bull; Sena Dwi Ilham &bull; M. Dhean Shafwan
-            </h3>
-          </div>
-          <div style="text-align:right; font-size: 8pt; font-weight:700; color:#555; white-space:nowrap;">
-            📍 Lab Studio: Cikarang Utara, Bekasi
-          </div>
-        </div>
+      <!-- Informasi Organisasi Table -->
+      <h3 style="font-size: 8.8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1.5mm;">Informasi Organisasi &amp; Legalitas</h3>
+      <table class="data-table" style="margin-bottom: 3mm;">
+        <tbody>
+          <tr>
+            <td style="width: 25%; font-weight: 700;">Nama Brand / Organisasi</td>
+            <td style="width: 25%;">Xichi AI Studio</td>
+            <td style="width: 25%; font-weight: 700;">Status Badan Usaha</td>
+            <td style="width: 25%;"><span class="placeholder-badge">[DIISI]</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Alamat Operasional</td>
+            <td>Cikarang Utara, Bekasi, Jawa Barat</td>
+            <td style="font-weight: 700;">Nama Badan Usaha Legal</td>
+            <td><span class="placeholder-badge">[DIISI]</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Website Resmi</td>
+            <td>produk.irsyadlabs.id</td>
+            <td style="font-weight: 700;">Nomor Induk Berusaha (NIB)</td>
+            <td><span class="placeholder-badge">[DIISI]</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Email Resmi</td>
+            <td>hello@xiaozhiscig.biz.id</td>
+            <td style="font-weight: 700;">NPWP Organisasi</td>
+            <td><span class="placeholder-badge">[DIISI]</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Kontak Operasional</td>
+            <td>+62 896-5825-2277</td>
+            <td style="font-weight: 700;">Sertifikasi / Izin Usaha</td>
+            <td><span class="placeholder-badge">[DIISI]</span></td>
+          </tr>
+        </tbody>
+      </table>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5mm; margin-bottom: 2mm;">
-          <div style="background:#f8f8f8; padding: 2.2mm 2.5mm; border-radius:3px; border:1px solid #e2e2e2;">
-            <div style="font-size: 8.5pt; font-weight:800; color:#000;">Irsyad</div>
-            <div style="font-size: 7pt; color:#666; font-weight:700; text-transform:uppercase; margin-bottom:1mm;">Founder &amp; System Architect</div>
-            <div style="font-size: 7.6pt; color:#333; line-height:1.35;">Arsitektur distributed computing, firmware low-latency ESP32-S3, dan integrasi pipeline AI.</div>
+      <!-- Tim Pengembang -->
+      <h3 style="font-size: 8.8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1.5mm;">Struktur Tim Rekayasa &amp; Pengembang Inti</h3>
+      <div class="card" style="padding: 2.5mm 3.5mm; margin-bottom: 3mm;">
+        <div class="grid-3" style="gap: 2.5mm;">
+          <div style="background:#fafafa; border:1px solid #e0e0e0; padding: 2.5mm; border-radius:3px;">
+            <div style="font-weight:800; font-size:8.8pt; color:#000;">Irsyad</div>
+            <div style="font-size:7pt; color:#666; font-weight:700; text-transform:uppercase; margin-bottom:1mm;">Founder &amp; System Architect</div>
+            <p style="font-size:7.4pt; color:#333; line-height:1.35; margin:0;">
+              Penanggung jawab arsitektur sistem komputasi terdistribusi, perancangan firmware low-latency ESP32-S3, dan integrasi pipeline voice AI.
+            </p>
           </div>
-          <div style="background:#f8f8f8; padding: 2.2mm 2.5mm; border-radius:3px; border:1px solid #e2e2e2;">
-            <div style="font-size: 8.5pt; font-weight:800; color:#000;">Sena Dwi Ilham</div>
-            <div style="font-size: 7pt; color:#666; font-weight:700; text-transform:uppercase; margin-bottom:1mm;">Co-Founder &amp; Hardware Engineer</div>
-            <div style="font-size: 7.6pt; color:#333; line-height:1.35;">Perancangan skema PCB terpadu, audio I2S codec, manajemen termal &amp; daya baterai.</div>
+          <div style="background:#fafafa; border:1px solid #e0e0e0; padding: 2.5mm; border-radius:3px;">
+            <div style="font-weight:800; font-size:8.8pt; color:#000;">Sena Dwi Ilham</div>
+            <div style="font-size:7pt; color:#666; font-weight:700; text-transform:uppercase; margin-bottom:1mm;">Co-Founder &amp; Hardware Specialist</div>
+            <p style="font-size:7.4pt; color:#333; line-height:1.35; margin:0;">
+              Penanggung jawab perancangan skema PCB, pemilihan codec audio I2S, efisiensi termal &amp; daya mikrokontroler, serta integrasi fisik.
+            </p>
           </div>
-          <div style="background:#f8f8f8; padding: 2.2mm 2.5mm; border-radius:3px; border:1px solid #e2e2e2;">
-            <div style="font-size: 8.5pt; font-weight:800; color:#000;">M. Dhean Shafwan</div>
-            <div style="font-size: 7pt; color:#666; font-weight:700; text-transform:uppercase; margin-bottom:1mm;">Co-Founder &amp; Software Specialist</div>
-            <div style="font-size: 7.6pt; color:#333; line-height:1.35;">Katalog 47 MCP Tools, aplikasi companion BLE Android, dan dialog semantik natural.</div>
+          <div style="background:#fafafa; border:1px solid #e0e0e0; padding: 2.5mm; border-radius:3px;">
+            <div style="font-weight:800; font-size:8.8pt; color:#000;">M. Dhean Shafwan</div>
+            <div style="font-size:7pt; color:#666; font-weight:700; text-transform:uppercase; margin-bottom:1mm;">Co-Founder &amp; Software Specialist</div>
+            <p style="font-size:7.4pt; color:#333; line-height:1.35; margin:0;">
+              Penanggung jawab integrasi katalog 47 MCP Tools, aplikasi companion BLE Android, serta orkestrasi dialog bahasa Indonesia kontekstual.
+            </p>
           </div>
-        </div>
-
-        <div style="display:flex; gap: 4px; flex-wrap:wrap;">
-          <span class="pill pill-gray">ESP32-S3 Embedded</span>
-          <span class="pill pill-gray">Audio DSP &amp; Opus</span>
-          <span class="pill pill-gray">47 MCP Ecosystem</span>
-          <span class="pill pill-gray">Pelopor Xiaozhi Indonesia</span>
         </div>
       </div>
 
-      <h3 style="font-size: 11.5pt; margin: 3mm 0 2mm 0;">3 Pilar Rekayasa Xichi AI Studio:</h3>
-
-      <div class="grid-3">
-        <div class="card" style="padding: 3.5mm;">
-          <div style="font-size: 18pt; margin-bottom: 1mm;">⚙️</div>
-          <h4 style="font-size: 9pt; margin-bottom: 1mm;">1. Hardware &amp; PCB</h4>
-          <p style="font-size: 8.2pt; margin-bottom: 0;">
-            Perancangan skema PCB terpadu, audio I2S amplifier, manajemen termal chip ESP32, dan casing modular presisi 3D print.
+      <!-- 3 Pilar Riset -->
+      <h3 style="font-size: 8.8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1.5mm;">3 Pilar Riset &amp; Rekayasa Xichi AI Studio</h3>
+      <div class="grid-3" style="gap: 2.5mm;">
+        <div class="card-gray" style="padding: 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom:1px;">⚙️ 1. Hardware &amp; PCB Design</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">
+            Pengembangan sirkuit terpadu, audio amplifier MAX98357A, mic MEMS digital, dan enclosure modular presisi.
           </p>
         </div>
-        <div class="card" style="padding: 3.5mm;">
-          <div style="font-size: 18pt; margin-bottom: 1mm;">🧠</div>
-          <h4 style="font-size: 9pt; margin-bottom: 1mm;">2. Pipeline Voice AI</h4>
-          <p style="font-size: 8.2pt; margin-bottom: 0;">
-            Optimasi kompresi audio Opus, latency handling bebas delay, dan memori semantik untuk dialog kontekstual jangka panjang.
+        <div class="card-gray" style="padding: 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom:1px;">🧠 2. Voice Pipeline &amp; Context</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">
+            Kompresi audio Opus real-time, penanganan buffer audio adaptif, dan penyimpanan memori semantik untuk interaksi natural.
           </p>
         </div>
-        <div class="card" style="padding: 3.5mm;">
-          <div style="font-size: 18pt; margin-bottom: 1mm;">🌐</div>
-          <h4 style="font-size: 9pt; margin-bottom: 1mm;">3. Komunitas Terbuka</h4>
-          <p style="font-size: 8.2pt; margin-bottom: 0;">
-            Kolaborasi aktif dengan komunitas Xiaozhi Indonesia dan developer open-source untuk standarisasi protokol dan tools MCP.
+        <div class="card-gray" style="padding: 2.5mm; margin:0;">
+          <strong style="font-size: 7.8pt; color:#000; display:block; margin-bottom:1px;">🌐 3. Komunitas &amp; Ekosistem Terbuka</strong>
+          <p style="font-size: 7.3pt; color:#444; margin:0;">
+            Pemberdayaan ekosistem Xiaozhi Indonesia dan pengembangan tools terbuka untuk standarisasi otomasi cerdas.
           </p>
         </div>
-      </div>
-
-      <div class="card-yellow" style="padding: 3.5mm 5mm;">
-        <h4 style="font-size: 9pt; text-transform:uppercase; margin-bottom:1mm;">Komitmen Visi Studio:</h4>
-        <p style="font-size: 8.8pt; margin-bottom:0; color:#000;">
-          "Menghadirkan kedaulatan teknologi perangkat pintar di Indonesia: di mana perangkat keras dirakit sendiri, data terlindungi di server mandiri, dan teknologi dapat dipelajari secara terbuka oleh generasi muda."
-        </p>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Xichi AI Studio • Profil Perusahaan &amp; Engineering</span>
+      <span>Xichi AI Studio • Profil Organisasi &amp; Tim Pengembang</span>
       <span class="page-number">Halaman 3 dari 8</span>
     </div>
   </div>
 
 
   <!-- ========================================================
-       HALAMAN 4: ARSITEKTUR TEKNOLOGI & LINEUP PRODUK
+       HALAMAN 4: PORTOFOLIO PRODUK & DELIVERABLES PENGADAAN
        ======================================================== -->
   <div class="page">
     <div class="page-header">
-      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN</span></div>
-      <div>BAGIAN 03 : SPESIFIKASI TEKNIS</div>
+      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN &amp; PENGADAAN</span></div>
+      <div>BAGIAN 03 : PORTOFOLIO PRODUK</div>
     </div>
 
     <div class="page-content">
-      <span class="section-tag">03 / ARSITEKTUR &amp; HARDWARE</span>
-      <h2 class="page-title">Spesifikasi Perangkat &amp; Ekosistem Tools</h2>
+      <span class="section-tag">03 / PORTOFOLIO LINI PRODUK</span>
+      <h2 class="page-title">Portofolio Perangkat &amp; Deliverables Pengadaan Resmi</h2>
       <p class="page-lead">
-        Arsitektur Xichi dirancang efisien memanfaatkan chip berdaya rendah namun mampu menjalankan voice streaming real-time berlatensi di bawah 800ms.
+        Setiap produk dirancang memenuhi standar industri dan laboratorium pembelajaran dengan opsi pengadaan fleksibel.
       </p>
 
-      <table class="table-custom">
+      <!-- Product Portfolio Table -->
+      <table class="data-table" style="margin-bottom: 3mm;">
         <thead>
           <tr>
-            <th style="width: 28%;">Komponen / Varian</th>
-            <th style="width: 36%;">Xichi Core (Meja Kerja)</th>
-            <th style="width: 36%;">Xichi Vision Pro (AI Kamera)</th>
+            <th style="width: 15%;">Nama Produk</th>
+            <th style="width: 20%;">Fungsi Utama</th>
+            <th style="width: 17%;">Target Pengguna</th>
+            <th style="width: 18%;">Fitur Kunci</th>
+            <th style="width: 15%;">Deliverables</th>
+            <th style="width: 15%;">Kustomisasi</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Main Chipset</strong></td>
-            <td>ESP32-S3 Dual-Core Xtensa LX7 @ 240MHz</td>
-            <td>ESP32-S3 N16R8 + Camera Interface</td>
+            <td><strong>Xichi Kit</strong><br><span style="font-size:6.8pt; color:#666;">(DIY Maker Edition)</span></td>
+            <td>Media praktikum perakitan hardware AI fisik dan eksperimen sensor mandiri.</td>
+            <td>Siswa SMK, mahasiswa elektro/TI, lab vokasi, penggiat IoT.</td>
+            <td>Modul terpisah ESP32-S3, modul audio I2S, mic MEMS, skematik wiring.</td>
+            <td>Komponen lengkap, kabel jumper, panduan perakitan, firmware dasar.</td>
+            <td>Dukungan penyesuaian kurikulum praktikum institusi.</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Xichi Core</strong><br><span style="font-size:6.8pt; color:#666;">(Standard Assistant)</span></td>
+            <td>Asisten meja kerja interaktif, kontrol otomasi, dan asisten suara siap pakai.</td>
+            <td>Dosen, staf kantor, ruang resepsionis, workstation mandiri.</td>
+            <td>Layar IPS 1.28" bulat, speaker 3W cavity, enclosure meja terpadu.</td>
+            <td>Unit siap pakai terkalibrasi, adaptor/kabel USB-C, kartu panduan cepat.</td>
+            <td>Kustomisasi warna casing, logo instansi, dan default prompt.</td>
           </tr>
           <tr>
-            <td><strong>Memory &amp; Storage</strong></td>
-            <td>16MB Flash, 8MB Octal PSRAM</td>
-            <td>16MB Flash, 8MB PSRAM</td>
+            <td><strong>Xichi Vision Pro</strong><br><span style="font-size:6.8pt; color:#666;">(Vision AI Edition)</span></td>
+            <td>Pengenalan visual dokumen, deskripsi objek meja, dan OCR terintegrasi voice.</td>
+            <td>Lab riset computer vision, asisten dokumen, kios inspeksi cerdas.</td>
+            <td>Kamera sensor OV2640, processing pipeline visual LLM/VLM, audio 2-arah.</td>
+            <td>Unit siap pakai berkamera, lensa fokus terkalibrasi, manual analitik visual.</td>
+            <td>Opsi dudukan tripod/bracket meja, penyesuaian sudut pandang kamera.</td>
           </tr>
           <tr>
-            <td><strong>Layar Display</strong></td>
-            <td>1.28" Round IPS LCD (Wajah Animasi Ekspresif)</td>
-            <td>1.28" Round IPS LCD + OV2640 Sensor</td>
-          </tr>
-          <tr>
-            <td><strong>Audio Input/Output</strong></td>
-            <td>Mic I2S INMP441 + Speaker Cavity 3W PAM8403</td>
-            <td>Mic I2S Omnidirectional + Speaker 3W</td>
-          </tr>
-          <tr>
-            <td><strong>Fitur Sensorik</strong></td>
-            <td>Voice AI, YouTube Streaming, Memori Semantik</td>
-            <td>AI Vision, OCR Soal Matematika, Deteksi Objek</td>
-          </tr>
-          <tr>
-            <td><strong>Konektivitas</strong></td>
-            <td>Wi-Fi 2.4GHz 802.11 b/g/n, Bluetooth 5.0 BLE</td>
-            <td>Wi-Fi 2.4GHz + BLE + Serial Flasher</td>
+            <td><strong>Modul Dual Relay</strong><br><span style="font-size:6.8pt; color:#666;">(Smart Home Expansion)</span></td>
+            <td>Ekspansi kontrol daya listrik peralatan 220V AC via perintah suara asisten.</td>
+            <td>Lab otomasi gedung, smart classroom, instalasi smart office.</td>
+            <td>2 channel relay optocoupler isolated, kontrol via MQTT/perintah lokal.</td>
+            <td>Modul relay terisolasi, kabel koneksi terminal, skema instalasi aman.</td>
+            <td>Integrasi kontrol saklar multi-kanal sesuai kebutuhan ruangan.</td>
           </tr>
         </tbody>
       </table>
 
-      <h3 style="font-size: 11pt; margin: 2mm 0 1.5mm 0;">47 Superpowers MCP (Model Context Protocol):</h3>
-      <p style="font-size: 8.8pt; margin-bottom: 2mm;">
-        Xichi tidak sekadar mengobrol, namun dapat menjalankan 47 alat cerdas yang dikelompokkan ke dalam 8 pilar kapabilitas:
-      </p>
-
-      <div class="grid-2">
-        <div class="card" style="padding: 2.5mm 3.5mm; margin-bottom: 0;">
-          <ul class="bullet-list" style="margin: 0;">
-            <li><strong>Media &amp; Musik:</strong> Streaming audio YouTube mandiri &amp; radio online.</li>
-            <li><strong>EduSmart Solver:</strong> Pembahasan langkah soal matematika &amp; sains.</li>
-            <li><strong>DevOps &amp; Coding:</strong> Debugging kode, info pinout, cek status server.</li>
-            <li><strong>Memori Semantik:</strong> Ingat konteks obrolan masa lalu pengguna.</li>
-          </ul>
-        </div>
-        <div class="card" style="padding: 2.5mm 3.5mm; margin-bottom: 0;">
-          <ul class="bullet-list" style="margin: 0;">
-            <li><strong>Smart Home IoT:</strong> Kendali saklar lampu Dual Relay via suara.</li>
-            <li><strong>Psikologi &amp; CBT:</strong> Deteksi sesat pikir &amp; relaksasi dekompresi.</li>
-            <li><strong>Pengingat &amp; Agenda:</strong> Sinkron jadwal meeting &amp; alarm meja.</li>
-            <li><strong>Panduan Ibadah:</strong> Jadwal sholat akurat &amp; konten spiritualitas.</li>
-          </ul>
-        </div>
-      </div>
+      <!-- Deliverables Pengadaan Table -->
+      <span class="section-tag" style="margin-top: 1mm;">CHECKLIST RESMI</span>
+      <h3 style="font-size: 8.8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1.5mm;">Deliverables Pengadaan Resmi untuk Mitra</h3>
+      <table class="data-table" style="margin-bottom: 0;">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Kategori Item</th>
+            <th style="width: 35%;">Deliverables Fisik &amp; Digital</th>
+            <th style="width: 40%;">Keterangan &amp; Standar Operasional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Unit Perangkat Keras</strong></td>
+            <td>Perangkat Xichi AI (Kit / Core / Vision Pro)</td>
+            <td>Telah melalui uji kelayakan fungsi audio, display, dan stabilitas modul sebelum serah terima.</td>
+          </tr>
+          <tr>
+            <td><strong>Firmware &amp; Software</strong></td>
+            <td>Firmware stabil Xichi v2.x + Akses OTA</td>
+            <td>Di-flashing langsung ke unit; mendukung pembaruan nirkabel (*Over-the-Air*) via jaringan lokal.</td>
+          </tr>
+          <tr>
+            <td><strong>Casing &amp; Enclosure</strong></td>
+            <td>Enclosure modular presisi 3D Print (PLA+/PETG)</td>
+            <td>Melindungi sirkuit internal dari benturan ringan dan memastikan difusi suara audio optimal.</td>
+          </tr>
+          <tr>
+            <td><strong>Dokumentasi &amp; Manual</strong></td>
+            <td>Buku Manual Pengguna + Skematik Wiring PDF</td>
+            <td>Panduan konfigurasi Wi-Fi, daftar perintah suara, serta rincian port I/O mikrokontroler.</td>
+          </tr>
+          <tr>
+            <td><strong>Konfigurasi Awal</strong></td>
+            <td>Setup kredensial Wi-Fi &amp; Server Asisten</td>
+            <td>Dapat dikonfigurasikan awal di studio sebelum dikirimkan agar unit siap langsung digunakan.</td>
+          </tr>
+          <tr>
+            <td><strong>Workshop &amp; Garansi</strong></td>
+            <td>1x Sesi Pelatihan Online + Garansi 6 Bulan</td>
+            <td>Pendampingan bagi PIC instruktur/laboran serta perlindungan cacat produksi perangkat keras.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="page-footer">
-      <span>Xichi AI Studio • Spesifikasi Perangkat Keras &amp; Tools</span>
+      <span>Xichi AI Studio • Portofolio Produk &amp; Deliverables</span>
       <span class="page-number">Halaman 4 dari 8</span>
     </div>
   </div>
 
 
   <!-- ========================================================
-       HALAMAN 5: 4 PILAR PAKET PENGADAAN & KEMITRAAN
+       HALAMAN 5: SPESIFIKASI TEKNIS, MCP ECOSYSTEM & DATA SECURITY
        ======================================================== -->
   <div class="page">
     <div class="page-header">
-      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN</span></div>
-      <div>BAGIAN 04 : PAKET PENGADAAN</div>
+      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN &amp; PENGADAAN</span></div>
+      <div>BAGIAN 04 : SPESIFIKASI TEKNIS</div>
     </div>
 
     <div class="page-content">
-      <span class="section-tag">04 / PILIHAN PROGRAM PENGADAAN</span>
-      <h2 class="page-title">Solusi Kemitraan Sesuai Kebutuhan Mitra</h2>
-      <p class="page-lead">
-        Kami menyediakan 4 model pengadaan yang fleksibel, baik untuk institusi pendidikan kampus/SMK, perkantoran modern, pengembang otomasi gedung, maupun korporasi.
+      <span class="section-tag">04 / SPESIFIKASI TEKNIS &amp; ARSITEKTUR</span>
+      <h2 class="page-title">Spesifikasi Perangkat, Ekosistem MCP &amp; Keamanan Data</h2>
+
+      <!-- Hardware vs Software Specs Tables -->
+      <div class="grid-2" style="gap: 3mm; margin-bottom: 2.5mm;">
+        <div>
+          <h3 style="font-size: 8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1mm;">HARDWARE SPECIFICATION</h3>
+          <table class="data-table" style="margin-bottom:0;">
+            <tbody>
+              <tr><td style="width:38%; font-weight:700;">Processor</td><td>ESP32-S3 Dual-Core Xtensa LX7 @ 240MHz</td></tr>
+              <tr><td style="font-weight:700;">Memori</td><td>8MB PSRAM terintegrasi + 16MB Flash SPI</td></tr>
+              <tr><td style="font-weight:700;">Audio Output</td><td>I2S DAC Amplifier MAX98357A (3W Output)</td></tr>
+              <tr><td style="font-weight:700;">Audio Input</td><td>INMP441 Omnidirectional MEMS Digital Mic</td></tr>
+              <tr><td style="font-weight:700;">Display</td><td>1.28" Round IPS LCD (240x240 px, GC9A01)</td></tr>
+              <tr><td style="font-weight:700;">Kamera (Vision)</td><td>OV2640 2MP / GC0308 Sensor Visual</td></tr>
+              <tr><td style="font-weight:700;">Konektivitas</td><td>Wi-Fi 2.4GHz 802.11 b/g/n, BLE 5.0</td></tr>
+              <tr><td style="font-weight:700;">Daya Operasi</td><td>5V DC via USB-C (Arus kerja rata-rata 350-500mA)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3 style="font-size: 8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1mm;">SOFTWARE &amp; AI CAPABILITY</h3>
+          <table class="data-table" style="margin-bottom:0;">
+            <tbody>
+              <tr><td style="width:38%; font-weight:700;">Voice Pipeline</td><td>Real-time streaming via WebSocket / MQTT</td></tr>
+              <tr><td style="font-weight:700;">Audio Codec</td><td>Kompresi Opus adaptif (hemat bandwidth)</td></tr>
+              <tr><td style="font-weight:700;">AI Engine</td><td>Integrasi LLM / VLM multibahasa (ID natural)</td></tr>
+              <tr><td style="font-weight:700;">Target Latency</td><td>Voice pipeline &lt;800 ms (kondisi pengujian)*</td></tr>
+              <tr><td style="font-weight:700;">Memori Konteks</td><td>Penyimpanan ringkasan semantik interaksi</td></tr>
+              <tr><td style="font-weight:700;">Mobile App</td><td>Companion BLE Android untuk setup Wi-Fi</td></tr>
+              <tr><td style="font-weight:700;">Protokol Tool</td><td>Model Context Protocol (MCP) ekstensibel</td></tr>
+              <tr><td style="font-weight:700;">Server Model</td><td>Dukungan hybrid cloud atau server mandiri</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Latency Footnote -->
+      <p style="font-size: 7pt; color: #666; margin-bottom: 2.5mm; line-height: 1.3;">
+        *Catatan Kinerja: Target latency voice pipeline &lt;800 ms pada kondisi pengujian dan konfigurasi jaringan tertentu. Performa aktual dapat dipengaruhi oleh kondisi jaringan, server, konfigurasi perangkat, dan ketersediaan layanan eksternal yang digunakan.
       </p>
 
-      <div class="grid-2">
-        <!-- Paket 1 -->
-        <div class="card" style="border-top: 4px solid #FFE600;">
-          <span class="pill pill-black">PAKET 01</span>
-          <h3 style="font-size: 11pt; margin: 1mm 0 1mm 0;">Edukasi &amp; Lab Praktikum Kampus</h3>
-          <p style="font-size: 8.5pt; color: #555; margin-bottom: 2mm;">
-            Ditujukan untuk Universitas, Politeknik, dan SMK Teknik Komputer Jaringan / Mekatronika.
-          </p>
-          <ul class="bullet-list" style="font-size: 8.3pt;">
-            <li>Pengadaan unit Kit Komponen DIY atau Unit Siap Pakai.</li>
-            <li>Akses skematik rangkaian dan source code firmware ESP-IDF.</li>
-            <li>Modul praktikum 8 pertemuan (IoT + Voice AI + MQTT).</li>
-            <li>Sesi webinar atau workshop teknis langsung bersama engineer.</li>
-          </ul>
-        </div>
+      <!-- 47 MCP Tools Ecosystem -->
+      <span class="section-tag">MCP ECOSYSTEM</span>
+      <h3 style="font-size: 8.8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1.5mm;">47 MCP Tools &amp; Capability Ecosystem</h3>
+      <table class="data-table" style="margin-bottom: 2mm;">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Kategori Tools</th>
+            <th style="width: 45%;">Cakupan Fungsionalitas</th>
+            <th style="width: 30%;">Contoh Implementasi Riil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Media &amp; Audio</strong></td>
+            <td>Pencarian konten, streaming audio mandiri, kontrol volume suara.</td>
+            <td>Pemutaran audio edukasi, instrumen musik, podcast meja.</td>
+          </tr>
+          <tr>
+            <td><strong>Smart Home &amp; IoT</strong></td>
+            <td>Kendali saklar relai, pembacaan sensor ruang, automasi perangkat fisik.</td>
+            <td>Menyalakan lampu meja kerja, pendingin ruang, kipas lab.</td>
+          </tr>
+          <tr>
+            <td><strong>EduSmart &amp; Asisten Belajar</strong></td>
+            <td>Kamus dwibahasa, kalkulator teknis, kuis interaktif, fakta sains.</td>
+            <td>Tanya jawab teori mikrokontroler, rumus fisika, matematika.</td>
+          </tr>
+          <tr>
+            <td><strong>DevOps &amp; Utility</strong></td>
+            <td>Status server internal, ping IP jaringan, konversi data, eksekusi webhook.</td>
+            <td>Pemberitahuan build pipeline, cek latency server kantor.</td>
+          </tr>
+          <tr>
+            <td><strong>Semantic Memory &amp; Agenda</strong></td>
+            <td>Pencatatan pengingat janji, agenda harian, ringkasan profil pengguna.</td>
+            <td>Pengingat jadwal kuliah/rapat, preferensi instruksi pengguna.</td>
+          </tr>
+          <tr>
+            <td><strong>Vision &amp; Analisis</strong></td>
+            <td>Pengenalan teks dokumen (OCR), deskripsi visual objek di depan lensa.</td>
+            <td>Membaca kode komponen elektronika, ringkasan kertas catatan.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size: 7pt; color:#555; margin-bottom: 2.5mm; text-align:right;">
+        <em>Rincian lengkap masing-masing nama tools tercantum pada Lampiran A — Daftar 47 MCP Tools.</em>
+      </div>
 
-        <!-- Paket 2 -->
-        <div class="card" style="border-top: 4px solid #FF3B30;">
-          <span class="pill pill-yellow">PAKET 02</span>
-          <h3 style="font-size: 11pt; margin: 1mm 0 1mm 0;">Kantor &amp; Produktivitas Kerja</h3>
-          <p style="font-size: 8.5pt; color: #555; margin-bottom: 2mm;">
-            Ditujukan untuk Meja Kerja Direksi, Ruang Rapat, Coworking, dan Startup Studio.
+      <!-- Data Security & Electrical Safety Cards -->
+      <div class="grid-2" style="gap: 3mm;">
+        <div class="card-gray" style="padding: 2.5mm; margin:0;">
+          <strong style="font-size: 7.6pt; color:#000; display:block; margin-bottom: 1px;">🛡️ Data Security &amp; Privacy:</strong>
+          <p style="font-size: 7.2pt; color:#333; margin:0; line-height:1.35;">
+            Arsitektur dapat dikonfigurasi untuk menggunakan server mandiri/lokal sesuai kebutuhan implementasi mitra. Aliran data dapat bergantung pada konfigurasi server, jenis layanan AI, topologi jaringan mitra, dan API yang dihubungkan. Detail arsitektur data dan integrasi dapat disepakati pada tahap teknis/SPK.
           </p>
-          <ul class="bullet-list" style="font-size: 8.3pt;">
-            <li>Asisten meja cerdas berwajah ekspresif di meja rapat.</li>
-            <li>Integrasi SOP / dokumen internal instansi ke basis pengetahuan.</li>
-            <li>Bot audio pengingat jadwal rapat &amp; status sistem server kantor.</li>
-            <li>Jaminan privasi data tanpa transmisi ke pihak ketiga asing.</li>
-          </ul>
         </div>
-
-        <!-- Paket 3 -->
-        <div class="card" style="border-top: 4px solid #000;">
-          <span class="pill pill-black">PAKET 03</span>
-          <h3 style="font-size: 11pt; margin: 1mm 0 1mm 0;">IoT Automasi &amp; Smart Building</h3>
-          <p style="font-size: 8.5pt; color: #555; margin-bottom: 2mm;">
-            Ditujukan untuk Kontraktor Pintar, Showroom Properti, dan Desain Interior.
+        <div class="card-gray" style="padding: 2.5mm; margin:0; border-left: 3px solid #ff9900;">
+          <strong style="font-size: 7.6pt; color:#994d00; display:block; margin-bottom: 1px;">⚡ Catatan Keselamatan Kelistrikan (Electrical Safety):</strong>
+          <p style="font-size: 7.2pt; color:#333; margin:0; line-height:1.35;">
+            Integrasi perangkat dengan jaringan listrik AC 220V melalui modul relai harus dilakukan oleh teknisi yang kompeten dan mengikuti prosedur keselamatan kelistrikan yang berlaku. Xichi AI Studio menyediakan modul dengan isolasi optocoupler demi meminimalkan risiko lonjakan arus.
           </p>
-          <ul class="bullet-list" style="font-size: 8.3pt;">
-            <li>Integrasi modul Dual Relay ESP32-S3 pengendali saklar listrik.</li>
-            <li>Kendali lampu dan tata ruangan via perintah suara bahasa Indonesia.</li>
-            <li>Protokol lokal MQTT super cepat tanpa ketergantungan internet luar.</li>
-            <li>Dasbor web monitoring saklar kelistrikan real-time.</li>
-          </ul>
-        </div>
-
-        <!-- Paket 4 -->
-        <div class="card" style="border-top: 4px solid #FFE600;">
-          <span class="pill pill-yellow">PAKET 04</span>
-          <h3 style="font-size: 11pt; margin: 1mm 0 1mm 0;">Kustomisasi Merk &amp; Co-Branding</h3>
-          <p style="font-size: 8.5pt; color: #555; margin-bottom: 2mm;">
-            Ditujukan untuk Brand Korporat, Event Teknologi VIP, dan Cinderamata Khusus.
-          </p>
-          <ul class="bullet-list" style="font-size: 8.3pt;">
-            <li>Kustomisasi casing 3D print berlogo timbul instansi Anda.</li>
-            <li>Pembuatan wake-word (kata panggil khusus sesuai nama institusi).</li>
-            <li>Kemasan merchandise teknologi eksklusif dan souvenir institusi.</li>
-            <li>Dukungan pemeliharaan firmware dan garansi prioritas.</li>
-          </ul>
         </div>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Xichi AI Studio • Ragam Pilihan Skema Kemitraan</span>
+      <span>Xichi AI Studio • Spesifikasi Teknis &amp; Keamanan Sistem</span>
       <span class="page-number">Halaman 5 dari 8</span>
     </div>
   </div>
 
 
   <!-- ========================================================
-       HALAMAN 6: ESTIMASI ANGGARAN & STRUKTUR HARGA PENGADAAN
+       HALAMAN 6: PAKET PENGADAAN, RUANG LINGKUP & TIMELINE
        ======================================================== -->
   <div class="page">
     <div class="page-header">
-      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN</span></div>
-      <div>BAGIAN 05 : STRUKTUR BIAYA &amp; HARGA</div>
+      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN &amp; PENGADAAN</span></div>
+      <div>BAGIAN 05 : PAKET PENGADAAN</div>
     </div>
 
     <div class="page-content">
-      <span class="section-tag">05 / RENCANA ANGGARAN BIAYA</span>
-      <h2 class="page-title">Estimasi Investasi &amp; Tier Pengadaan Institusi</h2>
-      <p class="page-lead">
-        Penetapan harga yang transparan, kompetitif, dan dilengkapi dengan insentif tier diskon untuk pemesanan skala laboratorium kampus maupun pengadaan kantor.
-      </p>
+      <span class="section-tag">05 / PAKET PENGADAAN &amp; IMPLEMENTASI</span>
+      <h2 class="page-title">Paket Kemitraan, Ruang Lingkup &amp; Timeline Pelaksanaan</h2>
 
-      <table class="table-custom">
+      <!-- 4 Packages Grid -->
+      <div class="grid-2" style="gap: 2.5mm; margin-bottom: 2.5mm;">
+        <!-- Paket 1 -->
+        <div class="card" style="padding: 2.5mm 3mm; margin:0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1mm;">
+            <strong style="font-size: 8pt; color:#000;">1. Paket Edukasi &amp; Lab Praktikum</strong>
+            <span class="pill pill-yellow">KAMPUS &amp; SMK</span>
+          </div>
+          <p style="font-size: 7.2pt; color:#555; margin-bottom:1mm;"><strong>Tujuan:</strong> Kurikulum praktik hands-on mikrokontroler, IoT, dan embedded AI.</p>
+          <ul class="formal-list" style="font-size: 7.2pt; margin:0;">
+            <li><strong>Komponen:</strong> 10x Xichi Kit (DIY) atau Xichi Core, modul kabel &amp; sensor dasar.</li>
+            <li><strong>Deliverables:</strong> Modul pembelajaran praktikum PDF, panduan unboxing, repositori open.</li>
+            <li><strong>Layanan:</strong> 1x Webinar/workshop pengantar 2 jam bagi dosen/instruktur lab.</li>
+            <li><strong>Opsi Kustomisasi:</strong> Penyesuaian silabus dan tugas akhir mahasiswa.</li>
+          </ul>
+        </div>
+
+        <!-- Paket 2 -->
+        <div class="card" style="padding: 2.5mm 3mm; margin:0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1mm;">
+            <strong style="font-size: 8pt; color:#000;">2. Paket Kantor &amp; Produktivitas</strong>
+            <span class="pill pill-black">PERKANTORAN</span>
+          </div>
+          <p style="font-size: 7.2pt; color:#555; margin-bottom:1mm;"><strong>Tujuan:</strong> Asisten meja kerja interaktif staf dan otomasi resepsionis front-office.</p>
+          <ul class="formal-list" style="font-size: 7.2pt; margin:0;">
+            <li><strong>Komponen:</strong> 5–15 unit Xichi Core ready-to-use, adaptor resmi, stand meja.</li>
+            <li><strong>Deliverables:</strong> Unit terkalibrasi, kartu petunjuk perintah operasional kantor.</li>
+            <li><strong>Layanan:</strong> Konfigurasi awal jaringan Wi-Fi kantor dan pendampingan setup.</li>
+            <li><strong>Opsi Kustomisasi:</strong> Persona asisten kantor dan logo instansi pada bodi unit.</li>
+          </ul>
+        </div>
+
+        <!-- Paket 3 -->
+        <div class="card" style="padding: 2.5mm 3mm; margin:0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1mm;">
+            <strong style="font-size: 8pt; color:#000;">3. Paket IoT &amp; Smart Building</strong>
+            <span class="pill pill-gray">FASILITAS</span>
+          </div>
+          <p style="font-size: 7.2pt; color:#555; margin-bottom:1mm;"><strong>Tujuan:</strong> Integrasi kendali kelistrikan gedung, lampu lab, dan telemetri suhu.</p>
+          <ul class="formal-list" style="font-size: 7.2pt; margin:0;">
+            <li><strong>Komponen:</strong> Unit Xichi Core + Bundling Modul Dual Relay Smart Home AC 220V.</li>
+            <li><strong>Deliverables:</strong> Diagram kelistrikan aman, konfigurasi topik broker MQTT lokal.</li>
+            <li><strong>Layanan:</strong> Panduan teknis pengujian respon saklar dan penanganan beban relay.</li>
+            <li><strong>Opsi Kustomisasi:</strong> Integrasi ke sistem otomasi Home Assistant / broker internal mitra.</li>
+          </ul>
+        </div>
+
+        <!-- Paket 4 -->
+        <div class="card" style="padding: 2.5mm 3mm; margin:0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1mm;">
+            <strong style="font-size: 8pt; color:#000;">4. Kustomisasi Merek &amp; Co-Branding</strong>
+            <span class="pill pill-white">ENTERPRISE</span>
+          </div>
+          <p style="font-size: 7.2pt; color:#555; margin-bottom:1mm;"><strong>Tujuan:</strong> Pengadaan perangkat beridentitas khusus untuk cinderamata atau produk mitra.</p>
+          <ul class="formal-list" style="font-size: 7.2pt; margin:0;">
+            <li><strong>Komponen:</strong> Pengadaan unit minimum order tertentu, warna casing kustom.</li>
+            <li><strong>Deliverables:</strong> Emblazoned logo lembaga, box kemasan kustom (opsional).</li>
+            <li><strong>Layanan:</strong> Penyesuaian nama panggilan asisten (*wake-up prompt*) dan respon khas.</li>
+            <li><strong>Opsi Kustomisasi:</strong> Desain enclosure khusus dan sertifikat orisinalitas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Scope of Work (Included vs Excluded) -->
+      <span class="section-tag">RUANG LINGKUP PEKERJAAN</span>
+      <div class="grid-2" style="gap: 3mm; margin-bottom: 2.5mm;">
+        <div class="card-gray" style="padding: 2.2mm 3mm; margin:0;">
+          <strong style="font-size: 7.6pt; color:#007a33; display:block; margin-bottom: 1mm;">✓ INCLUDED (TERMASUK DALAM PEKERJAAN):</strong>
+          <ul class="formal-list" style="font-size: 7.2pt; margin:0;">
+            <li>Pengadaan unit fisik perangkat sesuai spesifikasi dalam PO/SPK.</li>
+            <li>Flashing build firmware stabil Xichi AI dan pengujian QC hardware.</li>
+            <li>Konfigurasi awal parameter dasar audio dan pengujian konektivitas.</li>
+            <li>Dokumentasi petunjuk operasional dan skema instalasi dasar.</li>
+            <li>Sesi workshop pengenalan teknis secara daring sesuai paket.</li>
+            <li>Layanan garansi perbaikan/ganti unit atas cacat pabrik selama 6 bulan.</li>
+          </ul>
+        </div>
+        <div class="card-gray" style="padding: 2.2mm 3mm; margin:0;">
+          <strong style="font-size: 7.6pt; color:#b30000; display:block; margin-bottom: 1mm;">✗ EXCLUDED (TIDAK TERMASUK DALAM PEKERJAAN):</strong>
+          <ul class="formal-list" style="font-size: 7.2pt; margin:0;">
+            <li>Penyediaan dan jaminan stabilitas jaringan internet / Wi-Fi milik mitra.</li>
+            <li>Instalasi fisik kabel listrik AC 220V dan stopkontak pada bangunan mitra.</li>
+            <li>Biaya langganan API pihak ketiga berbayar di luar layanan standar yang disediakan.</li>
+            <li>Pengembangan fitur perangkat lunak khusus yang tidak tercantum dalam SPK.</li>
+            <li>Pengadaan perangkat keras tambahan di luar item penawaran: <span class="placeholder-badge">[DIISI]</span>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Timeline & Implementation -->
+      <span class="section-tag">ESTIMASI TIMELINE IMPLEMENTASI</span>
+      <div class="card" style="padding: 2.2mm 3mm; margin:0;">
+        <div class="grid-4" style="gap: 2mm;">
+          <div style="border-right:1px solid #e0e0e0; padding-right:1.5mm;">
+            <div style="font-weight:800; font-size:7.5pt; color:#000;">Tahap I: Konsultasi</div>
+            <div style="font-size:6.8pt; color:#666; font-weight:700;">Estimasi Hari 1–3</div>
+            <p style="font-size:7pt; color:#444; margin:0; line-height:1.3;">Penyelarasan spek, penerbitan SPK/PO, dan administrasi DP.</p>
+          </div>
+          <div style="border-right:1px solid #e0e0e0; padding-right:1.5mm;">
+            <div style="font-weight:800; font-size:7.5pt; color:#000;">Tahap II: Produksi &amp; QC</div>
+            <div style="font-size:6.8pt; color:#666; font-weight:700;">Estimasi Hari 4–10</div>
+            <p style="font-size:7pt; color:#444; margin:0; line-height:1.3;">Perakitan, 3D printing casing, flashing firmware, dan burn-in test.</p>
+          </div>
+          <div style="border-right:1px solid #e0e0e0; padding-right:1.5mm;">
+            <div style="font-weight:800; font-size:7.5pt; color:#000;">Tahap III: Pengiriman</div>
+            <div style="font-size:6.8pt; color:#666; font-weight:700;">Estimasi Hari 11–14</div>
+            <p style="font-size:7pt; color:#444; margin:0; line-height:1.3;">Pengemasan aman, pengiriman ekspedisi, dan serah terima unit (BAST).</p>
+          </div>
+          <div>
+            <div style="font-weight:800; font-size:7.5pt; color:#000;">Tahap IV: Workshop &amp; SLA</div>
+            <div style="font-size:6.8pt; color:#666; font-weight:700;">Pasca Pengiriman</div>
+            <p style="font-size:7pt; color:#444; margin:0; line-height:1.3;">Sesi pelatihan PIC, aktivasi jalur support teknis, dan masa garansi.</p>
+          </div>
+        </div>
+        <p style="font-size:6.8pt; color:#666; margin-top:1.5mm; margin-bottom:0;">
+          *Catatan: Estimasi timeline dapat berubah berdasarkan jumlah unit, kompleksitas kustomisasi, ketersediaan komponen, dan kebutuhan integrasi.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Xichi AI Studio • Paket Pengadaan, Ruang Lingkup &amp; Timeline</span>
+      <span class="page-number">Halaman 6 dari 8</span>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       HALAMAN 7: DAFTAR HARGA, SYARAT PEMBAYARAN & GARANSI
+       ======================================================== -->
+  <div class="page">
+    <div class="page-header">
+      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN &amp; PENGADAAN</span></div>
+      <div>BAGIAN 06 : PENAWARAN KOMERSIAL</div>
+    </div>
+
+    <div class="page-content">
+      <span class="section-tag">06 / PENAWARAN KOMERSIAL &amp; HARGA</span>
+      <h2 class="page-title">Struktur Harga Resmi, Termin Pembayaran &amp; Garansi</h2>
+
+      <!-- Price List Table -->
+      <table class="data-table" style="margin-bottom: 2mm;">
         <thead>
           <tr>
-            <th style="width: 32%;">Item Produk / Layanan</th>
+            <th style="width: 32%;">Produk / Layanan</th>
             <th style="width: 22%;">Harga Satuan Normal</th>
             <th style="width: 23%;">Tier 5–15 Unit (Diskon 10%)</th>
             <th style="width: 23%;">Tier 16+ Unit (Diskon 20%)</th>
@@ -884,221 +1160,210 @@
         </thead>
         <tbody>
           <tr>
-            <td>
-              <strong>Xichi Kit (DIY Maker)</strong><br>
-              <span style="font-size: 7.8pt; color:#666;">Komponen modul lengkap + tutorial</span>
-            </td>
+            <td><strong>Xichi Kit (DIY Maker Edition)</strong><br><span style="font-size: 6.8pt; color:#666;">Komponen modul lengkap + wiring tutorial</span></td>
             <td>Rp 299.000 / unit</td>
-            <td style="color:#000; font-weight:700;">Rp 269.000 / unit</td>
-            <td style="color:#d90429; font-weight:800;">Rp 239.000 / unit</td>
+            <td style="font-weight:700;">Rp 269.000 / unit</td>
+            <td style="font-weight:800; color:#b30000;">Rp 239.000 / unit</td>
           </tr>
           <tr class="highlight-row">
-            <td>
-              <strong>Xichi Core (Ready-to-Use)</strong><br>
-              <span style="font-size: 7.8pt; color:#666;">Layar IPS bulat, speaker cavity, casing</span>
-            </td>
+            <td><strong>Xichi Core (Standard Assistant)</strong><br><span style="font-size: 6.8pt; color:#666;">Layar IPS bulat, speaker cavity, casing meja</span></td>
             <td>Rp 450.000 / unit</td>
-            <td style="color:#000; font-weight:700;">Rp 405.000 / unit</td>
-            <td style="color:#d90429; font-weight:800;">Rp 360.000 / unit</td>
+            <td style="font-weight:700;">Rp 405.000 / unit</td>
+            <td style="font-weight:800; color:#b30000;">Rp 360.000 / unit</td>
           </tr>
           <tr>
-            <td>
-              <strong>Xichi Vision Pro (AI Cam)</strong><br>
-              <span style="font-size: 7.8pt; color:#666;">Kamera OV2640, OCR, casing modular</span>
-            </td>
+            <td><strong>Xichi Vision Pro (AI Cam Edition)</strong><br><span style="font-size: 6.8pt; color:#666;">Kamera OV2640, processing visual, enclosure</span></td>
             <td>Rp 630.000 / unit</td>
-            <td style="color:#000; font-weight:700;">Rp 567.000 / unit</td>
-            <td style="color:#d90429; font-weight:800;">Rp 504.000 / unit</td>
+            <td style="font-weight:700;">Rp 567.000 / unit</td>
+            <td style="font-weight:800; color:#b30000;">Rp 504.000 / unit</td>
           </tr>
           <tr>
-            <td>
-              <strong>Paket Modul Dual Relay Smart Home</strong><br>
-              <span style="font-size: 7.8pt; color:#666;">Modul saklar 220V + firmware MQTT</span>
-            </td>
+            <td><strong>Paket Modul Dual Relay Smart Home</strong><br><span style="font-size: 6.8pt; color:#666;">Modul saklar 220V AC terisolasi + skema MQTT</span></td>
             <td>Rp 85.000 / set</td>
-            <td>Rp 75.000 / set</td>
-            <td>Rp 68.000 / set</td>
+            <td style="font-weight:700;">Rp 75.000 / set</td>
+            <td style="font-weight:800; color:#b30000;">Rp 68.000 / set</td>
           </tr>
         </tbody>
       </table>
 
-      <div class="card-yellow">
-        <h4 style="font-size: 9.5pt; text-transform:uppercase; margin-bottom:1.5mm;">Benefit Pengadaan Institusi (Termasuk Tanpa Biaya Tambahan):</h4>
-        <ul class="bullet-list" style="margin: 0; font-size: 8.8pt;">
-          <li><strong>Garansi Resmi 6 Bulan:</strong> Penggantian modul gratis jika terdapat cacat pabrik atau error hardware.</li>
-          <li><strong>Akses Repositori VIP:</strong> Akses penuh update firmware over-the-air (OTA) dan skematik sirkuit.</li>
-          <li><strong>Bebas Biaya Konsultasi &amp; Setup Awal:</strong> Panduan menghubungkan perangkat ke jaringan Wi-Fi institusi.</li>
-          <li><strong>Sesi Pengenalan Teknis (Online Workshop):</strong> 1x Sesi pengantar 2 jam untuk dosen/instruktur praktikum (khusus pemesanan min. 10 unit).</li>
-        </ul>
+      <!-- Ketentuan Komersial Grid -->
+      <h3 style="font-size: 8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1mm;">Ketentuan Komersial Pengadaan</h3>
+      <div class="card-gray" style="padding: 2.2mm 3mm; margin-bottom: 2.5mm;">
+        <div class="grid-3" style="gap: 2mm; font-size: 7.4pt;">
+          <div>• <strong>Masa Berlaku Harga:</strong> 60 hari kalender</div>
+          <div>• <strong>Ongkos Kirim:</strong> <span class="placeholder-badge">[SESUAIKAN]</span></div>
+          <div>• <strong>Status PPN:</strong> <span class="placeholder-badge">[TERMASUK / BELUM TERMASUK — DIISI]</span></div>
+          <div>• <strong>Biaya Instalasi On-site:</strong> <span class="placeholder-badge">[DIISI]</span></div>
+          <div>• <strong>Biaya Custom Khusus:</strong> <span class="placeholder-badge">[DIISI]</span></div>
+          <div>• <strong>Minimum Order Kustom:</strong> <span class="placeholder-badge">[DIISI]</span></div>
+        </div>
       </div>
 
-      <div class="card" style="font-size: 8.5pt; color: #555; background:#fafafa; margin-bottom:0;">
-        <em>Catatan: Harga di atas belum termasuk ongkos kirim resmi ke luar wilayah Jabodetabek. Penyesuaian faktur pajak resmi atau kustomisasi logo instansi dapat disesuaikan pada saat penerbitan Surat Perjanjian Kerjasama (SPK).</em>
+      <!-- Syarat Pembayaran (Term of Payment) -->
+      <span class="section-tag">SYARAT PEMBAYARAN (TERM OF PAYMENT)</span>
+      <div class="card" style="padding: 2.2mm 3mm; margin-bottom: 2.5mm;">
+        <div class="grid-2" style="gap: 3mm; font-size: 7.4pt;">
+          <div>
+            <div>• <strong>Uang Muka (DP):</strong> <span class="placeholder-badge">[DIISI]%</span> setelah penerbitan SPK/Invoice Resmi.</div>
+            <div>• <strong>Pelunasan Pembayaran:</strong> <span class="placeholder-badge">[DIISI]</span> setelah unit lolos uji QC/BAST.</div>
+          </div>
+          <div>
+            <div>• <strong>Metode Pembayaran:</strong> Transfer Bank Resmi Xichi AI Studio.</div>
+            <div>• <strong>Nomor Rekening Tujuan:</strong> Bank: <span class="placeholder-badge">[DIISI]</span> — No. Rek: <span class="placeholder-badge">[DIISI]</span> a.n <span class="placeholder-badge">[DIISI]</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warranty & After-Sales Support -->
+      <span class="section-tag">WARRANTY &amp; AFTER-SALES SUPPORT</span>
+      <div class="card" style="padding: 2.2mm 3mm; margin:0;">
+        <div class="grid-2" style="gap: 3mm; margin-bottom: 1.5mm;">
+          <div>
+            <strong style="font-size: 7.4pt; color:#007a33; display:block; margin-bottom: 0.5mm;">GARANSI RESMI MENCAKUP (6 BULAN):</strong>
+            <ul class="formal-list" style="font-size: 7.1pt; margin:0;">
+              <li>Cacat produksi pabrik pada papan sirkuit PCB dan mikrokontroler.</li>
+              <li>Kerusakan komponen speaker I2S, mikrofon MEMS, atau layar LCD saat penerimaan awal.</li>
+              <li>Kegagalan firmware saat startup yang bukan disebabkan modifikasi tidak sah: <span class="placeholder-badge">[DIISI]</span>.</li>
+            </ul>
+          </div>
+          <div>
+            <strong style="font-size: 7.4pt; color:#b30000; display:block; margin-bottom: 0.5mm;">GARANSI TIDAK MENCAKUP:</strong>
+            <ul class="formal-list" style="font-size: 7.1pt; margin:0;">
+              <li>Kerusakan fisik akibat jatuh, benturan keras, atau terkena tumpahan cairan.</li>
+              <li>Kerusakan akibat fluktuasi voltase listrik di luar toleransi adaptor standar 5V DC.</li>
+              <li>Modifikasi hardware atau penyolderan ulang sirkuit oleh pihak ketiga tanpa izin: <span class="placeholder-badge">[DIISI]</span>.</li>
+            </ul>
+          </div>
+        </div>
+        <div style="border-top:1px solid #e0e0e0; padding-top: 1.5mm; font-size: 7.2pt; color:#333;">
+          <strong>Saluran Support Resmi:</strong> WhatsApp Hotline Tim Engineering &amp; Email Teknis • <strong>Target Waktu Respon (Response Time):</strong> <span class="placeholder-badge">[DIISI]</span> • <strong>Estimasi Penyelesaian Perbaikan:</strong> <span class="placeholder-badge">[DIISI]</span>
+        </div>
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Xichi AI Studio • Rincian Anggaran &amp; Garansi</span>
-      <span class="page-number">Halaman 6 dari 8</span>
-    </div>
-  </div>
-
-
-  <!-- ========================================================
-       HALAMAN 7: TAHAPAN PELAKSANAAN & ALUR KERJASAMA
-       ======================================================== -->
-  <div class="page">
-    <div class="page-header">
-      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN</span></div>
-      <div>BAGIAN 06 : ALUR PELAKSANAAN</div>
-    </div>
-
-    <div class="page-content">
-      <span class="section-tag">06 / METODOLOGI &amp; TIMELINE</span>
-      <h2 class="page-title">Alur Pelaksanaan Kerjasama 4 Tahap</h2>
-      <p class="page-lead">
-        Proses pengadaan dirancang transparan, terukur, dan didampingi langsung oleh tim engineering untuk menjamin kepuasan instalasi di lapangan.
-      </p>
-
-      <div style="display:flex; flex-direction:column; gap:3mm; margin-bottom: 4mm;">
-        <!-- Step 1 -->
-        <div class="card" style="display:flex; gap: 4mm; align-items:flex-start; margin-bottom:0; padding:3.5mm 5mm;">
-          <div style="background:#FFE600; color:#000; font-weight:900; font-size:14pt; padding:2px 10px; border:2px solid #000; flex-shrink:0;">
-            1
-          </div>
-          <div>
-            <h4 style="font-size: 10pt; margin-bottom: 1mm;">Tahap I: Konsultasi &amp; Kesepakatan Spesifikasi (Hari ke 1–3)</h4>
-            <p style="font-size: 8.8pt; margin-bottom: 0;">
-              Diskusi pemetaan kebutuhan (jumlah unit, paket modul ajar, atau integrasi software khusus). Penerbitan Invoice Resmi / Surat Perjanjian Kerjasama (SPK) dan pembayaran tanda jadi (DP).
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="card" style="display:flex; gap: 4mm; align-items:flex-start; margin-bottom:0; padding:3.5mm 5mm;">
-          <div style="background:#000; color:#FFE600; font-weight:900; font-size:14pt; padding:2px 10px; border:2px solid #000; flex-shrink:0;">
-            2
-          </div>
-          <div>
-            <h4 style="font-size: 10pt; margin-bottom: 1mm;">Tahap II: Perakitan, Flashing Firmware &amp; QC (Hari ke 4–10)</h4>
-            <p style="font-size: 8.8pt; margin-bottom: 0;">
-              Proses pencetakan casing 3D presisi, penyolderan modul I2S &amp; display, flashing build firmware stabil, serta pengujian stres sinyal audio dan stabilitas jaringan selama 24 jam nonstop.
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="card" style="display:flex; gap: 4mm; align-items:flex-start; margin-bottom:0; padding:3.5mm 5mm;">
-          <div style="background:#FFE600; color:#000; font-weight:900; font-size:14pt; padding:2px 10px; border:2px solid #000; flex-shrink:0;">
-            3
-          </div>
-          <div>
-            <h4 style="font-size: 10pt; margin-bottom: 1mm;">Tahap III: Pengiriman &amp; Serah Terima Unit (Hari ke 11–14)</h4>
-            <p style="font-size: 8.8pt; margin-bottom: 0;">
-              Pengemasan protektif berlapis bubble wrap &amp; boks kardus tebal. Pengiriman langsung ke alamat instansi mitra disertai Berita Acara Serah Terima (BAST) dan video panduan unboxing.
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="card" style="display:flex; gap: 4mm; align-items:flex-start; margin-bottom:0; padding:3.5mm 5mm;">
-          <div style="background:#000; color:#FFE600; font-weight:900; font-size:14pt; padding:2px 10px; border:2px solid #000; flex-shrink:0;">
-            4
-          </div>
-          <div>
-            <h4 style="font-size: 10pt; margin-bottom: 1mm;">Tahap IV: Workshop Praktikum &amp; Pendampingan Garansi (Berkelanjutan)</h4>
-            <p style="font-size: 8.8pt; margin-bottom: 0;">
-              Pelaksanaan sesi webinar pengenalan teknis bagi instruktur laboratorium kampus / tim IT kantor, serta pendampingan tanya jawab teknis melalui jalur prioritas WhatsApp.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-dark" style="padding: 3mm 5mm; margin-bottom:0;">
-        <h4 style="font-size: 9pt; margin-bottom: 1mm; color: #FFE600;">Jaminan Keandalan Pengadaan:</h4>
-        <p style="font-size: 8.5pt; margin-bottom: 0;">
-          Seluruh unit diinspeksi secara manual satu per satu di lab studio kami di Cikarang Utara sebelum dikirimkan, memastikan rasio cacat kirim (*defect rate*) mendekati 0%.
-        </p>
-      </div>
-    </div>
-
-    <div class="page-footer">
-      <span>Xichi AI Studio • Alur Kerja &amp; Timeline Pelaksanaan</span>
+      <span>Xichi AI Studio • Penawaran Komersial, Termin &amp; Garansi</span>
       <span class="page-number">Halaman 7 dari 8</span>
     </div>
   </div>
 
 
   <!-- ========================================================
-       HALAMAN 8: KETENTUAN, KONTAK RESMI & PENGESAHAN
+       HALAMAN 8: SYARAT KETENTUAN, KONTAK & LEMBAR PENGESAHAN
        ======================================================== -->
   <div class="page">
     <div class="page-header">
-      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN</span></div>
-      <div>BAGIAN 07 : PENGESAHAN &amp; KONTAK</div>
+      <div class="brand-mark"><span class="brand-box">XICHI</span><span>XICHI AI STUDIO — PROPOSAL KEMITRAAN &amp; PENGADAAN</span></div>
+      <div>BAGIAN 07 : PENGESAHAN &amp; LEGALITAS</div>
     </div>
 
     <div class="page-content">
-      <span class="section-tag">07 / LEMBAR PENGESAHAN</span>
-      <h2 class="page-title">Penutup &amp; Lembar Persetujuan Kemitraan</h2>
-      <p style="font-size: 9pt; margin-bottom: 3mm;">
-        Demikian proposal penawaran kemitraan dan pengadaan perangkat <strong>Xichi AI</strong> ini kami sampaikan. Kami meyakini bahwa kolaborasi ini akan memberikan dampak nyata dalam kemajuan riset teknologi fisik kecerdasan buatan di lingkungan instansi Anda.
-      </p>
+      <span class="section-tag">07 / SYARAT &amp; KETENTUAN LEGAL-KOMERSIAL</span>
+      <h2 class="page-title">Syarat Perikatan, Kontak PIC &amp; Lembar Pengesahan</h2>
 
-      <div class="card" style="background: #fafafa; padding: 3mm 4mm; margin-bottom: 3mm;">
-        <h4 style="font-size: 8.8pt; margin-bottom: 1mm;">Kontak Resmi Xichi AI Studio:</h4>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2mm; font-size: 8.5pt;">
-          <div>📍 <strong>Lokasi Studio:</strong> Cikarang Utara, Bekasi, Jawa Barat</div>
-          <div>📞 <strong>WhatsApp Tim:</strong> +62 896-5825-2277</div>
-          <div>✉️ <strong>Email Resmi:</strong> hello@xiaozhiscig.biz.id</div>
-          <div>🌐 <strong>Website Resmi:</strong> produk.irsyadlabs.id</div>
+      <!-- Syarat & Ketentuan Formal -->
+      <div class="card-gray" style="padding: 2.2mm 3mm; margin-bottom: 2mm;">
+        <h4 style="font-size: 7.8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1mm;">Ketentuan Umum Pelaksanaan:</h4>
+        <div class="grid-2" style="gap: 2.5mm; font-size: 7.1pt; line-height: 1.35; color:#333;">
+          <div>
+            1. <strong>Masa Berlaku:</strong> Dokumen ini sah dan mengikat komersialnya selama 60 hari kalender sejak tanggal penerbitan.<br>
+            2. <strong>Dasar Perikatan:</strong> Pekerjaan resmi dimulai setelah penandatanganan SPK atau terbitnya Purchase Order (PO) resmi.<br>
+            3. <strong>Perubahan Spesifikasi:</strong> Penyesuaian fitur teknis atau jumlah unit wajib disepakati secara tertulis melalui adendum.<br>
+            4. <strong>Pengiriman &amp; Penerimaan:</strong> Serah terima unit dibuktikan dengan penandatanganan Berita Acara Serah Terima (BAST).<br>
+            5. <strong>Pembatalan:</strong> Pembatalan sepihak setelah proses produksi berjalan dapat dikenakan kompensasi biaya material: <span class="placeholder-badge">[DIISI]</span>.
+          </div>
+          <div>
+            6. <strong>Lead Time:</strong> Waktu pengerjaan disesuaikan dengan volume antrean produksi dan ketersediaan komponen.<br>
+            7. <strong>Perpajakan:</strong> Kewajiban pajak diatur sesuai regulasi perpajakan yang berlaku dan dicantumkan pada invoice resmi: <span class="placeholder-badge">[DIISI]</span>.<br>
+            8. <strong>Pekerjaan Tambahan:</strong> Permintaan integrasi khusus di luar ruang lingkup dikenakan biaya jasa tersendiri.<br>
+            9. <strong>Force Majeure:</strong> Para pihak dibebaskan dari kewajiban akibat bencana alam, huru-hara, atau gangguan regulasi nasional.<br>
+            10. <strong>Penyelesaian Perselisihan:</strong> Musyawarah mufakat diutamakan sebelum menempuh jalur hukum domisili: <span class="placeholder-badge">[DIISI]</span>.
+          </div>
         </div>
       </div>
 
-      <h3 style="font-size: 10.5pt; text-transform:uppercase; margin: 2mm 0 1mm 0;">Lembar Persetujuan &amp; Tanda Tangan:</h3>
-      <p style="font-size: 8.5pt; color: #555; margin-bottom: 2mm;">
-        Dokumen ini dapat ditandatangani oleh kedua belah pihak sebagai bentuk komitmen awal pembahasan Surat Perintah Kerja (SPK) pengadaan.
-      </p>
-
-      <div class="sign-grid">
-        <!-- Pihak Pengaju -->
-        <div class="sign-box">
-          <div class="sign-header">PIHAK PERTAMA (PENGAJU)</div>
+      <!-- Informasi Kontak & Korespondensi Lengkap -->
+      <div class="card" style="padding: 2mm 3mm; margin-bottom: 2.5mm;">
+        <h4 style="font-size: 7.8pt; font-weight:800; text-transform:uppercase; margin-bottom: 1mm;">Informasi Kontak &amp; Korespondensi Resmi:</h4>
+        <div class="grid-3" style="gap: 2mm; font-size: 7.2pt; color:#222;">
           <div>
-            <p style="font-size: 8.5pt; margin-bottom: 0;"><strong>XICHI AI STUDIO</strong></p>
-            <span style="font-size: 7.8pt; color:#666;">Cikarang Utara, Bekasi</span>
+            <strong>Alamat Operasional:</strong><br>
+            Cikarang Utara, Bekasi, Jawa Barat
           </div>
-          <div class="sign-space"></div>
+          <div>
+            <strong>Website Resmi:</strong><br>
+            produk.irsyadlabs.id
+          </div>
+          <div>
+            <strong>Email Resmi:</strong><br>
+            hello@xiaozhiscig.biz.id
+          </div>
+          <div>
+            <strong>WhatsApp Tim:</strong><br>
+            +62 896-5825-2277
+          </div>
+          <div>
+            <strong>PIC Penanggung Jawab:</strong><br>
+            <span class="placeholder-badge">[DIISI]</span> (Jabatan: <span class="placeholder-badge">[DIISI]</span>)
+          </div>
+          <div>
+            <strong>Kontak &amp; Alamat PIC:</strong><br>
+            Telp: <span class="placeholder-badge">[DIISI]</span> • Alamat: <span class="placeholder-badge">[DIISI]</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lembar Pengesahan Resmi -->
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 1.5mm;">
+        <h3 style="font-size: 8.8pt; font-weight:800; text-transform:uppercase; margin:0;">Lembar Pengesahan &amp; Persetujuan Kemitraan</h3>
+        <span style="font-size: 7.2pt; color:#555;">Tempat: <span class="placeholder-badge">[DIISI]</span>, Tanggal: <span class="placeholder-badge">[DIISI]</span></span>
+      </div>
+
+      <div class="sign-grid" style="margin-top:0;">
+        <!-- Pihak Pertama -->
+        <div class="sign-box">
+          <div class="sign-header">PIHAK PERTAMA (XICHI AI STUDIO)</div>
+          <div style="font-size: 7.4pt; color:#333; margin-top:1mm;">
+            <strong>XICHI AI STUDIO</strong><br>
+            Cikarang Utara, Bekasi, Jawa Barat
+          </div>
+          <div class="sign-space">
+            <div class="materai-box">Materai Rp 10.000<br>(Bila Diperlukan)</div>
+          </div>
           <div class="sign-footer">
-            <div style="font-size: 8.2pt; font-weight: 800; line-height: 1.35; margin-bottom: 1px;">
-              <u>IRSYAD</u> &bull; <u>SENA DWI ILHAM</u> &bull; <u>M. DHEAN SHAFWAN</u>
+            <div style="font-weight: 800; font-size: 7.8pt; text-decoration: underline;">
+              IRSYAD &bull; SENA DWI ILHAM &bull; M. DHEAN SHAFWAN
             </div>
-            <span style="font-size: 7.5pt; color:#555;">Founder &amp; Tim Pengembang Xichi AI Studio</span>
+            <span style="font-size: 7pt; color:#555;">Tim Rekayasa, Pengembang &amp; Inisiator Xichi AI Studio</span>
           </div>
         </div>
 
-        <!-- Pihak Penerima -->
+        <!-- Pihak Kedua -->
         <div class="sign-box">
-          <div class="sign-header">PIHAK KEDUA (INSTANSI MITRA)</div>
-          <div>
-            <p style="font-size: 8.5pt; margin-bottom: 0;"><strong>INSTANSI MITRA / KAMPUS</strong></p>
-            <span style="font-size: 7.8pt; color:#666;">Nama Lembaga / Fakultas</span>
+          <div class="sign-header">PIHAK KEDUA (INSTANSI / MITRA KLIEN)</div>
+          <div style="font-size: 7.4pt; color:#333; margin-top:1mm;">
+            <strong>Instansi / Perusahaan: <span class="placeholder-badge">[DIISI]</span></strong><br>
+            Alamat / Fakultas: <span class="placeholder-badge">[DIISI]</span>
           </div>
-          <div class="sign-space"></div>
+          <div class="sign-space">
+            <div class="materai-box">Tanda Tangan &amp; Stempel Resmi</div>
+          </div>
           <div class="sign-footer">
-            <strong>( ............................................................ )</strong>
-            <span>Nama Lengkap &amp; Jabatan / NIP</span>
+            <div style="font-weight: 800; font-size: 7.8pt;">
+              ( ............................................................................ )
+            </div>
+            <span style="font-size: 7pt; color:#555;">Nama: <span class="placeholder-badge">[DIISI]</span> • Jabatan / NIP: <span class="placeholder-badge">[DIISI]</span></span>
           </div>
         </div>
       </div>
 
-      <div style="margin-top: 3.5mm; text-align: center; font-size: 8pt; color: #777;">
-        Dokumen ini diterbitkan secara sah oleh Xichi AI Studio • Berlaku 60 hari kalender sejak tanggal pengajuan.
+      <div style="margin-top: 2mm; text-align: center; font-size: 6.8pt; color: #777;">
+        Dokumen proposal kemitraan ini diterbitkan secara sah oleh Xichi AI Studio untuk proses evaluasi teknis dan pengadaan resmi institusi mitra.
       </div>
     </div>
 
     <div class="page-footer">
-      <span>Xichi AI Studio • Cikarang Utara, Bekasi, Jawa Barat</span>
+      <span>Xichi AI Studio • Syarat Perikatan, Kontak PIC &amp; Pengesahan</span>
       <span class="page-number">Halaman 8 dari 8</span>
     </div>
   </div>
