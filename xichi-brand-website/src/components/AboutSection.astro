@@ -381,4 +381,60 @@
       padding: 12px;
     }
   }
+
+  /* Brand Ink Overrides */
+  :global(:root[data-theme='brand']) .about-home-section {
+    background: var(--brand-cream, #f5ecdc) !important;
+    color: var(--brand-black, #0b0b0a) !important;
+    border-color: var(--brand-black, #0b0b0a) !important;
+  }
+
+  :global(:root[data-theme='brand']) .about-home-section .section-header p {
+    background: var(--brand-yellow, #f8ba08) !important;
+    color: var(--brand-black, #0b0b0a) !important;
+    border-color: var(--brand-black, #0b0b0a) !important;
+    font-family: 'Permanent Marker', cursive !important;
+  }
+
+  :global(:root[data-theme='brand']) .about-home-section .section-header h2,
+  :global(:root[data-theme='brand']) .about-home-section .section-header h2 .word > span {
+    color: var(--brand-black, #0b0b0a) !important;
+    font-family: 'Anton', 'Space Grotesk', Impact, sans-serif !important;
+  }
+
+  :global(:root[data-theme='brand']) .about-founder-card {
+    background: var(--brand-paper, #fff8ec) !important;
+    border-color: var(--brand-black, #0b0b0a) !important;
+    box-shadow: 6px 6px 0 var(--brand-black, #0b0b0a) !important;
+    color: var(--brand-black, #0b0b0a) !important;
+  }
+
+  :global(:root[data-theme='brand']) .founder-meta h3 {
+    color: var(--brand-black, #0b0b0a) !important;
+  }
+
+  :global(:root[data-theme='brand']) .about-founder-card p {
+    color: #4a443a !important;
+  }
+
+  :global(:root[data-theme='brand']) .about-bento-card {
+    background: var(--brand-paper, #fff8ec) !important;
+    border-color: var(--brand-black, #0b0b0a) !important;
+    box-shadow: 5px 5px 0 var(--brand-black, #0b0b0a) !important;
+    color: var(--brand-black, #0b0b0a) !important;
+  }
+
+  :global(:root[data-theme='brand']) .about-bento-card h3,
+  :global(:root[data-theme='brand']) .about-bento-card p {
+    color: var(--brand-black, #0b0b0a) !important;
+  }
+
+  :global(:root[data-theme='brand']) .stat-mini {
+    background: var(--brand-paper, #fff8ec) !important;
+    border-color: var(--brand-black, #0b0b0a) !important;
+  }
+
+  :global(:root[data-theme='brand']) .stat-mini strong {
+    color: var(--brand-red, #ef4316) !important;
+  }
 </style>

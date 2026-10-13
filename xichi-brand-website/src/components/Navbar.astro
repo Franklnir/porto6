@@ -36,11 +36,65 @@ const resolveHref = (href: string) => {
     }
   </div>
 
-  <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobileMenu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  <div class="nav-right">
+    <!-- Theme Switcher Control -->
+    <div class="theme-control">
+      <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        data-theme-toggle
+        aria-controls="themePicker"
+        aria-expanded="false"
+        aria-haspopup="menu"
+        aria-label="Pilih tema tampilan"
+        title="Pilih tema tampilan"
+      >
+        <span aria-hidden="true" class="theme-option-swatch theme-current-swatch">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="theme-label-text">Tema</span>
+      </button>
+
+      <div
+        class="theme-options header-theme-picker"
+        id="themePicker"
+        data-theme-picker
+        role="menu"
+        aria-label="Pilihan tema tampilan"
+      >
+        <button
+          type="button"
+          role="menuitemradio"
+          data-theme-option="dark"
+          aria-checked="true"
+        >
+          <span aria-hidden="true" class="theme-option-swatch theme-option-swatch--dark">
+            <i></i><i></i><i></i>
+          </span>
+          <span>Cyber Dark</span>
+        </button>
+
+        <button
+          type="button"
+          role="menuitemradio"
+          data-theme-option="brand"
+          aria-checked="false"
+        >
+          <span aria-hidden="true" class="theme-option-swatch theme-option-swatch--brand">
+            <i></i><i></i><i></i>
+          </span>
+          <span>Brand Ink</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- Mobile Drawer Menu -->
@@ -52,9 +106,107 @@ const resolveHref = (href: string) => {
       </a>
     ))
   }
+
+  <div class="mobile-theme-row">
+    <span class="mobile-theme-title">GAYA TEMA</span>
+    <div class="mobile-theme-options">
+      <button type="button" class="mobile-theme-btn" data-theme-option="dark" aria-label="Aktifkan tema Cyber Dark">
+        <span aria-hidden="true" class="theme-option-swatch theme-option-swatch--dark">
+          <i></i><i></i><i></i>
+        </span>
+        <span>Cyber Dark</span>
+      </button>
+      <button type="button" class="mobile-theme-btn" data-theme-option="brand" aria-label="Aktifkan tema Brand Ink">
+        <span aria-hidden="true" class="theme-option-swatch theme-option-swatch--brand">
+          <i></i><i></i><i></i>
+        </span>
+        <span>Brand Ink</span>
+      </button>
+    </div>
+  </div>
 </div>
 
 <script>
+  // Theme Controller
+  type Theme = 'dark' | 'brand';
+  const STORAGE_KEY = 'xichi-theme';
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const themePicker = document.getElementById('themePicker');
+  const themeButtons = document.querySelectorAll<HTMLButtonElement>('[data-theme-option]');
+  const themeColorMeta = document.getElementById('themeColor') as HTMLMetaElement | null;
+
+  const themeColors: Record<Theme, string> = {
+    dark: '#FFE600',
+    brand: '#f5ecdc',
+  };
+
+  const updateControls = (theme: Theme) => {
+    themeToggle?.setAttribute('data-current-theme', theme);
+    themeToggle?.setAttribute('title', `Tema aktif: ${theme === 'brand' ? 'Brand Ink' : 'Cyber Dark'}`);
+    themeButtons.forEach((btn) => {
+      const isCurrent = btn.dataset.themeOption === theme;
+      btn.setAttribute('aria-checked', String(isCurrent));
+      btn.classList.toggle('active', isCurrent);
+    });
+  };
+
+  const applyTheme = (theme: Theme, persist = false) => {
+    root.dataset.theme = theme;
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', themeColors[theme]);
+    }
+    updateControls(theme);
+    if (persist) {
+      try {
+        localStorage.setItem(STORAGE_KEY, theme);
+      } catch {
+        // Fallback gracefully if storage is restricted
+      }
+    }
+  };
+
+  // Sync initial theme
+  const initialTheme = (root.dataset.theme === 'brand' ? 'brand' : 'dark') as Theme;
+  applyTheme(initialTheme, false);
+
+  // Toggle dropdown picker
+  themeToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = themePicker?.classList.toggle('open');
+    themeToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Handle option select from both header dropdown & mobile menu
+  themeButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const selected = btn.dataset.themeOption as Theme;
+      if (selected === 'brand' || selected === 'dark') {
+        applyTheme(selected, true);
+        themePicker?.classList.remove('open');
+        themeToggle?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener('click', (e) => {
+    if (themePicker && !themePicker.contains(e.target as Node) && !themeToggle?.contains(e.target as Node)) {
+      themePicker.classList.remove('open');
+      themeToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close dropdown on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && themePicker?.classList.contains('open')) {
+      themePicker.classList.remove('open');
+      themeToggle?.setAttribute('aria-expanded', 'false');
+      themeToggle?.focus();
+    }
+  });
+
   // Navbar scroll & mobile menu handling
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');

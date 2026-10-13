@@ -177,18 +177,33 @@ const jsonLdBreadcrumbs = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="theme-color" content="#FFE600" />
+    <meta name="theme-color" id="themeColor" content="#FFE600" />
     <link rel="icon" type="image/jpeg" href="/assets/logoxichi.jpg" />
     <link rel="apple-touch-icon" href="/assets/logoxichi.jpg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono, Anton, Permanent Marker -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Theme Flash Prevention Script -->
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('xichi-theme');
+          const theme = saved === 'brand' ? 'brand' : 'dark';
+          document.documentElement.dataset.theme = theme;
+          const meta = document.getElementById('themeColor');
+          if (meta) meta.setAttribute('content', theme === 'brand' ? '#f5ecdc' : '#FFE600');
+        } catch {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
 
     <!-- SEO Meta Tags -->
     <title>{title}</title>
