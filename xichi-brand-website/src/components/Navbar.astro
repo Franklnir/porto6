@@ -44,11 +44,12 @@ const resolveHref = (href: string) => {
         class="theme-toggle"
         id="themeToggle"
         data-theme-toggle
+        data-current-theme="brand"
         aria-controls="themePicker"
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="Pilih tema tampilan"
-        title="Pilih tema tampilan"
+        title="Tema aktif: Brand Ink"
       >
         <span aria-hidden="true" class="theme-option-swatch theme-current-swatch">
           <i></i><i></i><i></i>
@@ -67,7 +68,7 @@ const resolveHref = (href: string) => {
           type="button"
           role="menuitemradio"
           data-theme-option="dark"
-          aria-checked="true"
+          aria-checked="false"
         >
           <span aria-hidden="true" class="theme-option-swatch theme-option-swatch--dark">
             <i></i><i></i><i></i>
@@ -79,7 +80,8 @@ const resolveHref = (href: string) => {
           type="button"
           role="menuitemradio"
           data-theme-option="brand"
-          aria-checked="false"
+          class="active"
+          aria-checked="true"
         >
           <span aria-hidden="true" class="theme-option-swatch theme-option-swatch--brand">
             <i></i><i></i><i></i>
@@ -110,13 +112,13 @@ const resolveHref = (href: string) => {
   <div class="mobile-theme-row">
     <span class="mobile-theme-title">GAYA TEMA</span>
     <div class="mobile-theme-options">
-      <button type="button" class="mobile-theme-btn" data-theme-option="dark" aria-label="Aktifkan tema Cyber Dark">
+      <button type="button" class="mobile-theme-btn" data-theme-option="dark" aria-label="Aktifkan tema Cyber Dark" aria-checked="false">
         <span aria-hidden="true" class="theme-option-swatch theme-option-swatch--dark">
           <i></i><i></i><i></i>
         </span>
         <span>Cyber Dark</span>
       </button>
-      <button type="button" class="mobile-theme-btn" data-theme-option="brand" aria-label="Aktifkan tema Brand Ink">
+      <button type="button" class="mobile-theme-btn active" data-theme-option="brand" aria-label="Aktifkan tema Brand Ink" aria-checked="true">
         <span aria-hidden="true" class="theme-option-swatch theme-option-swatch--brand">
           <i></i><i></i><i></i>
         </span>
@@ -167,7 +169,7 @@ const resolveHref = (href: string) => {
   };
 
   // Sync initial theme
-  const initialTheme = (root.dataset.theme === 'brand' ? 'brand' : 'dark') as Theme;
+  const initialTheme = (root.dataset.theme === 'dark' ? 'dark' : 'brand') as Theme;
   applyTheme(initialTheme, false);
 
   // Toggle dropdown picker
